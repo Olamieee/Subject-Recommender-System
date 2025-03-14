@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Recommendation System</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Student Recommendation System</h1>
+            
+            {% if name %}
+            <p class="subtitle">Hello <span class="highlight">{{ name }}</span>, enter your details to get recommendations.</p>
+            {% else %}
+            <p class="subtitle">Enter your details to get recommendations.</p>
+            {% endif %}
+            
+            {% if error_message %}
+            <div class="error-message">{{ error_message }}</div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="name" value="{{ name }}">
+                <input type="hidden" name="school" value="{{ school }}">
+
+                <div class="form-section">
+                    <h2 class="section-title">Student Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <input type="number" name="age" placeholder="Age" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="math_score" placeholder="Math Score" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="english_score" placeholder="English Score" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="science_score" placeholder="Science Score" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="history_score" placeholder="History Score" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="attendance_rate" placeholder="Attendance Rate (%)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="study_hours_per_week" placeholder="Study Hours Per Week" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="household_income" placeholder="Household Income (RWF)" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2 class="section-title">Additional Information</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <select name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="school_type" required>
+                                <option value="" disabled selected>School Type</option>
+                                <option value="1">Public</option>
+                                <option value="0">Private</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="location" required>
+                                <option value="" disabled selected>Location</option>
+                                <option value="1">Urban</option>
+                                <option value="0">Rural</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="internet_access" required>
+                                <option value="" disabled selected>Internet Access</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="parental_education_level" required>
+                                <option value="" disabled selected>Parental Education</option>
+                                <option value="2">Tertiary</option>
+                                <option value="1">Secondary</option>
+                                <option value="0">Primary</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="parental_career" required>
+                                <option value="" disabled selected>Parental Career</option>
+                                <option value="4">Technology</option>
+                                <option value="3">Healthcare</option>
+                                <option value="2">Education</option>
+                                <option value="1">Business</option>
+                                <option value="0">Arts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="extracurricular_activity" required>
+                                <option value="" disabled selected>Extracurricular Activity</option>
+                                <option value="4">Sports</option>
+                                <option value="3">Science Club</option>
+                                <option value="2">None</option>
+                                <option value="1">Music</option>
+                                <option value="0">Entrepreneurship Club</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select name="interest" required>
+                                <option value="" disabled selected>Interest Area</option>
+                                <option value="4">STEM</option>
+                                <option value="3">Humanities</option>
+                                <option value="2">Healthcare</option>
+                                <option value="1">Business</option>
+                                <option value="0">Arts</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">
+                    Get Recommendations
+                </button>
+            </form>
+
+            <a href="{% url 'home' %}" class="back-link">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

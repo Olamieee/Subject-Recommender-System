@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Recommendation System</title>
+    <link rel="stylesheet" href="C:/Users/Hp/Desktop/system rec/recommender_system/recommender/static/css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="page-transition"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Student Recommendation System</h1>
+            <p>Get personalized academic and career recommendations based on your profile.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section reveal">
+        <div class="container">
+            <div class="features stagger">
+                <div class="feature-card">
+                    <div class="feature-icon data-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data-Driven Recommendations</h3>
+                    <p>Our AI-powered system analyzes your academic performance and interests.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon guidance-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Personalized Guidance</h3>
+                    <p>Receive tailored subject and career path recommendations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon planning-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Future-Ready Planning</h3>
+                    <p>Plan your academic journey with confidence and clarity.</p>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Story & Illustration -->
+    <section class="about reveal">
+        <div class="about-text reveal-left">
+            <h2>Meet Daniel – A Student Just Like You</h2>
+            <p>Daniel was struggling to decide which academic path to take. He loved technology but wasn't sure if he
+                should pursue STEM or Business. Using our recommendation system, he discovered the best track for his
+                strengths. Today, he's excelling in Computer Science!</p>
+            <p>Just like Daniel, you can make informed career choices with confidence. Let us help you find your path.
+            </p>
+            <a href="{% url 'about' %}" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="about-image reveal-right">
+            <img src="C:/Users/Hp.Desktop/system rec/recommender_system/recommender/static/img/dan1.png" alt="Student Illustration">
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works reveal">
+        <h2>How It Works</h2>
+        <p>Curious about how our system generates recommendations?</p>
+        <a href="{% url 'guide' %}" class="btn-secondary">See How It Works</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials reveal">
+        <h2>What Students Say</h2>
+        <div class="testimonial-container stagger">
+            <div class="testimonial">
+                <img src="img/avatar1.png" alt="Student Avatar">
+                <p>"This system helped me realize my passion for Business. Now I'm studying Finance!"</p>
+                <h4>— Alex M.</h4>
+            </div>
+            <div class="testimonial">
+                <img src="img/avatar2.png" alt="Student Avatar">
+                <p>"I was struggling to choose between STEM and Arts, but this platform guided me to the right path."
+                </p>
+                <h4>— Sarah K.</h4>
+            </div>
+            <div class="testimonial">
+                <img src="img/avatar3.png" alt="Student Avatar">
+                <p>"I love how accurate the recommendations are! It gave me so much confidence in my future."</p>
+                <h4>— James O.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact reveal">
+        <h2>Contact Us</h2>
+        <p>Have any questions? Reach out to us.</p>
+        <form action="submit_contact.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Student Recommendation System. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Ensure page starts at the top on reload
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+        
+        // Also force scroll to top when page loads
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            let elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .fade-in, .stagger, .about-text, .about-image, .how-it-works, .testimonials, .contact, .features-section');
+            
+            function checkPosition() {
+                let windowHeight = window.innerHeight;
+                
+                elements.forEach(function (element) {
+                    let positionFromTop = element.getBoundingClientRect().top;
+                    
+                    if (positionFromTop - windowHeight <= -100) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Add ripple effect to all buttons
+            const buttons = document.querySelectorAll('.btn, .btn-secondary, .btn-primary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    let x = e.clientX - e.target.getBoundingClientRect().left;
+                    let y = e.clientY - e.target.getBoundingClientRect().top;
+                    
+                    let ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 1000);
+                });
+            });
+            
+            // On page load, check position and then on scroll
+            window.addEventListener('scroll', checkPosition);
+            checkPosition(); // Check positions on page load
+        });
+    </script>
+</body>
+
+</html>

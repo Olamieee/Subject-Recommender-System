@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Results - Student Recommendation System</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <main class="results-container">
+            <!-- Results Card -->
+            <div class="card results-card">
+                <div class="results-header">
+                    <p class="results-date">Date: {% now "F d, Y" %}</p>
+
+                    <div class="results-message">
+                        <h2 class="results-title">Exiciting news {{ user.full_name }}!,</h2>
+                        <p class="prediction-text">
+                            Based on your inputs and your interests, <strong>{{ predicted_subject }}</strong> would be
+                            the best-fit subject for you, but you might also want to explore these subjects:
+                            <span class="recommended-list">
+                                {% for subject in recommended_subjects %}
+                                {% if forloop.last and not forloop.first %}
+                                and <span class="recommended-subject">{{ subject }}</span>
+                                {% elif forloop.first and forloop.last %}
+                                <span class="recommended-subject">{{ subject }}</span>
+                                {% elif forloop.first %}
+                                <span class="recommended-subject">{{ subject }}</span>
+                                {% else %}
+                                , <span class="recommended-subject">{{ subject }}</span>
+                                {% endif %}
+                                {% endfor %}
+                            </span> as additional optionss.
+                        </p>
+                    </div>
+                    <div style="margin: 40px auto 20px; text-align: center;">
+                        <a href="{% url 'predict' %}"
+                            style="display: inline-block; margin: 0 10px; padding: 14px 28px; background: linear-gradient(135deg, #4a7afd, #7c4dff); color: white; font-weight: 600; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 15px rgba(74, 122, 253, 0.3); border: none; font-size: 1rem; transition: all 0.3s;">Try
+                            Again</a>
+
+                        <a href="{% url 'home' %}"
+                            style="display: inline-block; margin: 0 10px; padding: 14px 28px; background: linear-gradient(135deg, #4a7afd, #7c4dff); color: white; font-weight: 600; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 15px rgba(74, 122, 253, 0.3); border: none; font-size: 1rem; transition: all 0.3s;">Back
+                            to Home</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Section -->
+            <div class="card feedback-card">
+                <h3 class="feedback-title">Share Your Experience</h3>
+                <p class="feedback-subtitle">How helpful was this recommendation? Leave your feedback to help other
+                    students.</p>
+                {% if user and prediction_found and not is_temporary %}
+                {% if testimonial_success %}
+                <div class="success-message">Your testimonial has been submitted successfully!</div>
+                {% endif %}
+
+                {% if not has_testimonial %}
+                <form method="POST" action="{% url 'add_testimonial' %}" class="feedback-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="prediction_id" value="{{ prediction.id }}">
+
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+
+                    <div class="textarea-container">
+                        <textarea name="content" class="feedback-textarea" rows="4"
+                            placeholder="Share your thoughts on the recommendation..." required></textarea>
+                    </div>
+
+                    <div class="submit-container">
+                        <button type="submit" class="btn">Submit Feedback</button>
+                    </div>
+                </form>
+                {% else %}
+                <div class="existing-testimonial">
+                    <p>You've already submitted feedback for this prediction:</p>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            {% for i in "12345" %}
+                            {% with value=forloop.counter %}
+                            <span class="star {% if value <= user_testimonial.rating %}filled{% endif %}">★</span>
+                            {% endwith %}
+                            {% endfor %}
+                        </div>
+                        <p>"{{ user_testimonial.content }}"</p>
+                        <p class="testimonial-date">Submitted on {{ user_testimonial.created_at|date:"F d, Y" }}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Rating System Interaction
+        const ratingInputs = document.querySelectorAll('.rating input');
+        const testimonialForm = document.getElementById('testimonialForm');
+
+        ratingInputs.forEach(input => {
+            input.addEventListener('change', function () {
+                // Highlight selected stars
+                ratingInputs.forEach(input => {
+                    const label = input.nextElementSibling;
+                    if (input.checked) {
+                        label.style.color = '#ffc107';
+                    } else {
+                        label.style.color = '#ddd';
+                    }
+                });
+            });
+        });
+
+        // Form Submission Handling
+        testimonialForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get selected rating
+            const selectedRating = document.querySelector('.rating input:checked');
+            const testimonialText = document.getElementById('testimonialText').value;
+
+            if (!selectedRating) {
+                alert('Please select a rating before submitting.');
+                return;
+            }
+
+            // Basic validation
+            if (testimonialText.trim() === '') {
+                alert('Please write your feedback before submitting.');
+                return;
+            }
+
+            // Here you would typically send the data to a server
+            alert(`Thank you for your feedback!\nRating: ${selectedRating.value} stars\nTestimonial: ${testimonialText}`);
+
+            // Reset form
+            testimonialForm.reset();
+            ratingInputs.forEach(input => {
+                input.nextElementSibling.style.color = '#ddd';
+            });
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+
+                const x = e.clientX - e.target.getBoundingClientRect().left;
+                const y = e.clientY - e.target.getBoundingClientRect().top;
+
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

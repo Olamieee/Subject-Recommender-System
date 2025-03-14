@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>About - Student Recommendation System</title>
+</head>
+<body>
+    <div class="guide-container">
+        <h2 class="guide-title">📖 About the Student Recommendation System</h2>
+
+        <p class="guide-intro">
+            The Student Recommendation System is designed to help students make informed decisions about their academic and career paths.
+            By analyzing various factors such as academic performance, interests, and background, our system provides personalized recommendations
+            tailored to each student's unique profile.
+        </p>
+
+        <!-- How It Works Section -->
+        <div class="guide-section">
+            <h3>🔍 How It Works</h3>
+            <p>
+                The system collects key information about students through a simple form. It then analyzes patterns and correlations to determine
+                the best-fit subject for the student, along with additional recommendations based on academic strengths, career opportunities,
+                and personal interests.
+            </p>
+            <ul class="guide-list">
+                <li>📌 Students fill out a short form with their academic and career interests.</li>
+                <li>📊 The system processes the data using machine learning models.</li>
+                <li>🎯 Personalized subject recommendations are provided based on strengths.</li>
+                <li>🔄 The system continuously improves through feedback and data updates.</li>
+            </ul>
+        </div>
+
+        <!-- Why Use This System Section -->
+        <div class="guide-section">
+            <h3>🎯 Why Use This System?</h3>
+            <p>Here’s why students love using SCS:</p>
+            <ul class="guide-list">
+                <li>✅ <b>Personalized Recommendations:</b> Get subjects tailored to your strengths.</li>
+                <li>📊 <b>Data-Driven Decisions:</b> Choose based on analysis, not just guesswork.</li>
+                <li>🔎 <b>Identify Strengths & Opportunities:</b> Find the best academic & career path.</li>
+                <li>💡 <b>Smart Decision-Making:</b> Expert-reviewed algorithms improve accuracy.</li>
+            </ul>
+        </div>
+
+        <!-- Continuous Improvement Section -->
+        <div class="guide-section">
+            <h3>💡 Continuous Improvement</h3>
+            <p>
+                The system evolves based on user feedback, helping us enhance recommendations and provide more accurate academic guidance over time.
+                Your input helps us make this platform better for future students. Future updates may include:
+            </p>
+            <ul class="guide-list">
+                <li>🔹 Improved recommendation accuracy with more user data.</li>
+                <li>🔹 Expanded career insights to help students plan for the future.</li>
+                <li>🔹 More customization options for better personalization.</li>
+            </ul>
+        </div>
+
+        <div class="guide-section">
+            <h3>🚀 Future Updates & Roadmap</h3>
+            <p>We are continuously improving the Student Recommendation System. Here’s what’s coming next:</p>
+            
+            <ul class="guide-list">
+                <li>📌 More career pathways and personalized guidance.</li>
+                <li>📊 Data-driven success stories based on real student results.</li>
+                <li>🧑‍💻 Enhanced AI models for even better recommendations.</li>
+                <li>📢 Student and teacher feedback system for continuous improvement.</li>
+            </ul>
+            
+            <p>If you have suggestions or feedback, let us know!</p>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="guide-section">
+            <h3>❓ Frequently Asked Questions (FAQ)</h3>
+            <ul class="guide-list">
+                <li><b>📌 Who can use this system?</b> – Any secondary school student.</li>
+                <li><b>💰 Is it free?</b> – Yes!</li>
+                <li><b>🤖 How are recommendations generated?</b> – Based on data analysis and machine learning models.</li>
+                <li><b>🔄 Can I change my recommendations?</b> – Yes, you can retake the form anytime.</li>
+            </ul>
+        </div>
+    
+        <a href="{% url 'home' %}" class="back-link">🏠 Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1501 @@
+student_id,age,gender,school_type,location,math_score,english_score,science_score,history_score,attendance_rate,study_hours_per_week,parental_education_level,household_income,internet_access,recommended_stream,parental_career,extracurricular_activity,interest
+S0001,18,Male,Private,Urban,88,81,98,71,83,21,Primary,9270,Yes,STEM,Technology,Sports,Humanities
+S0002,19,Female,Public,Urban,80,63,55,48,70,28,Secondary,9603,Yes,Healthcare,Arts,None,Healthcare
+S0003,17,Female,Private,Urban,41,45,54,77,59,24,Secondary,2860,No,Humanities,Healthcare,None,Healthcare
+S0004,19,Male,Private,Urban,85,77,61,86,63,4,Secondary,7390,No,Healthcare,Technology,Entrepreneurship Club,Healthcare
+S0005,19,Male,Public,Urban,61,90,91,51,64,21,Secondary,7226,No,Business,Technology,None,Business
+S0006,16,Male,Public,Rural,40,47,75,73,75,17,Primary,7191,No,STEM,Technology,None,Business
+S0007,17,Female,Private,Rural,70,98,46,100,60,13,Secondary,5772,Yes,Business,Education,None,Business
+S0008,17,Female,Private,Rural,91,99,100,52,69,24,Tertiary,5092,No,STEM,Business,Music,Humanities
+S0009,17,Male,Private,Rural,46,88,67,75,63,17,Secondary,7734,Yes,Healthcare,Healthcare,Music,Business
+S0010,19,Male,Private,Rural,43,63,61,63,83,16,Tertiary,8265,Yes,Arts,Education,Entrepreneurship Club,Arts
+S0011,18,Female,Private,Urban,55,54,93,96,81,21,Secondary,2466,Yes,Humanities,Business,Sports,Healthcare
+S0012,17,Male,Public,Urban,47,89,66,61,69,24,Secondary,7334,Yes,Healthcare,Arts,Entrepreneurship Club,STEM
+S0013,19,Male,Private,Rural,91,44,78,97,61,7,Tertiary,6426,No,Business,Technology,Music,Arts
+S0014,16,Male,Public,Urban,58,40,90,59,67,6,Primary,7578,Yes,Healthcare,Arts,Music,Healthcare
+S0015,18,Male,Public,Rural,67,65,89,74,46,12,Tertiary,8231,No,Arts,Business,Sports,Business
+S0016,16,Female,Private,Rural,44,52,82,74,74,14,Primary,5444,Yes,Arts,Business,None,Business
+S0017,18,Female,Public,Urban,57,42,57,57,94,15,Secondary,5171,No,Healthcare,Arts,Sports,Humanities
+S0018,19,Male,Private,Rural,91,59,70,43,67,17,Primary,4919,No,Arts,Technology,Music,Humanities
+S0019,15,Male,Public,Urban,48,71,87,63,53,10,Tertiary,9831,No,Humanities,Healthcare,Entrepreneurship Club,Healthcare
+S0020,18,Female,Private,Rural,71,54,45,49,95,29,Secondary,2130,Yes,Business,Technology,None,Arts
+S0021,16,Female,Private,Rural,57,95,70,55,49,19,Secondary,3685,Yes,Business,Healthcare,Sports,Humanities
+S0022,19,Female,Public,Rural,87,89,56,75,55,25,Secondary,9476,No,Business,Arts,Sports,Healthcare
+S0023,18,Male,Public,Urban,58,87,71,77,55,25,Primary,2769,No,Humanities,Business,Entrepreneurship Club,Business
+S0024,15,Male,Public,Urban,64,44,57,96,93,26,Secondary,4391,No,Humanities,Education,Music,Humanities
+S0025,15,Female,Public,Rural,100,99,98,58,70,17,Secondary,7611,No,Healthcare,Education,Science Club,Humanities
+S0026,17,Female,Private,Urban,75,68,56,68,81,30,Secondary,9581,No,STEM,Arts,Sports,Healthcare
+S0027,17,Male,Public,Rural,86,70,87,89,64,12,Primary,8949,No,Business,Technology,Music,Business
+S0028,16,Male,Private,Urban,78,73,59,71,52,15,Primary,4433,No,STEM,Technology,Entrepreneurship Club,Humanities
+S0029,18,Male,Private,Rural,51,62,80,46,45,14,Secondary,7311,No,Business,Healthcare,Science Club,Humanities
+S0030,18,Male,Private,Urban,82,58,68,96,83,20,Secondary,7051,No,Arts,Technology,Music,Arts
+S0031,17,Female,Public,Urban,88,70,54,84,48,3,Tertiary,8420,No,Healthcare,Healthcare,Music,Business
+S0032,18,Female,Public,Urban,84,98,61,91,84,6,Secondary,3184,Yes,STEM,Technology,Entrepreneurship Club,Humanities
+S0033,18,Male,Private,Urban,72,94,74,56,75,21,Tertiary,6555,No,STEM,Arts,Entrepreneurship Club,Humanities
+S0034,15,Female,Private,Rural,57,60,58,89,95,7,Primary,5385,No,STEM,Arts,Sports,Humanities
+S0035,17,Female,Private,Urban,85,83,65,64,82,12,Primary,6117,No,Business,Business,Sports,Arts
+S0036,19,Male,Public,Urban,77,84,83,95,59,11,Secondary,8396,Yes,Healthcare,Arts,None,Arts
+S0037,17,Female,Public,Rural,65,56,97,52,57,21,Primary,6843,Yes,STEM,Business,None,STEM
+S0038,19,Female,Private,Rural,64,59,61,81,82,14,Secondary,4904,No,STEM,Healthcare,Music,Business
+S0039,15,Male,Public,Rural,78,58,86,70,60,6,Primary,9728,No,Healthcare,Business,None,Arts
+S0040,16,Male,Private,Urban,64,83,87,47,43,24,Tertiary,2474,No,Humanities,Business,None,Healthcare
+S0041,18,Male,Private,Urban,48,56,39,59,89,8,Secondary,3082,Yes,Arts,Healthcare,Science Club,Humanities
+S0042,15,Male,Private,Urban,47,65,80,91,72,22,Primary,4558,No,Healthcare,Arts,Science Club,Healthcare
+S0043,18,Male,Public,Rural,38,93,58,56,66,17,Secondary,9849,Yes,Arts,Arts,Sports,STEM
+S0044,16,Female,Private,Rural,55,76,44,75,46,26,Primary,4047,No,Humanities,Arts,None,Healthcare
+S0045,16,Female,Public,Urban,51,89,62,82,45,3,Tertiary,9643,No,Humanities,Education,None,Humanities
+S0046,15,Male,Public,Urban,90,68,59,92,54,6,Tertiary,4747,Yes,Healthcare,Arts,Music,Business
+S0047,16,Female,Public,Urban,58,75,86,48,57,19,Tertiary,2975,No,Arts,Business,Music,STEM
+S0048,19,Male,Private,Urban,49,53,48,46,71,21,Primary,3806,Yes,Healthcare,Healthcare,None,Business
+S0049,16,Male,Public,Urban,56,87,54,55,95,15,Secondary,2189,Yes,Healthcare,Healthcare,Music,STEM
+S0050,18,Female,Public,Urban,64,86,51,90,50,19,Primary,9101,No,STEM,Arts,Entrepreneurship Club,Healthcare
+S0051,18,Female,Private,Urban,77,76,98,61,59,22,Secondary,4734,No,Arts,Technology,Sports,Humanities
+S0052,18,Female,Public,Urban,39,73,94,68,63,25,Secondary,5005,No,Healthcare,Business,None,Healthcare
+S0053,18,Female,Private,Urban,66,99,92,90,54,9,Secondary,6658,No,Humanities,Healthcare,None,Business
+S0054,19,Male,Public,Rural,45,87,94,84,87,29,Primary,3899,No,STEM,Education,Entrepreneurship Club,Arts
+S0055,17,Male,Private,Rural,77,90,100,78,46,20,Primary,9734,Yes,Humanities,Arts,Music,Business
+S0056,15,Female,Private,Rural,58,74,60,88,60,9,Secondary,3267,Yes,STEM,Healthcare,Sports,Business
+S0057,18,Female,Private,Rural,49,60,85,71,81,17,Primary,8975,No,Arts,Education,Science Club,STEM
+S0058,16,Female,Private,Rural,59,93,96,45,65,10,Secondary,3528,Yes,Arts,Business,None,Humanities
+S0059,18,Male,Public,Urban,52,88,58,91,83,21,Tertiary,5202,No,Humanities,Arts,Music,Arts
+S0060,16,Male,Private,Urban,49,94,99,97,95,8,Primary,5556,Yes,Humanities,Education,None,STEM
+S0061,16,Male,Public,Rural,67,62,80,78,53,12,Tertiary,5890,Yes,Humanities,Business,Sports,Healthcare
+S0062,18,Male,Private,Urban,46,97,94,82,76,20,Secondary,2646,No,Humanities,Healthcare,Music,Business
+S0063,19,Male,Public,Rural,67,89,73,46,60,12,Primary,8164,Yes,STEM,Technology,Science Club,STEM
+S0064,16,Female,Private,Rural,96,45,82,67,57,27,Tertiary,4888,Yes,Arts,Education,Music,Arts
+S0065,16,Male,Private,Rural,75,99,51,60,44,5,Primary,8310,Yes,Healthcare,Education,Entrepreneurship Club,Healthcare
+S0066,18,Male,Public,Urban,72,94,66,58,42,21,Secondary,7393,No,STEM,Business,Science Club,Humanities
+S0067,16,Male,Private,Urban,66,88,48,58,62,20,Tertiary,4435,Yes,Humanities,Healthcare,Science Club,STEM
+S0068,16,Female,Private,Rural,56,79,77,70,65,15,Primary,2600,No,Business,Technology,None,Business
+S0069,18,Male,Public,Urban,42,70,98,53,76,30,Primary,4363,No,Healthcare,Technology,Music,Arts
+S0070,18,Male,Public,Rural,88,51,94,91,63,7,Primary,4061,No,Healthcare,Technology,None,Humanities
+S0071,15,Female,Public,Rural,60,44,63,91,88,18,Primary,2241,No,Humanities,Education,None,Healthcare
+S0072,19,Female,Public,Urban,98,39,55,94,58,25,Primary,4041,Yes,Business,Education,Music,Business
+S0073,19,Male,Private,Urban,85,55,47,52,90,13,Primary,4824,No,Business,Business,None,Arts
+S0074,16,Female,Private,Rural,87,87,96,85,64,22,Tertiary,9513,No,Arts,Healthcare,Music,Humanities
+S0075,19,Male,Private,Urban,44,83,72,97,60,31,Tertiary,4612,No,Healthcare,Healthcare,Music,STEM
+S0076,16,Male,Private,Urban,69,65,78,53,51,27,Secondary,9041,Yes,STEM,Technology,Music,Business
+S0077,15,Male,Private,Urban,80,59,100,69,80,15,Primary,3363,Yes,Humanities,Healthcare,None,STEM
+S0078,18,Male,Public,Rural,41,44,56,60,72,28,Primary,8235,No,Arts,Technology,None,STEM
+S0079,18,Male,Public,Urban,59,83,70,65,89,28,Tertiary,7486,Yes,Arts,Arts,Science Club,Healthcare
+S0080,18,Female,Private,Urban,54,56,77,88,92,5,Tertiary,9099,No,STEM,Technology,Entrepreneurship Club,Arts
+S0081,19,Male,Public,Rural,88,99,41,90,43,27,Tertiary,3478,Yes,STEM,Business,Entrepreneurship Club,Healthcare
+S0082,15,Female,Private,Urban,69,48,100,91,81,27,Primary,9595,Yes,Business,Technology,None,Healthcare
+S0083,19,Male,Private,Rural,49,77,41,45,46,19,Tertiary,4556,No,Humanities,Education,Sports,Business
+S0084,19,Female,Public,Urban,59,50,69,47,61,12,Secondary,2775,Yes,Healthcare,Business,Science Club,Business
+S0085,15,Male,Public,Urban,74,61,45,86,94,23,Secondary,6014,Yes,Healthcare,Healthcare,Science Club,Arts
+S0086,15,Female,Public,Rural,43,54,42,76,72,14,Primary,2034,Yes,Healthcare,Arts,Sports,STEM
+S0087,15,Female,Public,Urban,59,44,76,88,56,22,Primary,8349,No,Humanities,Education,Entrepreneurship Club,Humanities
+S0088,15,Female,Private,Rural,49,100,86,51,63,28,Secondary,5152,Yes,STEM,Technology,Entrepreneurship Club,Humanities
+S0089,18,Female,Private,Rural,39,94,65,48,73,15,Primary,3955,Yes,Arts,Business,Music,Healthcare
+S0090,17,Male,Private,Rural,89,52,76,87,67,13,Secondary,3585,Yes,Humanities,Business,Science Club,Arts
+S0091,17,Male,Public,Urban,99,89,93,88,82,20,Secondary,5943,Yes,Arts,Healthcare,Science Club,Healthcare
+S0092,15,Male,Public,Rural,51,39,90,59,80,21,Secondary,9555,Yes,STEM,Arts,Entrepreneurship Club,Business
+S0093,17,Female,Private,Rural,75,52,59,54,78,21,Secondary,5073,Yes,STEM,Business,Entrepreneurship Club,Healthcare
+S0094,17,Male,Private,Rural,69,82,71,91,61,5,Secondary,3021,Yes,STEM,Education,Science Club,STEM
+S0095,15,Male,Private,Urban,71,85,93,73,88,13,Primary,5461,No,Business,Healthcare,Science Club,STEM
+S0096,17,Male,Public,Rural,47,68,92,73,56,15,Tertiary,4613,No,Humanities,Arts,Entrepreneurship Club,Humanities
+S0097,19,Female,Public,Rural,74,96,64,45,73,18,Tertiary,7225,Yes,Arts,Arts,Science Club,Arts
+S0098,16,Female,Public,Rural,56,84,49,56,45,6,Tertiary,5843,Yes,Humanities,Arts,Music,Business
+S0099,16,Female,Public,Rural,55,46,71,80,85,13,Secondary,9989,No,Humanities,Education,Science Club,Healthcare
+S0100,15,Male,Private,Rural,55,54,45,47,45,24,Primary,3500,No,STEM,Technology,Music,Business
+S0101,18,Male,Private,Rural,71,95,90,100,73,16,Secondary,6798,Yes,Business,Technology,Music,Business
+S0102,15,Male,Private,Urban,100,82,93,44,40,31,Secondary,8545,Yes,STEM,Education,Entrepreneurship Club,Business
+S0103,18,Female,Public,Rural,49,94,64,57,49,10,Primary,8873,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0104,16,Female,Private,Rural,71,89,62,91,60,22,Tertiary,7675,Yes,Arts,Technology,Entrepreneurship Club,Business
+S0105,15,Male,Public,Urban,72,58,43,88,44,21,Primary,2161,No,STEM,Technology,Science Club,STEM
+S0106,19,Female,Private,Rural,80,76,86,68,41,18,Tertiary,6297,Yes,Humanities,Healthcare,Sports,Humanities
+S0107,17,Male,Private,Urban,40,79,60,90,61,6,Tertiary,3981,Yes,Healthcare,Education,None,Business
+S0108,18,Male,Private,Urban,99,81,77,53,87,11,Primary,2995,No,STEM,Business,Science Club,Arts
+S0109,17,Male,Private,Rural,60,64,42,84,41,25,Tertiary,8413,No,Arts,Business,Science Club,Healthcare
+S0110,17,Male,Private,Urban,56,89,87,75,49,12,Primary,6911,No,Healthcare,Arts,Entrepreneurship Club,Business
+S0111,15,Female,Private,Urban,66,42,71,56,73,18,Primary,5342,No,Business,Business,Music,Healthcare
+S0112,17,Male,Private,Urban,86,63,96,67,55,18,Secondary,6551,No,STEM,Arts,None,Healthcare
+S0113,19,Male,Public,Rural,40,71,49,62,87,31,Primary,9629,Yes,Arts,Arts,Sports,Arts
+S0114,17,Male,Public,Rural,61,62,44,84,90,10,Secondary,5798,Yes,Business,Education,None,Humanities
+S0115,15,Female,Private,Rural,72,92,46,39,78,8,Secondary,3275,No,Healthcare,Business,Music,Humanities
+S0116,19,Male,Private,Rural,50,56,77,90,61,17,Secondary,3016,Yes,STEM,Technology,None,STEM
+S0117,16,Male,Public,Urban,59,52,60,44,51,24,Primary,9869,No,Business,Arts,Sports,Business
+S0118,17,Female,Private,Rural,40,40,75,76,63,31,Secondary,8439,Yes,Healthcare,Arts,None,Business
+S0119,15,Male,Public,Rural,49,77,66,60,86,23,Tertiary,9892,No,Humanities,Education,Entrepreneurship Club,Humanities
+S0120,16,Female,Public,Urban,89,43,67,58,79,18,Secondary,8863,Yes,Healthcare,Business,Music,Business
+S0121,16,Male,Public,Rural,70,66,39,51,77,22,Tertiary,9916,No,Arts,Education,Sports,STEM
+S0122,18,Male,Public,Rural,95,38,50,43,49,8,Primary,2337,No,Arts,Arts,Music,Humanities
+S0123,19,Female,Private,Rural,53,81,81,79,74,18,Secondary,2878,No,Humanities,Technology,Sports,Humanities
+S0124,17,Female,Public,Urban,43,82,59,67,90,17,Primary,3076,Yes,Arts,Healthcare,Music,Humanities
+S0125,15,Male,Private,Urban,67,85,90,77,88,24,Tertiary,6887,No,Healthcare,Healthcare,Music,Business
+S0126,18,Male,Private,Urban,59,69,77,99,71,21,Primary,5993,Yes,STEM,Technology,Music,STEM
+S0127,19,Female,Public,Rural,43,41,54,69,46,25,Secondary,8360,No,Arts,Technology,Sports,Humanities
+S0128,18,Female,Public,Urban,70,61,91,91,60,14,Primary,6859,Yes,Healthcare,Business,Sports,Business
+S0129,19,Female,Public,Rural,59,94,56,74,59,5,Secondary,8331,Yes,Business,Education,Science Club,Business
+S0130,19,Female,Public,Rural,48,76,82,82,65,23,Tertiary,2379,Yes,Arts,Business,Music,Healthcare
+S0131,17,Female,Public,Urban,64,42,91,76,43,6,Secondary,2492,Yes,Healthcare,Healthcare,Science Club,STEM
+S0132,19,Male,Public,Rural,90,85,57,53,85,24,Tertiary,9208,No,STEM,Arts,Science Club,Business
+S0133,18,Female,Public,Urban,95,97,77,91,91,19,Secondary,7276,No,Healthcare,Healthcare,Music,Business
+S0134,19,Female,Private,Rural,41,82,54,49,61,13,Primary,4062,Yes,Healthcare,Arts,Science Club,Arts
+S0135,17,Female,Public,Urban,59,98,69,70,54,25,Primary,5884,Yes,Humanities,Healthcare,Science Club,Arts
+S0136,17,Male,Public,Rural,55,81,86,93,95,10,Primary,2064,Yes,Humanities,Technology,None,Healthcare
+S0137,18,Male,Private,Rural,94,95,64,77,79,24,Secondary,4568,No,Arts,Business,None,Healthcare
+S0138,16,Female,Public,Rural,69,94,64,47,60,17,Secondary,7463,No,STEM,Healthcare,None,Business
+S0139,16,Female,Private,Urban,47,69,74,72,54,13,Tertiary,7248,Yes,Healthcare,Technology,Entrepreneurship Club,Business
+S0140,19,Male,Private,Rural,44,62,63,46,61,17,Secondary,4027,Yes,Healthcare,Business,Science Club,Humanities
+S0141,15,Female,Public,Rural,78,58,94,40,91,5,Primary,4695,Yes,Humanities,Technology,Music,Humanities
+S0142,19,Female,Private,Urban,84,67,78,39,67,23,Secondary,3495,Yes,Arts,Business,Music,Humanities
+S0143,18,Female,Private,Rural,56,80,58,71,53,15,Secondary,9230,No,Healthcare,Business,Sports,STEM
+S0144,18,Male,Private,Urban,74,57,98,67,66,8,Tertiary,7258,No,STEM,Healthcare,Sports,STEM
+S0145,18,Male,Public,Urban,79,64,63,81,80,30,Primary,7618,Yes,STEM,Technology,Science Club,Humanities
+S0146,18,Male,Private,Urban,100,65,95,38,79,20,Secondary,8736,No,Humanities,Technology,Sports,Business
+S0147,18,Male,Public,Urban,92,84,48,56,67,20,Primary,2391,No,Healthcare,Healthcare,Music,Humanities
+S0148,17,Female,Public,Urban,69,85,92,75,65,30,Primary,7794,No,Humanities,Healthcare,Music,Humanities
+S0149,16,Female,Public,Urban,95,64,41,51,88,6,Tertiary,6514,Yes,Humanities,Healthcare,None,Arts
+S0150,18,Female,Private,Urban,76,65,69,77,41,10,Tertiary,8432,Yes,Humanities,Arts,Science Club,Humanities
+S0151,15,Male,Private,Urban,100,69,72,43,64,12,Secondary,6474,No,Healthcare,Business,Sports,Humanities
+S0152,15,Female,Private,Rural,74,45,39,49,95,7,Tertiary,7892,Yes,STEM,Technology,Music,Arts
+S0153,15,Male,Public,Urban,75,71,60,99,42,20,Tertiary,5561,No,Arts,Business,Entrepreneurship Club,Humanities
+S0154,15,Male,Public,Rural,94,89,49,45,47,19,Tertiary,4278,Yes,Healthcare,Education,Sports,Healthcare
+S0155,17,Female,Private,Urban,71,69,89,38,83,9,Primary,9161,No,Arts,Healthcare,Entrepreneurship Club,Humanities
+S0156,15,Male,Private,Urban,94,50,46,80,72,24,Secondary,8184,Yes,Humanities,Business,Sports,Arts
+S0157,18,Female,Private,Urban,73,92,65,71,81,23,Tertiary,5099,No,Humanities,Business,Science Club,Healthcare
+S0158,19,Female,Public,Urban,42,53,84,36,91,5,Tertiary,8278,No,Business,Education,Music,Humanities
+S0159,15,Female,Private,Urban,62,54,39,84,74,10,Tertiary,2200,No,Humanities,Business,Music,Healthcare
+S0160,17,Female,Public,Rural,63,57,68,59,45,21,Primary,7959,Yes,Humanities,Technology,Science Club,Humanities
+S0161,17,Male,Public,Urban,60,93,77,45,78,18,Primary,6875,Yes,Business,Technology,Science Club,Business
+S0162,15,Female,Public,Rural,49,68,61,68,91,10,Secondary,9073,No,STEM,Education,None,Humanities
+S0163,19,Female,Public,Rural,47,77,89,85,62,14,Primary,5104,No,Arts,Arts,Sports,Business
+S0164,15,Female,Public,Urban,81,63,77,55,64,12,Secondary,9215,Yes,Business,Business,Science Club,Business
+S0165,17,Male,Public,Urban,63,51,36,39,89,23,Primary,6598,Yes,Business,Education,Science Club,Arts
+S0166,16,Male,Private,Urban,47,43,45,67,82,21,Tertiary,4454,No,Healthcare,Technology,Music,Arts
+S0167,18,Male,Public,Urban,91,80,67,65,58,29,Primary,5645,No,Humanities,Business,Entrepreneurship Club,STEM
+S0168,17,Male,Public,Urban,42,50,81,74,44,7,Primary,7847,Yes,Humanities,Arts,Science Club,Business
+S0169,15,Male,Private,Rural,69,89,46,54,90,27,Secondary,2804,Yes,Arts,Business,None,Business
+S0170,18,Female,Private,Urban,61,80,57,72,50,10,Tertiary,8242,Yes,Humanities,Education,Sports,Business
+S0171,15,Female,Private,Rural,98,91,66,46,95,15,Tertiary,4731,No,Arts,Arts,Science Club,Humanities
+S0172,15,Male,Public,Rural,77,78,57,43,51,8,Tertiary,7991,Yes,STEM,Healthcare,Entrepreneurship Club,Humanities
+S0173,16,Female,Private,Rural,54,64,51,49,49,25,Primary,4773,No,Healthcare,Business,Entrepreneurship Club,Business
+S0174,18,Male,Private,Urban,62,55,55,96,47,26,Primary,3570,Yes,Arts,Healthcare,Science Club,Arts
+S0175,18,Male,Public,Urban,45,94,43,56,63,12,Primary,7056,No,Business,Technology,None,Healthcare
+S0176,16,Male,Public,Urban,63,78,63,79,67,17,Tertiary,9906,Yes,Humanities,Technology,Science Club,Humanities
+S0177,17,Female,Public,Rural,100,100,68,69,80,14,Tertiary,8756,No,Business,Technology,None,STEM
+S0178,15,Male,Private,Rural,90,57,43,74,75,15,Tertiary,7581,Yes,Arts,Healthcare,Music,Business
+S0179,19,Female,Public,Rural,81,39,58,79,76,17,Tertiary,4690,No,Healthcare,Healthcare,None,Humanities
+S0180,15,Male,Private,Rural,40,88,100,56,60,27,Primary,5840,No,Healthcare,Arts,Science Club,Arts
+S0181,15,Female,Private,Urban,44,71,85,99,47,19,Tertiary,3028,No,Humanities,Business,Science Club,Arts
+S0182,17,Male,Private,Rural,49,64,39,82,94,14,Primary,9385,Yes,Arts,Business,Science Club,Healthcare
+S0183,15,Female,Public,Rural,60,44,97,51,48,11,Primary,2502,No,Business,Technology,Music,Arts
+S0184,16,Male,Public,Rural,60,40,70,42,86,29,Tertiary,8910,No,Business,Education,Sports,Humanities
+S0185,16,Male,Public,Urban,92,51,85,75,54,13,Secondary,6493,Yes,Business,Education,Science Club,Arts
+S0186,18,Female,Private,Urban,84,57,92,53,87,15,Secondary,2870,Yes,Humanities,Arts,Science Club,Business
+S0187,19,Female,Public,Urban,58,76,74,92,85,5,Secondary,8938,Yes,Healthcare,Healthcare,Science Club,Healthcare
+S0188,15,Female,Private,Urban,90,93,79,78,79,14,Primary,6488,No,Business,Business,Sports,STEM
+S0189,15,Male,Private,Urban,61,55,50,86,57,13,Tertiary,2206,Yes,Humanities,Education,Science Club,Humanities
+S0190,17,Female,Private,Rural,80,54,71,100,81,15,Primary,7134,No,STEM,Business,Sports,Healthcare
+S0191,16,Male,Public,Rural,81,68,89,60,59,13,Secondary,7977,No,Arts,Technology,None,Humanities
+S0192,19,Female,Public,Urban,70,49,89,82,45,19,Tertiary,9721,No,Arts,Healthcare,Science Club,STEM
+S0193,18,Male,Private,Urban,76,90,58,100,51,22,Primary,9035,Yes,Healthcare,Business,Sports,Humanities
+S0194,16,Female,Public,Rural,57,47,90,46,41,19,Secondary,3484,No,Business,Business,Sports,Business
+S0195,18,Female,Public,Rural,78,60,85,40,46,5,Secondary,9858,Yes,Arts,Education,Science Club,Arts
+S0196,17,Male,Public,Rural,84,80,48,62,55,22,Tertiary,9742,Yes,STEM,Education,Sports,STEM
+S0197,17,Female,Private,Rural,99,63,72,57,42,15,Primary,2863,Yes,STEM,Arts,Sports,Humanities
+S0198,15,Male,Private,Urban,51,86,86,95,84,23,Primary,4790,No,STEM,Business,None,STEM
+S0199,19,Male,Private,Urban,65,90,80,81,42,27,Tertiary,9408,Yes,STEM,Technology,Entrepreneurship Club,Business
+S0200,18,Male,Private,Rural,92,57,91,74,66,23,Primary,2563,No,Humanities,Business,Science Club,Humanities
+S0201,16,Female,Public,Urban,90,93,50,96,89,22,Tertiary,7116,No,Humanities,Business,Music,STEM
+S0202,17,Male,Public,Urban,91,79,80,75,82,8,Secondary,6191,No,Healthcare,Technology,Sports,Healthcare
+S0203,15,Male,Public,Urban,62,93,60,76,79,27,Tertiary,8019,No,Business,Business,Science Club,Arts
+S0204,15,Male,Public,Urban,46,59,100,38,77,19,Primary,3757,Yes,Arts,Business,Entrepreneurship Club,Arts
+S0205,18,Female,Private,Urban,78,58,67,48,72,7,Secondary,8628,No,Humanities,Business,Entrepreneurship Club,STEM
+S0206,17,Male,Private,Urban,94,48,68,58,67,11,Primary,9574,No,Arts,Arts,None,Arts
+S0207,19,Female,Private,Rural,85,43,77,57,40,8,Secondary,8374,No,Business,Healthcare,Music,STEM
+S0208,17,Male,Private,Urban,100,66,56,95,94,6,Tertiary,8892,No,STEM,Business,Sports,Healthcare
+S0209,18,Male,Private,Urban,59,69,91,96,47,17,Primary,3678,Yes,STEM,Business,Science Club,Humanities
+S0210,18,Male,Private,Urban,82,75,89,64,76,27,Tertiary,5242,Yes,STEM,Education,None,Business
+S0211,17,Male,Public,Rural,78,59,78,95,71,19,Primary,6636,Yes,Arts,Business,None,Humanities
+S0212,18,Male,Private,Rural,84,83,87,72,87,17,Primary,3059,Yes,STEM,Business,Science Club,Arts
+S0213,17,Female,Public,Urban,63,60,98,74,82,10,Secondary,8668,Yes,Business,Education,Science Club,Business
+S0214,16,Male,Public,Urban,96,86,78,90,76,11,Tertiary,7279,Yes,STEM,Technology,None,STEM
+S0215,17,Female,Public,Urban,68,69,53,79,43,28,Primary,3722,No,Healthcare,Healthcare,Entrepreneurship Club,Arts
+S0216,17,Male,Public,Urban,73,62,58,41,69,14,Primary,5314,Yes,Arts,Business,Science Club,Arts
+S0217,18,Female,Public,Urban,79,55,81,60,45,9,Tertiary,5157,Yes,Arts,Education,Music,Arts
+S0218,18,Male,Public,Rural,64,97,85,78,85,23,Tertiary,7915,No,Healthcare,Technology,Entrepreneurship Club,Business
+S0219,15,Female,Public,Urban,83,80,78,72,93,20,Primary,4625,Yes,Healthcare,Business,None,Healthcare
+S0220,15,Male,Public,Urban,56,70,51,89,58,18,Secondary,4729,Yes,STEM,Arts,Science Club,STEM
+S0221,16,Male,Public,Urban,84,93,60,48,71,8,Secondary,8700,Yes,STEM,Education,Entrepreneurship Club,Healthcare
+S0222,15,Female,Public,Urban,85,92,62,56,48,26,Tertiary,3597,No,Humanities,Healthcare,Science Club,Humanities
+S0223,17,Female,Public,Urban,51,42,87,60,51,26,Tertiary,5060,Yes,Humanities,Arts,Science Club,Arts
+S0224,18,Male,Public,Urban,91,84,100,88,50,8,Tertiary,4693,Yes,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0225,15,Male,Private,Urban,43,100,79,62,85,29,Primary,6891,Yes,Healthcare,Education,Sports,Business
+S0226,15,Male,Private,Rural,78,43,91,100,94,25,Tertiary,7147,Yes,Arts,Healthcare,Music,Healthcare
+S0227,16,Male,Private,Urban,45,60,85,66,55,10,Primary,7739,No,Business,Technology,None,Business
+S0228,16,Female,Private,Urban,40,89,82,61,40,26,Primary,5627,No,Arts,Arts,Sports,Healthcare
+S0229,17,Male,Private,Urban,100,75,55,67,84,14,Primary,3363,Yes,Business,Healthcare,Sports,Arts
+S0230,18,Female,Private,Rural,92,56,54,52,94,3,Primary,9965,No,Healthcare,Arts,None,Arts
+S0231,16,Male,Private,Urban,68,62,89,92,92,12,Primary,3981,Yes,STEM,Healthcare,Entrepreneurship Club,Healthcare
+S0232,15,Female,Private,Urban,67,78,57,59,60,3,Primary,7450,Yes,STEM,Healthcare,Entrepreneurship Club,Healthcare
+S0233,18,Male,Private,Urban,48,64,50,69,69,7,Tertiary,3663,No,Arts,Arts,None,Business
+S0234,18,Female,Public,Urban,90,100,55,45,52,26,Secondary,3529,No,Healthcare,Healthcare,Science Club,STEM
+S0235,15,Male,Private,Urban,96,82,83,51,73,11,Tertiary,4038,Yes,Humanities,Business,Music,Humanities
+S0236,16,Male,Private,Urban,98,79,86,70,43,27,Tertiary,9515,Yes,Arts,Arts,None,Business
+S0237,15,Male,Private,Rural,77,79,35,49,67,8,Tertiary,7592,Yes,Arts,Education,Entrepreneurship Club,Healthcare
+S0238,18,Female,Public,Rural,55,59,76,96,77,18,Primary,5302,No,STEM,Education,Entrepreneurship Club,Business
+S0239,19,Female,Private,Rural,71,84,87,92,70,9,Secondary,4237,No,Healthcare,Education,Sports,Arts
+S0240,19,Female,Public,Urban,45,57,63,60,94,28,Secondary,9392,No,STEM,Education,Music,Business
+S0241,17,Male,Private,Rural,94,78,51,68,66,18,Tertiary,7504,No,Humanities,Healthcare,Entrepreneurship Club,STEM
+S0242,15,Male,Public,Rural,68,49,48,89,44,22,Tertiary,7496,No,Arts,Technology,Sports,Arts
+S0243,15,Female,Private,Urban,46,88,46,51,64,20,Primary,3306,No,Business,Technology,Science Club,Humanities
+S0244,17,Male,Public,Rural,100,50,97,84,42,10,Primary,6029,No,Business,Technology,Science Club,Arts
+S0245,17,Female,Public,Rural,58,78,87,72,72,27,Secondary,8776,Yes,Business,Healthcare,Entrepreneurship Club,Healthcare
+S0246,17,Male,Public,Rural,50,39,53,86,43,30,Primary,4675,No,Humanities,Business,None,Healthcare
+S0247,18,Female,Private,Urban,87,46,92,90,64,20,Tertiary,7068,Yes,Humanities,Technology,Science Club,Humanities
+S0248,15,Male,Public,Urban,50,62,74,97,59,30,Tertiary,7864,No,Arts,Arts,Sports,Business
+S0249,18,Female,Public,Urban,55,43,82,59,73,10,Tertiary,3282,No,Humanities,Arts,Science Club,STEM
+S0250,17,Female,Private,Urban,94,38,64,53,65,12,Secondary,9526,Yes,STEM,Education,Entrepreneurship Club,Business
+S0251,15,Male,Public,Urban,67,62,73,64,44,14,Primary,2709,No,Humanities,Arts,None,Business
+S0252,18,Male,Private,Rural,59,87,70,74,74,15,Primary,7575,No,STEM,Education,Entrepreneurship Club,STEM
+S0253,18,Male,Public,Rural,81,93,92,45,67,9,Tertiary,7530,Yes,Humanities,Business,Entrepreneurship Club,Healthcare
+S0254,17,Female,Private,Rural,53,41,49,52,68,22,Primary,6744,Yes,Arts,Healthcare,Sports,Humanities
+S0255,15,Male,Public,Rural,44,48,42,100,48,4,Tertiary,6413,Yes,Healthcare,Business,Science Club,Arts
+S0256,17,Male,Private,Urban,66,69,68,60,91,14,Secondary,5748,No,STEM,Technology,Science Club,Humanities
+S0257,15,Female,Private,Rural,79,50,65,42,77,16,Secondary,9392,Yes,Arts,Technology,Sports,STEM
+S0258,19,Male,Public,Rural,45,85,88,53,89,6,Tertiary,9986,Yes,Business,Healthcare,Sports,Humanities
+S0259,16,Male,Public,Rural,61,89,67,55,45,25,Secondary,7353,No,STEM,Business,Entrepreneurship Club,Business
+S0260,16,Male,Private,Urban,74,81,65,94,58,11,Secondary,6779,No,Business,Education,Music,STEM
+S0261,16,Female,Private,Rural,48,57,83,68,83,22,Primary,2663,Yes,Business,Healthcare,Science Club,STEM
+S0262,17,Female,Public,Urban,50,50,89,52,50,25,Tertiary,3998,Yes,Arts,Healthcare,Entrepreneurship Club,Healthcare
+S0263,19,Male,Public,Urban,47,62,64,76,41,14,Primary,9994,Yes,Business,Business,Sports,Healthcare
+S0264,15,Male,Private,Urban,100,82,93,53,86,16,Tertiary,5445,Yes,Arts,Business,Science Club,Humanities
+S0265,18,Female,Public,Rural,66,76,84,93,83,15,Primary,5743,Yes,Healthcare,Education,Sports,STEM
+S0266,15,Female,Public,Rural,80,74,54,73,83,8,Primary,7727,No,Healthcare,Arts,Science Club,Humanities
+S0267,18,Female,Public,Rural,37,100,58,48,48,15,Secondary,3495,Yes,STEM,Business,Entrepreneurship Club,Humanities
+S0268,15,Male,Private,Rural,87,99,60,84,60,6,Primary,5304,No,STEM,Education,Sports,Arts
+S0269,19,Male,Public,Rural,91,52,38,51,63,20,Primary,5763,No,Arts,Education,Music,Humanities
+S0270,18,Female,Private,Urban,62,70,38,88,73,19,Tertiary,7232,Yes,STEM,Business,Science Club,Humanities
+S0271,17,Female,Public,Urban,73,93,70,51,61,19,Tertiary,3853,Yes,Arts,Education,Science Club,STEM
+S0272,15,Male,Private,Urban,59,88,77,100,42,19,Secondary,7616,No,Business,Arts,Entrepreneurship Club,STEM
+S0273,15,Male,Private,Rural,55,66,70,68,51,6,Tertiary,8585,No,Business,Healthcare,None,Humanities
+S0274,18,Female,Public,Urban,39,50,62,86,67,23,Tertiary,6659,No,Healthcare,Education,Music,STEM
+S0275,17,Female,Private,Urban,63,57,71,98,69,14,Tertiary,3291,No,Healthcare,Arts,Music,Humanities
+S0276,17,Male,Public,Urban,55,59,61,64,65,26,Primary,5581,No,Healthcare,Arts,Science Club,Arts
+S0277,19,Female,Public,Rural,80,67,90,62,87,23,Secondary,9974,Yes,STEM,Technology,None,Healthcare
+S0278,17,Male,Public,Urban,100,46,67,61,60,26,Tertiary,5457,No,Humanities,Business,Music,Humanities
+S0279,17,Male,Public,Urban,75,87,77,74,67,15,Primary,9554,No,Humanities,Technology,Music,Humanities
+S0280,17,Female,Private,Rural,81,86,60,61,95,20,Primary,9280,No,Business,Technology,Entrepreneurship Club,Humanities
+S0281,16,Female,Private,Rural,77,56,90,78,65,25,Tertiary,3636,No,Arts,Education,Science Club,Business
+S0282,19,Male,Private,Rural,51,59,71,58,72,7,Primary,5696,No,Business,Arts,None,STEM
+S0283,15,Male,Private,Urban,96,98,46,65,60,25,Primary,4999,No,Arts,Education,Sports,STEM
+S0284,18,Female,Public,Urban,58,81,100,59,74,12,Primary,5152,No,Arts,Technology,None,STEM
+S0285,15,Male,Private,Urban,59,62,85,87,91,18,Primary,2698,Yes,Business,Business,None,Healthcare
+S0286,19,Female,Private,Urban,42,53,57,46,73,30,Primary,4160,Yes,Arts,Healthcare,Science Club,STEM
+S0287,18,Male,Public,Urban,89,65,84,84,80,22,Secondary,6097,No,STEM,Healthcare,Music,Healthcare
+S0288,19,Male,Private,Urban,66,88,74,46,90,22,Primary,6737,No,Arts,Education,Music,Humanities
+S0289,17,Female,Private,Rural,92,67,40,39,86,6,Secondary,8363,No,Business,Healthcare,Sports,Healthcare
+S0290,18,Female,Private,Rural,86,53,71,79,57,28,Primary,7685,Yes,Healthcare,Arts,Science Club,Business
+S0291,17,Female,Private,Rural,100,63,81,98,50,20,Primary,2854,No,Business,Business,Sports,Business
+S0292,15,Female,Private,Rural,49,78,53,72,62,14,Tertiary,7855,No,Business,Arts,Music,STEM
+S0293,15,Female,Public,Urban,48,81,39,71,87,6,Tertiary,9392,Yes,Humanities,Arts,Entrepreneurship Club,STEM
+S0294,18,Female,Private,Rural,64,100,94,51,61,8,Tertiary,8528,No,STEM,Education,Entrepreneurship Club,STEM
+S0295,18,Male,Public,Rural,89,64,55,94,56,22,Primary,5474,Yes,Arts,Technology,Science Club,Healthcare
+S0296,19,Male,Public,Urban,76,68,54,45,44,7,Primary,7757,No,STEM,Technology,Music,STEM
+S0297,19,Female,Private,Urban,42,90,53,84,83,25,Secondary,7249,No,Healthcare,Education,None,Healthcare
+S0298,17,Male,Public,Rural,49,41,57,60,50,12,Primary,7172,Yes,Arts,Education,None,Arts
+S0299,18,Male,Private,Rural,73,61,53,53,69,22,Secondary,3707,Yes,Humanities,Arts,Entrepreneurship Club,Healthcare
+S0300,15,Male,Public,Rural,86,95,91,61,54,27,Secondary,4777,Yes,Humanities,Education,Music,Healthcare
+S0301,19,Male,Public,Urban,74,43,95,78,66,9,Primary,7791,Yes,STEM,Arts,None,Arts
+S0302,19,Male,Public,Rural,91,50,47,79,74,21,Secondary,3733,Yes,STEM,Education,Entrepreneurship Club,Business
+S0303,15,Male,Private,Rural,64,88,91,43,72,13,Secondary,7535,Yes,STEM,Technology,Science Club,Arts
+S0304,19,Male,Public,Urban,54,70,76,74,59,4,Secondary,8390,No,Humanities,Healthcare,None,Humanities
+S0305,17,Female,Public,Urban,75,81,62,62,55,15,Tertiary,6931,No,STEM,Education,Music,STEM
+S0306,18,Male,Private,Urban,47,90,39,53,73,14,Tertiary,5510,Yes,Humanities,Technology,Music,Business
+S0307,15,Female,Public,Rural,76,73,58,95,41,28,Primary,2202,No,Arts,Technology,Science Club,Arts
+S0308,18,Female,Private,Urban,62,46,40,55,74,25,Tertiary,5255,No,Arts,Education,Music,Healthcare
+S0309,19,Female,Public,Rural,46,81,68,60,79,18,Secondary,6218,No,Arts,Business,Sports,STEM
+S0310,19,Female,Public,Urban,39,89,95,85,95,21,Primary,6496,No,Business,Healthcare,None,Healthcare
+S0311,15,Male,Public,Rural,53,58,36,40,67,26,Primary,2766,Yes,Humanities,Arts,Music,Arts
+S0312,17,Male,Public,Urban,86,61,73,86,86,27,Tertiary,6389,Yes,Arts,Technology,Music,Humanities
+S0313,16,Male,Private,Urban,44,96,73,99,78,17,Secondary,4327,Yes,STEM,Arts,Entrepreneurship Club,Humanities
+S0314,15,Male,Private,Urban,83,86,46,49,45,17,Primary,4931,Yes,Arts,Arts,Entrepreneurship Club,Arts
+S0315,16,Female,Private,Urban,72,81,57,87,48,5,Secondary,9777,No,Humanities,Technology,Sports,STEM
+S0316,16,Male,Private,Urban,38,60,69,80,59,28,Secondary,2197,Yes,STEM,Business,Music,Healthcare
+S0317,17,Male,Public,Rural,58,49,80,55,40,7,Tertiary,9125,Yes,STEM,Arts,Entrepreneurship Club,Business
+S0318,16,Male,Public,Urban,79,91,39,96,47,8,Secondary,3930,Yes,Business,Education,Music,Business
+S0319,16,Female,Private,Rural,76,49,54,63,94,23,Tertiary,5582,Yes,Healthcare,Healthcare,Music,Humanities
+S0320,17,Female,Public,Urban,64,93,81,64,62,23,Secondary,8895,No,STEM,Arts,Sports,Arts
+S0321,16,Female,Private,Rural,100,49,50,69,42,17,Secondary,8287,No,Healthcare,Technology,Entrepreneurship Club,Humanities
+S0322,16,Female,Private,Urban,90,50,72,69,43,23,Tertiary,2608,No,Healthcare,Education,None,Healthcare
+S0323,16,Male,Private,Urban,86,45,83,94,64,10,Secondary,5272,Yes,Humanities,Business,None,STEM
+S0324,15,Male,Public,Rural,48,62,41,68,86,24,Tertiary,3147,Yes,Healthcare,Education,None,Humanities
+S0325,15,Male,Public,Rural,60,100,96,69,77,21,Tertiary,6282,No,Business,Business,Entrepreneurship Club,STEM
+S0326,15,Male,Public,Urban,80,65,88,93,54,13,Secondary,5397,Yes,STEM,Education,Music,Healthcare
+S0327,17,Male,Private,Urban,55,84,55,91,60,24,Primary,4511,Yes,Arts,Business,Music,Healthcare
+S0328,19,Female,Public,Rural,64,78,69,49,74,8,Primary,9516,No,Humanities,Healthcare,None,Humanities
+S0329,16,Male,Private,Rural,82,81,81,85,92,31,Secondary,3794,No,Humanities,Technology,Sports,Healthcare
+S0330,16,Female,Public,Urban,45,59,56,62,92,18,Tertiary,2659,No,Arts,Healthcare,Entrepreneurship Club,Business
+S0331,17,Male,Public,Rural,90,42,90,62,85,16,Tertiary,4811,Yes,Humanities,Education,Entrepreneurship Club,Business
+S0332,16,Female,Private,Urban,57,92,67,62,91,13,Secondary,9098,Yes,STEM,Business,None,Healthcare
+S0333,15,Female,Private,Rural,95,44,67,84,53,22,Primary,8051,Yes,Business,Education,Science Club,Arts
+S0334,19,Male,Private,Urban,67,86,58,55,75,29,Primary,8546,Yes,Business,Healthcare,Sports,Business
+S0335,18,Female,Private,Urban,67,50,64,75,51,27,Tertiary,3369,No,STEM,Arts,None,Business
+S0336,16,Male,Public,Urban,60,86,91,77,56,22,Secondary,3986,No,STEM,Education,Music,Humanities
+S0337,15,Female,Public,Urban,72,85,72,62,78,29,Primary,7630,No,Humanities,Technology,None,STEM
+S0338,18,Female,Public,Urban,66,82,72,83,48,29,Tertiary,2146,No,STEM,Education,None,Humanities
+S0339,19,Male,Private,Urban,100,58,56,55,74,13,Tertiary,5219,No,Arts,Education,Music,Arts
+S0340,18,Male,Public,Urban,71,78,92,53,52,23,Tertiary,4911,Yes,Healthcare,Technology,None,STEM
+S0341,15,Male,Public,Urban,51,100,86,45,54,17,Primary,3734,Yes,STEM,Healthcare,Science Club,Business
+S0342,18,Male,Public,Rural,50,54,58,90,57,9,Primary,3843,Yes,Arts,Arts,Sports,Arts
+S0343,17,Male,Private,Urban,49,43,72,62,90,26,Primary,2488,Yes,STEM,Arts,Music,Healthcare
+S0344,18,Female,Private,Rural,51,50,71,68,72,11,Primary,4976,Yes,Humanities,Technology,Science Club,STEM
+S0345,16,Male,Public,Urban,79,44,85,45,45,31,Tertiary,3959,Yes,Humanities,Healthcare,Sports,Humanities
+S0346,16,Female,Public,Urban,54,41,99,58,66,15,Secondary,7759,No,Arts,Business,Sports,STEM
+S0347,17,Male,Public,Urban,98,50,49,57,62,27,Tertiary,8694,No,Business,Technology,Science Club,Humanities
+S0348,15,Female,Public,Rural,50,44,93,60,66,14,Primary,4385,Yes,STEM,Business,Science Club,Healthcare
+S0349,16,Male,Public,Urban,59,80,74,62,73,27,Secondary,4919,No,STEM,Healthcare,Music,Arts
+S0350,19,Male,Public,Urban,78,39,98,51,95,24,Secondary,6736,No,Healthcare,Business,Entrepreneurship Club,Business
+S0351,16,Male,Public,Urban,97,61,70,78,85,3,Secondary,3802,No,Healthcare,Education,Entrepreneurship Club,Business
+S0352,16,Male,Private,Urban,48,90,95,80,77,12,Secondary,8616,Yes,Healthcare,Education,Music,Humanities
+S0353,15,Female,Public,Urban,97,86,79,52,53,6,Tertiary,8065,Yes,Arts,Arts,None,Humanities
+S0354,18,Male,Public,Rural,97,83,75,72,75,6,Secondary,8294,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0355,16,Male,Public,Urban,59,73,72,96,92,20,Tertiary,7534,No,Arts,Healthcare,None,Healthcare
+S0356,17,Male,Public,Urban,89,73,40,86,47,10,Secondary,6061,Yes,Business,Technology,Music,Business
+S0357,18,Female,Private,Rural,66,63,39,80,74,14,Secondary,5369,Yes,STEM,Healthcare,Music,Arts
+S0358,19,Female,Private,Urban,89,35,70,70,58,24,Tertiary,7730,No,STEM,Business,Science Club,STEM
+S0359,15,Male,Public,Urban,70,92,86,83,69,28,Secondary,2262,No,Business,Arts,None,Arts
+S0360,19,Female,Public,Rural,63,42,51,71,53,24,Primary,7883,Yes,Arts,Education,Music,Arts
+S0361,18,Male,Public,Rural,55,76,84,90,59,20,Secondary,8287,Yes,Humanities,Business,Entrepreneurship Club,STEM
+S0362,18,Female,Private,Urban,87,67,67,85,88,22,Primary,8489,No,Healthcare,Healthcare,Music,STEM
+S0363,18,Male,Public,Rural,74,94,75,61,64,20,Secondary,2623,No,Business,Arts,None,Humanities
+S0364,19,Male,Private,Rural,93,87,45,52,79,18,Secondary,3016,No,Business,Business,Music,Humanities
+S0365,18,Male,Private,Urban,90,87,86,72,63,22,Tertiary,5643,Yes,STEM,Education,Sports,Healthcare
+S0366,19,Female,Private,Urban,92,78,75,88,53,22,Primary,6976,Yes,Healthcare,Education,Entrepreneurship Club,Business
+S0367,18,Female,Private,Urban,90,47,100,76,65,23,Primary,4049,No,Arts,Business,Sports,Humanities
+S0368,17,Female,Private,Rural,55,72,97,98,77,21,Tertiary,9040,Yes,Humanities,Arts,Entrepreneurship Club,Arts
+S0369,18,Male,Public,Urban,73,46,92,51,62,7,Secondary,7423,Yes,Business,Business,None,Arts
+S0370,19,Male,Private,Rural,97,85,91,77,61,27,Primary,8397,No,Arts,Business,Entrepreneurship Club,Healthcare
+S0371,16,Male,Public,Rural,68,93,75,53,87,17,Primary,5723,No,Business,Business,Music,Business
+S0372,18,Male,Public,Urban,65,56,100,55,58,18,Secondary,6548,Yes,Arts,Education,Science Club,Humanities
+S0373,16,Female,Public,Rural,97,70,74,73,85,14,Primary,5108,Yes,Humanities,Healthcare,Entrepreneurship Club,STEM
+S0374,17,Female,Private,Urban,74,48,62,49,90,12,Primary,7279,No,Healthcare,Technology,Sports,STEM
+S0375,15,Male,Public,Rural,88,56,75,75,42,26,Primary,6090,No,STEM,Business,Music,Business
+S0376,17,Male,Private,Urban,56,45,78,67,81,26,Primary,9158,No,Healthcare,Healthcare,None,Business
+S0377,18,Male,Private,Urban,76,86,96,37,58,12,Primary,4056,No,Humanities,Business,Entrepreneurship Club,Business
+S0378,16,Female,Private,Rural,86,96,63,60,48,5,Tertiary,9400,No,Business,Technology,Entrepreneurship Club,STEM
+S0379,16,Female,Private,Urban,61,60,76,49,67,30,Secondary,5170,Yes,STEM,Business,Music,STEM
+S0380,19,Female,Public,Urban,64,41,51,49,59,16,Secondary,3682,No,Humanities,Healthcare,Music,Healthcare
+S0381,16,Male,Private,Rural,53,84,45,80,84,19,Secondary,8959,No,Arts,Education,Science Club,Healthcare
+S0382,19,Male,Private,Urban,57,95,77,49,46,6,Tertiary,4255,No,STEM,Arts,Sports,Healthcare
+S0383,15,Male,Private,Urban,44,94,90,98,53,9,Secondary,3154,Yes,Humanities,Business,Entrepreneurship Club,Humanities
+S0384,18,Male,Private,Urban,86,56,42,99,48,21,Tertiary,6499,No,Arts,Education,Entrepreneurship Club,Arts
+S0385,19,Female,Private,Urban,74,65,38,65,94,8,Secondary,8295,No,Arts,Business,Science Club,Arts
+S0386,15,Male,Private,Rural,85,54,87,77,58,4,Primary,8197,Yes,Arts,Education,None,Humanities
+S0387,16,Male,Private,Rural,43,73,57,76,86,7,Tertiary,5191,No,Arts,Healthcare,Music,Healthcare
+S0388,16,Female,Public,Urban,65,46,62,82,91,27,Secondary,3696,No,Business,Technology,Sports,Arts
+S0389,15,Female,Public,Rural,80,69,66,57,53,16,Primary,5991,Yes,Arts,Arts,Science Club,Business
+S0390,16,Female,Private,Rural,67,77,47,86,95,12,Tertiary,6723,Yes,Healthcare,Healthcare,Entrepreneurship Club,Business
+S0391,15,Female,Public,Rural,55,100,100,85,77,18,Secondary,6682,Yes,Healthcare,Technology,Music,Healthcare
+S0392,19,Female,Public,Rural,61,71,57,70,92,10,Secondary,3648,Yes,Healthcare,Business,Music,Healthcare
+S0393,19,Female,Private,Urban,58,95,64,47,75,13,Primary,7539,Yes,Business,Business,Science Club,STEM
+S0394,15,Female,Private,Urban,81,89,69,67,79,25,Tertiary,3445,Yes,Arts,Education,Sports,Healthcare
+S0395,19,Female,Private,Rural,67,69,85,42,56,22,Primary,6199,No,Humanities,Technology,Science Club,Arts
+S0396,19,Male,Private,Rural,62,46,90,49,69,12,Secondary,5923,Yes,Healthcare,Healthcare,None,STEM
+S0397,19,Female,Private,Urban,62,65,69,75,48,11,Tertiary,2253,No,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0398,17,Female,Private,Rural,71,42,64,56,72,22,Primary,9394,Yes,Business,Education,Sports,Business
+S0399,18,Male,Private,Rural,51,68,47,40,95,23,Primary,5183,No,Humanities,Education,Music,STEM
+S0400,16,Male,Private,Rural,52,48,93,68,91,24,Primary,4557,Yes,Healthcare,Technology,Science Club,Humanities
+S0401,17,Male,Public,Rural,36,65,83,48,64,28,Tertiary,7592,No,STEM,Education,None,Arts
+S0402,19,Female,Public,Urban,68,57,72,79,53,18,Primary,2098,Yes,STEM,Arts,None,Business
+S0403,15,Male,Public,Urban,56,75,40,80,50,20,Primary,4200,No,STEM,Education,None,Healthcare
+S0404,19,Female,Private,Rural,54,63,44,56,92,17,Secondary,7980,Yes,Humanities,Healthcare,Science Club,Business
+S0405,18,Male,Private,Rural,95,39,68,67,74,11,Tertiary,4961,No,Healthcare,Arts,Sports,Business
+S0406,19,Male,Private,Rural,66,70,92,78,80,21,Tertiary,8015,No,Healthcare,Technology,Science Club,Healthcare
+S0407,15,Female,Private,Urban,88,62,87,97,53,15,Secondary,6973,Yes,Business,Education,None,STEM
+S0408,18,Female,Public,Urban,65,66,92,90,69,19,Tertiary,6433,No,Arts,Healthcare,None,Healthcare
+S0409,19,Male,Public,Rural,55,47,52,45,80,29,Primary,5777,Yes,STEM,Education,Entrepreneurship Club,Healthcare
+S0410,18,Male,Public,Urban,87,86,74,76,43,20,Tertiary,4869,Yes,Healthcare,Healthcare,Sports,Arts
+S0411,16,Female,Public,Rural,63,80,45,56,43,23,Secondary,5234,No,Arts,Education,Entrepreneurship Club,Arts
+S0412,16,Male,Private,Rural,66,86,66,96,67,25,Primary,5791,Yes,STEM,Arts,Science Club,Arts
+S0413,19,Male,Public,Rural,81,50,41,82,47,26,Tertiary,2956,Yes,Business,Technology,Sports,Humanities
+S0414,18,Female,Public,Rural,53,54,86,79,41,14,Primary,7800,Yes,Healthcare,Technology,Music,STEM
+S0415,15,Female,Private,Urban,59,97,89,53,80,9,Tertiary,6067,No,Humanities,Technology,Sports,Humanities
+S0416,19,Male,Private,Urban,86,86,91,100,85,23,Tertiary,2160,Yes,STEM,Arts,Entrepreneurship Club,Arts
+S0417,16,Female,Private,Urban,78,100,43,90,61,26,Secondary,7699,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0418,16,Female,Public,Rural,74,51,73,90,80,10,Secondary,8944,Yes,STEM,Healthcare,None,Humanities
+S0419,19,Female,Public,Rural,90,37,97,94,95,14,Primary,6493,No,STEM,Technology,None,Arts
+S0420,18,Female,Public,Urban,47,83,68,51,94,21,Secondary,3300,No,Business,Arts,Sports,STEM
+S0421,16,Female,Private,Urban,91,80,100,95,55,21,Secondary,6911,Yes,Healthcare,Arts,Science Club,Humanities
+S0422,18,Female,Private,Rural,63,86,39,85,68,26,Primary,5987,Yes,Business,Arts,Entrepreneurship Club,Business
+S0423,16,Male,Public,Rural,64,49,50,81,88,31,Secondary,3527,No,Healthcare,Education,Science Club,STEM
+S0424,16,Female,Public,Rural,73,60,88,96,87,13,Secondary,8015,No,Business,Education,Music,Humanities
+S0425,17,Male,Public,Urban,65,58,46,54,69,20,Tertiary,7511,No,Healthcare,Business,Music,Business
+S0426,16,Female,Public,Rural,82,78,66,89,51,26,Secondary,7254,No,Arts,Healthcare,Science Club,Business
+S0427,15,Male,Public,Rural,78,61,70,49,74,17,Primary,3218,Yes,Business,Business,Sports,Healthcare
+S0428,19,Male,Public,Rural,85,44,80,78,50,26,Primary,6496,Yes,Healthcare,Arts,Sports,Healthcare
+S0429,19,Female,Public,Rural,67,48,93,77,85,10,Tertiary,6735,Yes,Business,Technology,None,Humanities
+S0430,18,Male,Public,Rural,75,66,86,62,89,27,Primary,5104,No,Healthcare,Business,Science Club,STEM
+S0431,16,Female,Public,Urban,83,67,71,41,60,26,Tertiary,4735,Yes,Humanities,Healthcare,Music,Arts
+S0432,15,Female,Public,Urban,42,69,82,64,60,17,Tertiary,6555,No,Arts,Education,Entrepreneurship Club,Arts
+S0433,18,Male,Public,Rural,86,92,94,51,44,22,Tertiary,2954,Yes,STEM,Business,Science Club,STEM
+S0434,17,Female,Public,Rural,94,64,91,79,87,22,Primary,6565,No,Arts,Education,Entrepreneurship Club,Healthcare
+S0435,18,Male,Public,Urban,51,66,45,51,59,14,Secondary,5446,No,STEM,Business,None,Humanities
+S0436,18,Male,Public,Urban,52,97,100,49,76,25,Primary,3045,No,Healthcare,Arts,Science Club,Business
+S0437,16,Male,Private,Rural,45,65,56,76,42,19,Secondary,8893,Yes,Arts,Education,Sports,Business
+S0438,17,Female,Public,Rural,87,68,96,64,83,13,Secondary,3693,No,Business,Healthcare,Entrepreneurship Club,Arts
+S0439,18,Male,Public,Urban,41,59,72,46,72,6,Secondary,8181,No,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0440,15,Male,Private,Rural,38,79,84,83,92,21,Tertiary,8373,Yes,Humanities,Education,Entrepreneurship Club,STEM
+S0441,15,Female,Public,Rural,43,86,78,79,48,12,Secondary,5436,No,Healthcare,Business,Music,STEM
+S0442,19,Female,Private,Urban,40,75,100,59,48,15,Primary,2562,No,STEM,Arts,Music,STEM
+S0443,17,Male,Private,Urban,81,79,71,52,43,8,Primary,4485,Yes,Healthcare,Arts,Entrepreneurship Club,Arts
+S0444,17,Female,Public,Rural,76,88,78,88,74,24,Secondary,7895,No,Humanities,Arts,Music,Business
+S0445,19,Female,Private,Rural,73,88,99,92,56,24,Tertiary,5354,No,Healthcare,Technology,Entrepreneurship Club,Business
+S0446,18,Male,Private,Rural,81,56,78,60,73,9,Tertiary,8170,Yes,Business,Healthcare,Music,STEM
+S0447,17,Male,Private,Urban,75,92,78,69,63,27,Tertiary,2225,No,Healthcare,Technology,Entrepreneurship Club,Arts
+S0448,15,Female,Private,Urban,86,48,67,79,71,12,Secondary,9444,No,Business,Healthcare,Science Club,Humanities
+S0449,15,Female,Private,Rural,68,94,41,64,40,26,Secondary,6893,No,STEM,Business,Music,STEM
+S0450,16,Male,Private,Rural,51,65,45,70,47,18,Secondary,9776,Yes,Humanities,Arts,Entrepreneurship Club,Business
+S0451,17,Male,Private,Rural,62,89,52,100,84,10,Tertiary,8427,No,Arts,Business,Entrepreneurship Club,Arts
+S0452,18,Male,Private,Rural,90,60,95,94,62,24,Primary,9022,Yes,Healthcare,Technology,Entrepreneurship Club,Humanities
+S0453,19,Male,Private,Urban,81,57,53,70,86,8,Secondary,2959,Yes,Business,Arts,Sports,STEM
+S0454,19,Male,Public,Rural,62,39,89,82,79,8,Primary,7600,Yes,STEM,Business,Music,Arts
+S0455,18,Female,Public,Rural,66,85,72,39,51,30,Tertiary,6548,Yes,Healthcare,Healthcare,Sports,Arts
+S0456,16,Male,Public,Rural,39,45,55,54,93,13,Primary,5067,Yes,Business,Healthcare,Music,Healthcare
+S0457,19,Male,Public,Urban,75,68,93,99,51,11,Primary,9996,No,Healthcare,Business,Music,Healthcare
+S0458,17,Male,Public,Urban,83,54,89,63,85,13,Primary,2815,Yes,Healthcare,Education,Sports,Healthcare
+S0459,16,Female,Public,Rural,57,62,87,52,86,14,Primary,6754,No,Arts,Arts,Entrepreneurship Club,STEM
+S0460,17,Male,Public,Rural,44,75,57,90,54,27,Tertiary,9683,Yes,STEM,Arts,Music,Arts
+S0461,15,Female,Private,Rural,91,67,85,58,80,26,Tertiary,6642,Yes,Humanities,Education,Music,Humanities
+S0462,16,Female,Private,Rural,70,59,71,81,58,12,Tertiary,7311,Yes,Healthcare,Technology,Entrepreneurship Club,Business
+S0463,19,Female,Private,Urban,63,57,91,62,65,16,Tertiary,5120,No,Healthcare,Business,None,STEM
+S0464,16,Male,Private,Rural,85,70,57,98,91,19,Tertiary,9679,No,Healthcare,Technology,Sports,Humanities
+S0465,16,Male,Public,Rural,62,38,42,51,68,14,Secondary,2016,Yes,Humanities,Healthcare,Sports,Healthcare
+S0466,16,Male,Public,Rural,100,79,42,67,61,27,Secondary,9339,Yes,Humanities,Business,Sports,Arts
+S0467,16,Female,Private,Urban,93,79,74,92,79,12,Tertiary,3243,No,Arts,Business,Music,STEM
+S0468,17,Female,Public,Rural,50,91,78,88,60,10,Tertiary,4205,No,Humanities,Education,Sports,Humanities
+S0469,15,Male,Public,Rural,57,67,93,80,90,21,Tertiary,4524,No,Healthcare,Technology,None,Arts
+S0470,18,Female,Private,Rural,50,91,55,94,77,9,Secondary,3069,Yes,Arts,Education,Entrepreneurship Club,Business
+S0471,16,Male,Public,Urban,55,73,70,83,59,15,Secondary,5444,Yes,Healthcare,Education,Sports,Healthcare
+S0472,19,Female,Private,Rural,95,49,81,64,68,9,Primary,4565,No,Business,Education,Music,Arts
+S0473,16,Female,Public,Rural,69,47,56,80,90,9,Tertiary,8242,Yes,Humanities,Healthcare,Sports,STEM
+S0474,19,Male,Public,Rural,92,57,93,71,43,27,Primary,7864,Yes,Arts,Business,Sports,Healthcare
+S0475,17,Female,Public,Urban,95,99,99,81,94,8,Secondary,3060,Yes,Arts,Arts,Music,Healthcare
+S0476,19,Male,Public,Urban,54,45,65,50,46,20,Tertiary,4327,Yes,Business,Business,Music,Healthcare
+S0477,18,Male,Private,Urban,52,51,89,44,67,8,Secondary,5420,Yes,Humanities,Arts,Entrepreneurship Club,STEM
+S0478,15,Female,Public,Rural,50,93,37,76,67,30,Primary,8640,No,Business,Business,Entrepreneurship Club,Humanities
+S0479,19,Male,Public,Rural,93,63,81,71,43,29,Primary,2301,Yes,Humanities,Technology,None,Healthcare
+S0480,19,Female,Public,Rural,71,41,68,94,61,25,Primary,6276,Yes,Humanities,Healthcare,None,Healthcare
+S0481,15,Male,Private,Rural,92,45,71,69,51,25,Tertiary,2606,No,STEM,Technology,None,Humanities
+S0482,18,Female,Private,Rural,43,100,79,74,84,8,Tertiary,5170,Yes,Humanities,Arts,Sports,Humanities
+S0483,16,Female,Public,Rural,100,67,93,93,42,27,Secondary,2699,Yes,Business,Education,None,Humanities
+S0484,19,Female,Public,Urban,60,81,92,98,61,14,Primary,7088,No,STEM,Business,Music,Healthcare
+S0485,15,Female,Private,Urban,80,78,86,45,83,16,Primary,3139,No,Humanities,Business,Music,Business
+S0486,17,Male,Public,Rural,100,53,63,89,41,8,Tertiary,2190,Yes,Business,Education,None,STEM
+S0487,15,Male,Private,Urban,46,58,83,100,63,11,Tertiary,4300,No,Humanities,Education,Science Club,Healthcare
+S0488,17,Male,Private,Rural,81,77,88,51,73,13,Primary,2980,No,STEM,Business,Science Club,Humanities
+S0489,18,Female,Public,Rural,39,96,60,56,66,13,Tertiary,4975,Yes,Business,Business,Science Club,Business
+S0490,16,Female,Public,Urban,60,88,85,51,94,18,Primary,8102,Yes,Humanities,Education,Entrepreneurship Club,Humanities
+S0491,15,Male,Public,Urban,51,87,53,85,80,27,Primary,3184,No,Arts,Business,Science Club,Business
+S0492,19,Female,Public,Rural,58,88,79,95,40,8,Secondary,5327,No,Arts,Education,Entrepreneurship Club,Humanities
+S0493,18,Male,Public,Urban,91,89,38,77,47,16,Secondary,5394,No,Healthcare,Technology,Music,Arts
+S0494,15,Female,Public,Rural,74,58,88,57,62,21,Primary,2127,Yes,Humanities,Business,Entrepreneurship Club,Humanities
+S0495,19,Male,Private,Urban,67,73,45,44,77,29,Tertiary,4065,Yes,Humanities,Technology,None,STEM
+S0496,15,Male,Private,Urban,73,46,68,70,45,20,Tertiary,3816,No,Healthcare,Business,Music,Business
+S0497,17,Female,Private,Urban,72,56,58,81,61,7,Primary,7854,Yes,Business,Education,Entrepreneurship Club,Arts
+S0498,15,Female,Private,Rural,59,82,70,93,64,25,Primary,8709,No,Business,Education,Music,STEM
+S0499,15,Female,Private,Urban,95,48,51,49,57,14,Secondary,2569,No,Humanities,Technology,Sports,Humanities
+S0500,15,Male,Private,Rural,82,78,81,69,56,27,Tertiary,7442,Yes,STEM,Technology,Entrepreneurship Club,STEM
+S0001,18,Male,Private,Urban,88,81,98,71,51,21,Primary,3895,Yes,STEM,Technology,Sports,Humanities
+S0002,19,Female,Public,Urban,80,63,55,48,45,28,Secondary,4733,Yes,Healthcare,Arts,None,Healthcare
+S0003,17,Female,Private,Urban,41,45,54,77,65,24,Secondary,5863,No,Humanities,Healthcare,None,Healthcare
+S0004,19,Male,Private,Urban,85,77,61,86,66,4,Secondary,6721,No,Healthcare,Technology,Entrepreneurship Club,Healthcare
+S0005,19,Male,Public,Urban,61,90,91,51,47,21,Secondary,9455,No,Business,Technology,None,Business
+S0006,16,Male,Public,Rural,40,47,75,73,58,17,Secondary,6014,No,STEM,Technology,None,Business
+S0007,17,Female,Private,Rural,70,98,46,100,81,13,Secondary,4901,Yes,Business,Education,None,Business
+S0008,17,Female,Private,Rural,91,99,100,52,40,24,Secondary,3686,No,STEM,Business,Music,Humanities
+S0009,17,Male,Private,Rural,46,88,67,75,68,17,Secondary,5009,Yes,Healthcare,Healthcare,Music,Business
+S0010,19,Male,Private,Rural,43,63,61,63,84,16,Primary,9806,Yes,Arts,Education,Entrepreneurship Club,Arts
+S0011,18,Female,Private,Urban,55,54,93,96,88,21,Secondary,2154,Yes,Humanities,Business,Sports,Healthcare
+S0012,17,Male,Public,Urban,47,89,66,61,74,24,Secondary,4537,Yes,Healthcare,Arts,Entrepreneurship Club,STEM
+S0013,19,Male,Private,Rural,91,44,78,97,79,7,Tertiary,3409,No,Business,Technology,Music,Arts
+S0014,16,Male,Public,Urban,58,40,90,59,53,6,Secondary,6057,Yes,Healthcare,Arts,Music,Healthcare
+S0015,18,Male,Public,Rural,67,65,89,74,74,12,Secondary,2784,No,Arts,Business,Sports,Business
+S0016,16,Female,Private,Rural,44,52,82,74,87,14,Primary,5175,Yes,Arts,Business,None,Business
+S0017,18,Female,Public,Urban,57,42,57,57,84,15,Secondary,9560,No,Healthcare,Arts,Sports,Humanities
+S0018,19,Male,Private,Rural,91,59,70,43,59,17,Secondary,9978,No,Arts,Technology,Music,Humanities
+S0019,15,Male,Public,Urban,48,71,87,63,95,10,Tertiary,6341,No,Humanities,Healthcare,Entrepreneurship Club,Healthcare
+S0020,18,Female,Private,Rural,71,54,45,49,88,29,Primary,9343,Yes,Business,Technology,None,Arts
+S0021,16,Female,Private,Rural,57,95,70,55,52,19,Secondary,9206,Yes,Business,Healthcare,Sports,Humanities
+S0022,19,Female,Public,Rural,87,89,56,75,77,25,Secondary,7596,No,Business,Arts,Sports,Healthcare
+S0023,18,Male,Public,Urban,58,87,71,77,88,25,Primary,7801,No,Humanities,Business,Entrepreneurship Club,Business
+S0024,15,Male,Public,Urban,64,44,57,96,85,26,Tertiary,4806,No,Humanities,Education,Music,Humanities
+S0025,15,Female,Public,Rural,100,99,98,58,88,17,Secondary,2537,No,Healthcare,Education,Science Club,Humanities
+S0026,17,Female,Private,Urban,75,68,56,68,47,30,Secondary,7986,No,STEM,Arts,Sports,Healthcare
+S0027,17,Male,Public,Rural,86,70,87,89,82,12,Primary,3841,No,Business,Technology,Music,Business
+S0028,16,Male,Private,Urban,78,73,59,71,59,15,Primary,7016,No,STEM,Technology,Entrepreneurship Club,Humanities
+S0029,18,Male,Private,Rural,51,62,80,46,72,14,Secondary,4455,No,Business,Healthcare,Science Club,Humanities
+S0030,18,Male,Private,Urban,82,58,68,96,65,20,Primary,2524,No,Arts,Technology,Music,Arts
+S0031,17,Female,Public,Urban,88,70,54,84,78,3,Primary,8971,No,Healthcare,Healthcare,Music,Business
+S0032,18,Female,Public,Urban,84,98,61,91,60,6,Secondary,7625,Yes,STEM,Technology,Entrepreneurship Club,Humanities
+S0033,18,Male,Private,Urban,72,94,74,56,92,21,Tertiary,4950,No,STEM,Arts,Entrepreneurship Club,Humanities
+S0034,15,Female,Private,Rural,57,60,58,89,88,7,Tertiary,9992,No,STEM,Arts,Sports,Humanities
+S0035,17,Female,Private,Urban,85,83,65,64,81,12,Primary,6131,No,Business,Business,Sports,Arts
+S0036,19,Male,Public,Urban,77,84,83,95,82,11,Secondary,6780,Yes,Healthcare,Arts,None,Arts
+S0037,17,Female,Public,Rural,65,56,97,52,93,21,Secondary,6115,Yes,STEM,Business,None,STEM
+S0038,19,Female,Private,Rural,64,59,61,81,80,14,Secondary,4368,No,STEM,Healthcare,Music,Business
+S0039,15,Male,Public,Rural,78,58,86,70,48,6,Secondary,5847,No,Healthcare,Business,None,Arts
+S0040,16,Male,Private,Urban,64,83,87,47,63,24,Tertiary,8655,No,Humanities,Business,None,Healthcare
+S0041,18,Male,Private,Urban,48,56,39,59,76,8,Tertiary,6495,Yes,Arts,Healthcare,Science Club,Humanities
+S0042,15,Male,Private,Urban,47,65,80,91,88,22,Primary,4701,No,Healthcare,Arts,Science Club,Healthcare
+S0043,18,Male,Public,Rural,38,93,58,56,80,17,Tertiary,2971,Yes,Arts,Arts,Sports,STEM
+S0044,16,Female,Private,Rural,55,76,44,75,56,26,Primary,8002,No,Humanities,Arts,None,Healthcare
+S0045,16,Female,Public,Urban,51,89,62,82,63,3,Tertiary,8614,No,Humanities,Education,None,Humanities
+S0046,15,Male,Public,Urban,90,68,59,92,60,6,Tertiary,3166,Yes,Healthcare,Arts,Music,Business
+S0047,16,Female,Public,Urban,58,75,86,48,90,19,Tertiary,7211,No,Arts,Business,Music,STEM
+S0048,19,Male,Private,Urban,49,53,48,46,78,21,Primary,9521,Yes,Healthcare,Healthcare,None,Business
+S0049,16,Male,Public,Urban,56,87,54,55,94,15,Primary,6929,Yes,Healthcare,Healthcare,Music,STEM
+S0050,18,Female,Public,Urban,64,86,51,90,80,19,Tertiary,7919,No,STEM,Arts,Entrepreneurship Club,Healthcare
+S0051,18,Female,Private,Urban,77,76,98,61,78,22,Secondary,4774,No,Arts,Technology,Sports,Humanities
+S0052,18,Female,Public,Urban,39,73,94,68,52,25,Secondary,3982,No,Healthcare,Business,None,Healthcare
+S0053,18,Female,Private,Urban,66,99,92,90,50,9,Secondary,2853,No,Humanities,Healthcare,None,Business
+S0054,19,Male,Public,Rural,45,87,94,84,85,29,Primary,6146,No,STEM,Education,Entrepreneurship Club,Arts
+S0055,17,Male,Private,Rural,77,90,100,78,58,20,Secondary,5736,Yes,Humanities,Arts,Music,Business
+S0056,15,Female,Private,Rural,58,74,60,88,50,9,Secondary,5769,Yes,STEM,Healthcare,Sports,Business
+S0057,18,Female,Private,Rural,49,60,85,71,52,17,Primary,2574,No,Arts,Education,Science Club,STEM
+S0058,16,Female,Private,Rural,59,93,96,45,85,10,Secondary,5261,Yes,Arts,Business,None,Humanities
+S0059,18,Male,Public,Urban,52,88,58,91,84,21,Tertiary,3148,No,Humanities,Arts,Music,Arts
+S0060,16,Male,Private,Urban,49,94,99,97,40,8,Primary,8293,Yes,Humanities,Education,None,STEM
+S0061,16,Male,Public,Rural,67,62,80,78,79,12,Tertiary,8457,Yes,Humanities,Business,Sports,Healthcare
+S0062,18,Male,Private,Urban,46,97,94,82,83,20,Secondary,8713,No,Humanities,Healthcare,Music,Business
+S0063,19,Male,Public,Rural,67,89,73,46,58,12,Primary,9509,Yes,STEM,Technology,Science Club,STEM
+S0064,16,Female,Private,Rural,96,45,82,67,51,27,Tertiary,8448,Yes,Arts,Education,Music,Arts
+S0065,16,Male,Private,Rural,75,99,51,60,47,5,Primary,3715,Yes,Healthcare,Education,Entrepreneurship Club,Healthcare
+S0066,18,Male,Public,Urban,72,94,66,58,47,21,Secondary,6777,No,STEM,Business,Science Club,Humanities
+S0067,16,Male,Private,Urban,66,88,48,58,92,20,Tertiary,6933,Yes,Humanities,Healthcare,Science Club,STEM
+S0068,16,Female,Private,Rural,56,79,77,70,84,15,Primary,5854,No,Business,Technology,None,Business
+S0069,18,Male,Public,Urban,42,70,98,53,51,30,Secondary,7173,No,Healthcare,Technology,Music,Arts
+S0070,18,Male,Public,Rural,88,51,94,91,87,7,Primary,9146,No,Healthcare,Technology,None,Humanities
+S0071,15,Female,Public,Rural,60,44,63,91,72,18,Secondary,4491,No,Humanities,Education,None,Healthcare
+S0072,19,Female,Public,Urban,98,39,55,94,84,25,Primary,4660,Yes,Business,Education,Music,Business
+S0073,19,Male,Private,Urban,85,55,47,52,65,13,Primary,9136,No,Business,Business,None,Arts
+S0074,16,Female,Private,Rural,87,87,96,85,78,22,Tertiary,8407,No,Arts,Healthcare,Music,Humanities
+S0075,19,Male,Private,Urban,44,83,72,97,67,31,Tertiary,5124,No,Healthcare,Healthcare,Music,STEM
+S0076,16,Male,Private,Urban,69,65,78,53,44,27,Secondary,7691,Yes,STEM,Technology,Music,Business
+S0077,15,Male,Private,Urban,80,59,100,69,47,15,Primary,5051,Yes,Humanities,Healthcare,None,STEM
+S0078,18,Male,Public,Rural,41,44,56,60,64,28,Secondary,9787,No,Arts,Technology,None,STEM
+S0079,18,Male,Public,Urban,59,83,70,65,66,28,Tertiary,2004,Yes,Arts,Arts,Science Club,Healthcare
+S0080,18,Female,Private,Urban,54,56,77,88,85,5,Tertiary,7222,No,STEM,Technology,Entrepreneurship Club,Arts
+S0081,19,Male,Public,Rural,88,99,41,90,62,27,Tertiary,7315,Yes,STEM,Business,Entrepreneurship Club,Healthcare
+S0082,15,Female,Private,Urban,69,48,100,91,69,27,Tertiary,6869,Yes,Business,Technology,None,Healthcare
+S0083,19,Male,Private,Rural,49,77,41,45,84,19,Tertiary,2876,No,Humanities,Education,Sports,Business
+S0084,19,Female,Public,Urban,59,50,69,47,86,12,Secondary,2991,Yes,Healthcare,Business,Science Club,Business
+S0085,15,Male,Public,Urban,74,61,45,86,62,23,Secondary,9027,Yes,Healthcare,Healthcare,Science Club,Arts
+S0086,15,Female,Public,Rural,43,54,42,76,88,14,Primary,9517,Yes,Healthcare,Arts,Sports,STEM
+S0087,15,Female,Public,Urban,59,44,76,88,86,22,Primary,6142,No,Humanities,Education,Entrepreneurship Club,Humanities
+S0088,15,Female,Private,Rural,49,100,86,51,59,28,Tertiary,9010,Yes,STEM,Technology,Entrepreneurship Club,Humanities
+S0089,18,Female,Private,Rural,39,94,65,48,57,15,Primary,8966,Yes,Arts,Business,Music,Healthcare
+S0090,17,Male,Private,Rural,89,52,76,87,57,13,Secondary,9079,Yes,Humanities,Business,Science Club,Arts
+S0091,17,Male,Public,Urban,99,89,93,88,41,20,Secondary,9987,Yes,Arts,Healthcare,Science Club,Healthcare
+S0092,15,Male,Public,Rural,51,39,90,59,43,21,Tertiary,8799,Yes,STEM,Arts,Entrepreneurship Club,Business
+S0093,17,Female,Private,Rural,75,52,59,54,69,21,Secondary,6364,Yes,STEM,Business,Entrepreneurship Club,Healthcare
+S0094,17,Male,Private,Rural,69,82,71,91,72,5,Secondary,6465,Yes,STEM,Education,Science Club,STEM
+S0095,15,Male,Private,Urban,71,85,93,73,75,13,Primary,2635,No,Business,Healthcare,Science Club,STEM
+S0096,17,Male,Public,Rural,47,68,92,73,57,15,Tertiary,7225,No,Humanities,Arts,Entrepreneurship Club,Humanities
+S0097,19,Female,Public,Rural,74,96,64,45,76,18,Tertiary,3693,Yes,Arts,Arts,Science Club,Arts
+S0098,16,Female,Public,Rural,56,84,49,56,58,6,Tertiary,3682,Yes,Humanities,Arts,Music,Business
+S0099,16,Female,Public,Rural,55,46,71,80,86,13,Secondary,6752,No,Humanities,Education,Science Club,Healthcare
+S0100,15,Male,Private,Rural,55,54,45,47,67,24,Primary,2119,No,STEM,Technology,Music,Business
+S0101,18,Male,Private,Rural,71,95,90,100,79,16,Secondary,2830,Yes,Business,Technology,Music,Business
+S0102,15,Male,Private,Urban,100,82,93,44,59,31,Secondary,7906,Yes,STEM,Education,Entrepreneurship Club,Business
+S0103,18,Female,Public,Rural,49,94,64,57,88,10,Primary,5675,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0104,16,Female,Private,Rural,71,89,62,91,72,22,Tertiary,7177,Yes,Arts,Technology,Entrepreneurship Club,Business
+S0105,15,Male,Public,Urban,72,58,43,88,51,21,Secondary,8070,No,STEM,Technology,Science Club,STEM
+S0106,19,Female,Private,Rural,80,76,86,68,90,18,Tertiary,3369,Yes,Humanities,Healthcare,Sports,Humanities
+S0107,17,Male,Private,Urban,40,79,60,90,54,6,Tertiary,2740,Yes,Healthcare,Education,None,Business
+S0108,18,Male,Private,Urban,99,81,77,53,80,11,Primary,9641,No,STEM,Business,Science Club,Arts
+S0109,17,Male,Private,Rural,60,64,42,84,78,25,Primary,2116,No,Arts,Business,Science Club,Healthcare
+S0110,17,Male,Private,Urban,56,89,87,75,41,12,Primary,7949,No,Healthcare,Arts,Entrepreneurship Club,Business
+S0111,15,Female,Private,Urban,66,42,71,56,68,18,Primary,4838,No,Business,Business,Music,Healthcare
+S0112,17,Male,Private,Urban,86,63,96,67,80,18,Secondary,3150,No,STEM,Arts,None,Healthcare
+S0113,19,Male,Public,Rural,40,71,49,62,49,31,Primary,9560,Yes,Arts,Arts,Sports,Arts
+S0114,17,Male,Public,Rural,61,62,44,84,41,10,Secondary,3931,Yes,Business,Education,None,Humanities
+S0115,15,Female,Private,Rural,72,92,46,39,90,8,Secondary,3012,No,Healthcare,Business,Music,Humanities
+S0116,19,Male,Private,Rural,50,56,77,90,50,17,Secondary,3664,Yes,STEM,Technology,None,STEM
+S0117,16,Male,Public,Urban,59,52,60,44,52,24,Primary,3081,No,Business,Arts,Sports,Business
+S0118,17,Female,Private,Rural,40,40,75,76,49,31,Secondary,6729,Yes,Healthcare,Arts,None,Business
+S0119,15,Male,Public,Rural,49,77,66,60,53,23,Primary,2512,No,Humanities,Education,Entrepreneurship Club,Humanities
+S0120,16,Female,Public,Urban,89,43,67,58,57,18,Primary,9918,Yes,Healthcare,Business,Music,Business
+S0121,16,Male,Public,Rural,70,66,39,51,90,22,Tertiary,4849,No,Arts,Education,Sports,STEM
+S0122,18,Male,Public,Rural,95,38,50,43,93,8,Secondary,7215,No,Arts,Arts,Music,Humanities
+S0123,19,Female,Private,Rural,53,81,81,79,48,18,Secondary,9805,No,Humanities,Technology,Sports,Humanities
+S0124,17,Female,Public,Urban,43,82,59,67,78,17,Primary,7237,Yes,Arts,Healthcare,Music,Humanities
+S0125,15,Male,Private,Urban,67,85,90,77,67,24,Tertiary,2559,No,Healthcare,Healthcare,Music,Business
+S0126,18,Male,Private,Urban,59,69,77,99,42,21,Primary,5672,Yes,STEM,Technology,Music,STEM
+S0127,19,Female,Public,Rural,43,41,54,69,59,25,Secondary,6583,No,Arts,Technology,Sports,Humanities
+S0128,18,Female,Public,Urban,70,61,91,91,45,14,Primary,9404,Yes,Healthcare,Business,Sports,Business
+S0129,19,Female,Public,Rural,59,94,56,74,66,5,Secondary,6992,Yes,Business,Education,Science Club,Business
+S0130,19,Female,Public,Rural,48,76,82,82,92,23,Tertiary,5343,Yes,Arts,Business,Music,Healthcare
+S0131,17,Female,Public,Urban,64,42,91,76,41,6,Secondary,7308,Yes,Healthcare,Healthcare,Science Club,STEM
+S0132,19,Male,Public,Rural,90,85,57,53,68,24,Tertiary,6070,No,STEM,Arts,Science Club,Business
+S0133,18,Female,Public,Urban,95,97,77,91,77,19,Secondary,6799,No,Healthcare,Healthcare,Music,Business
+S0134,19,Female,Private,Rural,41,82,54,49,42,13,Primary,3470,Yes,Healthcare,Arts,Science Club,Arts
+S0135,17,Female,Public,Urban,59,98,69,70,55,25,Primary,2580,Yes,Humanities,Healthcare,Science Club,Arts
+S0136,17,Male,Public,Rural,55,81,86,93,69,10,Primary,8933,Yes,Humanities,Technology,None,Healthcare
+S0137,18,Male,Private,Rural,94,95,64,77,79,24,Secondary,9004,No,Arts,Business,None,Healthcare
+S0138,16,Female,Public,Rural,69,94,64,47,41,17,Secondary,4294,No,STEM,Healthcare,None,Business
+S0139,16,Female,Private,Urban,47,69,74,72,56,13,Tertiary,5147,Yes,Healthcare,Technology,Entrepreneurship Club,Business
+S0140,19,Male,Private,Rural,44,62,63,46,80,17,Secondary,6249,Yes,Healthcare,Business,Science Club,Humanities
+S0141,15,Female,Public,Rural,78,58,94,40,51,5,Primary,3679,Yes,Humanities,Technology,Music,Humanities
+S0142,19,Female,Private,Urban,84,67,78,39,74,23,Secondary,5506,Yes,Arts,Business,Music,Humanities
+S0143,18,Female,Private,Rural,56,80,58,71,82,15,Secondary,7092,No,Healthcare,Business,Sports,STEM
+S0144,18,Male,Private,Urban,74,57,98,67,40,8,Tertiary,9253,No,STEM,Healthcare,Sports,STEM
+S0145,18,Male,Public,Urban,79,64,63,81,94,30,Primary,4744,Yes,STEM,Technology,Science Club,Humanities
+S0146,18,Male,Private,Urban,100,65,95,38,84,20,Secondary,5356,No,Humanities,Technology,Sports,Business
+S0147,18,Male,Public,Urban,92,84,48,56,54,20,Primary,6045,No,Healthcare,Healthcare,Music,Humanities
+S0148,17,Female,Public,Urban,69,85,92,75,65,30,Primary,3243,No,Humanities,Healthcare,Music,Humanities
+S0149,16,Female,Public,Urban,95,64,41,51,76,6,Tertiary,7188,Yes,Humanities,Healthcare,None,Arts
+S0150,18,Female,Private,Urban,76,65,69,77,60,10,Tertiary,5118,Yes,Humanities,Arts,Science Club,Humanities
+S0151,15,Male,Private,Urban,100,69,72,43,88,12,Secondary,7104,No,Healthcare,Business,Sports,Humanities
+S0152,15,Female,Private,Rural,74,45,39,49,70,7,Tertiary,4141,Yes,STEM,Technology,Music,Arts
+S0153,15,Male,Public,Urban,75,71,60,99,64,20,Secondary,7869,No,Arts,Business,Entrepreneurship Club,Humanities
+S0154,15,Male,Public,Rural,94,89,49,45,62,19,Tertiary,7053,Yes,Healthcare,Education,Sports,Healthcare
+S0155,17,Female,Private,Urban,71,69,89,38,63,9,Primary,5059,No,Arts,Healthcare,Entrepreneurship Club,Humanities
+S0156,15,Male,Private,Urban,94,50,46,80,77,24,Secondary,6548,Yes,Humanities,Business,Sports,Arts
+S0157,18,Female,Private,Urban,73,92,65,71,67,23,Primary,7323,No,Humanities,Business,Science Club,Healthcare
+S0158,19,Female,Public,Urban,42,53,84,36,60,5,Tertiary,4959,No,Business,Education,Music,Humanities
+S0159,15,Female,Private,Urban,62,54,39,84,93,10,Tertiary,4265,No,Humanities,Business,Music,Healthcare
+S0160,17,Female,Public,Rural,63,57,68,59,82,21,Primary,8617,Yes,Humanities,Technology,Science Club,Humanities
+S0161,17,Male,Public,Urban,60,93,77,45,57,18,Primary,4479,Yes,Business,Technology,Science Club,Business
+S0162,15,Female,Public,Rural,49,68,61,68,75,10,Secondary,8484,No,STEM,Education,None,Humanities
+S0163,19,Female,Public,Rural,47,77,89,85,74,14,Primary,6646,No,Arts,Arts,Sports,Business
+S0164,15,Female,Public,Urban,81,63,77,55,84,12,Secondary,3635,Yes,Business,Business,Science Club,Business
+S0165,17,Male,Public,Urban,63,51,36,39,94,23,Primary,7408,Yes,Business,Education,Science Club,Arts
+S0166,16,Male,Private,Urban,47,43,45,67,48,21,Tertiary,9421,No,Healthcare,Technology,Music,Arts
+S0167,18,Male,Public,Urban,91,80,67,65,92,29,Tertiary,3757,No,Humanities,Business,Entrepreneurship Club,STEM
+S0168,17,Male,Public,Urban,42,50,81,74,77,7,Primary,6452,Yes,Humanities,Arts,Science Club,Business
+S0169,15,Male,Private,Rural,69,89,46,54,69,27,Secondary,4070,Yes,Arts,Business,None,Business
+S0170,18,Female,Private,Urban,61,80,57,72,83,10,Tertiary,7881,Yes,Humanities,Education,Sports,Business
+S0171,15,Female,Private,Rural,98,91,66,46,73,15,Tertiary,8665,No,Arts,Arts,Science Club,Humanities
+S0172,15,Male,Public,Rural,77,78,57,43,71,8,Tertiary,7877,Yes,STEM,Healthcare,Entrepreneurship Club,Humanities
+S0173,16,Female,Private,Rural,54,64,51,49,42,25,Secondary,9267,No,Healthcare,Business,Entrepreneurship Club,Business
+S0174,18,Male,Private,Urban,62,55,55,96,42,26,Primary,4849,Yes,Arts,Healthcare,Science Club,Arts
+S0175,18,Male,Public,Urban,45,94,43,56,67,12,Tertiary,5251,No,Business,Technology,None,Healthcare
+S0176,16,Male,Public,Urban,63,78,63,79,83,17,Tertiary,9390,Yes,Humanities,Technology,Science Club,Humanities
+S0177,17,Female,Public,Rural,100,100,68,69,54,14,Tertiary,8905,No,Business,Technology,None,STEM
+S0178,15,Male,Private,Rural,90,57,43,74,80,15,Tertiary,5730,Yes,Arts,Healthcare,Music,Business
+S0179,19,Female,Public,Rural,81,39,58,79,62,17,Tertiary,4489,No,Healthcare,Healthcare,None,Humanities
+S0180,15,Male,Private,Rural,40,88,100,56,79,27,Primary,3631,No,Healthcare,Arts,Science Club,Arts
+S0181,15,Female,Private,Urban,44,71,85,99,50,19,Tertiary,4816,No,Humanities,Business,Science Club,Arts
+S0182,17,Male,Private,Rural,49,64,39,82,87,14,Tertiary,3015,Yes,Arts,Business,Science Club,Healthcare
+S0183,15,Female,Public,Rural,60,44,97,51,71,11,Tertiary,3348,No,Business,Technology,Music,Arts
+S0184,16,Male,Public,Rural,60,40,70,42,93,29,Tertiary,6611,No,Business,Education,Sports,Humanities
+S0185,16,Male,Public,Urban,92,51,85,75,75,13,Secondary,5087,Yes,Business,Education,Science Club,Arts
+S0186,18,Female,Private,Urban,84,57,92,53,72,15,Secondary,4839,Yes,Humanities,Arts,Science Club,Business
+S0187,19,Female,Public,Urban,58,76,74,92,63,5,Secondary,2335,Yes,Healthcare,Healthcare,Science Club,Healthcare
+S0188,15,Female,Private,Urban,90,93,79,78,78,14,Primary,7878,No,Business,Business,Sports,STEM
+S0189,15,Male,Private,Urban,61,55,50,86,73,13,Tertiary,8401,Yes,Humanities,Education,Science Club,Humanities
+S0190,17,Female,Private,Rural,80,54,71,100,95,15,Primary,6592,No,STEM,Business,Sports,Healthcare
+S0191,16,Male,Public,Rural,81,68,89,60,67,13,Secondary,2895,No,Arts,Technology,None,Humanities
+S0192,19,Female,Public,Urban,70,49,89,82,76,19,Tertiary,8303,No,Arts,Healthcare,Science Club,STEM
+S0193,18,Male,Private,Urban,76,90,58,100,46,22,Primary,5546,Yes,Healthcare,Business,Sports,Humanities
+S0194,16,Female,Public,Rural,57,47,90,46,43,19,Secondary,2851,No,Business,Business,Sports,Business
+S0195,18,Female,Public,Rural,78,60,85,40,76,5,Secondary,3687,Yes,Arts,Education,Science Club,Arts
+S0196,17,Male,Public,Rural,84,80,48,62,95,22,Secondary,3931,Yes,STEM,Education,Sports,STEM
+S0197,17,Female,Private,Rural,99,63,72,57,40,15,Primary,8833,Yes,STEM,Arts,Sports,Humanities
+S0198,15,Male,Private,Urban,51,86,86,95,40,23,Primary,5746,No,STEM,Business,None,STEM
+S0199,19,Male,Private,Urban,65,90,80,81,86,27,Tertiary,4427,Yes,STEM,Technology,Entrepreneurship Club,Business
+S0200,18,Male,Private,Rural,92,57,91,74,59,23,Primary,3568,No,Humanities,Business,Science Club,Humanities
+S0201,16,Female,Public,Urban,90,93,50,96,58,22,Tertiary,6000,No,Humanities,Business,Music,STEM
+S0202,17,Male,Public,Urban,91,79,80,75,68,8,Secondary,7052,No,Healthcare,Technology,Sports,Healthcare
+S0203,15,Male,Public,Urban,62,93,60,76,49,27,Tertiary,4738,No,Business,Business,Science Club,Arts
+S0204,15,Male,Public,Urban,46,59,100,38,57,19,Primary,5498,Yes,Arts,Business,Entrepreneurship Club,Arts
+S0205,18,Female,Private,Urban,78,58,67,48,67,7,Secondary,7732,No,Humanities,Business,Entrepreneurship Club,STEM
+S0206,17,Male,Private,Urban,94,48,68,58,74,11,Primary,7387,No,Arts,Arts,None,Arts
+S0207,19,Female,Private,Rural,85,43,77,57,82,8,Secondary,9744,No,Business,Healthcare,Music,STEM
+S0208,17,Male,Private,Urban,100,66,56,95,86,6,Tertiary,7536,No,STEM,Business,Sports,Healthcare
+S0209,18,Male,Private,Urban,59,69,91,96,70,17,Primary,7287,Yes,STEM,Business,Science Club,Humanities
+S0210,18,Male,Private,Urban,82,75,89,64,66,27,Tertiary,5913,Yes,STEM,Education,None,Business
+S0211,17,Male,Public,Rural,78,59,78,95,50,19,Primary,3066,Yes,Arts,Business,None,Humanities
+S0212,18,Male,Private,Rural,84,83,87,72,88,17,Primary,9723,Yes,STEM,Business,Science Club,Arts
+S0213,17,Female,Public,Urban,63,60,98,74,88,10,Secondary,6380,Yes,Business,Education,Science Club,Business
+S0214,16,Male,Public,Urban,96,86,78,90,77,11,Primary,4444,Yes,STEM,Technology,None,STEM
+S0215,17,Female,Public,Urban,68,69,53,79,44,28,Primary,6107,No,Healthcare,Healthcare,Entrepreneurship Club,Arts
+S0216,17,Male,Public,Urban,73,62,58,41,47,14,Primary,7726,Yes,Arts,Business,Science Club,Arts
+S0217,18,Female,Public,Urban,79,55,81,60,73,9,Tertiary,5373,Yes,Arts,Education,Music,Arts
+S0218,18,Male,Public,Rural,64,97,85,78,87,23,Tertiary,5969,No,Healthcare,Technology,Entrepreneurship Club,Business
+S0219,15,Female,Public,Urban,83,80,78,72,91,20,Primary,9420,Yes,Healthcare,Business,None,Healthcare
+S0220,15,Male,Public,Urban,56,70,51,89,95,18,Secondary,4546,Yes,STEM,Arts,Science Club,STEM
+S0221,16,Male,Public,Urban,84,93,60,48,51,8,Secondary,2753,Yes,STEM,Education,Entrepreneurship Club,Healthcare
+S0222,15,Female,Public,Urban,85,92,62,56,77,26,Tertiary,4082,No,Humanities,Healthcare,Science Club,Humanities
+S0223,17,Female,Public,Urban,51,42,87,60,40,26,Tertiary,4774,Yes,Humanities,Arts,Science Club,Arts
+S0224,18,Male,Public,Urban,91,84,100,88,70,8,Tertiary,4896,Yes,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0225,15,Male,Private,Urban,43,100,79,62,43,29,Tertiary,6185,Yes,Healthcare,Education,Sports,Business
+S0226,15,Male,Private,Rural,78,43,91,100,88,25,Tertiary,2775,Yes,Arts,Healthcare,Music,Healthcare
+S0227,16,Male,Private,Urban,45,60,85,66,84,10,Secondary,8748,No,Business,Technology,None,Business
+S0228,16,Female,Private,Urban,40,89,82,61,89,26,Primary,9113,No,Arts,Arts,Sports,Healthcare
+S0229,17,Male,Private,Urban,100,75,55,67,44,14,Primary,3625,Yes,Business,Healthcare,Sports,Arts
+S0230,18,Female,Private,Rural,92,56,54,52,69,3,Primary,5069,No,Healthcare,Arts,None,Arts
+S0231,16,Male,Private,Urban,68,62,89,92,95,12,Primary,2417,Yes,STEM,Healthcare,Entrepreneurship Club,Healthcare
+S0232,15,Female,Private,Urban,67,78,57,59,63,3,Tertiary,2114,Yes,STEM,Healthcare,Entrepreneurship Club,Healthcare
+S0233,18,Male,Private,Urban,48,64,50,69,42,7,Tertiary,2616,No,Arts,Arts,None,Business
+S0234,18,Female,Public,Urban,90,100,55,45,50,26,Tertiary,5974,No,Healthcare,Healthcare,Science Club,STEM
+S0235,15,Male,Private,Urban,96,82,83,51,84,11,Primary,5267,Yes,Humanities,Business,Music,Humanities
+S0236,16,Male,Private,Urban,98,79,86,70,43,27,Tertiary,2825,Yes,Arts,Arts,None,Business
+S0237,15,Male,Private,Rural,77,79,35,49,65,8,Tertiary,9668,Yes,Arts,Education,Entrepreneurship Club,Healthcare
+S0238,18,Female,Public,Rural,55,59,76,96,66,18,Primary,7745,No,STEM,Education,Entrepreneurship Club,Business
+S0239,19,Female,Private,Rural,71,84,87,92,85,9,Secondary,3516,No,Healthcare,Education,Sports,Arts
+S0240,19,Female,Public,Urban,45,57,63,60,93,28,Secondary,5146,No,STEM,Education,Music,Business
+S0241,17,Male,Private,Rural,94,78,51,68,82,18,Tertiary,2412,No,Humanities,Healthcare,Entrepreneurship Club,STEM
+S0242,15,Male,Public,Rural,68,49,48,89,66,22,Tertiary,9543,No,Arts,Technology,Sports,Arts
+S0243,15,Female,Private,Urban,46,88,46,51,81,20,Primary,9587,No,Business,Technology,Science Club,Humanities
+S0244,17,Male,Public,Rural,100,50,97,84,90,10,Primary,2728,No,Business,Technology,Science Club,Arts
+S0245,17,Female,Public,Rural,58,78,87,72,89,27,Secondary,5348,Yes,Business,Healthcare,Entrepreneurship Club,Healthcare
+S0246,17,Male,Public,Rural,50,39,53,86,45,30,Primary,9164,No,Humanities,Business,None,Healthcare
+S0247,18,Female,Private,Urban,87,46,92,90,54,20,Tertiary,4808,Yes,Humanities,Technology,Science Club,Humanities
+S0248,15,Male,Public,Urban,50,62,74,97,92,30,Tertiary,2675,No,Arts,Arts,Sports,Business
+S0249,18,Female,Public,Urban,55,43,82,59,69,10,Tertiary,5465,No,Humanities,Arts,Science Club,STEM
+S0250,17,Female,Private,Urban,94,38,64,53,81,12,Secondary,7988,Yes,STEM,Education,Entrepreneurship Club,Business
+S0251,15,Male,Public,Urban,67,62,73,64,76,14,Primary,4504,No,Humanities,Arts,None,Business
+S0252,18,Male,Private,Rural,59,87,70,74,76,15,Primary,4967,No,STEM,Education,Entrepreneurship Club,STEM
+S0253,18,Male,Public,Rural,81,93,92,45,81,9,Tertiary,8335,Yes,Humanities,Business,Entrepreneurship Club,Healthcare
+S0254,17,Female,Private,Rural,53,41,49,52,76,22,Primary,4786,Yes,Arts,Healthcare,Sports,Humanities
+S0255,15,Male,Public,Rural,44,48,42,100,74,4,Primary,9856,Yes,Healthcare,Business,Science Club,Arts
+S0256,17,Male,Private,Urban,66,69,68,60,62,14,Secondary,3122,No,STEM,Technology,Science Club,Humanities
+S0257,15,Female,Private,Rural,79,50,65,42,45,16,Secondary,6079,Yes,Arts,Technology,Sports,STEM
+S0258,19,Male,Public,Rural,45,85,88,53,43,6,Tertiary,3571,Yes,Business,Healthcare,Sports,Humanities
+S0259,16,Male,Public,Rural,61,89,67,55,57,25,Secondary,7073,No,STEM,Business,Entrepreneurship Club,Business
+S0260,16,Male,Private,Urban,74,81,65,94,48,11,Secondary,7104,No,Business,Education,Music,STEM
+S0261,16,Female,Private,Rural,48,57,83,68,88,22,Primary,4143,Yes,Business,Healthcare,Science Club,STEM
+S0262,17,Female,Public,Urban,50,50,89,52,68,25,Primary,3687,Yes,Arts,Healthcare,Entrepreneurship Club,Healthcare
+S0263,19,Male,Public,Urban,47,62,64,76,52,14,Primary,8806,Yes,Business,Business,Sports,Healthcare
+S0264,15,Male,Private,Urban,100,82,93,53,86,16,Tertiary,9357,Yes,Arts,Business,Science Club,Humanities
+S0265,18,Female,Public,Rural,66,76,84,93,91,15,Primary,9903,Yes,Healthcare,Education,Sports,STEM
+S0266,15,Female,Public,Rural,80,74,54,73,56,8,Primary,6132,No,Healthcare,Arts,Science Club,Humanities
+S0267,18,Female,Public,Rural,37,100,58,48,84,15,Secondary,5851,Yes,STEM,Business,Entrepreneurship Club,Humanities
+S0268,15,Male,Private,Rural,87,99,60,84,71,6,Primary,5440,No,STEM,Education,Sports,Arts
+S0269,19,Male,Public,Rural,91,52,38,51,87,20,Primary,5766,No,Arts,Education,Music,Humanities
+S0270,18,Female,Private,Urban,62,70,38,88,61,19,Secondary,7644,Yes,STEM,Business,Science Club,Humanities
+S0271,17,Female,Public,Urban,73,93,70,51,43,19,Secondary,4326,Yes,Arts,Education,Science Club,STEM
+S0272,15,Male,Private,Urban,59,88,77,100,44,19,Primary,8360,No,Business,Arts,Entrepreneurship Club,STEM
+S0273,15,Male,Private,Rural,55,66,70,68,76,6,Tertiary,4914,No,Business,Healthcare,None,Humanities
+S0274,18,Female,Public,Urban,39,50,62,86,80,23,Tertiary,6968,No,Healthcare,Education,Music,STEM
+S0275,17,Female,Private,Urban,63,57,71,98,88,14,Tertiary,7917,No,Healthcare,Arts,Music,Humanities
+S0276,17,Male,Public,Urban,55,59,61,64,52,26,Primary,7392,No,Healthcare,Arts,Science Club,Arts
+S0277,19,Female,Public,Rural,80,67,90,62,73,23,Secondary,5952,Yes,STEM,Technology,None,Healthcare
+S0278,17,Male,Public,Urban,100,46,67,61,84,26,Tertiary,8205,No,Humanities,Business,Music,Humanities
+S0279,17,Male,Public,Urban,75,87,77,74,61,15,Primary,2595,No,Humanities,Technology,Music,Humanities
+S0280,17,Female,Private,Rural,81,86,60,61,92,20,Primary,7999,No,Business,Technology,Entrepreneurship Club,Humanities
+S0281,16,Female,Private,Rural,77,56,90,78,62,25,Tertiary,2728,No,Arts,Education,Science Club,Business
+S0282,19,Male,Private,Rural,51,59,71,58,90,7,Primary,3365,No,Business,Arts,None,STEM
+S0283,15,Male,Private,Urban,96,98,46,65,42,25,Primary,6492,No,Arts,Education,Sports,STEM
+S0284,18,Female,Public,Urban,58,81,100,59,81,12,Primary,2698,No,Arts,Technology,None,STEM
+S0285,15,Male,Private,Urban,59,62,85,87,73,18,Primary,9186,Yes,Business,Business,None,Healthcare
+S0286,19,Female,Private,Urban,42,53,57,46,71,30,Primary,8320,Yes,Arts,Healthcare,Science Club,STEM
+S0287,18,Male,Public,Urban,89,65,84,84,84,22,Secondary,7731,No,STEM,Healthcare,Music,Healthcare
+S0288,19,Male,Private,Urban,66,88,74,46,90,22,Primary,2395,No,Arts,Education,Music,Humanities
+S0289,17,Female,Private,Rural,92,67,40,39,88,6,Secondary,8588,No,Business,Healthcare,Sports,Healthcare
+S0290,18,Female,Private,Rural,86,53,71,79,60,28,Primary,9400,Yes,Healthcare,Arts,Science Club,Business
+S0291,17,Female,Private,Rural,100,63,81,98,85,20,Primary,6171,No,Business,Business,Sports,Business
+S0292,15,Female,Private,Rural,49,78,53,72,83,14,Tertiary,6360,No,Business,Arts,Music,STEM
+S0293,15,Female,Public,Urban,48,81,39,71,60,6,Tertiary,4502,Yes,Humanities,Arts,Entrepreneurship Club,STEM
+S0294,18,Female,Private,Rural,64,100,94,51,83,8,Tertiary,3819,No,STEM,Education,Entrepreneurship Club,STEM
+S0295,18,Male,Public,Rural,89,64,55,94,50,22,Primary,2717,Yes,Arts,Technology,Science Club,Healthcare
+S0296,19,Male,Public,Urban,76,68,54,45,78,7,Tertiary,4782,No,STEM,Technology,Music,STEM
+S0297,19,Female,Private,Urban,42,90,53,84,43,25,Primary,9551,No,Healthcare,Education,None,Healthcare
+S0298,17,Male,Public,Rural,49,41,57,60,90,12,Primary,9731,Yes,Arts,Education,None,Arts
+S0299,18,Male,Private,Rural,73,61,53,53,40,22,Tertiary,6946,Yes,Humanities,Arts,Entrepreneurship Club,Healthcare
+S0300,15,Male,Public,Rural,86,95,91,61,67,27,Secondary,5577,Yes,Humanities,Education,Music,Healthcare
+S0301,19,Male,Public,Urban,74,43,95,78,63,9,Primary,7486,Yes,STEM,Arts,None,Arts
+S0302,19,Male,Public,Rural,91,50,47,79,74,21,Secondary,2143,Yes,STEM,Education,Entrepreneurship Club,Business
+S0303,15,Male,Private,Rural,64,88,91,43,52,13,Secondary,6980,Yes,STEM,Technology,Science Club,Arts
+S0304,19,Male,Public,Urban,54,70,76,74,86,4,Secondary,5140,No,Humanities,Healthcare,None,Humanities
+S0305,17,Female,Public,Urban,75,81,62,62,73,15,Tertiary,9266,No,STEM,Education,Music,STEM
+S0306,18,Male,Private,Urban,47,90,39,53,50,14,Tertiary,6491,Yes,Humanities,Technology,Music,Business
+S0307,15,Female,Public,Rural,76,73,58,95,75,28,Primary,9192,No,Arts,Technology,Science Club,Arts
+S0308,18,Female,Private,Urban,62,46,40,55,90,25,Secondary,9091,No,Arts,Education,Music,Healthcare
+S0309,19,Female,Public,Rural,46,81,68,60,56,18,Secondary,4938,No,Arts,Business,Sports,STEM
+S0310,19,Female,Public,Urban,39,89,95,85,74,21,Primary,7588,No,Business,Healthcare,None,Healthcare
+S0311,15,Male,Public,Rural,53,58,36,40,57,26,Primary,9651,Yes,Humanities,Arts,Music,Arts
+S0312,17,Male,Public,Urban,86,61,73,86,79,27,Tertiary,5636,Yes,Arts,Technology,Music,Humanities
+S0313,16,Male,Private,Urban,44,96,73,99,61,17,Secondary,5222,Yes,STEM,Arts,Entrepreneurship Club,Humanities
+S0314,15,Male,Private,Urban,83,86,46,49,63,17,Secondary,3167,Yes,Arts,Arts,Entrepreneurship Club,Arts
+S0315,16,Female,Private,Urban,72,81,57,87,58,5,Secondary,4616,No,Humanities,Technology,Sports,STEM
+S0316,16,Male,Private,Urban,38,60,69,80,76,28,Secondary,3062,Yes,STEM,Business,Music,Healthcare
+S0317,17,Male,Public,Rural,58,49,80,55,78,7,Tertiary,4156,Yes,STEM,Arts,Entrepreneurship Club,Business
+S0318,16,Male,Public,Urban,79,91,39,96,60,8,Secondary,9860,Yes,Business,Education,Music,Business
+S0319,16,Female,Private,Rural,76,49,54,63,47,23,Tertiary,7161,Yes,Healthcare,Healthcare,Music,Humanities
+S0320,17,Female,Public,Urban,64,93,81,64,67,23,Secondary,7305,No,STEM,Arts,Sports,Arts
+S0321,16,Female,Private,Rural,100,49,50,69,44,17,Tertiary,4982,No,Healthcare,Technology,Entrepreneurship Club,Humanities
+S0322,16,Female,Private,Urban,90,50,72,69,56,23,Tertiary,8541,No,Healthcare,Education,None,Healthcare
+S0323,16,Male,Private,Urban,86,45,83,94,76,10,Secondary,5294,Yes,Humanities,Business,None,STEM
+S0324,15,Male,Public,Rural,48,62,41,68,75,24,Tertiary,6729,Yes,Healthcare,Education,None,Humanities
+S0325,15,Male,Public,Rural,60,100,96,69,93,21,Tertiary,3156,No,Business,Business,Entrepreneurship Club,STEM
+S0326,15,Male,Public,Urban,80,65,88,93,58,13,Secondary,9330,Yes,STEM,Education,Music,Healthcare
+S0327,17,Male,Private,Urban,55,84,55,91,66,24,Primary,7334,Yes,Arts,Business,Music,Healthcare
+S0328,19,Female,Public,Rural,64,78,69,49,92,8,Primary,2732,No,Humanities,Healthcare,None,Humanities
+S0329,16,Male,Private,Rural,82,81,81,85,73,31,Secondary,6330,No,Humanities,Technology,Sports,Healthcare
+S0330,16,Female,Public,Urban,45,59,56,62,50,18,Tertiary,8801,No,Arts,Healthcare,Entrepreneurship Club,Business
+S0331,17,Male,Public,Rural,90,42,90,62,93,16,Tertiary,6846,Yes,Humanities,Education,Entrepreneurship Club,Business
+S0332,16,Female,Private,Urban,57,92,67,62,84,13,Secondary,8731,Yes,STEM,Business,None,Healthcare
+S0333,15,Female,Private,Rural,95,44,67,84,86,22,Primary,9176,Yes,Business,Education,Science Club,Arts
+S0334,19,Male,Private,Urban,67,86,58,55,51,29,Primary,9241,Yes,Business,Healthcare,Sports,Business
+S0335,18,Female,Private,Urban,67,50,64,75,93,27,Tertiary,2953,No,STEM,Arts,None,Business
+S0336,16,Male,Public,Urban,60,86,91,77,60,22,Tertiary,4539,No,STEM,Education,Music,Humanities
+S0337,15,Female,Public,Urban,72,85,72,62,93,29,Primary,9056,No,Humanities,Technology,None,STEM
+S0338,18,Female,Public,Urban,66,82,72,83,50,29,Secondary,5324,No,STEM,Education,None,Humanities
+S0339,19,Male,Private,Urban,100,58,56,55,78,13,Tertiary,5301,No,Arts,Education,Music,Arts
+S0340,18,Male,Public,Urban,71,78,92,53,67,23,Tertiary,3542,Yes,Healthcare,Technology,None,STEM
+S0341,15,Male,Public,Urban,51,100,86,45,44,17,Primary,7293,Yes,STEM,Healthcare,Science Club,Business
+S0342,18,Male,Public,Rural,50,54,58,90,56,9,Primary,7772,Yes,Arts,Arts,Sports,Arts
+S0343,17,Male,Private,Urban,49,43,72,62,95,26,Primary,3191,Yes,STEM,Arts,Music,Healthcare
+S0344,18,Female,Private,Rural,51,50,71,68,59,11,Primary,8313,Yes,Humanities,Technology,Science Club,STEM
+S0345,16,Male,Public,Urban,79,44,85,45,80,31,Tertiary,7512,Yes,Humanities,Healthcare,Sports,Humanities
+S0346,16,Female,Public,Urban,54,41,99,58,85,15,Secondary,4993,No,Arts,Business,Sports,STEM
+S0347,17,Male,Public,Urban,98,50,49,57,51,27,Tertiary,8938,No,Business,Technology,Science Club,Humanities
+S0348,15,Female,Public,Rural,50,44,93,60,45,14,Primary,4681,Yes,STEM,Business,Science Club,Healthcare
+S0349,16,Male,Public,Urban,59,80,74,62,56,27,Secondary,3217,No,STEM,Healthcare,Music,Arts
+S0350,19,Male,Public,Urban,78,39,98,51,90,24,Secondary,3540,No,Healthcare,Business,Entrepreneurship Club,Business
+S0351,16,Male,Public,Urban,97,61,70,78,58,3,Secondary,8172,No,Healthcare,Education,Entrepreneurship Club,Business
+S0352,16,Male,Private,Urban,48,90,95,80,65,12,Secondary,5236,Yes,Healthcare,Education,Music,Humanities
+S0353,15,Female,Public,Urban,97,86,79,52,87,6,Tertiary,7541,Yes,Arts,Arts,None,Humanities
+S0354,18,Male,Public,Rural,97,83,75,72,83,6,Secondary,4386,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0355,16,Male,Public,Urban,59,73,72,96,83,20,Tertiary,5719,No,Arts,Healthcare,None,Healthcare
+S0356,17,Male,Public,Urban,89,73,40,86,91,10,Primary,7615,Yes,Business,Technology,Music,Business
+S0357,18,Female,Private,Rural,66,63,39,80,71,14,Primary,3388,Yes,STEM,Healthcare,Music,Arts
+S0358,19,Female,Private,Urban,89,35,70,70,45,24,Tertiary,3856,No,STEM,Business,Science Club,STEM
+S0359,15,Male,Public,Urban,70,92,86,83,94,28,Secondary,3365,No,Business,Arts,None,Arts
+S0360,19,Female,Public,Rural,63,42,51,71,75,24,Primary,2499,Yes,Arts,Education,Music,Arts
+S0361,18,Male,Public,Rural,55,76,84,90,77,20,Secondary,3680,Yes,Humanities,Business,Entrepreneurship Club,STEM
+S0362,18,Female,Private,Urban,87,67,67,85,50,22,Primary,2510,No,Healthcare,Healthcare,Music,STEM
+S0363,18,Male,Public,Rural,74,94,75,61,72,20,Secondary,9494,No,Business,Arts,None,Humanities
+S0364,19,Male,Private,Rural,93,87,45,52,63,18,Secondary,6312,No,Business,Business,Music,Humanities
+S0365,18,Male,Private,Urban,90,87,86,72,62,22,Tertiary,3324,Yes,STEM,Education,Sports,Healthcare
+S0366,19,Female,Private,Urban,92,78,75,88,54,22,Primary,3155,Yes,Healthcare,Education,Entrepreneurship Club,Business
+S0367,18,Female,Private,Urban,90,47,100,76,66,23,Primary,3827,No,Arts,Business,Sports,Humanities
+S0368,17,Female,Private,Rural,55,72,97,98,50,21,Tertiary,5141,Yes,Humanities,Arts,Entrepreneurship Club,Arts
+S0369,18,Male,Public,Urban,73,46,92,51,90,7,Secondary,9419,Yes,Business,Business,None,Arts
+S0370,19,Male,Private,Rural,97,85,91,77,89,27,Primary,5486,No,Arts,Business,Entrepreneurship Club,Healthcare
+S0371,16,Male,Public,Rural,68,93,75,53,56,17,Primary,3810,No,Business,Business,Music,Business
+S0372,18,Male,Public,Urban,65,56,100,55,90,18,Secondary,8588,Yes,Arts,Education,Science Club,Humanities
+S0373,16,Female,Public,Rural,97,70,74,73,92,14,Secondary,4923,Yes,Humanities,Healthcare,Entrepreneurship Club,STEM
+S0374,17,Female,Private,Urban,74,48,62,49,53,12,Secondary,7301,No,Healthcare,Technology,Sports,STEM
+S0375,15,Male,Public,Rural,88,56,75,75,66,26,Primary,4214,No,STEM,Business,Music,Business
+S0376,17,Male,Private,Urban,56,45,78,67,57,26,Primary,6186,No,Healthcare,Healthcare,None,Business
+S0377,18,Male,Private,Urban,76,86,96,37,67,12,Secondary,2713,No,Humanities,Business,Entrepreneurship Club,Business
+S0378,16,Female,Private,Rural,86,96,63,60,90,5,Tertiary,7977,No,Business,Technology,Entrepreneurship Club,STEM
+S0379,16,Female,Private,Urban,61,60,76,49,86,30,Secondary,5602,Yes,STEM,Business,Music,STEM
+S0380,19,Female,Public,Urban,64,41,51,49,86,16,Secondary,6134,No,Humanities,Healthcare,Music,Healthcare
+S0381,16,Male,Private,Rural,53,84,45,80,43,19,Secondary,9293,No,Arts,Education,Science Club,Healthcare
+S0382,19,Male,Private,Urban,57,95,77,49,46,6,Tertiary,5522,No,STEM,Arts,Sports,Healthcare
+S0383,15,Male,Private,Urban,44,94,90,98,84,9,Secondary,6268,Yes,Humanities,Business,Entrepreneurship Club,Humanities
+S0384,18,Male,Private,Urban,86,56,42,99,74,21,Tertiary,6748,No,Arts,Education,Entrepreneurship Club,Arts
+S0385,19,Female,Private,Urban,74,65,38,65,87,8,Secondary,6849,No,Arts,Business,Science Club,Arts
+S0386,15,Male,Private,Rural,85,54,87,77,48,4,Primary,3243,Yes,Arts,Education,None,Humanities
+S0387,16,Male,Private,Rural,43,73,57,76,47,7,Tertiary,5709,No,Arts,Healthcare,Music,Healthcare
+S0388,16,Female,Public,Urban,65,46,62,82,91,27,Secondary,3081,No,Business,Technology,Sports,Arts
+S0389,15,Female,Public,Rural,80,69,66,57,84,16,Primary,7779,Yes,Arts,Arts,Science Club,Business
+S0390,16,Female,Private,Rural,67,77,47,86,56,12,Secondary,8619,Yes,Healthcare,Healthcare,Entrepreneurship Club,Business
+S0391,15,Female,Public,Rural,55,100,100,85,56,18,Secondary,2455,Yes,Healthcare,Technology,Music,Healthcare
+S0392,19,Female,Public,Rural,61,71,57,70,88,10,Secondary,6924,Yes,Healthcare,Business,Music,Healthcare
+S0393,19,Female,Private,Urban,58,95,64,47,72,13,Primary,2894,Yes,Business,Business,Science Club,STEM
+S0394,15,Female,Private,Urban,81,89,69,67,71,25,Tertiary,3384,Yes,Arts,Education,Sports,Healthcare
+S0395,19,Female,Private,Rural,67,69,85,42,47,22,Primary,3958,No,Humanities,Technology,Science Club,Arts
+S0396,19,Male,Private,Rural,62,46,90,49,58,12,Secondary,5072,Yes,Healthcare,Healthcare,None,STEM
+S0397,19,Female,Private,Urban,62,65,69,75,77,11,Tertiary,8530,No,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0398,17,Female,Private,Rural,71,42,64,56,42,22,Primary,3996,Yes,Business,Education,Sports,Business
+S0399,18,Male,Private,Rural,51,68,47,40,44,23,Primary,8491,No,Humanities,Education,Music,STEM
+S0400,16,Male,Private,Rural,52,48,93,68,52,24,Primary,6285,Yes,Healthcare,Technology,Science Club,Humanities
+S0401,17,Male,Public,Rural,36,65,83,48,86,28,Tertiary,2504,No,STEM,Education,None,Arts
+S0402,19,Female,Public,Urban,68,57,72,79,85,18,Primary,3214,Yes,STEM,Arts,None,Business
+S0403,15,Male,Public,Urban,56,75,40,80,70,20,Primary,3531,No,STEM,Education,None,Healthcare
+S0404,19,Female,Private,Rural,54,63,44,56,94,17,Primary,5440,Yes,Humanities,Healthcare,Science Club,Business
+S0405,18,Male,Private,Rural,95,39,68,67,55,11,Tertiary,9576,No,Healthcare,Arts,Sports,Business
+S0406,19,Male,Private,Rural,66,70,92,78,89,21,Secondary,2823,No,Healthcare,Technology,Science Club,Healthcare
+S0407,15,Female,Private,Urban,88,62,87,97,71,15,Secondary,2928,Yes,Business,Education,None,STEM
+S0408,18,Female,Public,Urban,65,66,92,90,61,19,Tertiary,7029,No,Arts,Healthcare,None,Healthcare
+S0409,19,Male,Public,Rural,55,47,52,45,68,29,Primary,7236,Yes,STEM,Education,Entrepreneurship Club,Healthcare
+S0410,18,Male,Public,Urban,87,86,74,76,61,20,Tertiary,2133,Yes,Healthcare,Healthcare,Sports,Arts
+S0411,16,Female,Public,Rural,63,80,45,56,82,23,Secondary,4105,No,Arts,Education,Entrepreneurship Club,Arts
+S0412,16,Male,Private,Rural,66,86,66,96,42,25,Primary,5627,Yes,STEM,Arts,Science Club,Arts
+S0413,19,Male,Public,Rural,81,50,41,82,93,26,Tertiary,6780,Yes,Business,Technology,Sports,Humanities
+S0414,18,Female,Public,Rural,53,54,86,79,49,14,Primary,8815,Yes,Healthcare,Technology,Music,STEM
+S0415,15,Female,Private,Urban,59,97,89,53,81,9,Tertiary,8316,No,Humanities,Technology,Sports,Humanities
+S0416,19,Male,Private,Urban,86,86,91,100,60,23,Tertiary,3852,Yes,STEM,Arts,Entrepreneurship Club,Arts
+S0417,16,Female,Private,Urban,78,100,43,90,55,26,Primary,6910,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0418,16,Female,Public,Rural,74,51,73,90,51,10,Secondary,7268,Yes,STEM,Healthcare,None,Humanities
+S0419,19,Female,Public,Rural,90,37,97,94,41,14,Secondary,6175,No,STEM,Technology,None,Arts
+S0420,18,Female,Public,Urban,47,83,68,51,80,21,Secondary,4933,No,Business,Arts,Sports,STEM
+S0421,16,Female,Private,Urban,91,80,100,95,63,21,Secondary,5284,Yes,Healthcare,Arts,Science Club,Humanities
+S0422,18,Female,Private,Rural,63,86,39,85,74,26,Primary,6298,Yes,Business,Arts,Entrepreneurship Club,Business
+S0423,16,Male,Public,Rural,64,49,50,81,95,31,Secondary,4811,No,Healthcare,Education,Science Club,STEM
+S0424,16,Female,Public,Rural,73,60,88,96,69,13,Secondary,7348,No,Business,Education,Music,Humanities
+S0425,17,Male,Public,Urban,65,58,46,54,69,20,Tertiary,7795,No,Healthcare,Business,Music,Business
+S0426,16,Female,Public,Rural,82,78,66,89,86,26,Secondary,3250,No,Arts,Healthcare,Science Club,Business
+S0427,15,Male,Public,Rural,78,61,70,49,74,17,Primary,7778,Yes,Business,Business,Sports,Healthcare
+S0428,19,Male,Public,Rural,85,44,80,78,58,26,Primary,7651,Yes,Healthcare,Arts,Sports,Healthcare
+S0429,19,Female,Public,Rural,67,48,93,77,89,10,Tertiary,5512,Yes,Business,Technology,None,Humanities
+S0430,18,Male,Public,Rural,75,66,86,62,47,27,Primary,9569,No,Healthcare,Business,Science Club,STEM
+S0431,16,Female,Public,Urban,83,67,71,41,65,26,Primary,8190,Yes,Humanities,Healthcare,Music,Arts
+S0432,15,Female,Public,Urban,42,69,82,64,88,17,Tertiary,3256,No,Arts,Education,Entrepreneurship Club,Arts
+S0433,18,Male,Public,Rural,86,92,94,51,79,22,Tertiary,5376,Yes,STEM,Business,Science Club,STEM
+S0434,17,Female,Public,Rural,94,64,91,79,46,22,Primary,7645,No,Arts,Education,Entrepreneurship Club,Healthcare
+S0435,18,Male,Public,Urban,51,66,45,51,69,14,Secondary,7262,No,STEM,Business,None,Humanities
+S0436,18,Male,Public,Urban,52,97,100,49,46,25,Primary,5486,No,Healthcare,Arts,Science Club,Business
+S0437,16,Male,Private,Rural,45,65,56,76,42,19,Secondary,5584,Yes,Arts,Education,Sports,Business
+S0438,17,Female,Public,Rural,87,68,96,64,40,13,Secondary,3396,No,Business,Healthcare,Entrepreneurship Club,Arts
+S0439,18,Male,Public,Urban,41,59,72,46,75,6,Secondary,5637,No,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0440,15,Male,Private,Rural,38,79,84,83,64,21,Tertiary,5330,Yes,Humanities,Education,Entrepreneurship Club,STEM
+S0441,15,Female,Public,Rural,43,86,78,79,76,12,Secondary,4703,No,Healthcare,Business,Music,STEM
+S0442,19,Female,Private,Urban,40,75,100,59,40,15,Primary,2470,No,STEM,Arts,Music,STEM
+S0443,17,Male,Private,Urban,81,79,71,52,54,8,Primary,9114,Yes,Healthcare,Arts,Entrepreneurship Club,Arts
+S0444,17,Female,Public,Rural,76,88,78,88,76,24,Secondary,7131,No,Humanities,Arts,Music,Business
+S0445,19,Female,Private,Rural,73,88,99,92,52,24,Tertiary,3353,No,Healthcare,Technology,Entrepreneurship Club,Business
+S0446,18,Male,Private,Rural,81,56,78,60,79,9,Tertiary,4783,Yes,Business,Healthcare,Music,STEM
+S0447,17,Male,Private,Urban,75,92,78,69,47,27,Tertiary,4831,No,Healthcare,Technology,Entrepreneurship Club,Arts
+S0448,15,Female,Private,Urban,86,48,67,79,44,12,Primary,7063,No,Business,Healthcare,Science Club,Humanities
+S0449,15,Female,Private,Rural,68,94,41,64,48,26,Secondary,2357,No,STEM,Business,Music,STEM
+S0450,16,Male,Private,Rural,51,65,45,70,40,18,Secondary,5019,Yes,Humanities,Arts,Entrepreneurship Club,Business
+S0451,17,Male,Private,Rural,62,89,52,100,75,10,Tertiary,9575,No,Arts,Business,Entrepreneurship Club,Arts
+S0452,18,Male,Private,Rural,90,60,95,94,74,24,Primary,2667,Yes,Healthcare,Technology,Entrepreneurship Club,Humanities
+S0453,19,Male,Private,Urban,81,57,53,70,41,8,Tertiary,6468,Yes,Business,Arts,Sports,STEM
+S0454,19,Male,Public,Rural,62,39,89,82,79,8,Primary,7127,Yes,STEM,Business,Music,Arts
+S0455,18,Female,Public,Rural,66,85,72,39,62,30,Tertiary,3145,Yes,Healthcare,Healthcare,Sports,Arts
+S0456,16,Male,Public,Rural,39,45,55,54,48,13,Tertiary,7467,Yes,Business,Healthcare,Music,Healthcare
+S0457,19,Male,Public,Urban,75,68,93,99,73,11,Tertiary,8819,No,Healthcare,Business,Music,Healthcare
+S0458,17,Male,Public,Urban,83,54,89,63,85,13,Primary,6185,Yes,Healthcare,Education,Sports,Healthcare
+S0459,16,Female,Public,Rural,57,62,87,52,53,14,Primary,5719,No,Arts,Arts,Entrepreneurship Club,STEM
+S0460,17,Male,Public,Rural,44,75,57,90,43,27,Tertiary,4745,Yes,STEM,Arts,Music,Arts
+S0461,15,Female,Private,Rural,91,67,85,58,69,26,Tertiary,9483,Yes,Humanities,Education,Music,Humanities
+S0462,16,Female,Private,Rural,70,59,71,81,70,12,Tertiary,9345,Yes,Healthcare,Technology,Entrepreneurship Club,Business
+S0463,19,Female,Private,Urban,63,57,91,62,77,16,Tertiary,2539,No,Healthcare,Business,None,STEM
+S0464,16,Male,Private,Rural,85,70,57,98,50,19,Tertiary,4779,No,Healthcare,Technology,Sports,Humanities
+S0465,16,Male,Public,Rural,62,38,42,51,74,14,Secondary,6964,Yes,Humanities,Healthcare,Sports,Healthcare
+S0466,16,Male,Public,Rural,100,79,42,67,47,27,Secondary,6136,Yes,Humanities,Business,Sports,Arts
+S0467,16,Female,Private,Urban,93,79,74,92,42,12,Tertiary,6835,No,Arts,Business,Music,STEM
+S0468,17,Female,Public,Rural,50,91,78,88,53,10,Tertiary,5775,No,Humanities,Education,Sports,Humanities
+S0469,15,Male,Public,Rural,57,67,93,80,52,21,Tertiary,8042,No,Healthcare,Technology,None,Arts
+S0470,18,Female,Private,Rural,50,91,55,94,84,9,Secondary,8645,Yes,Arts,Education,Entrepreneurship Club,Business
+S0471,16,Male,Public,Urban,55,73,70,83,71,15,Primary,9102,Yes,Healthcare,Education,Sports,Healthcare
+S0472,19,Female,Private,Rural,95,49,81,64,73,9,Primary,9312,No,Business,Education,Music,Arts
+S0473,16,Female,Public,Rural,69,47,56,80,84,9,Secondary,7320,Yes,Humanities,Healthcare,Sports,STEM
+S0474,19,Male,Public,Rural,92,57,93,71,58,27,Primary,7024,Yes,Arts,Business,Sports,Healthcare
+S0475,17,Female,Public,Urban,95,99,99,81,77,8,Secondary,8132,Yes,Arts,Arts,Music,Healthcare
+S0476,19,Male,Public,Urban,54,45,65,50,55,20,Tertiary,9891,Yes,Business,Business,Music,Healthcare
+S0477,18,Male,Private,Urban,52,51,89,44,41,8,Secondary,4508,Yes,Humanities,Arts,Entrepreneurship Club,STEM
+S0478,15,Female,Public,Rural,50,93,37,76,79,30,Primary,4779,No,Business,Business,Entrepreneurship Club,Humanities
+S0479,19,Male,Public,Rural,93,63,81,71,56,29,Primary,8895,Yes,Humanities,Technology,None,Healthcare
+S0480,19,Female,Public,Rural,71,41,68,94,94,25,Primary,2924,Yes,Humanities,Healthcare,None,Healthcare
+S0481,15,Male,Private,Rural,92,45,71,69,73,25,Tertiary,4956,No,STEM,Technology,None,Humanities
+S0482,18,Female,Private,Rural,43,100,79,74,81,8,Tertiary,3581,Yes,Humanities,Arts,Sports,Humanities
+S0483,16,Female,Public,Rural,100,67,93,93,55,27,Secondary,9714,Yes,Business,Education,None,Humanities
+S0484,19,Female,Public,Urban,60,81,92,98,77,14,Primary,5324,No,STEM,Business,Music,Healthcare
+S0485,15,Female,Private,Urban,80,78,86,45,41,16,Tertiary,6485,No,Humanities,Business,Music,Business
+S0486,17,Male,Public,Rural,100,53,63,89,41,8,Tertiary,7713,Yes,Business,Education,None,STEM
+S0487,15,Male,Private,Urban,46,58,83,100,65,11,Tertiary,9026,No,Humanities,Education,Science Club,Healthcare
+S0488,17,Male,Private,Rural,81,77,88,51,52,13,Primary,2255,No,STEM,Business,Science Club,Humanities
+S0489,18,Female,Public,Rural,39,96,60,56,95,13,Tertiary,6804,Yes,Business,Business,Science Club,Business
+S0490,16,Female,Public,Urban,60,88,85,51,86,18,Primary,3838,Yes,Humanities,Education,Entrepreneurship Club,Humanities
+S0491,15,Male,Public,Urban,51,87,53,85,70,27,Primary,3944,No,Arts,Business,Science Club,Business
+S0492,19,Female,Public,Rural,58,88,79,95,73,8,Primary,8593,No,Arts,Education,Entrepreneurship Club,Humanities
+S0493,18,Male,Public,Urban,91,89,38,77,78,16,Secondary,2009,No,Healthcare,Technology,Music,Arts
+S0494,15,Female,Public,Rural,74,58,88,57,42,21,Primary,4871,Yes,Humanities,Business,Entrepreneurship Club,Humanities
+S0495,19,Male,Private,Urban,67,73,45,44,47,29,Tertiary,2797,Yes,Humanities,Technology,None,STEM
+S0496,15,Male,Private,Urban,73,46,68,70,62,20,Secondary,9409,No,Healthcare,Business,Music,Business
+S0497,17,Female,Private,Urban,72,56,58,81,53,7,Secondary,9418,Yes,Business,Education,Entrepreneurship Club,Arts
+S0498,15,Female,Private,Rural,59,82,70,93,95,25,Tertiary,6972,No,Business,Education,Music,STEM
+S0499,15,Female,Private,Urban,95,48,51,49,94,14,Secondary,7124,No,Humanities,Technology,Sports,Humanities
+S0500,15,Male,Private,Rural,82,78,81,69,66,27,Secondary,9286,Yes,STEM,Technology,Entrepreneurship Club,STEM
+S0001,18,Male,Private,Urban,88,81,98,71,93,21,Primary,3015,Yes,STEM,Technology,Sports,Humanities
+S0002,19,Female,Public,Urban,80,63,55,48,68,28,Secondary,3824,Yes,Healthcare,Arts,None,Healthcare
+S0003,17,Female,Private,Urban,41,45,54,77,78,24,Secondary,6469,No,Humanities,Healthcare,None,Healthcare
+S0004,19,Male,Private,Urban,85,77,61,86,92,4,Secondary,5136,No,Healthcare,Technology,Entrepreneurship Club,Healthcare
+S0005,19,Male,Public,Urban,61,90,91,51,78,21,Secondary,4193,No,Business,Technology,None,Business
+S0006,16,Male,Public,Rural,40,47,75,73,40,17,Primary,2223,No,STEM,Technology,None,Business
+S0007,17,Female,Private,Rural,70,98,46,100,56,13,Secondary,7358,Yes,Business,Education,None,Business
+S0008,17,Female,Private,Rural,91,99,100,52,80,24,Secondary,8320,No,STEM,Business,Music,Humanities
+S0009,17,Male,Private,Rural,46,88,67,75,69,17,Secondary,7898,Yes,Healthcare,Healthcare,Music,Business
+S0010,19,Male,Private,Rural,43,63,61,63,92,16,Primary,6948,Yes,Arts,Education,Entrepreneurship Club,Arts
+S0011,18,Female,Private,Urban,55,54,93,96,52,21,Secondary,9449,Yes,Humanities,Business,Sports,Healthcare
+S0012,17,Male,Public,Urban,47,89,66,61,60,24,Secondary,6158,Yes,Healthcare,Arts,Entrepreneurship Club,STEM
+S0013,19,Male,Private,Rural,91,44,78,97,58,7,Tertiary,7336,No,Business,Technology,Music,Arts
+S0014,16,Male,Public,Urban,58,40,90,59,92,6,Secondary,5925,Yes,Healthcare,Arts,Music,Healthcare
+S0015,18,Male,Public,Rural,67,65,89,74,58,12,Tertiary,8970,No,Arts,Business,Sports,Business
+S0016,16,Female,Private,Rural,44,52,82,74,64,14,Primary,8938,Yes,Arts,Business,None,Business
+S0017,18,Female,Public,Urban,57,42,57,57,61,15,Secondary,6784,No,Healthcare,Arts,Sports,Humanities
+S0018,19,Male,Private,Rural,91,59,70,43,70,17,Primary,7580,No,Arts,Technology,Music,Humanities
+S0019,15,Male,Public,Urban,48,71,87,63,56,10,Tertiary,6000,No,Humanities,Healthcare,Entrepreneurship Club,Healthcare
+S0020,18,Female,Private,Rural,71,54,45,49,94,29,Secondary,3633,Yes,Business,Technology,None,Arts
+S0021,16,Female,Private,Rural,57,95,70,55,62,19,Secondary,4152,Yes,Business,Healthcare,Sports,Humanities
+S0022,19,Female,Public,Rural,87,89,56,75,71,25,Secondary,9266,No,Business,Arts,Sports,Healthcare
+S0023,18,Male,Public,Urban,58,87,71,77,49,25,Primary,2510,No,Humanities,Business,Entrepreneurship Club,Business
+S0024,15,Male,Public,Urban,64,44,57,96,49,26,Secondary,2384,No,Humanities,Education,Music,Humanities
+S0025,15,Female,Public,Rural,100,99,98,58,75,17,Secondary,2404,No,Healthcare,Education,Science Club,Humanities
+S0026,17,Female,Private,Urban,75,68,56,68,47,30,Secondary,8966,No,STEM,Arts,Sports,Healthcare
+S0027,17,Male,Public,Rural,86,70,87,89,93,12,Primary,6613,No,Business,Technology,Music,Business
+S0028,16,Male,Private,Urban,78,73,59,71,91,15,Primary,6571,No,STEM,Technology,Entrepreneurship Club,Humanities
+S0029,18,Male,Private,Rural,51,62,80,46,59,14,Secondary,4000,No,Business,Healthcare,Science Club,Humanities
+S0030,18,Male,Private,Urban,82,58,68,96,71,20,Primary,4756,No,Arts,Technology,Music,Arts
+S0031,17,Female,Public,Urban,88,70,54,84,89,3,Primary,3668,No,Healthcare,Healthcare,Music,Business
+S0032,18,Female,Public,Urban,84,98,61,91,53,6,Secondary,7989,Yes,STEM,Technology,Entrepreneurship Club,Humanities
+S0033,18,Male,Private,Urban,72,94,74,56,89,21,Tertiary,8914,No,STEM,Arts,Entrepreneurship Club,Humanities
+S0034,15,Female,Private,Rural,57,60,58,89,67,7,Primary,3460,No,STEM,Arts,Sports,Humanities
+S0035,17,Female,Private,Urban,85,83,65,64,85,12,Primary,9190,No,Business,Business,Sports,Arts
+S0036,19,Male,Public,Urban,77,84,83,95,91,11,Secondary,9140,Yes,Healthcare,Arts,None,Arts
+S0037,17,Female,Public,Rural,65,56,97,52,92,21,Tertiary,5636,Yes,STEM,Business,None,STEM
+S0038,19,Female,Private,Rural,64,59,61,81,63,14,Secondary,4724,No,STEM,Healthcare,Music,Business
+S0039,15,Male,Public,Rural,78,58,86,70,54,6,Tertiary,6809,No,Healthcare,Business,None,Arts
+S0040,16,Male,Private,Urban,64,83,87,47,61,24,Tertiary,9625,No,Humanities,Business,None,Healthcare
+S0041,18,Male,Private,Urban,48,56,39,59,69,8,Primary,6178,Yes,Arts,Healthcare,Science Club,Humanities
+S0042,15,Male,Private,Urban,47,65,80,91,43,22,Primary,7264,No,Healthcare,Arts,Science Club,Healthcare
+S0043,18,Male,Public,Rural,38,93,58,56,52,17,Secondary,9252,Yes,Arts,Arts,Sports,STEM
+S0044,16,Female,Private,Rural,55,76,44,75,62,26,Primary,9245,No,Humanities,Arts,None,Healthcare
+S0045,16,Female,Public,Urban,51,89,62,82,47,3,Tertiary,8600,No,Humanities,Education,None,Humanities
+S0046,15,Male,Public,Urban,90,68,59,92,57,6,Tertiary,7997,Yes,Healthcare,Arts,Music,Business
+S0047,16,Female,Public,Urban,58,75,86,48,51,19,Tertiary,4048,No,Arts,Business,Music,STEM
+S0048,19,Male,Private,Urban,49,53,48,46,94,21,Tertiary,6146,Yes,Healthcare,Healthcare,None,Business
+S0049,16,Male,Public,Urban,56,87,54,55,70,15,Primary,6780,Yes,Healthcare,Healthcare,Music,STEM
+S0050,18,Female,Public,Urban,64,86,51,90,53,19,Secondary,2716,No,STEM,Arts,Entrepreneurship Club,Healthcare
+S0051,18,Female,Private,Urban,77,76,98,61,73,22,Secondary,9939,No,Arts,Technology,Sports,Humanities
+S0052,18,Female,Public,Urban,39,73,94,68,57,25,Secondary,7565,No,Healthcare,Business,None,Healthcare
+S0053,18,Female,Private,Urban,66,99,92,90,95,9,Secondary,6544,No,Humanities,Healthcare,None,Business
+S0054,19,Male,Public,Rural,45,87,94,84,73,29,Primary,6976,No,STEM,Education,Entrepreneurship Club,Arts
+S0055,17,Male,Private,Rural,77,90,100,78,50,20,Tertiary,6583,Yes,Humanities,Arts,Music,Business
+S0056,15,Female,Private,Rural,58,74,60,88,80,9,Secondary,3823,Yes,STEM,Healthcare,Sports,Business
+S0057,18,Female,Private,Rural,49,60,85,71,51,17,Primary,4081,No,Arts,Education,Science Club,STEM
+S0058,16,Female,Private,Rural,59,93,96,45,88,10,Secondary,5419,Yes,Arts,Business,None,Humanities
+S0059,18,Male,Public,Urban,52,88,58,91,54,21,Tertiary,8238,No,Humanities,Arts,Music,Arts
+S0060,16,Male,Private,Urban,49,94,99,97,70,8,Secondary,9239,Yes,Humanities,Education,None,STEM
+S0061,16,Male,Public,Rural,67,62,80,78,88,12,Tertiary,3574,Yes,Humanities,Business,Sports,Healthcare
+S0062,18,Male,Private,Urban,46,97,94,82,68,20,Secondary,8297,No,Humanities,Healthcare,Music,Business
+S0063,19,Male,Public,Rural,67,89,73,46,65,12,Primary,2249,Yes,STEM,Technology,Science Club,STEM
+S0064,16,Female,Private,Rural,96,45,82,67,57,27,Tertiary,2673,Yes,Arts,Education,Music,Arts
+S0065,16,Male,Private,Rural,75,99,51,60,71,5,Primary,6533,Yes,Healthcare,Education,Entrepreneurship Club,Healthcare
+S0066,18,Male,Public,Urban,72,94,66,58,61,21,Secondary,4165,No,STEM,Business,Science Club,Humanities
+S0067,16,Male,Private,Urban,66,88,48,58,77,20,Tertiary,2770,Yes,Humanities,Healthcare,Science Club,STEM
+S0068,16,Female,Private,Rural,56,79,77,70,56,15,Secondary,5962,No,Business,Technology,None,Business
+S0069,18,Male,Public,Urban,42,70,98,53,62,30,Secondary,9473,No,Healthcare,Technology,Music,Arts
+S0070,18,Male,Public,Rural,88,51,94,91,63,7,Secondary,6363,No,Healthcare,Technology,None,Humanities
+S0071,15,Female,Public,Rural,60,44,63,91,89,18,Tertiary,3984,No,Humanities,Education,None,Healthcare
+S0072,19,Female,Public,Urban,98,39,55,94,47,25,Primary,3077,Yes,Business,Education,Music,Business
+S0073,19,Male,Private,Urban,85,55,47,52,80,13,Primary,2235,No,Business,Business,None,Arts
+S0074,16,Female,Private,Rural,87,87,96,85,45,22,Tertiary,2388,No,Arts,Healthcare,Music,Humanities
+S0075,19,Male,Private,Urban,44,83,72,97,44,31,Tertiary,5037,No,Healthcare,Healthcare,Music,STEM
+S0076,16,Male,Private,Urban,69,65,78,53,83,27,Tertiary,9901,Yes,STEM,Technology,Music,Business
+S0077,15,Male,Private,Urban,80,59,100,69,68,15,Primary,6858,Yes,Humanities,Healthcare,None,STEM
+S0078,18,Male,Public,Rural,41,44,56,60,67,28,Tertiary,3848,No,Arts,Technology,None,STEM
+S0079,18,Male,Public,Urban,59,83,70,65,50,28,Tertiary,8544,Yes,Arts,Arts,Science Club,Healthcare
+S0080,18,Female,Private,Urban,54,56,77,88,40,5,Tertiary,6719,No,STEM,Technology,Entrepreneurship Club,Arts
+S0081,19,Male,Public,Rural,88,99,41,90,82,27,Tertiary,4814,Yes,STEM,Business,Entrepreneurship Club,Healthcare
+S0082,15,Female,Private,Urban,69,48,100,91,58,27,Primary,5374,Yes,Business,Technology,None,Healthcare
+S0083,19,Male,Private,Rural,49,77,41,45,48,19,Tertiary,9062,No,Humanities,Education,Sports,Business
+S0084,19,Female,Public,Urban,59,50,69,47,66,12,Secondary,5278,Yes,Healthcare,Business,Science Club,Business
+S0085,15,Male,Public,Urban,74,61,45,86,73,23,Secondary,3252,Yes,Healthcare,Healthcare,Science Club,Arts
+S0086,15,Female,Public,Rural,43,54,42,76,83,14,Primary,8996,Yes,Healthcare,Arts,Sports,STEM
+S0087,15,Female,Public,Urban,59,44,76,88,43,22,Primary,5981,No,Humanities,Education,Entrepreneurship Club,Humanities
+S0088,15,Female,Private,Rural,49,100,86,51,75,28,Tertiary,6673,Yes,STEM,Technology,Entrepreneurship Club,Humanities
+S0089,18,Female,Private,Rural,39,94,65,48,57,15,Primary,4122,Yes,Arts,Business,Music,Healthcare
+S0090,17,Male,Private,Rural,89,52,76,87,54,13,Secondary,6530,Yes,Humanities,Business,Science Club,Arts
+S0091,17,Male,Public,Urban,99,89,93,88,90,20,Secondary,4150,Yes,Arts,Healthcare,Science Club,Healthcare
+S0092,15,Male,Public,Rural,51,39,90,59,52,21,Secondary,9589,Yes,STEM,Arts,Entrepreneurship Club,Business
+S0093,17,Female,Private,Rural,75,52,59,54,58,21,Secondary,9871,Yes,STEM,Business,Entrepreneurship Club,Healthcare
+S0094,17,Male,Private,Rural,69,82,71,91,88,5,Secondary,6859,Yes,STEM,Education,Science Club,STEM
+S0095,15,Male,Private,Urban,71,85,93,73,45,13,Primary,8881,No,Business,Healthcare,Science Club,STEM
+S0096,17,Male,Public,Rural,47,68,92,73,87,15,Tertiary,8949,No,Humanities,Arts,Entrepreneurship Club,Humanities
+S0097,19,Female,Public,Rural,74,96,64,45,95,18,Tertiary,3329,Yes,Arts,Arts,Science Club,Arts
+S0098,16,Female,Public,Rural,56,84,49,56,51,6,Tertiary,8241,Yes,Humanities,Arts,Music,Business
+S0099,16,Female,Public,Rural,55,46,71,80,90,13,Tertiary,8941,No,Humanities,Education,Science Club,Healthcare
+S0100,15,Male,Private,Rural,55,54,45,47,76,24,Primary,3358,No,STEM,Technology,Music,Business
+S0101,18,Male,Private,Rural,71,95,90,100,56,16,Secondary,9002,Yes,Business,Technology,Music,Business
+S0102,15,Male,Private,Urban,100,82,93,44,62,31,Secondary,4482,Yes,STEM,Education,Entrepreneurship Club,Business
+S0103,18,Female,Public,Rural,49,94,64,57,65,10,Primary,6542,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0104,16,Female,Private,Rural,71,89,62,91,68,22,Tertiary,4017,Yes,Arts,Technology,Entrepreneurship Club,Business
+S0105,15,Male,Public,Urban,72,58,43,88,72,21,Secondary,3331,No,STEM,Technology,Science Club,STEM
+S0106,19,Female,Private,Rural,80,76,86,68,66,18,Tertiary,6344,Yes,Humanities,Healthcare,Sports,Humanities
+S0107,17,Male,Private,Urban,40,79,60,90,64,6,Primary,6261,Yes,Healthcare,Education,None,Business
+S0108,18,Male,Private,Urban,99,81,77,53,95,11,Primary,9648,No,STEM,Business,Science Club,Arts
+S0109,17,Male,Private,Rural,60,64,42,84,94,25,Secondary,9127,No,Arts,Business,Science Club,Healthcare
+S0110,17,Male,Private,Urban,56,89,87,75,49,12,Primary,3358,No,Healthcare,Arts,Entrepreneurship Club,Business
+S0111,15,Female,Private,Urban,66,42,71,56,86,18,Primary,7115,No,Business,Business,Music,Healthcare
+S0112,17,Male,Private,Urban,86,63,96,67,62,18,Secondary,6637,No,STEM,Arts,None,Healthcare
+S0113,19,Male,Public,Rural,40,71,49,62,60,31,Primary,6854,Yes,Arts,Arts,Sports,Arts
+S0114,17,Male,Public,Rural,61,62,44,84,60,10,Secondary,5177,Yes,Business,Education,None,Humanities
+S0115,15,Female,Private,Rural,72,92,46,39,82,8,Secondary,9730,No,Healthcare,Business,Music,Humanities
+S0116,19,Male,Private,Rural,50,56,77,90,52,17,Secondary,4128,Yes,STEM,Technology,None,STEM
+S0117,16,Male,Public,Urban,59,52,60,44,76,24,Primary,4180,No,Business,Arts,Sports,Business
+S0118,17,Female,Private,Rural,40,40,75,76,72,31,Secondary,6892,Yes,Healthcare,Arts,None,Business
+S0119,15,Male,Public,Rural,49,77,66,60,63,23,Secondary,9043,No,Humanities,Education,Entrepreneurship Club,Humanities
+S0120,16,Female,Public,Urban,89,43,67,58,83,18,Primary,2137,Yes,Healthcare,Business,Music,Business
+S0121,16,Male,Public,Rural,70,66,39,51,50,22,Tertiary,8327,No,Arts,Education,Sports,STEM
+S0122,18,Male,Public,Rural,95,38,50,43,56,8,Tertiary,5472,No,Arts,Arts,Music,Humanities
+S0123,19,Female,Private,Rural,53,81,81,79,43,18,Secondary,7449,No,Humanities,Technology,Sports,Humanities
+S0124,17,Female,Public,Urban,43,82,59,67,86,17,Primary,4832,Yes,Arts,Healthcare,Music,Humanities
+S0125,15,Male,Private,Urban,67,85,90,77,64,24,Tertiary,5579,No,Healthcare,Healthcare,Music,Business
+S0126,18,Male,Private,Urban,59,69,77,99,69,21,Primary,7971,Yes,STEM,Technology,Music,STEM
+S0127,19,Female,Public,Rural,43,41,54,69,48,25,Secondary,5031,No,Arts,Technology,Sports,Humanities
+S0128,18,Female,Public,Urban,70,61,91,91,60,14,Primary,6164,Yes,Healthcare,Business,Sports,Business
+S0129,19,Female,Public,Rural,59,94,56,74,59,5,Secondary,4593,Yes,Business,Education,Science Club,Business
+S0130,19,Female,Public,Rural,48,76,82,82,58,23,Tertiary,9941,Yes,Arts,Business,Music,Healthcare
+S0131,17,Female,Public,Urban,64,42,91,76,58,6,Secondary,8196,Yes,Healthcare,Healthcare,Science Club,STEM
+S0132,19,Male,Public,Rural,90,85,57,53,51,24,Tertiary,7569,No,STEM,Arts,Science Club,Business
+S0133,18,Female,Public,Urban,95,97,77,91,76,19,Secondary,6300,No,Healthcare,Healthcare,Music,Business
+S0134,19,Female,Private,Rural,41,82,54,49,81,13,Primary,8269,Yes,Healthcare,Arts,Science Club,Arts
+S0135,17,Female,Public,Urban,59,98,69,70,56,25,Primary,5818,Yes,Humanities,Healthcare,Science Club,Arts
+S0136,17,Male,Public,Rural,55,81,86,93,76,10,Primary,6138,Yes,Humanities,Technology,None,Healthcare
+S0137,18,Male,Private,Rural,94,95,64,77,93,24,Secondary,5823,No,Arts,Business,None,Healthcare
+S0138,16,Female,Public,Rural,69,94,64,47,87,17,Secondary,6042,No,STEM,Healthcare,None,Business
+S0139,16,Female,Private,Urban,47,69,74,72,78,13,Tertiary,3906,Yes,Healthcare,Technology,Entrepreneurship Club,Business
+S0140,19,Male,Private,Rural,44,62,63,46,67,17,Secondary,8254,Yes,Healthcare,Business,Science Club,Humanities
+S0141,15,Female,Public,Rural,78,58,94,40,80,5,Primary,2760,Yes,Humanities,Technology,Music,Humanities
+S0142,19,Female,Private,Urban,84,67,78,39,74,23,Secondary,9830,Yes,Arts,Business,Music,Humanities
+S0143,18,Female,Private,Rural,56,80,58,71,86,15,Secondary,9350,No,Healthcare,Business,Sports,STEM
+S0144,18,Male,Private,Urban,74,57,98,67,87,8,Tertiary,8991,No,STEM,Healthcare,Sports,STEM
+S0145,18,Male,Public,Urban,79,64,63,81,57,30,Primary,8238,Yes,STEM,Technology,Science Club,Humanities
+S0146,18,Male,Private,Urban,100,65,95,38,53,20,Secondary,8090,No,Humanities,Technology,Sports,Business
+S0147,18,Male,Public,Urban,92,84,48,56,74,20,Primary,5445,No,Healthcare,Healthcare,Music,Humanities
+S0148,17,Female,Public,Urban,69,85,92,75,83,30,Primary,8031,No,Humanities,Healthcare,Music,Humanities
+S0149,16,Female,Public,Urban,95,64,41,51,80,6,Tertiary,9687,Yes,Humanities,Healthcare,None,Arts
+S0150,18,Female,Private,Urban,76,65,69,77,46,10,Tertiary,2899,Yes,Humanities,Arts,Science Club,Humanities
+S0151,15,Male,Private,Urban,100,69,72,43,80,12,Secondary,6455,No,Healthcare,Business,Sports,Humanities
+S0152,15,Female,Private,Rural,74,45,39,49,52,7,Tertiary,4947,Yes,STEM,Technology,Music,Arts
+S0153,15,Male,Public,Urban,75,71,60,99,57,20,Tertiary,3719,No,Arts,Business,Entrepreneurship Club,Humanities
+S0154,15,Male,Public,Rural,94,89,49,45,76,19,Tertiary,2280,Yes,Healthcare,Education,Sports,Healthcare
+S0155,17,Female,Private,Urban,71,69,89,38,52,9,Primary,5266,No,Arts,Healthcare,Entrepreneurship Club,Humanities
+S0156,15,Male,Private,Urban,94,50,46,80,75,24,Secondary,3887,Yes,Humanities,Business,Sports,Arts
+S0157,18,Female,Private,Urban,73,92,65,71,70,23,Secondary,5266,No,Humanities,Business,Science Club,Healthcare
+S0158,19,Female,Public,Urban,42,53,84,36,41,5,Tertiary,2666,No,Business,Education,Music,Humanities
+S0159,15,Female,Private,Urban,62,54,39,84,55,10,Tertiary,6188,No,Humanities,Business,Music,Healthcare
+S0160,17,Female,Public,Rural,63,57,68,59,48,21,Primary,2671,Yes,Humanities,Technology,Science Club,Humanities
+S0161,17,Male,Public,Urban,60,93,77,45,48,18,Primary,3969,Yes,Business,Technology,Science Club,Business
+S0162,15,Female,Public,Rural,49,68,61,68,77,10,Secondary,6156,No,STEM,Education,None,Humanities
+S0163,19,Female,Public,Rural,47,77,89,85,50,14,Primary,8777,No,Arts,Arts,Sports,Business
+S0164,15,Female,Public,Urban,81,63,77,55,93,12,Secondary,5122,Yes,Business,Business,Science Club,Business
+S0165,17,Male,Public,Urban,63,51,36,39,95,23,Primary,9570,Yes,Business,Education,Science Club,Arts
+S0166,16,Male,Private,Urban,47,43,45,67,61,21,Tertiary,9956,No,Healthcare,Technology,Music,Arts
+S0167,18,Male,Public,Urban,91,80,67,65,72,29,Tertiary,7124,No,Humanities,Business,Entrepreneurship Club,STEM
+S0168,17,Male,Public,Urban,42,50,81,74,75,7,Primary,7585,Yes,Humanities,Arts,Science Club,Business
+S0169,15,Male,Private,Rural,69,89,46,54,84,27,Secondary,6699,Yes,Arts,Business,None,Business
+S0170,18,Female,Private,Urban,61,80,57,72,62,10,Tertiary,6777,Yes,Humanities,Education,Sports,Business
+S0171,15,Female,Private,Rural,98,91,66,46,84,15,Primary,5900,No,Arts,Arts,Science Club,Humanities
+S0172,15,Male,Public,Rural,77,78,57,43,84,8,Tertiary,8677,Yes,STEM,Healthcare,Entrepreneurship Club,Humanities
+S0173,16,Female,Private,Rural,54,64,51,49,73,25,Tertiary,7524,No,Healthcare,Business,Entrepreneurship Club,Business
+S0174,18,Male,Private,Urban,62,55,55,96,48,26,Primary,8981,Yes,Arts,Healthcare,Science Club,Arts
+S0175,18,Male,Public,Urban,45,94,43,56,63,12,Primary,9680,No,Business,Technology,None,Healthcare
+S0176,16,Male,Public,Urban,63,78,63,79,47,17,Tertiary,8788,Yes,Humanities,Technology,Science Club,Humanities
+S0177,17,Female,Public,Rural,100,100,68,69,46,14,Tertiary,8376,No,Business,Technology,None,STEM
+S0178,15,Male,Private,Rural,90,57,43,74,75,15,Secondary,2523,Yes,Arts,Healthcare,Music,Business
+S0179,19,Female,Public,Rural,81,39,58,79,57,17,Tertiary,4393,No,Healthcare,Healthcare,None,Humanities
+S0180,15,Male,Private,Rural,40,88,100,56,42,27,Primary,5117,No,Healthcare,Arts,Science Club,Arts
+S0181,15,Female,Private,Urban,44,71,85,99,67,19,Tertiary,4593,No,Humanities,Business,Science Club,Arts
+S0182,17,Male,Private,Rural,49,64,39,82,45,14,Tertiary,3968,Yes,Arts,Business,Science Club,Healthcare
+S0183,15,Female,Public,Rural,60,44,97,51,83,11,Primary,7197,No,Business,Technology,Music,Arts
+S0184,16,Male,Public,Rural,60,40,70,42,83,29,Tertiary,3753,No,Business,Education,Sports,Humanities
+S0185,16,Male,Public,Urban,92,51,85,75,60,13,Secondary,7932,Yes,Business,Education,Science Club,Arts
+S0186,18,Female,Private,Urban,84,57,92,53,67,15,Secondary,9240,Yes,Humanities,Arts,Science Club,Business
+S0187,19,Female,Public,Urban,58,76,74,92,79,5,Secondary,8937,Yes,Healthcare,Healthcare,Science Club,Healthcare
+S0188,15,Female,Private,Urban,90,93,79,78,93,14,Tertiary,4296,No,Business,Business,Sports,STEM
+S0189,15,Male,Private,Urban,61,55,50,86,93,13,Tertiary,8190,Yes,Humanities,Education,Science Club,Humanities
+S0190,17,Female,Private,Rural,80,54,71,100,40,15,Primary,7240,No,STEM,Business,Sports,Healthcare
+S0191,16,Male,Public,Rural,81,68,89,60,75,13,Secondary,4261,No,Arts,Technology,None,Humanities
+S0192,19,Female,Public,Urban,70,49,89,82,60,19,Tertiary,4286,No,Arts,Healthcare,Science Club,STEM
+S0193,18,Male,Private,Urban,76,90,58,100,82,22,Primary,7175,Yes,Healthcare,Business,Sports,Humanities
+S0194,16,Female,Public,Rural,57,47,90,46,74,19,Secondary,8493,No,Business,Business,Sports,Business
+S0195,18,Female,Public,Rural,78,60,85,40,52,5,Secondary,6202,Yes,Arts,Education,Science Club,Arts
+S0196,17,Male,Public,Rural,84,80,48,62,88,22,Tertiary,4878,Yes,STEM,Education,Sports,STEM
+S0197,17,Female,Private,Rural,99,63,72,57,93,15,Primary,6143,Yes,STEM,Arts,Sports,Humanities
+S0198,15,Male,Private,Urban,51,86,86,95,93,23,Primary,5644,No,STEM,Business,None,STEM
+S0199,19,Male,Private,Urban,65,90,80,81,49,27,Tertiary,6432,Yes,STEM,Technology,Entrepreneurship Club,Business
+S0200,18,Male,Private,Rural,92,57,91,74,92,23,Primary,7145,No,Humanities,Business,Science Club,Humanities
+S0201,16,Female,Public,Urban,90,93,50,96,83,22,Tertiary,8947,No,Humanities,Business,Music,STEM
+S0202,17,Male,Public,Urban,91,79,80,75,86,8,Secondary,7376,No,Healthcare,Technology,Sports,Healthcare
+S0203,15,Male,Public,Urban,62,93,60,76,92,27,Tertiary,4055,No,Business,Business,Science Club,Arts
+S0204,15,Male,Public,Urban,46,59,100,38,49,19,Primary,6720,Yes,Arts,Business,Entrepreneurship Club,Arts
+S0205,18,Female,Private,Urban,78,58,67,48,85,7,Secondary,7986,No,Humanities,Business,Entrepreneurship Club,STEM
+S0206,17,Male,Private,Urban,94,48,68,58,52,11,Primary,3276,No,Arts,Arts,None,Arts
+S0207,19,Female,Private,Rural,85,43,77,57,76,8,Secondary,7811,No,Business,Healthcare,Music,STEM
+S0208,17,Male,Private,Urban,100,66,56,95,77,6,Tertiary,4766,No,STEM,Business,Sports,Healthcare
+S0209,18,Male,Private,Urban,59,69,91,96,63,17,Tertiary,2302,Yes,STEM,Business,Science Club,Humanities
+S0210,18,Male,Private,Urban,82,75,89,64,41,27,Tertiary,2638,Yes,STEM,Education,None,Business
+S0211,17,Male,Public,Rural,78,59,78,95,61,19,Primary,2055,Yes,Arts,Business,None,Humanities
+S0212,18,Male,Private,Rural,84,83,87,72,56,17,Primary,6821,Yes,STEM,Business,Science Club,Arts
+S0213,17,Female,Public,Urban,63,60,98,74,75,10,Secondary,2525,Yes,Business,Education,Science Club,Business
+S0214,16,Male,Public,Urban,96,86,78,90,53,11,Secondary,6569,Yes,STEM,Technology,None,STEM
+S0215,17,Female,Public,Urban,68,69,53,79,49,28,Primary,6123,No,Healthcare,Healthcare,Entrepreneurship Club,Arts
+S0216,17,Male,Public,Urban,73,62,58,41,74,14,Primary,4125,Yes,Arts,Business,Science Club,Arts
+S0217,18,Female,Public,Urban,79,55,81,60,64,9,Tertiary,5287,Yes,Arts,Education,Music,Arts
+S0218,18,Male,Public,Rural,64,97,85,78,42,23,Tertiary,9553,No,Healthcare,Technology,Entrepreneurship Club,Business
+S0219,15,Female,Public,Urban,83,80,78,72,86,20,Primary,2364,Yes,Healthcare,Business,None,Healthcare
+S0220,15,Male,Public,Urban,56,70,51,89,77,18,Secondary,8809,Yes,STEM,Arts,Science Club,STEM
+S0221,16,Male,Public,Urban,84,93,60,48,56,8,Secondary,6621,Yes,STEM,Education,Entrepreneurship Club,Healthcare
+S0222,15,Female,Public,Urban,85,92,62,56,51,26,Tertiary,8842,No,Humanities,Healthcare,Science Club,Humanities
+S0223,17,Female,Public,Urban,51,42,87,60,93,26,Primary,7431,Yes,Humanities,Arts,Science Club,Arts
+S0224,18,Male,Public,Urban,91,84,100,88,91,8,Tertiary,6978,Yes,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0225,15,Male,Private,Urban,43,100,79,62,63,29,Primary,7126,Yes,Healthcare,Education,Sports,Business
+S0226,15,Male,Private,Rural,78,43,91,100,68,25,Tertiary,7122,Yes,Arts,Healthcare,Music,Healthcare
+S0227,16,Male,Private,Urban,45,60,85,66,82,10,Primary,3646,No,Business,Technology,None,Business
+S0228,16,Female,Private,Urban,40,89,82,61,64,26,Primary,2918,No,Arts,Arts,Sports,Healthcare
+S0229,17,Male,Private,Urban,100,75,55,67,75,14,Primary,4797,Yes,Business,Healthcare,Sports,Arts
+S0230,18,Female,Private,Rural,92,56,54,52,65,3,Primary,8506,No,Healthcare,Arts,None,Arts
+S0231,16,Male,Private,Urban,68,62,89,92,77,12,Primary,7870,Yes,STEM,Healthcare,Entrepreneurship Club,Healthcare
+S0232,15,Female,Private,Urban,67,78,57,59,40,3,Secondary,3531,Yes,STEM,Healthcare,Entrepreneurship Club,Healthcare
+S0233,18,Male,Private,Urban,48,64,50,69,59,7,Tertiary,5345,No,Arts,Arts,None,Business
+S0234,18,Female,Public,Urban,90,100,55,45,94,26,Tertiary,9673,No,Healthcare,Healthcare,Science Club,STEM
+S0235,15,Male,Private,Urban,96,82,83,51,67,11,Tertiary,8949,Yes,Humanities,Business,Music,Humanities
+S0236,16,Male,Private,Urban,98,79,86,70,55,27,Tertiary,8882,Yes,Arts,Arts,None,Business
+S0237,15,Male,Private,Rural,77,79,35,49,86,8,Tertiary,3906,Yes,Arts,Education,Entrepreneurship Club,Healthcare
+S0238,18,Female,Public,Rural,55,59,76,96,56,18,Primary,5086,No,STEM,Education,Entrepreneurship Club,Business
+S0239,19,Female,Private,Rural,71,84,87,92,79,9,Secondary,7311,No,Healthcare,Education,Sports,Arts
+S0240,19,Female,Public,Urban,45,57,63,60,67,28,Secondary,7750,No,STEM,Education,Music,Business
+S0241,17,Male,Private,Rural,94,78,51,68,51,18,Tertiary,6580,No,Humanities,Healthcare,Entrepreneurship Club,STEM
+S0242,15,Male,Public,Rural,68,49,48,89,66,22,Tertiary,4075,No,Arts,Technology,Sports,Arts
+S0243,15,Female,Private,Urban,46,88,46,51,93,20,Primary,2713,No,Business,Technology,Science Club,Humanities
+S0244,17,Male,Public,Rural,100,50,97,84,92,10,Primary,3062,No,Business,Technology,Science Club,Arts
+S0245,17,Female,Public,Rural,58,78,87,72,81,27,Tertiary,3976,Yes,Business,Healthcare,Entrepreneurship Club,Healthcare
+S0246,17,Male,Public,Rural,50,39,53,86,86,30,Primary,3296,No,Humanities,Business,None,Healthcare
+S0247,18,Female,Private,Urban,87,46,92,90,69,20,Tertiary,7350,Yes,Humanities,Technology,Science Club,Humanities
+S0248,15,Male,Public,Urban,50,62,74,97,80,30,Secondary,8229,No,Arts,Arts,Sports,Business
+S0249,18,Female,Public,Urban,55,43,82,59,73,10,Tertiary,9641,No,Humanities,Arts,Science Club,STEM
+S0250,17,Female,Private,Urban,94,38,64,53,76,12,Secondary,2125,Yes,STEM,Education,Entrepreneurship Club,Business
+S0251,15,Male,Public,Urban,67,62,73,64,45,14,Primary,8955,No,Humanities,Arts,None,Business
+S0252,18,Male,Private,Rural,59,87,70,74,46,15,Primary,6632,No,STEM,Education,Entrepreneurship Club,STEM
+S0253,18,Male,Public,Rural,81,93,92,45,71,9,Tertiary,8288,Yes,Humanities,Business,Entrepreneurship Club,Healthcare
+S0254,17,Female,Private,Rural,53,41,49,52,71,22,Primary,5596,Yes,Arts,Healthcare,Sports,Humanities
+S0255,15,Male,Public,Rural,44,48,42,100,92,4,Secondary,5283,Yes,Healthcare,Business,Science Club,Arts
+S0256,17,Male,Private,Urban,66,69,68,60,64,14,Secondary,8168,No,STEM,Technology,Science Club,Humanities
+S0257,15,Female,Private,Rural,79,50,65,42,72,16,Secondary,3603,Yes,Arts,Technology,Sports,STEM
+S0258,19,Male,Public,Rural,45,85,88,53,94,6,Tertiary,9561,Yes,Business,Healthcare,Sports,Humanities
+S0259,16,Male,Public,Rural,61,89,67,55,46,25,Secondary,2066,No,STEM,Business,Entrepreneurship Club,Business
+S0260,16,Male,Private,Urban,74,81,65,94,91,11,Secondary,2232,No,Business,Education,Music,STEM
+S0261,16,Female,Private,Rural,48,57,83,68,51,22,Primary,4156,Yes,Business,Healthcare,Science Club,STEM
+S0262,17,Female,Public,Urban,50,50,89,52,55,25,Tertiary,3169,Yes,Arts,Healthcare,Entrepreneurship Club,Healthcare
+S0263,19,Male,Public,Urban,47,62,64,76,55,14,Primary,4158,Yes,Business,Business,Sports,Healthcare
+S0264,15,Male,Private,Urban,100,82,93,53,82,16,Tertiary,8371,Yes,Arts,Business,Science Club,Humanities
+S0265,18,Female,Public,Rural,66,76,84,93,92,15,Primary,6206,Yes,Healthcare,Education,Sports,STEM
+S0266,15,Female,Public,Rural,80,74,54,73,75,8,Primary,3493,No,Healthcare,Arts,Science Club,Humanities
+S0267,18,Female,Public,Rural,37,100,58,48,52,15,Secondary,8177,Yes,STEM,Business,Entrepreneurship Club,Humanities
+S0268,15,Male,Private,Rural,87,99,60,84,46,6,Primary,6718,No,STEM,Education,Sports,Arts
+S0269,19,Male,Public,Rural,91,52,38,51,75,20,Primary,9943,No,Arts,Education,Music,Humanities
+S0270,18,Female,Private,Urban,62,70,38,88,86,19,Primary,6007,Yes,STEM,Business,Science Club,Humanities
+S0271,17,Female,Public,Urban,73,93,70,51,90,19,Secondary,9536,Yes,Arts,Education,Science Club,STEM
+S0272,15,Male,Private,Urban,59,88,77,100,48,19,Primary,8891,No,Business,Arts,Entrepreneurship Club,STEM
+S0273,15,Male,Private,Rural,55,66,70,68,71,6,Tertiary,8738,No,Business,Healthcare,None,Humanities
+S0274,18,Female,Public,Urban,39,50,62,86,50,23,Tertiary,9721,No,Healthcare,Education,Music,STEM
+S0275,17,Female,Private,Urban,63,57,71,98,47,14,Tertiary,4472,No,Healthcare,Arts,Music,Humanities
+S0276,17,Male,Public,Urban,55,59,61,64,72,26,Primary,4660,No,Healthcare,Arts,Science Club,Arts
+S0277,19,Female,Public,Rural,80,67,90,62,62,23,Secondary,7637,Yes,STEM,Technology,None,Healthcare
+S0278,17,Male,Public,Urban,100,46,67,61,64,26,Tertiary,4739,No,Humanities,Business,Music,Humanities
+S0279,17,Male,Public,Urban,75,87,77,74,95,15,Primary,7401,No,Humanities,Technology,Music,Humanities
+S0280,17,Female,Private,Rural,81,86,60,61,47,20,Primary,9487,No,Business,Technology,Entrepreneurship Club,Humanities
+S0281,16,Female,Private,Rural,77,56,90,78,84,25,Tertiary,3761,No,Arts,Education,Science Club,Business
+S0282,19,Male,Private,Rural,51,59,71,58,61,7,Primary,5514,No,Business,Arts,None,STEM
+S0283,15,Male,Private,Urban,96,98,46,65,43,25,Primary,3975,No,Arts,Education,Sports,STEM
+S0284,18,Female,Public,Urban,58,81,100,59,79,12,Primary,4362,No,Arts,Technology,None,STEM
+S0285,15,Male,Private,Urban,59,62,85,87,42,18,Primary,2876,Yes,Business,Business,None,Healthcare
+S0286,19,Female,Private,Urban,42,53,57,46,68,30,Primary,8085,Yes,Arts,Healthcare,Science Club,STEM
+S0287,18,Male,Public,Urban,89,65,84,84,80,22,Secondary,5812,No,STEM,Healthcare,Music,Healthcare
+S0288,19,Male,Private,Urban,66,88,74,46,68,22,Primary,5448,No,Arts,Education,Music,Humanities
+S0289,17,Female,Private,Rural,92,67,40,39,73,6,Secondary,3312,No,Business,Healthcare,Sports,Healthcare
+S0290,18,Female,Private,Rural,86,53,71,79,73,28,Primary,3460,Yes,Healthcare,Arts,Science Club,Business
+S0291,17,Female,Private,Rural,100,63,81,98,67,20,Primary,4709,No,Business,Business,Sports,Business
+S0292,15,Female,Private,Rural,49,78,53,72,52,14,Tertiary,4324,No,Business,Arts,Music,STEM
+S0293,15,Female,Public,Urban,48,81,39,71,54,6,Tertiary,3733,Yes,Humanities,Arts,Entrepreneurship Club,STEM
+S0294,18,Female,Private,Rural,64,100,94,51,62,8,Tertiary,3605,No,STEM,Education,Entrepreneurship Club,STEM
+S0295,18,Male,Public,Rural,89,64,55,94,83,22,Primary,7622,Yes,Arts,Technology,Science Club,Healthcare
+S0296,19,Male,Public,Urban,76,68,54,45,65,7,Primary,8767,No,STEM,Technology,Music,STEM
+S0297,19,Female,Private,Urban,42,90,53,84,43,25,Secondary,4563,No,Healthcare,Education,None,Healthcare
+S0298,17,Male,Public,Rural,49,41,57,60,65,12,Primary,5421,Yes,Arts,Education,None,Arts
+S0299,18,Male,Private,Rural,73,61,53,53,79,22,Secondary,8986,Yes,Humanities,Arts,Entrepreneurship Club,Healthcare
+S0300,15,Male,Public,Rural,86,95,91,61,48,27,Tertiary,5517,Yes,Humanities,Education,Music,Healthcare
+S0301,19,Male,Public,Urban,74,43,95,78,94,9,Primary,9997,Yes,STEM,Arts,None,Arts
+S0302,19,Male,Public,Rural,91,50,47,79,44,21,Primary,4397,Yes,STEM,Education,Entrepreneurship Club,Business
+S0303,15,Male,Private,Rural,64,88,91,43,95,13,Secondary,7726,Yes,STEM,Technology,Science Club,Arts
+S0304,19,Male,Public,Urban,54,70,76,74,71,4,Secondary,5735,No,Humanities,Healthcare,None,Humanities
+S0305,17,Female,Public,Urban,75,81,62,62,59,15,Tertiary,4870,No,STEM,Education,Music,STEM
+S0306,18,Male,Private,Urban,47,90,39,53,89,14,Tertiary,3160,Yes,Humanities,Technology,Music,Business
+S0307,15,Female,Public,Rural,76,73,58,95,50,28,Primary,6854,No,Arts,Technology,Science Club,Arts
+S0308,18,Female,Private,Urban,62,46,40,55,54,25,Secondary,9042,No,Arts,Education,Music,Healthcare
+S0309,19,Female,Public,Rural,46,81,68,60,71,18,Secondary,2242,No,Arts,Business,Sports,STEM
+S0310,19,Female,Public,Urban,39,89,95,85,67,21,Secondary,4590,No,Business,Healthcare,None,Healthcare
+S0311,15,Male,Public,Rural,53,58,36,40,61,26,Primary,3063,Yes,Humanities,Arts,Music,Arts
+S0312,17,Male,Public,Urban,86,61,73,86,80,27,Tertiary,6324,Yes,Arts,Technology,Music,Humanities
+S0313,16,Male,Private,Urban,44,96,73,99,56,17,Secondary,4595,Yes,STEM,Arts,Entrepreneurship Club,Humanities
+S0314,15,Male,Private,Urban,83,86,46,49,65,17,Secondary,2919,Yes,Arts,Arts,Entrepreneurship Club,Arts
+S0315,16,Female,Private,Urban,72,81,57,87,83,5,Secondary,7342,No,Humanities,Technology,Sports,STEM
+S0316,16,Male,Private,Urban,38,60,69,80,46,28,Secondary,2005,Yes,STEM,Business,Music,Healthcare
+S0317,17,Male,Public,Rural,58,49,80,55,81,7,Tertiary,9489,Yes,STEM,Arts,Entrepreneurship Club,Business
+S0318,16,Male,Public,Urban,79,91,39,96,65,8,Secondary,2467,Yes,Business,Education,Music,Business
+S0319,16,Female,Private,Rural,76,49,54,63,64,23,Tertiary,7851,Yes,Healthcare,Healthcare,Music,Humanities
+S0320,17,Female,Public,Urban,64,93,81,64,49,23,Secondary,6170,No,STEM,Arts,Sports,Arts
+S0321,16,Female,Private,Rural,100,49,50,69,84,17,Primary,2003,No,Healthcare,Technology,Entrepreneurship Club,Humanities
+S0322,16,Female,Private,Urban,90,50,72,69,58,23,Tertiary,7966,No,Healthcare,Education,None,Healthcare
+S0323,16,Male,Private,Urban,86,45,83,94,50,10,Secondary,2645,Yes,Humanities,Business,None,STEM
+S0324,15,Male,Public,Rural,48,62,41,68,52,24,Tertiary,2117,Yes,Healthcare,Education,None,Humanities
+S0325,15,Male,Public,Rural,60,100,96,69,92,21,Tertiary,4928,No,Business,Business,Entrepreneurship Club,STEM
+S0326,15,Male,Public,Urban,80,65,88,93,47,13,Secondary,7725,Yes,STEM,Education,Music,Healthcare
+S0327,17,Male,Private,Urban,55,84,55,91,79,24,Primary,4551,Yes,Arts,Business,Music,Healthcare
+S0328,19,Female,Public,Rural,64,78,69,49,43,8,Primary,8117,No,Humanities,Healthcare,None,Humanities
+S0329,16,Male,Private,Rural,82,81,81,85,86,31,Secondary,7042,No,Humanities,Technology,Sports,Healthcare
+S0330,16,Female,Public,Urban,45,59,56,62,70,18,Tertiary,8717,No,Arts,Healthcare,Entrepreneurship Club,Business
+S0331,17,Male,Public,Rural,90,42,90,62,67,16,Tertiary,7560,Yes,Humanities,Education,Entrepreneurship Club,Business
+S0332,16,Female,Private,Urban,57,92,67,62,50,13,Secondary,6289,Yes,STEM,Business,None,Healthcare
+S0333,15,Female,Private,Rural,95,44,67,84,82,22,Primary,2846,Yes,Business,Education,Science Club,Arts
+S0334,19,Male,Private,Urban,67,86,58,55,40,29,Primary,4762,Yes,Business,Healthcare,Sports,Business
+S0335,18,Female,Private,Urban,67,50,64,75,88,27,Secondary,7511,No,STEM,Arts,None,Business
+S0336,16,Male,Public,Urban,60,86,91,77,86,22,Primary,9193,No,STEM,Education,Music,Humanities
+S0337,15,Female,Public,Urban,72,85,72,62,91,29,Primary,7554,No,Humanities,Technology,None,STEM
+S0338,18,Female,Public,Urban,66,82,72,83,77,29,Tertiary,8316,No,STEM,Education,None,Humanities
+S0339,19,Male,Private,Urban,100,58,56,55,63,13,Tertiary,9467,No,Arts,Education,Music,Arts
+S0340,18,Male,Public,Urban,71,78,92,53,93,23,Tertiary,7764,Yes,Healthcare,Technology,None,STEM
+S0341,15,Male,Public,Urban,51,100,86,45,86,17,Primary,8469,Yes,STEM,Healthcare,Science Club,Business
+S0342,18,Male,Public,Rural,50,54,58,90,70,9,Primary,7529,Yes,Arts,Arts,Sports,Arts
+S0343,17,Male,Private,Urban,49,43,72,62,80,26,Primary,3141,Yes,STEM,Arts,Music,Healthcare
+S0344,18,Female,Private,Rural,51,50,71,68,85,11,Primary,8979,Yes,Humanities,Technology,Science Club,STEM
+S0345,16,Male,Public,Urban,79,44,85,45,89,31,Tertiary,3810,Yes,Humanities,Healthcare,Sports,Humanities
+S0346,16,Female,Public,Urban,54,41,99,58,65,15,Secondary,2723,No,Arts,Business,Sports,STEM
+S0347,17,Male,Public,Urban,98,50,49,57,88,27,Tertiary,2224,No,Business,Technology,Science Club,Humanities
+S0348,15,Female,Public,Rural,50,44,93,60,89,14,Primary,6627,Yes,STEM,Business,Science Club,Healthcare
+S0349,16,Male,Public,Urban,59,80,74,62,44,27,Secondary,6208,No,STEM,Healthcare,Music,Arts
+S0350,19,Male,Public,Urban,78,39,98,51,59,24,Secondary,8283,No,Healthcare,Business,Entrepreneurship Club,Business
+S0351,16,Male,Public,Urban,97,61,70,78,91,3,Secondary,6654,No,Healthcare,Education,Entrepreneurship Club,Business
+S0352,16,Male,Private,Urban,48,90,95,80,80,12,Secondary,4048,Yes,Healthcare,Education,Music,Humanities
+S0353,15,Female,Public,Urban,97,86,79,52,50,6,Tertiary,8233,Yes,Arts,Arts,None,Humanities
+S0354,18,Male,Public,Rural,97,83,75,72,95,6,Secondary,6749,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0355,16,Male,Public,Urban,59,73,72,96,93,20,Tertiary,6415,No,Arts,Healthcare,None,Healthcare
+S0356,17,Male,Public,Urban,89,73,40,86,72,10,Tertiary,3573,Yes,Business,Technology,Music,Business
+S0357,18,Female,Private,Rural,66,63,39,80,89,14,Primary,3828,Yes,STEM,Healthcare,Music,Arts
+S0358,19,Female,Private,Urban,89,35,70,70,77,24,Tertiary,3917,No,STEM,Business,Science Club,STEM
+S0359,15,Male,Public,Urban,70,92,86,83,66,28,Secondary,6234,No,Business,Arts,None,Arts
+S0360,19,Female,Public,Rural,63,42,51,71,73,24,Primary,9678,Yes,Arts,Education,Music,Arts
+S0361,18,Male,Public,Rural,55,76,84,90,54,20,Secondary,8988,Yes,Humanities,Business,Entrepreneurship Club,STEM
+S0362,18,Female,Private,Urban,87,67,67,85,71,22,Primary,4026,No,Healthcare,Healthcare,Music,STEM
+S0363,18,Male,Public,Rural,74,94,75,61,60,20,Secondary,8402,No,Business,Arts,None,Humanities
+S0364,19,Male,Private,Rural,93,87,45,52,85,18,Secondary,5744,No,Business,Business,Music,Humanities
+S0365,18,Male,Private,Urban,90,87,86,72,44,22,Tertiary,2901,Yes,STEM,Education,Sports,Healthcare
+S0366,19,Female,Private,Urban,92,78,75,88,45,22,Primary,6785,Yes,Healthcare,Education,Entrepreneurship Club,Business
+S0367,18,Female,Private,Urban,90,47,100,76,77,23,Primary,4039,No,Arts,Business,Sports,Humanities
+S0368,17,Female,Private,Rural,55,72,97,98,61,21,Tertiary,2009,Yes,Humanities,Arts,Entrepreneurship Club,Arts
+S0369,18,Male,Public,Urban,73,46,92,51,57,7,Secondary,2260,Yes,Business,Business,None,Arts
+S0370,19,Male,Private,Rural,97,85,91,77,53,27,Primary,8038,No,Arts,Business,Entrepreneurship Club,Healthcare
+S0371,16,Male,Public,Rural,68,93,75,53,49,17,Primary,3673,No,Business,Business,Music,Business
+S0372,18,Male,Public,Urban,65,56,100,55,85,18,Secondary,4219,Yes,Arts,Education,Science Club,Humanities
+S0373,16,Female,Public,Rural,97,70,74,73,52,14,Tertiary,9041,Yes,Humanities,Healthcare,Entrepreneurship Club,STEM
+S0374,17,Female,Private,Urban,74,48,62,49,70,12,Secondary,4060,No,Healthcare,Technology,Sports,STEM
+S0375,15,Male,Public,Rural,88,56,75,75,69,26,Primary,7287,No,STEM,Business,Music,Business
+S0376,17,Male,Private,Urban,56,45,78,67,42,26,Primary,5713,No,Healthcare,Healthcare,None,Business
+S0377,18,Male,Private,Urban,76,86,96,37,69,12,Tertiary,3619,No,Humanities,Business,Entrepreneurship Club,Business
+S0378,16,Female,Private,Rural,86,96,63,60,45,5,Tertiary,2320,No,Business,Technology,Entrepreneurship Club,STEM
+S0379,16,Female,Private,Urban,61,60,76,49,68,30,Secondary,3342,Yes,STEM,Business,Music,STEM
+S0380,19,Female,Public,Urban,64,41,51,49,47,16,Secondary,7732,No,Humanities,Healthcare,Music,Healthcare
+S0381,16,Male,Private,Rural,53,84,45,80,83,19,Secondary,4376,No,Arts,Education,Science Club,Healthcare
+S0382,19,Male,Private,Urban,57,95,77,49,84,6,Tertiary,4832,No,STEM,Arts,Sports,Healthcare
+S0383,15,Male,Private,Urban,44,94,90,98,82,9,Secondary,4824,Yes,Humanities,Business,Entrepreneurship Club,Humanities
+S0384,18,Male,Private,Urban,86,56,42,99,83,21,Tertiary,3994,No,Arts,Education,Entrepreneurship Club,Arts
+S0385,19,Female,Private,Urban,74,65,38,65,72,8,Secondary,4958,No,Arts,Business,Science Club,Arts
+S0386,15,Male,Private,Rural,85,54,87,77,56,4,Primary,8039,Yes,Arts,Education,None,Humanities
+S0387,16,Male,Private,Rural,43,73,57,76,87,7,Tertiary,9717,No,Arts,Healthcare,Music,Healthcare
+S0388,16,Female,Public,Urban,65,46,62,82,50,27,Secondary,4038,No,Business,Technology,Sports,Arts
+S0389,15,Female,Public,Rural,80,69,66,57,52,16,Primary,5490,Yes,Arts,Arts,Science Club,Business
+S0390,16,Female,Private,Rural,67,77,47,86,89,12,Secondary,5677,Yes,Healthcare,Healthcare,Entrepreneurship Club,Business
+S0391,15,Female,Public,Rural,55,100,100,85,50,18,Secondary,3118,Yes,Healthcare,Technology,Music,Healthcare
+S0392,19,Female,Public,Rural,61,71,57,70,70,10,Secondary,9984,Yes,Healthcare,Business,Music,Healthcare
+S0393,19,Female,Private,Urban,58,95,64,47,67,13,Primary,3604,Yes,Business,Business,Science Club,STEM
+S0394,15,Female,Private,Urban,81,89,69,67,83,25,Tertiary,8461,Yes,Arts,Education,Sports,Healthcare
+S0395,19,Female,Private,Rural,67,69,85,42,45,22,Primary,6027,No,Humanities,Technology,Science Club,Arts
+S0396,19,Male,Private,Rural,62,46,90,49,80,12,Secondary,2235,Yes,Healthcare,Healthcare,None,STEM
+S0397,19,Female,Private,Urban,62,65,69,75,55,11,Tertiary,3969,No,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0398,17,Female,Private,Rural,71,42,64,56,43,22,Primary,6429,Yes,Business,Education,Sports,Business
+S0399,18,Male,Private,Rural,51,68,47,40,74,23,Primary,3908,No,Humanities,Education,Music,STEM
+S0400,16,Male,Private,Rural,52,48,93,68,87,24,Primary,2375,Yes,Healthcare,Technology,Science Club,Humanities
+S0401,17,Male,Public,Rural,36,65,83,48,95,28,Tertiary,5530,No,STEM,Education,None,Arts
+S0402,19,Female,Public,Urban,68,57,72,79,65,18,Primary,7256,Yes,STEM,Arts,None,Business
+S0403,15,Male,Public,Urban,56,75,40,80,51,20,Primary,4635,No,STEM,Education,None,Healthcare
+S0404,19,Female,Private,Rural,54,63,44,56,50,17,Tertiary,3570,Yes,Humanities,Healthcare,Science Club,Business
+S0405,18,Male,Private,Rural,95,39,68,67,76,11,Tertiary,4560,No,Healthcare,Arts,Sports,Business
+S0406,19,Male,Private,Rural,66,70,92,78,64,21,Primary,7415,No,Healthcare,Technology,Science Club,Healthcare
+S0407,15,Female,Private,Urban,88,62,87,97,57,15,Primary,5391,Yes,Business,Education,None,STEM
+S0408,18,Female,Public,Urban,65,66,92,90,58,19,Tertiary,4965,No,Arts,Healthcare,None,Healthcare
+S0409,19,Male,Public,Rural,55,47,52,45,62,29,Primary,5643,Yes,STEM,Education,Entrepreneurship Club,Healthcare
+S0410,18,Male,Public,Urban,87,86,74,76,94,20,Tertiary,7951,Yes,Healthcare,Healthcare,Sports,Arts
+S0411,16,Female,Public,Rural,63,80,45,56,77,23,Secondary,7468,No,Arts,Education,Entrepreneurship Club,Arts
+S0412,16,Male,Private,Rural,66,86,66,96,93,25,Primary,5850,Yes,STEM,Arts,Science Club,Arts
+S0413,19,Male,Public,Rural,81,50,41,82,57,26,Tertiary,2872,Yes,Business,Technology,Sports,Humanities
+S0414,18,Female,Public,Rural,53,54,86,79,65,14,Primary,3252,Yes,Healthcare,Technology,Music,STEM
+S0415,15,Female,Private,Urban,59,97,89,53,45,9,Tertiary,8413,No,Humanities,Technology,Sports,Humanities
+S0416,19,Male,Private,Urban,86,86,91,100,43,23,Tertiary,7947,Yes,STEM,Arts,Entrepreneurship Club,Arts
+S0417,16,Female,Private,Urban,78,100,43,90,83,26,Primary,8941,No,Humanities,Business,Entrepreneurship Club,Healthcare
+S0418,16,Female,Public,Rural,74,51,73,90,90,10,Secondary,3314,Yes,STEM,Healthcare,None,Humanities
+S0419,19,Female,Public,Rural,90,37,97,94,68,14,Primary,6820,No,STEM,Technology,None,Arts
+S0420,18,Female,Public,Urban,47,83,68,51,73,21,Secondary,9332,No,Business,Arts,Sports,STEM
+S0421,16,Female,Private,Urban,91,80,100,95,56,21,Secondary,8148,Yes,Healthcare,Arts,Science Club,Humanities
+S0422,18,Female,Private,Rural,63,86,39,85,82,26,Primary,4898,Yes,Business,Arts,Entrepreneurship Club,Business
+S0423,16,Male,Public,Rural,64,49,50,81,82,31,Secondary,9546,No,Healthcare,Education,Science Club,STEM
+S0424,16,Female,Public,Rural,73,60,88,96,92,13,Secondary,2077,No,Business,Education,Music,Humanities
+S0425,17,Male,Public,Urban,65,58,46,54,55,20,Tertiary,9577,No,Healthcare,Business,Music,Business
+S0426,16,Female,Public,Rural,82,78,66,89,41,26,Secondary,4621,No,Arts,Healthcare,Science Club,Business
+S0427,15,Male,Public,Rural,78,61,70,49,73,17,Primary,6227,Yes,Business,Business,Sports,Healthcare
+S0428,19,Male,Public,Rural,85,44,80,78,94,26,Primary,2600,Yes,Healthcare,Arts,Sports,Healthcare
+S0429,19,Female,Public,Rural,67,48,93,77,47,10,Tertiary,7868,Yes,Business,Technology,None,Humanities
+S0430,18,Male,Public,Rural,75,66,86,62,52,27,Primary,3065,No,Healthcare,Business,Science Club,STEM
+S0431,16,Female,Public,Urban,83,67,71,41,81,26,Primary,4136,Yes,Humanities,Healthcare,Music,Arts
+S0432,15,Female,Public,Urban,42,69,82,64,47,17,Tertiary,4449,No,Arts,Education,Entrepreneurship Club,Arts
+S0433,18,Male,Public,Rural,86,92,94,51,69,22,Tertiary,4343,Yes,STEM,Business,Science Club,STEM
+S0434,17,Female,Public,Rural,94,64,91,79,71,22,Primary,3863,No,Arts,Education,Entrepreneurship Club,Healthcare
+S0435,18,Male,Public,Urban,51,66,45,51,75,14,Secondary,3318,No,STEM,Business,None,Humanities
+S0436,18,Male,Public,Urban,52,97,100,49,86,25,Primary,6711,No,Healthcare,Arts,Science Club,Business
+S0437,16,Male,Private,Rural,45,65,56,76,69,19,Secondary,5597,Yes,Arts,Education,Sports,Business
+S0438,17,Female,Public,Rural,87,68,96,64,40,13,Secondary,8943,No,Business,Healthcare,Entrepreneurship Club,Arts
+S0439,18,Male,Public,Urban,41,59,72,46,82,6,Secondary,5762,No,Healthcare,Business,Entrepreneurship Club,Healthcare
+S0440,15,Male,Private,Rural,38,79,84,83,78,21,Tertiary,9804,Yes,Humanities,Education,Entrepreneurship Club,STEM
+S0441,15,Female,Public,Rural,43,86,78,79,56,12,Secondary,8565,No,Healthcare,Business,Music,STEM
+S0442,19,Female,Private,Urban,40,75,100,59,59,15,Primary,7984,No,STEM,Arts,Music,STEM
+S0443,17,Male,Private,Urban,81,79,71,52,63,8,Primary,7142,Yes,Healthcare,Arts,Entrepreneurship Club,Arts
+S0444,17,Female,Public,Rural,76,88,78,88,89,24,Secondary,6670,No,Humanities,Arts,Music,Business
+S0445,19,Female,Private,Rural,73,88,99,92,61,24,Tertiary,4190,No,Healthcare,Technology,Entrepreneurship Club,Business
+S0446,18,Male,Private,Rural,81,56,78,60,68,9,Tertiary,2992,Yes,Business,Healthcare,Music,STEM
+S0447,17,Male,Private,Urban,75,92,78,69,61,27,Tertiary,4712,No,Healthcare,Technology,Entrepreneurship Club,Arts
+S0448,15,Female,Private,Urban,86,48,67,79,83,12,Secondary,4192,No,Business,Healthcare,Science Club,Humanities
+S0449,15,Female,Private,Rural,68,94,41,64,48,26,Secondary,3248,No,STEM,Business,Music,STEM
+S0450,16,Male,Private,Rural,51,65,45,70,76,18,Secondary,5054,Yes,Humanities,Arts,Entrepreneurship Club,Business
+S0451,17,Male,Private,Rural,62,89,52,100,49,10,Tertiary,6598,No,Arts,Business,Entrepreneurship Club,Arts
+S0452,18,Male,Private,Rural,90,60,95,94,75,24,Primary,6033,Yes,Healthcare,Technology,Entrepreneurship Club,Humanities
+S0453,19,Male,Private,Urban,81,57,53,70,76,8,Primary,3997,Yes,Business,Arts,Sports,STEM
+S0454,19,Male,Public,Rural,62,39,89,82,67,8,Primary,6916,Yes,STEM,Business,Music,Arts
+S0455,18,Female,Public,Rural,66,85,72,39,67,30,Tertiary,5687,Yes,Healthcare,Healthcare,Sports,Arts
+S0456,16,Male,Public,Rural,39,45,55,54,81,13,Secondary,4151,Yes,Business,Healthcare,Music,Healthcare
+S0457,19,Male,Public,Urban,75,68,93,99,82,11,Secondary,6018,No,Healthcare,Business,Music,Healthcare
+S0458,17,Male,Public,Urban,83,54,89,63,60,13,Primary,5110,Yes,Healthcare,Education,Sports,Healthcare
+S0459,16,Female,Public,Rural,57,62,87,52,63,14,Primary,3970,No,Arts,Arts,Entrepreneurship Club,STEM
+S0460,17,Male,Public,Rural,44,75,57,90,81,27,Tertiary,2197,Yes,STEM,Arts,Music,Arts
+S0461,15,Female,Private,Rural,91,67,85,58,79,26,Tertiary,7765,Yes,Humanities,Education,Music,Humanities
+S0462,16,Female,Private,Rural,70,59,71,81,41,12,Secondary,4626,Yes,Healthcare,Technology,Entrepreneurship Club,Business
+S0463,19,Female,Private,Urban,63,57,91,62,94,16,Tertiary,8534,No,Healthcare,Business,None,STEM
+S0464,16,Male,Private,Rural,85,70,57,98,47,19,Tertiary,3202,No,Healthcare,Technology,Sports,Humanities
+S0465,16,Male,Public,Rural,62,38,42,51,87,14,Tertiary,8697,Yes,Humanities,Healthcare,Sports,Healthcare
+S0466,16,Male,Public,Rural,100,79,42,67,66,27,Secondary,7567,Yes,Humanities,Business,Sports,Arts
+S0467,16,Female,Private,Urban,93,79,74,92,61,12,Tertiary,9667,No,Arts,Business,Music,STEM
+S0468,17,Female,Public,Rural,50,91,78,88,76,10,Tertiary,9182,No,Humanities,Education,Sports,Humanities
+S0469,15,Male,Public,Rural,57,67,93,80,66,21,Tertiary,7742,No,Healthcare,Technology,None,Arts
+S0470,18,Female,Private,Rural,50,91,55,94,68,9,Secondary,7788,Yes,Arts,Education,Entrepreneurship Club,Business
+S0471,16,Male,Public,Urban,55,73,70,83,42,15,Secondary,7408,Yes,Healthcare,Education,Sports,Healthcare
+S0472,19,Female,Private,Rural,95,49,81,64,83,9,Primary,4035,No,Business,Education,Music,Arts
+S0473,16,Female,Public,Rural,69,47,56,80,52,9,Tertiary,2477,Yes,Humanities,Healthcare,Sports,STEM
+S0474,19,Male,Public,Rural,92,57,93,71,84,27,Primary,3254,Yes,Arts,Business,Sports,Healthcare
+S0475,17,Female,Public,Urban,95,99,99,81,49,8,Secondary,2922,Yes,Arts,Arts,Music,Healthcare
+S0476,19,Male,Public,Urban,54,45,65,50,75,20,Tertiary,2419,Yes,Business,Business,Music,Healthcare
+S0477,18,Male,Private,Urban,52,51,89,44,48,8,Secondary,4204,Yes,Humanities,Arts,Entrepreneurship Club,STEM
+S0478,15,Female,Public,Rural,50,93,37,76,93,30,Primary,4597,No,Business,Business,Entrepreneurship Club,Humanities
+S0479,19,Male,Public,Rural,93,63,81,71,95,29,Primary,9608,Yes,Humanities,Technology,None,Healthcare
+S0480,19,Female,Public,Rural,71,41,68,94,94,25,Primary,3120,Yes,Humanities,Healthcare,None,Healthcare
+S0481,15,Male,Private,Rural,92,45,71,69,66,25,Tertiary,5068,No,STEM,Technology,None,Humanities
+S0482,18,Female,Private,Rural,43,100,79,74,73,8,Tertiary,9140,Yes,Humanities,Arts,Sports,Humanities
+S0483,16,Female,Public,Rural,100,67,93,93,90,27,Secondary,9578,Yes,Business,Education,None,Humanities
+S0484,19,Female,Public,Urban,60,81,92,98,40,14,Primary,2950,No,STEM,Business,Music,Healthcare
+S0485,15,Female,Private,Urban,80,78,86,45,71,16,Primary,4336,No,Humanities,Business,Music,Business
+S0486,17,Male,Public,Rural,100,53,63,89,64,8,Tertiary,7373,Yes,Business,Education,None,STEM
+S0487,15,Male,Private,Urban,46,58,83,100,68,11,Tertiary,4243,No,Humanities,Education,Science Club,Healthcare
+S0488,17,Male,Private,Rural,81,77,88,51,46,13,Primary,4645,No,STEM,Business,Science Club,Humanities
+S0489,18,Female,Public,Rural,39,96,60,56,88,13,Tertiary,3857,Yes,Business,Business,Science Club,Business
+S0490,16,Female,Public,Urban,60,88,85,51,42,18,Primary,9689,Yes,Humanities,Education,Entrepreneurship Club,Humanities
+S0491,15,Male,Public,Urban,51,87,53,85,59,27,Primary,6612,No,Arts,Business,Science Club,Business
+S0492,19,Female,Public,Rural,58,88,79,95,59,8,Primary,7754,No,Arts,Education,Entrepreneurship Club,Humanities
+S0493,18,Male,Public,Urban,91,89,38,77,92,16,Secondary,3865,No,Healthcare,Technology,Music,Arts
+S0494,15,Female,Public,Rural,74,58,88,57,69,21,Primary,4912,Yes,Humanities,Business,Entrepreneurship Club,Humanities
+S0495,19,Male,Private,Urban,67,73,45,44,74,29,Tertiary,7237,Yes,Humanities,Technology,None,STEM
+S0496,15,Male,Private,Urban,73,46,68,70,74,20,Secondary,4853,No,Healthcare,Business,Music,Business
+S0497,17,Female,Private,Urban,72,56,58,81,88,7,Primary,8028,Yes,Business,Education,Entrepreneurship Club,Arts
+S0498,15,Female,Private,Rural,59,82,70,93,78,25,Secondary,9326,No,Business,Education,Music,STEM
+S0499,15,Female,Private,Urban,95,48,51,49,66,14,Secondary,6910,No,Humanities,Technology,Sports,Humanities
+S0500,15,Male,Private,Rural,82,78,81,69,65,27,Secondary,8371,Yes,STEM,Technology,Entrepreneurship Club,STEM

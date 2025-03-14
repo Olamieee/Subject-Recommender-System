@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Recommendation System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="page-transition"></div>
+
+    <!-- Hero Section -->
+    <section class="hero"
+        style="background: url('{% static 'img/backgimg.jpg' %}') no-repeat center center; background-size: cover;">
+        <div class="hero-content">
+            <h1>IDA HIFADHI</h1>
+            <p>Get personalized academic and career recommendations based on your profile.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section reveal">
+        <div class="container">
+            <div class="features stagger">
+                <div class="feature-card">
+                    <div class="feature-icon data-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data-Driven Recommendations</h3>
+                    <p>Our AI-powered system analyzes over 15 unique factors including academic performance, personal
+                        interests, and environmental influences. We use advanced Random Forest algorithms for subject
+                        prediction and a hybrid recommendation system combining content-based and collaborative
+                        filtering approaches.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon guidance-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Personalized Guidance</h3>
+                    <p>Receive tailored subject and career path recommendations based on comprehensive analysis of your
+                        unique profile, including academic strengths, extracurricular activities, and personal interests
+                        that align with successful career paths.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon planning-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Future-Ready Planning</h3>
+                    <p>Plan your academic journey with confidence and clarity. Our system continuously updates
+                        recommendations as your profile evolves, ensuring your path always aligns with your developing
+                        strengths and emerging opportunities.</p>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a href="{% url 'student_signin' %}" class="btn" style="margin-right: 30px;">Get Started</a>
+                <a href="{% url 'teacher_signin' %}" class="btn">For Teachers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Analysis Section-->
+    <section class="about reveal" style="margin-top: 20px;">
+        <div class="about-text reveal-left">
+            <h2>Our Smart Technology Platform</h2>
+            <p>Our student recommendation system leverages sophisticated machine learning algorithms that analyze a
+                comprehensive set of student data points, including:</p>
+            <ul style="list-style-type: none; padding-left: 0; margin-bottom: 20px;">
+                <li style="margin-bottom: 10px;"><i class="fas fa-graduation-cap"
+                        style="color: var(--primary); margin-right: 10px;"></i> Academic performance across multiple
+                    subjects</li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-user"
+                        style="color: var(--primary); margin-right: 10px;"></i> Personal characteristics and study
+                    habits</li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-home"
+                        style="color: var(--primary); margin-right: 10px;"></i> Environmental factors like parental
+                    careers</li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-heart"
+                        style="color: var(--primary); margin-right: 10px;"></i> Extracurricular interests and activities
+                </li>
+                <li style="margin-bottom: 10px;"><i class="fas fa-network-wired"
+                        style="color: var(--primary); margin-right: 10px;"></i> Socioeconomic indicators that influence
+                    success</li>
+            </ul>
+            <p>With a 94% recommendation satisfaction rate from over 2,000 students, our system has proven its value in
+                guiding academic and career decisions.</p>
+        </div>
+        <div class="about-image reveal-right">
+            <div style="background: var(--light); padding: 25px; border-radius: 12px; box-shadow: var(--shadow);">
+                <h3 style="color: var(--secondary); margin-bottom: 15px; text-align: center;">Our Recommendation Engine
+                </h3>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <div
+                        style="background: var(--primary); color: white; padding: 10px; border-radius: 8px; width: 48%; text-align: center;">
+                        <i class="fas fa-tree" style="font-size: 24px; margin-bottom: 5px;"></i>
+                        <h4 style="margin: 5px 0;">Random Forest</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Subject Prediction</p>
+                    </div>
+                    <div
+                        style="background: var(--accent); color: white; padding: 10px; border-radius: 8px; width: 48%; text-align: center;">
+                        <i class="fas fa-code-branch" style="font-size: 24px; margin-bottom: 5px;"></i>
+                        <h4 style="margin: 5px 0;">Hybrid System</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Career Recommendations</p>
+                    </div>
+                </div>
+                <div
+                    style="background: var(--light); border: 2px dashed var(--primary); border-radius: 8px; padding: 10px; text-align: center;">
+                    <p style="margin: 0; font-weight: 600; color: var(--secondary);">5 streams × 15+ factors × Your
+                        unique profile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Story & Illustration -->
+    <section class="about reveal">
+        <div class="about-text reveal-left">
+            <h2>Meet Daniel – A Student Just Like You</h2>
+            <p>Daniel always had a passion for technology but felt torn between STEM and Business. He wasn’t sure which
+                path suited him best—should he develop tech solutions or focus on the entrepreneurial side?
+            <p>After using our recommendation system, he discovered that his strengths lay in problem-solving and
+                logical thinking, making Computer Science the perfect fit.
+                Today, Daniel is thriving in his second year, building apps that combine his tech skills with business
+                knowledge. Thanks to the right guidance, he’s now shaping a future that truly aligns with his talents!
+            </p>
+            <p>Just like Daniel, you can make informed career choices with confidence. Let us help you find your path.
+            </p>
+            <a href="{% url 'about' %}" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="about-image reveal-right">
+            <img src="{% static 'img/daniel.png' %}" alt="Student Avatar">
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works reveal">
+        <h2>How It Works</h2>
+        <p>Curious about how our system generates recommendations?</p>
+        <div
+            style="max-width: 700px; margin: 20px auto; display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div
+                style="background: white; padding: 15px; border-radius: 10px; box-shadow: var(--shadow); width: 30%; min-width: 200px; margin-bottom: 15px;">
+                <div
+                    style="background: var(--light); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                    <span style="font-weight: bold; color: var(--primary); font-size: 1.5rem;">1</span>
+                </div>
+                <p style="text-align: center; margin: 0;">Complete your academic profile</p>
+            </div>
+            <div
+                style="background: white; padding: 15px; border-radius: 10px; box-shadow: var(--shadow); width: 30%; min-width: 200px; margin-bottom: 15px;">
+                <div
+                    style="background: var(--light); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                    <span style="font-weight: bold; color: var(--primary); font-size: 1.5rem;">2</span>
+                </div>
+                <p style="text-align: center; margin: 0;">Our AI analyzes your data</p>
+            </div>
+            <div
+                style="background: white; padding: 15px; border-radius: 10px; box-shadow: var(--shadow); width: 30%; min-width: 200px; margin-bottom: 15px;">
+                <div
+                    style="background: var(--light); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;">
+                    <span style="font-weight: bold; color: var(--primary); font-size: 1.5rem;">3</span>
+                </div>
+                <p style="text-align: center; margin: 0;">Receive personalized recommendations</p>
+            </div>
+        </div>
+        <a href="{% url 'guide' %}" class="btn-secondary">See Detailed Process</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials reveal">
+        <h2>What Students Say</h2>
+        <div class="testimonial-container stagger">
+            <div class="testimonial">
+                <img src="{% static 'img/avatar2.jpg' %}" alt="Student Avatar">
+                <p>"This system helped me realize my passion for Business. Now I'm studying Finance!"</p>
+                <h4>— Alex M.</h4>
+            </div>
+            <div class="testimonial">
+                <img src="{% static 'img/avatar1.jpg' %}" alt="Student Avatar">
+                <p>"I was struggling to choose between STEM and Arts, but this platform guided me to the right path."
+                </p>
+                <h4>— Sarah K.</h4>
+            </div>
+            <div class="testimonial">
+                <img src="{% static 'img/avatar3.jpg' %}" alt="Student Avatar">
+                <p>"I love how accurate the recommendations are! It gave me so much confidence in my future."</p>
+                <h4>— James O.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact reveal">
+        <h2>Contact Us</h2>
+        <p>Have any questions? Reach out to us.</p>
+        <form id="contactForm">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+        <div id="formSuccess"
+            style="display: none; margin-top: 20px; padding: 15px; background-color: #dff0d8; color: #3c763d; border-radius: 5px; text-align: center;">
+            <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+            <span>Thank you! Your message has been sent successfully.</span>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Get form data
+                const formData = new FormData(contactForm);
+
+                // Send AJAX request to Django view
+                fetch('{% url "submit_contact" %}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Show success message
+                            formSuccess.style.display = 'block';
+
+                            // Reset form
+                            contactForm.reset();
+
+                            // Hide success message after 5 seconds
+                            setTimeout(function () {
+                                formSuccess.style.display = 'none';
+                            }, 5000);
+                        } else {
+                            // Show error
+                            alert('Error sending message: ' + (data.error || 'Unknown error'));
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred. Please try again later.');
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>

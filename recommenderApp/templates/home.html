@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Student Recommendation System</title>
+</head>
+
+<body class="with-sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Student Portal</h3>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">{{ user.full_name|first }}</div>
+            <div class="user-info">
+                <p class="user-name">{{ user.full_name }}</p>
+                <p class="user-school">{{ user.school }}</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="{% url 'home' %}" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="{% url 'predict' %}"><i class="fas fa-chart-line"></i> Get Prediction</a>
+            <a href="#testimonials"><i class="fas fa-comment-dots"></i> Testimonials</a>
+            <a href="{% url 'about' %}"><i class="fas fa-user-graduate"></i> About</a>
+            <a href="{% url 'guide' %}"><i class="fas fa-book"></i> Guide</a>
+            <a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="{% url 'student_feedback' %}"><i class="fas fa-comment-dots"></i> My Feedback</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="{% url 'landing' %}"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="main-header">
+            <!--<button class="sidebar-toggle"><i class="fas fa-bars"></i></button>-->
+            <h2>Welcome👋, {{ user.full_name }}</h2>
+        </div>
+
+        <div class="welcome-section">
+            <div class="welcome-content">
+                <h3>Empowering Your Academic Journey</h3>
+                <p>Welcome to your personalized student recommendation dashboard, where data-driven insights meet personal
+                    growth. Our system is designed to help you:</p>
+
+                <ul class="welcome-highlights">
+                    <li>📊 Understand your academic potential</li>
+                    <li>🎯 Discover your ideal career paths</li>
+                    <li>📈 Track and improve your performance</li>
+                    <li>🌟 Access tailored learning resources</li>
+                </ul>
+
+                <p class="welcome-quote">
+                    "Your journey of academic excellence starts here. Let's unlock your full potential together."
+                </p>
+            </div>
+        </div>
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <div class="card-icon"><i class="fas fa-brain"></i></div>
+                <h3>Career Assessment</h3>
+                <p>Discover which academic paths suit you best based on your strengths.</p>
+                <a href="{% url 'predict' %}" class="btn">Get Started</a>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                <h3>Student Performance Insights</h3>
+                <p>Explore visual reports on student assessments and academic trends.</p>
+                <a href="{% url 'visuals' %}" class="btn btn-secondary">View Reports</a>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="card-icon"><i class="fas fa-book-reader"></i></div>
+                <h3>Learning Resources</h3>
+                <p>Access materials to help you excel in your recommended subjects.</p>
+                <a href="https://elearning.reb.rw/course/index.php?categoryid=269" class="btn btn-secondary">Explore</a>
+            </div>
+        </div>
+
+        <div class="testimonial-container">
+            <h2>Why Students Love Our System</h2>
+            {% if testimonials %}
+            <div class="testimonials-section">
+                <div class="testimonial-grid">
+                    {% for testimonial in testimonials %}
+                    <div class="testimonial-box">
+                        <p class="testimonial-content">"{{ testimonial.content }}"</p>
+                        <div class="testimonial-rating">
+                            {% for _ in "x"|rjust:testimonial.rating %}
+                            ⭐
+                            {% endfor %}
+                        </div>
+                        <strong>
+                            <p class="testimonial-name">{{ testimonial.name }}</p>
+                        </strong>
+                        <small class="testimonial-date">{{ testimonial.created_at|date:"F d, Y" }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <p>No testimonials yet. Be the first to share your experience!</p>
+            {% endif %}
+        </div>        
+</body>
+
+</html>

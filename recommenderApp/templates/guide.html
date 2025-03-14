@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Guide - Student Counseling System</title>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Guide Container -->
+    <div class="guide-container">
+        <h2 class="guide-title">📘 Student Guide</h2>
+        <p class="guide-intro">
+            Welcome to the Student Counseling System! Follow these steps to explore the platform and receive personalized academic recommendations.
+        </p>
+
+        <!-- Register/Login Section -->
+        <div class="guide-section">
+            <h3>🚀 Register/Login</h3>
+            <p>
+                To begin, you need to create an account or log in. This ensures that your information is saved securely, and you can access your personalized recommendations at any time. 
+                Simply enter your <strong>first name, last name, email, password, and school name</strong> during registration. If you already have an account, log in with your <strong>email and password</strong>.
+            </p>
+        </div>
+
+        <!-- Fill the Form Section -->
+        <div class="guide-section">
+            <h3>📝 Fill the Form</h3>
+            <p>
+                Once logged in, click on the <strong>"Get Started"</strong> button to be directed to the form. 
+                Here, you will need to <strong>enter key details about yourself</strong>, such as your academic strengths, interests, school type, and parental career background. 
+                These inputs help the system understand your preferences and provide tailored guidance.
+            </p>
+        </div>
+
+
+        <!-- Get Recommendations Section -->
+        <div class="guide-section">
+            <h3>📌 Get Recommendations</h3>
+            <p>
+                After submitting the form, the system will analyze your responses and suggest <strong>the best-fit subject for you</strong> along with <strong>three additional subject recommendations</strong>. 
+                Each recommendation is based on a combination of your interests, strengths, and future job market demand.
+            </p>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="guide-section">
+            <h3>💬 Feedback</h3>
+            <p>
+                Your experience matters! If you find the recommendations helpful or have suggestions for improvements, you can share your feedback. 
+                This helps us refine the system and make it even better for future users.
+            </p>
+        </div>
+
+        <!-- Contact Support Section -->
+        <div class="guide-section">
+            <h3>📞 Contact Support</h3>
+            <p>
+                Need assistance? If you encounter any issues or have questions about how the system works, visit the <strong>Contact</strong> page to get in touch with our support team. We're here to help!
+            </p>
+        </div>
+
+        <a href="{% url 'home' %}" class="back-link">🏠 Back to Home</a>
+    </div>
+
+</body>
+</html>
