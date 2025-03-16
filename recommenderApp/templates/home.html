@@ -46,7 +46,8 @@
         <div class="welcome-section">
             <div class="welcome-content">
                 <h3>Empowering Your Academic Journey</h3>
-                <p>Welcome to your personalized student recommendation dashboard, where data-driven insights meet personal
+                <p>Welcome to your personalized student recommendation dashboard, where data-driven insights meet
+                    personal
                     growth. Our system is designed to help you:</p>
 
                 <ul class="welcome-highlights">
@@ -108,26 +109,49 @@
             {% else %}
             <p>No testimonials yet. Be the first to share your experience!</p>
             {% endif %}
-        </div>        
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the required elements
+                const sidebarToggle = document.querySelector('.sidebar-toggle');
+                const sidebar = document.querySelector('.sidebar');
+                const body = document.body;
+
+                // Create close button for sidebar if it doesn't exist
+                if (!document.querySelector('.sidebar-close')) {
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'sidebar-close';
+                    closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    sidebar.appendChild(closeBtn);
+
+                    // Add event listener to close button
+                    closeBtn.addEventListener('click', function () {
+                        body.classList.remove('sidebar-active');
+                    });
+                }
+
+                // Add event listener to sidebar toggle button
+                sidebarToggle.addEventListener('click', function () {
+                    body.classList.toggle('sidebar-active');
+                });
+
+                // Close sidebar when clicking outside of it (on the overlay)
+                document.addEventListener('click', function (event) {
+                    if (body.classList.contains('sidebar-active') &&
+                        !sidebar.contains(event.target) &&
+                        !sidebarToggle.contains(event.target)) {
+                        body.classList.remove('sidebar-active');
+                    }
+                });
+
+                // Handle window resize - auto close sidebar on larger screens
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 768 && body.classList.contains('sidebar-active')) {
+                        body.classList.remove('sidebar-active');
+                    }
+                });
+            });
+        </script>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const sidebarToggle = document.querySelector('.sidebar-toggle');
-    const toggleIcon = sidebarToggle.querySelector('i');
-    const body = document.body;
-    
-    sidebarToggle.addEventListener('click', function() {
-        body.classList.toggle('sidebar-collapsed');
-        
-        // Toggle between bars and times icon
-        if (body.classList.contains('sidebar-collapsed')) {
-            toggleIcon.classList.remove('fa-bars');
-            toggleIcon.classList.add('fa-times');
-        } else {
-            toggleIcon.classList.remove('fa-times');
-            toggleIcon.classList.add('fa-bars');
-        }
-    });
-});
-</script>
+
 </html>
