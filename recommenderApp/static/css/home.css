@@ -1,4 +1,4 @@
-/* home.css - Focused styles for home page with proper responsive design */
+/* home.css - Optimized styles for Student Portal Home Page */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -28,20 +28,27 @@ body {
   min-height: 100vh;
 }
 
-/* Sidebar and Main Content Layout */
+/* Basic Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ====== LAYOUT: SIDEBAR AND MAIN CONTENT ====== */
 .with-sidebar {
   display: flex;
-  position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
+  position: relative;
 }
 
 /* Sidebar Styles */
 .sidebar {
-  width: 250px;
+  width: 280px;
   height: 100vh;
   background: white;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
   position: fixed;
   left: 0;
   top: 0;
@@ -51,20 +58,29 @@ body {
   transition: var(--transition);
 }
 
+.main-content {
+  flex: 1;
+  padding: 25px;
+  margin-left: 280px;
+  transition: var(--transition);
+}
+
+/* Sidebar Header */
 .sidebar-header {
   padding: 20px;
   border-bottom: 1px solid #eaeaea;
 }
 
 .sidebar-header h3 {
-  margin: 0;
-  font-size: 1.2rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
+/* Sidebar User */
 .sidebar-user {
   padding: 20px;
   display: flex;
@@ -82,7 +98,7 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .user-info {
@@ -99,9 +115,10 @@ body {
   color: #666;
 }
 
+/* Sidebar Navigation */
 .sidebar-nav {
   flex: 1;
-  padding: 20px 0;
+  padding: 15px 0;
   overflow-y: auto;
 }
 
@@ -111,7 +128,8 @@ body {
   padding: 12px 20px;
   color: var(--dark);
   text-decoration: none;
-  transition: var(--transition);
+  transition: all 0.2s;
+  border-left: 4px solid transparent;
 }
 
 .sidebar-nav a:hover {
@@ -126,11 +144,12 @@ body {
 }
 
 .sidebar-nav a i {
-  margin-right: 10px;
+  margin-right: 12px;
   width: 20px;
   text-align: center;
 }
 
+/* Sidebar Footer */
 .sidebar-footer {
   padding: 15px 20px;
   border-top: 1px solid #eaeaea;
@@ -151,79 +170,104 @@ body {
   color: var(--primary);
 }
 
-/* Main Content Area */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  margin-left: 250px; /* Match sidebar width */
-  width: calc(100% - 250px);
-  transition: var(--transition);
-}
-
-/* Main Header */
-.main-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.main-header h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: var(--dark);
-}
-
+/* Sidebar Toggle Button - Only for mobile */
 .sidebar-toggle {
+  display: none;
   background: none;
   border: none;
   font-size: 1.2rem;
-  margin-right: 15px;
   color: var(--primary);
   cursor: pointer;
-  display: none; /* Hidden on desktop by default */
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  transition: var(--transition);
+  transition: all 0.2s;
+  z-index: 1010;
 }
 
 .sidebar-toggle:hover {
   background: rgba(78, 133, 253, 0.1);
 }
 
+/* Close button for sidebar - Only visible on mobile */
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(78, 133, 253, 0.1);
+  border: none;
+  font-size: 1.2rem;
+  color: var(--primary);
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1020;
+}
+
+/* ====== MAIN CONTENT ELEMENTS ====== */
+
+/* Main Header */
+.main-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.main-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
 /* Welcome Section */
 .welcome-section {
-  background-color: white;
+  background: white;
   border-radius: 16px;
-  padding: 25px;
+  padding: 30px;
   margin-bottom: 30px;
-  box-shadow: var(--shadow);
-  animation: fadeIn 0.8s ease-out;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .welcome-content h3 {
+  font-size: 1.8rem;
   color: var(--dark);
   margin-bottom: 15px;
-  font-size: 1.6rem;
+}
+
+.welcome-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .welcome-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   list-style-type: none;
   padding: 0;
   margin: 20px 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
 }
 
 .welcome-highlights li {
-  background-color: var(--light);
-  border-radius: 8px;
+  flex: 1 1 calc(50% - 15px);
+  min-width: 200px;
+  background: var(--light);
+  border-radius: 10px;
   padding: 15px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease;
 }
 
@@ -236,15 +280,15 @@ body {
   font-style: italic;
   color: var(--secondary);
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 1.1rem;
 }
 
 /* Dashboard Cards */
 .dashboard-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   margin-bottom: 40px;
 }
 
@@ -252,41 +296,42 @@ body {
   background: white;
   border-radius: 16px;
   padding: 25px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .dashboard-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .card-icon {
   width: 60px;
   height: 60px;
-  border-radius: 12px;
+  border-radius: 15px;
   background: var(--light);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
   color: var(--primary);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .dashboard-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
   color: var(--dark);
 }
 
 .dashboard-card p {
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   flex: 1;
+  line-height: 1.6;
 }
 
 /* Buttons */
@@ -300,7 +345,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s;
   text-align: center;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(78, 133, 253, 0.3);
@@ -315,7 +360,6 @@ body {
   background: white;
   color: var(--primary);
   border: 2px solid var(--primary);
-  padding: 10px 20px;
   box-shadow: none;
 }
 
@@ -324,58 +368,53 @@ body {
   box-shadow: 0 5px 15px rgba(78, 133, 253, 0.1);
 }
 
-/* Testimonial Section */
+/* Testimonials */
 .testimonial-container {
-  background-color: white;
-  border-radius: 16px;
-  padding: 30px;
-  margin-top: 40px;
-  box-shadow: var(--shadow);
+  padding: 40px 0;
 }
 
 .testimonial-container h2 {
   text-align: center;
+  font-size: 1.8rem;
   color: var(--dark);
-  margin-bottom: 25px;
-  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
 
 .testimonials-section {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
+  width: 100%;
+  overflow-x: visible;
 }
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
 .testimonial-box {
-  background: var(--light);
-  padding: 20px;
+  background: white;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: var(--transition);
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
 }
 
 .testimonial-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-content {
   font-style: italic;
   color: #555;
   margin-bottom: 15px;
+  line-height: 1.6;
 }
 
 .testimonial-rating {
   color: #ffc107;
   margin-bottom: 10px;
+  font-size: 1.1rem;
 }
 
 .testimonial-name {
@@ -385,118 +424,105 @@ body {
 
 .testimonial-date {
   color: #888;
-  font-size: 0.9em;
+  font-size: 0.85rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* ====== RESPONSIVE DESIGN ====== */
+
+/* For Tablets */
+@media (max-width: 992px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Fixed sidebar overlay for mobile */
-.sidebar-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-}
-
-.sidebar-collapsed .sidebar-overlay {
-  display: block;
-}
-
-/* Mobile-specific styles */
+/* For Mobile */
 @media (max-width: 768px) {
-  /* Show the sidebar toggle on mobile */
-  .sidebar-toggle {
+  /* Sidebar behavior on mobile */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+  }
+  
+  .sidebar-close {
     display: flex;
   }
   
-  /* Default state - sidebar hidden on mobile */
-  .sidebar {
-    transform: translateX(-100%);
-  }
-  
-  /* Main content takes full width on mobile by default */
   .main-content {
     margin-left: 0;
-    width: 100%;
-    padding: 15px;
-  }
-  
-  /* When sidebar is toggled on mobile */
-  .sidebar-collapsed .sidebar {
-    transform: translateX(0);
-  }
-  
-  /* Responsive welcome section */
-  .welcome-section {
     padding: 20px 15px;
   }
   
-  .welcome-content h3 {
-    font-size: 1.4rem;
+  /* Show toggle button on mobile */
+  .sidebar-toggle {
+    display: flex;
+    margin-right: 15px;
   }
   
-  .welcome-highlights {
-    grid-template-columns: 1fr;
+  /* When sidebar is active on mobile */
+  body.sidebar-active .sidebar {
+    transform: translateX(0);
   }
   
-  /* Adjust dashboard cards for mobile */
-  .dashboard-cards {
-    grid-template-columns: 1fr;
+  /* Mobile overlay for sidebar */
+  body.sidebar-active::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
   
   /* Main header adjustments */
-  .main-header {
-    flex-wrap: wrap;
-  }
-  
   .main-header h2 {
     font-size: 1.5rem;
   }
   
-  /* Testimonial container padding adjustment */
-  .testimonial-container {
-    padding: 20px 15px;
+  /* Welcome section adjustments */
+  .welcome-section {
+    padding: 20px;
   }
   
-  .testimonial-grid {
+  .welcome-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-highlights li {
+    flex: 1 1 100%;
+  }
+  
+  /* Dashboard cards - stack on mobile */
+  .dashboard-cards {
     grid-template-columns: 1fr;
   }
-}
-
-/* Medium screens adjustment */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .welcome-highlights {
-    grid-template-columns: repeat(2, 1fr);
+  
+  /* Testimonials - single column on mobile */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
-  .dashboard-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Make sure desktop view works correctly */
-@media (min-width: 769px) {
-  /* When manually collapsed on desktop */
-  .sidebar-collapsed .sidebar {
-    transform: translateX(-100%);
-  }
-  
-  .sidebar-collapsed .main-content {
-    margin-left: 0;
+  /* Button adjustments for mobile */
+  .btn {
     width: 100%;
+    padding: 12px 20px;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 375px) {
+  .welcome-section {
+    padding: 15px;
+  }
+  
+  .dashboard-card {
+    padding: 20px;
   }
 }
