@@ -392,11 +392,11 @@ textarea {
 
 @media (max-width: 768px) {
   body {
-    padding: 10px;
+    padding: 15px; /* Increased from 10px */
   }
   
   .container {
-    margin: 0.5rem auto;
+    margin: 0.75rem auto; /* Increased from 0.5rem */
   }
   
   .dashboard-header {
@@ -417,15 +417,27 @@ textarea {
   }
   
   .stat-card {
-    padding: 1.2rem;
+    padding: 1.5rem; /* Increased from 1.2rem */
   }
   
   .stat-value {
-    font-size: 2rem;
+    font-size: 2.2rem; /* Increased from 2rem */
+  }
+  
+  .stat-label {
+    font-size: 1rem; /* Increased from 0.9rem */
+  }
+  
+  .card {
+    margin-bottom: 1.5rem; /* Increased from 1rem implied */
   }
   
   .card-header h2 {
     font-size: 1.1rem;
+  }
+  
+  .card-body {
+    padding: 1.5rem; /* Increased from 1.2rem */
   }
   
   .override-form {
@@ -434,9 +446,14 @@ textarea {
     gap: 10px;
   }
   
+  select, textarea, input {
+    padding: 14px 16px; /* Increased from 12px 16px */
+    font-size: 16px; /* Increased from 1rem */
+  }
+  
   button {
     width: 100%;
-    padding: 10px 16px;
+    padding: 14px 20px; /* Increased from 10px 16px */
   }
   
   th, td {
@@ -462,7 +479,7 @@ textarea {
   }
   
   tr {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased from 15px */
     border: 1px solid #eee;
     border-radius: 8px;
     background-color: white;
@@ -472,8 +489,9 @@ textarea {
     border: none;
     border-bottom: 1px solid #eee; 
     position: relative;
-    padding-left: 50%; 
+    padding: 15px 12px 15px 55%; /* Adjusted padding */
     text-align: right;
+    font-size: 0.95rem; /* Added font size */
   }
   
   td:last-child {
@@ -482,7 +500,7 @@ textarea {
   
   td:before { 
     position: absolute;
-    top: 12px;
+    top: 15px; /* Adjusted from 12px */
     left: 12px;
     width: 45%; 
     padding-right: 10px; 
@@ -491,6 +509,7 @@ textarea {
     font-weight: 600;
     color: var(--primary);
     content: attr(data-label);
+    font-size: 0.9rem; /* Added font size */
   }
   
   .empty-message {
