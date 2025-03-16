@@ -16,9 +16,14 @@ urlpatterns = [
     path('teacher_signin/', views.teacher_signin, name='teacher_signin'),
 
     path("predict/", views.predict_student, name="predict"),
-    path("result/<int:prediction_id>/", views.enhanced_result_view, name="result"),
+    
+    # Updated result paths to use enhanced_result_view
+    path("result/<int:iq_result_id>/", views.enhanced_result_view, name="result"),
+    path("result/", views.enhanced_result_view, name="result_no_id"),
+    
     path('iq-test/', views.iq_test_view, name='iq_test'),
     path('enhanced-results/<int:iq_result_id>/', views.enhanced_result_view, name='enhanced_result'),
+
     path("add-testimonial/", views.add_testimonial_view, name="add_testimonial"),
     path("logout/", views.logout_view, name="logout"),
     path("about/", views.about, name="about"),
