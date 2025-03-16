@@ -36,13 +36,13 @@ class RecommendationOverrideAdmin(admin.ModelAdmin):
     list_filter = ('timestamp', 'old_recommendation', 'new_recommendation')
     search_fields = ('teacher__full_name', 'student__full_name')
 
-
 @admin.register(ContactMessageLanding)
 class ContactMessageLandingAdmin(admin.ModelAdmin):
     list_display = ('user', 'email', 'timestamp')
-    search_fields = ('name', 'email', 'message')
+    search_fields = ('user', 'email', 'message')
     readonly_fields = ('timestamp',)
     date_hierarchy = 'timestamp'
+
 
 
 admin.site.register(StudentProfile, StudentProfileAdmin)

@@ -19,5 +19,5 @@ urlpatterns = [
     path('override_recommendation/<int:prediction_id>/', views.override_recommendation, name='override_recommendation'),
     path('submit_feedback/', views.submit_feedback, name='submit_feedback'),
     path('student/feedback/', views.student_feedback, name='student_feedback'),
-    path('submit_contact/', views.submit_contact, name='submit_contact'),
+    path('submit_contact_landing/', views.submit_contact_landing, name='submit_contact_landing'),
 ]

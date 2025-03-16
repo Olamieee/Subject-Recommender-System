@@ -198,12 +198,14 @@
     <section class="contact reveal">
         <h2>Contact Us</h2>
         <p>Have any questions? Reach out to us.</p>
-        <form action="submit_contact.php" method="POST">
+        <form action="{% url 'submit_contact_landing' %}" method="POST">
+            {% csrf_token %}
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn-primary">Send Message</button>
         </form>
+        <p id="success-message" style="color: green; display: none;">Message sent successfully!</p>
     </section>
 
     <!-- Footer -->
@@ -262,6 +264,32 @@
             checkPosition(); // Check positions on page load
         });
     </script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault();  // Prevent default form submission
+
+            let formData = new FormData(this);
+
+            fetch("{% url 'submit_contact_landing' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRFToken": "{{ csrf_token }}"
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("success-message").style.display = "block";
+                        this.reset();  // Clear the form
+                    } else {
+                        alert("Error: " + data.error);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+
 </body>
 
 </html>

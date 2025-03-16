@@ -45,7 +45,7 @@ def landing(request):
     """Landing page view"""
     return render(request, 'landing.html')
 
-def submit_contact(request):
+def submit_contact_landing(request):
     """Handle contact form submission"""
     if request.method == 'POST':
         try:
@@ -53,8 +53,8 @@ def submit_contact(request):
             email = request.POST.get('email')
             message = request.POST.get('message')
             
-            # Save to database
-            ContactMessage.objects.create(
+            # Save to database using correct model name
+            ContactMessageLanding.objects.create(
                 user=name,
                 email=email,
                 message=message
