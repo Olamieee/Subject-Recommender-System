@@ -39,7 +39,7 @@
     <!-- Main Content -->
     <div class="main-content">
         <div class="main-header">
-            <!--<button class="sidebar-toggle"><i class="fas fa-bars"></i></button>-->
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
             <h2>Welcome👋, {{ user.full_name }}</h2>
         </div>
 
@@ -110,5 +110,14 @@
             {% endif %}
         </div>        
 </body>
-
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+        const body = document.body;
+        
+        sidebarToggle.addEventListener('click', function() {
+            body.classList.toggle('sidebar-collapsed');
+        });
+    });
+</script>
 </html>
