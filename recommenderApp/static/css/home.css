@@ -1,0 +1,528 @@
+/* home.css - Optimized styles for Student Portal Home Page */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #4e85fd;
+  --secondary: #7c4dff;
+  --accent: #00c2a8;
+  --light: #f5f7ff;
+  --dark: #2a3950;
+  --success: #43cc8c;
+  --error: #ff6b6b;
+  --gradient-primary: linear-gradient(135deg, #4e85fd, #7c4dff);
+  --gradient-accent: linear-gradient(135deg, #00c2a8, #43cc8c);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f0f3ff;
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+/* Basic Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ====== LAYOUT: SIDEBAR AND MAIN CONTENT ====== */
+.with-sidebar {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.main-content {
+  flex: 1;
+  padding: 25px;
+  margin-left: 280px;
+  transition: var(--transition);
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.sidebar-header h3 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Sidebar User */
+.sidebar-user {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.user-school {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  flex: 1;
+  padding: 15px 0;
+  overflow-y: auto;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(78, 133, 253, 0.08);
+  color: var(--primary);
+}
+
+.sidebar-nav a.active {
+  background: rgba(78, 133, 253, 0.15);
+  color: var(--primary);
+  border-left: 4px solid var(--primary);
+}
+
+.sidebar-nav a i {
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+.sidebar-footer a {
+  color: #666;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-footer a i {
+  margin-right: 10px;
+}
+
+.sidebar-footer a:hover {
+  color: var(--primary);
+}
+
+/* Sidebar Toggle Button - Only for mobile */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--primary);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  z-index: 1010;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(78, 133, 253, 0.1);
+}
+
+/* Close button for sidebar - Only visible on mobile */
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(78, 133, 253, 0.1);
+  border: none;
+  font-size: 1.2rem;
+  color: var(--primary);
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1020;
+}
+
+/* ====== MAIN CONTENT ELEMENTS ====== */
+
+/* Main Header */
+.main-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.main-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content h3 {
+  font-size: 1.8rem;
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+
+.welcome-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.welcome-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.welcome-highlights li {
+  flex: 1 1 calc(50% - 15px);
+  min-width: 200px;
+  background: var(--light);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.welcome-highlights li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-quote {
+  font-style: italic;
+  color: var(--secondary);
+  text-align: center;
+  margin-top: 25px;
+  font-size: 1.1rem;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.dashboard-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.dashboard-card p {
+  color: #666;
+  margin-bottom: 25px;
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(78, 133, 253, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(78, 133, 253, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(78, 133, 253, 0.05);
+  box-shadow: 0 5px 15px rgba(78, 133, 253, 0.1);
+}
+
+/* Testimonials */
+.testimonial-container {
+  padding: 40px 0;
+}
+
+.testimonial-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--dark);
+  margin-bottom: 30px;
+}
+
+.testimonials-section {
+  width: 100%;
+  overflow-x: visible;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.testimonial-box {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.testimonial-rating {
+  color: #ffc107;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.testimonial-name {
+  color: var(--secondary);
+  margin: 5px 0;
+}
+
+.testimonial-date {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+
+/* For Tablets */
+@media (max-width: 992px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For Mobile */
+@media (max-width: 768px) {
+  /* Sidebar behavior on mobile */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+  }
+  
+  .sidebar-close {
+    display: flex;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 20px 15px;
+  }
+  
+  /* Show toggle button on mobile */
+  .sidebar-toggle {
+    display: flex;
+    margin-right: 15px;
+  }
+  
+  /* When sidebar is active on mobile */
+  body.sidebar-active .sidebar {
+    transform: translateX(0);
+  }
+  
+  /* Mobile overlay for sidebar */
+  body.sidebar-active::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  /* Main header adjustments */
+  .main-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Welcome section adjustments */
+  .welcome-section {
+    padding: 20px;
+  }
+  
+  .welcome-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-highlights li {
+    flex: 1 1 100%;
+  }
+  
+  /* Dashboard cards - stack on mobile */
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Testimonials - single column on mobile */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Button adjustments for mobile */
+  .btn {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 375px) {
+  .welcome-section {
+    padding: 15px;
+  }
+  
+  .dashboard-card {
+    padding: 20px;
+  }
+}

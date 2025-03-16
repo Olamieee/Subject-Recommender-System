@@ -286,6 +286,7 @@ def hybrid_recommend(student_input):
     return predicted_stream, final_recommendations
 
 #predict_student function
+@login_required(login_url='student_login')
 def predict_student(request):
     context = {}
     if not MODELS_LOADED:
@@ -471,6 +472,7 @@ def predict_student(request):
 
 
 #result_view function
+@login_required(login_url='student_login')
 def result_view(request, prediction_id=None):
     context = {}
     
@@ -564,6 +566,7 @@ def result_view(request, prediction_id=None):
     return render(request, 'results.html', context)
 
 #handling testimonial submission
+@login_required(login_url='student_login')
 def add_testimonial_view(request):
     if request.method == 'POST':
         student_id = request.session.get('student_id')
@@ -600,6 +603,7 @@ def about(request):
     return render(request, 'about.html')
 
 #contact page to handle form submission
+@login_required(login_url='student_login')
 def contact_view(request):
     student_id = request.session.get('student_id')
     context = {}
@@ -642,6 +646,7 @@ def student_guide_view(request):
     return render(request, 'guide.html')
 
 #reports page function
+@login_required(login_url='student_login')
 def visuals(request):
     img_folder = os.path.join('static', 'img') #path to the folder where images are stored
     images = [
@@ -657,6 +662,7 @@ def visuals(request):
     return render(request, 'visuals.html', {'image_paths': image_paths})
 
 
+@login_required(login_url='teacher_login')
 def teacher_dashboard(request):
     # Ensure the teacher is logged in via session
     if "teacher_email" not in request.session:
@@ -741,6 +747,7 @@ def teacher_dashboard(request):
     }
     return render(request, "teacher_dashboard.html", context)
 
+@login_required(login_url='teacher_login')
 def override_recommendation(request, prediction_id):
     if "teacher_email" not in request.session:
         return redirect("teacher_signin")
@@ -785,7 +792,7 @@ def override_recommendation(request, prediction_id):
 
 
 
-
+@login_required(login_url='teacher_login')
 def override_recommendation(request, prediction_id):
     if "teacher_email" not in request.session:
         return redirect("teacher_signin")  # Redirect if not logged in
@@ -824,7 +831,7 @@ def override_recommendation(request, prediction_id):
 
 
 
-
+@login_required(login_url='teacher_login')
 def submit_feedback(request):
     # Ensure only logged-in teachers can submit feedback
     if "teacher_email" not in request.session:
@@ -862,6 +869,7 @@ def submit_feedback(request):
         # Use HttpResponseRedirect with the full URL including query parameters
         return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_success=true')
 
+@login_required(login_url='student_login')
 def student_feedback(request):
     # Check if user is logged in
     student_id = request.session.get('student_id')
@@ -902,6 +910,7 @@ def student_feedback(request):
     
     return render(request, 'student_feedback.html', context)
 
+@login_required(login_url='student_login')
 def logout_view(request):
     logout(request)
     return redirect('landing')
