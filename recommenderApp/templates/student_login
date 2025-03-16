@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Student Recommendation System</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card auth-card">
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Login to access your account</p>
+            
+            {% if error_message %}
+            <div class="error-message">{{ error_message }}</div>
+            {% endif %}
+            
+            <form method="POST" action="{% url 'student_login' %}">
+                {% csrf_token %}
+                <div class="form-section">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p class="auth-link">Don't have an account? <a href="{% url 'student_signup' %}">Register here</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,11 +1,20 @@
-from . import views
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path("", views.landing, name="landing"),
     path("home/", views.home, name="home"),
+    
+    # Authentication URLs
+    path("student/signup/", views.student_signup, name="student_signup"),
+    path("student/login/", views.student_login, name="student_login"),
+    path("teacher/signup/", views.teacher_signup, name="teacher_signup"),
+    path("teacher/login/", views.teacher_login, name="teacher_login"),
+    
+    # Legacy URLs (for backward compatibility)
     path("student_signin/", views.student_signin, name="student_signin"),
     path('teacher_signin/', views.teacher_signin, name='teacher_signin'),
+
     path("predict/", views.predict_student, name="predict"),
     path("result/<int:prediction_id>/", views.result_view, name="result"),
     path("result/", views.result_view, name="result_no_id"),

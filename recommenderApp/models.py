@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils import timezone
-
+from django.contrib.auth.models import User
 
 class TeacherProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     age = models.IntegerField(null=True, blank=True)
@@ -13,9 +14,8 @@ class TeacherProfile(models.Model):
     def __str__(self):
         return f"{self.full_name} - {self.school_name}"
     
-
 class StudentProfile(models.Model):
-    #basic registration info
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student_profile')
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     school = models.CharField(max_length=255)

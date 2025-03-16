@@ -9,7 +9,8 @@ import pandas as pd
 import os
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.db.models import Count, F
 from django.contrib.auth.models import User
 
@@ -66,53 +67,163 @@ def submit_contact_landing(request):
     
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
-
-def student_signin(request):
-    """Handle user registration"""
+# Student Authentication
+def student_signup(request):
+    """Handle student registration with password"""
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         school = request.POST.get('school')
         email = request.POST.get('email')
-
-        #check if email already exists
-        student = StudentProfile.objects.filter(email=email).first()
-        if student:
-            request.session['student_id'] = student.id
-            return redirect('home')  #redirect directly to home
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
         
-        #create new student profile
-        student = StudentProfile.objects.create(full_name=full_name, school=school, email=email)
-        request.session['student_id'] = student.id  # Log in new user
-
+        # Check if passwords match
+        if password != confirm_password:
+            return render(request, 'student_signup.html', {'error_message': 'Passwords do not match'})
+        
+        # Check if email already exists in User model or StudentProfile
+        if User.objects.filter(email=email).exists() or StudentProfile.objects.filter(email=email).exists():
+            return render(request, 'student_signup.html', {'error_message': 'Email already exists'})
+        
+        # Create user
+        username = email  # Using email as username
+        user = User.objects.create_user(username=username, email=email, password=password)
+        
+        # Create student profile
+        student = StudentProfile.objects.create(
+            user=user,
+            full_name=full_name,
+            email=email,
+            school=school
+        )
+        
+        # Log the user in
+        login(request, user)
+        request.session['student_id'] = student.id  # Keep your existing session mechanism
+        
         return redirect('home')
-    return render(request, 'register.html')
+    
+    return render(request, 'student_signup.html')
 
+def student_login(request):
+    """Handle student login"""
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        
+        # Find user by email
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return render(request, 'student_login.html', {'error_message': 'Invalid email or password'})
+        
+        # Authenticate user
+        user = authenticate(request, username=user.username, password=password)
+        
+        if user is not None:
+            # Check if user has a student profile
+            try:
+                student_profile = StudentProfile.objects.get(user=user)
+                login(request, user)
+                request.session['student_id'] = student_profile.id  # Keep existing session mechanism
+                return redirect('home')
+            except StudentProfile.DoesNotExist:
+                return render(request, 'student_login.html', {'error_message': 'This account is not registered as a student'})
+        else:
+            return render(request, 'student_login.html', {'error_message': 'Invalid email or password'})
+    
+    return render(request, 'student_login.html')
+
+# Teacher Authentication
+def teacher_signup(request):
+    """Handle teacher registration with password"""
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        school_name = request.POST.get('school')
+        email = request.POST.get('email')
+        subject_specialization = request.POST.get('subject_specialization')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        
+        # Check if passwords match
+        if password != confirm_password:
+            return render(request, 'teacher_signup.html', {'error_message': 'Passwords do not match'})
+        
+        # Check if email already exists
+        if User.objects.filter(email=email).exists() or TeacherProfile.objects.filter(email=email).exists():
+            return render(request, 'teacher_signup.html', {'error_message': 'Email already exists'})
+        
+        # Create user
+        username = email  # Using email as username
+        user = User.objects.create_user(username=username, email=email, password=password)
+        
+        # Create teacher profile
+        teacher = TeacherProfile.objects.create(
+            user=user,
+            full_name=full_name,
+            email=email,
+            school_name=school_name,
+            subject_specialization=subject_specialization
+        )
+        
+        # Log the user in
+        login(request, user)
+        request.session['teacher_email'] = teacher.email  # Keep existing session mechanism
+        
+        return redirect('teacher_dashboard')
+    
+    return render(request, 'teacher_signup.html')
+
+def teacher_login(request):
+    """Handle teacher login"""
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        
+        # Find user by email
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            return render(request, 'teacher_login.html', {'error_message': 'Invalid email or password'})
+        
+        # Authenticate user
+        user = authenticate(request, username=user.username, password=password)
+        
+        if user is not None:
+            # Check if user has a teacher profile
+            try:
+                teacher_profile = TeacherProfile.objects.get(user=user)
+                login(request, user)
+                request.session['teacher_email'] = teacher_profile.email  # Keep existing session mechanism
+                return redirect('teacher_dashboard')
+            except TeacherProfile.DoesNotExist:
+                return render(request, 'teacher_login.html', {'error_message': 'This account is not registered as a teacher'})
+        else:
+            return render(request, 'teacher_login.html', {'error_message': 'Invalid email or password'})
+    
+    return render(request, 'teacher_login.html')
+
+# Legacy signin functions (for backward compatibility)
+def student_signin(request):
+    """Handle legacy student signin (redirects to signup)"""
+    return redirect('student_signup')
 
 def teacher_signin(request):
-    if request.method == "POST":
-        full_name = request.POST.get("full_name")
-        school_name = request.POST.get("school")
-        email = request.POST.get("email")
-        subject_specialization = request.POST.get("subject_specialization")
+    """Handle legacy teacher signin (redirects to signup)"""
+    return redirect('teacher_signup')
 
-        # Check if email is already registered
-        teacher, created = TeacherProfile.objects.get_or_create(
-            email=email,
-            defaults={
-                "full_name": full_name,
-                "school_name": school_name,
-                "subject_specialization": subject_specialization,
-            },
-        )
+def logout_view(request):
+    """Handle user logout"""
+    logout(request)
+    # Clear session
+    if 'student_id' in request.session:
+        del request.session['student_id']
+    if 'teacher_email' in request.session:
+        del request.session['teacher_email']
+    return redirect('landing')
 
-        # Store teacher's email in session
-        request.session["teacher_email"] = teacher.email
-
-        return redirect("teacher_dashboard")  # Redirect to dashboard
-
-    return render(request, "register_teacher.html")
-
-#homepage view function
+# Homepage view function
+@login_required(login_url='student_login')  # Add login_required decorator
 def home(request):
     # Check if user is logged in
     student_id = request.session.get('student_id')
@@ -128,12 +239,7 @@ def home(request):
     
     testimonials = Testimonial.objects.order_by('-created_at')[:6] #display testimonials
     
-    print("Testimonials found:", testimonials)
-    print("Testimonials count:", testimonials.count())
-    for testi in testimonials:
-        print(f"Testimonial: {testi.name}, Rating: {testi.rating}, Content: {testi.content}")
-    
-    #check if user has a prediction and testimonial
+    # Check if user has a prediction and testimonial
     user_has_prediction = Prediction.objects.filter(student=user).exists()
     user_has_testimonial = Testimonial.objects.filter(student=user).exists()
     
@@ -145,6 +251,12 @@ def home(request):
     }
     
     return render(request, 'home.html', context)
+
+# Add login_required decorators to your other view functions that require authentication
+# Example:
+# @login_required(login_url='student_login')
+# def predict_student(request):
+#
 
 # hybrid Recommendation Function
 def hybrid_recommend(student_input):
