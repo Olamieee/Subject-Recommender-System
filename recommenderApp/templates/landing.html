@@ -198,62 +198,68 @@
     <section class="contact reveal">
         <h2>Contact Us</h2>
         <p>Have any questions? Reach out to us.</p>
-        <form id="contactForm">
-            {% csrf_token %}
+        <form action="submit_contact.php" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn-primary">Send Message</button>
         </form>
-        <div id="formSuccess"
-            style="display: none; margin-top: 20px; padding: 15px; background-color: #dff0d8; color: #3c763d; border-radius: 5px; text-align: center;">
-            <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
-            <span>Thank you! Your message has been sent successfully.</span>
-        </div>
     </section>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Student Recommendation System. All rights reserved.</p>
+    </footer>
+
     <script>
+        // Ensure page starts at the top on reload
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        // Also force scroll to top when page loads
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            const contactForm = document.getElementById('contactForm');
-            const formSuccess = document.getElementById('formSuccess');
+            let elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .fade-in, .stagger, .about-text, .about-image, .how-it-works, .testimonials, .contact, .features-section');
 
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevent default form submission
+            function checkPosition() {
+                let windowHeight = window.innerHeight;
 
-                // Get form data
-                const formData = new FormData(contactForm);
+                elements.forEach(function (element) {
+                    let positionFromTop = element.getBoundingClientRect().top;
 
-                // Send AJAX request to Django view
-                fetch('{% url "submit_contact" %}', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
+                    if (positionFromTop - windowHeight <= -100) {
+                        element.classList.add('active');
                     }
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Show success message
-                            formSuccess.style.display = 'block';
+                });
+            }
 
-                            // Reset form
-                            contactForm.reset();
+            // Add ripple effect to all buttons
+            const buttons = document.querySelectorAll('.btn, .btn-secondary, .btn-primary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    let x = e.clientX - e.target.getBoundingClientRect().left;
+                    let y = e.clientY - e.target.getBoundingClientRect().top;
 
-                            // Hide success message after 5 seconds
-                            setTimeout(function () {
-                                formSuccess.style.display = 'none';
-                            }, 5000);
-                        } else {
-                            // Show error
-                            alert('Error sending message: ' + (data.error || 'Unknown error'));
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('An error occurred. Please try again later.');
-                    });
+                    let ripple = document.createElement('span');
+                    ripple.className = 'ripple';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 1000);
+                });
             });
+
+            // On page load, check position and then on scroll
+            window.addEventListener('scroll', checkPosition);
+            checkPosition(); // Check positions on page load
         });
     </script>
 </body>
