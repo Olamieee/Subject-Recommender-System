@@ -572,15 +572,13 @@ input::placeholder, select::placeholder {
   }
 }
 
-/* Add these styles to your existing CSS file */
-
-/* Sidebar and Main Content Layout */
 /* Sidebar and Main Content Layout */
 .with-sidebar {
   display: flex;
   overflow-x: hidden;
   background: #f0f3ff;
   padding: 0;
+  position: relative;
 }
 
 .sidebar {
@@ -593,16 +591,16 @@ input::placeholder, select::placeholder {
   top: 0;
   display: flex;
   flex-direction: column;
-  z-index: 10;
-  transition: all 0.3s ease;
+  z-index: 1000;
+  transition: transform 0.3s ease;
 }
 
 .main-content {
   flex: 1;
   padding: 20px;
-  margin-left: 250px; /* Add margin to push content away from sidebar */
-  width: calc(100% - 250px); /* Ensure full width minus sidebar */
-  transition: all 0.3s ease;
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  transition: margin-left 0.3s ease, width 0.3s ease;
 }
 
 /* For collapsed sidebar */
@@ -626,6 +624,7 @@ input::placeholder, select::placeholder {
         margin-left: 0;
         width: 100%;
     }
+  }
 /* Sidebar Elements */
 .sidebar-header {
   padding: 20px;
@@ -743,10 +742,10 @@ input::placeholder, select::placeholder {
 }
 
 .sidebar-toggle {
-  background: rgba(78, 133, 253, 0.1);
-  margin-right: 10px;
+  background: none;
   border: none;
   font-size: 1.2rem;
+  margin-right: 15px;
   color: var(--primary);
   cursor: pointer;
   display: flex;
@@ -756,26 +755,101 @@ input::placeholder, select::placeholder {
   height: 40px;
   border-radius: 8px;
   transition: all 0.2s;
+  z-index: 1010;
 }
 
 .sidebar-toggle:hover {
   background: rgba(78, 133, 253, 0.1);
 }
+@/* Mobile sidebar behavior */
 @media (max-width: 768px) {
-  .sidebar-collapsed::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      pointer-events: none;
+  /* Default state - sidebar hidden */
+  .sidebar {
+    transform: translateX(-250px);
+    z-index: 1000;
   }
   
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  /* When sidebar is toggled on mobile */
   .sidebar-collapsed .sidebar {
-      z-index: 1001;
+    transform: translateX(0);
+  }
+
+  /* Add overlay when sidebar is open on mobile */
+  .sidebar-collapsed::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
+  
+  /* Position toggle button for mobile */
+  .sidebar-toggle {
+    background: rgba(78, 133, 253, 0.1);
+    margin-right: 10px;
+    position: relative;
+    z-index: 1010;
+  }
+  
+  /* Welcome highlights for mobile */
+  .welcome-highlights {
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .welcome-highlights li {
+    margin: 5px 0;
+    width: 100%;
+  }
+  
+  /* Adjust main header for mobile */
+  .main-header {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  /* Single column dashboard cards */
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Fix testimonial grid */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+  
+  /* Fix card padding */
+  .card {
+    padding: 1.5rem;
+  }
+  
+  /* Section padding */
+  .section-divider {
+    margin: 30px 0;
+  }
+}
+
+/* Welcome section responsive fixes */
+@media (max-width: 768px) {
+  .welcome-section {
+    padding: 15px;
+  }
+  
+  .welcome-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-content p {
+    font-size: 0.95rem;
   }
 }
 
@@ -784,7 +858,10 @@ input::placeholder, select::placeholder {
   .sidebar {
       transform: translateX(0);
   }
-  
+  .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
   .sidebar-collapsed .sidebar {
       transform: translateX(-250px);
   }
@@ -1077,13 +1154,13 @@ textarea {
 }
 
 .with-sidebar .main-content {
-  margin-left: 250px; /* Adjust based on sidebar width */
+  margin-left: 250px;
   transition: margin-left 0.3s ease;
 }
 
 @media (max-width: 768px) {
   .with-sidebar .main-content {
-      margin-left: 0; /* Ensure content is fully visible when sidebar is hidden */
+      margin-left: 0;
   }
 }
 

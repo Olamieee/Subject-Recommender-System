@@ -111,13 +111,23 @@
         </div>        
 </body>
 <script>
-     document.addEventListener('DOMContentLoaded', function() {
-        const sidebarToggle = document.querySelector('.sidebar-toggle');
-        const body = document.body;
+    document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.querySelector('.sidebar-toggle');
+    const toggleIcon = sidebarToggle.querySelector('i');
+    const body = document.body;
+    
+    sidebarToggle.addEventListener('click', function() {
+        body.classList.toggle('sidebar-collapsed');
         
-        sidebarToggle.addEventListener('click', function() {
-            body.classList.toggle('sidebar-collapsed');
-        });
+        // Toggle between bars and times icon
+        if (body.classList.contains('sidebar-collapsed')) {
+            toggleIcon.classList.remove('fa-bars');
+            toggleIcon.classList.add('fa-times');
+        } else {
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
+        }
     });
+});
 </script>
 </html>
