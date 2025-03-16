@@ -103,7 +103,7 @@ def student_signup(request):
         
         return redirect('home')
     
-    return render(request, 'student_signup.html')
+    return render(request, 'register.html')
 
 def student_login(request):
     """Handle student login"""
@@ -172,7 +172,7 @@ def teacher_signup(request):
         
         return redirect('teacher_dashboard')
     
-    return render(request, 'teacher_signup.html')
+    return render(request, 'register_teacher.html')
 
 def teacher_login(request):
     """Handle teacher login"""
