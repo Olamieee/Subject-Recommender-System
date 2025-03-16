@@ -1,0 +1,281 @@
+<!-- iq_test.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Cognitive Assessment - Student Recommendation System</title>
+    <style>
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .type-logical {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .type-verbal {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .type-numerical {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+
+        .type-spatial {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .option-item input {
+            margin-right: 12px;
+        }
+
+        .timer-container {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timer {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            height: 8px;
+            margin-top: 8px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #4a7afd, #7c4dff);
+            transition: width 0.5s;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4a7afd, #7c4dff);
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(74, 122, 253, 0.3);
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 24px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 122, 253, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <h1 class="text-center">Cognitive Assessment Test</h1>
+                <p class="text-center">Complete this short assessment to enhance your recommendation profile.</p>
+
+                <div class="timer-container">
+                    <div>
+                        <div>Time Remaining: <span id="timer" class="timer">15:00</span></div>
+                        <div class="progress">
+                            <!-- iq_test.html continued -->
+                            <div class="timer-container">
+                                <div>
+                                    <div>Time Remaining: <span id="timer" class="timer">15:00</span></div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" id="progressBar" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span id="questionCounter">1/12</span> Questions
+                                </div>
+                            </div>
+
+                            <form method="POST" action="{% url 'iq_test' %}" id="iqTestForm">
+                                {% csrf_token %}
+
+                                {% for question in questions %}
+                                <div class="question-card" id="question-{{ forloop.counter }}" {% if not forloop.first
+                                    %}style="display: none;" {% endif %}>
+                                    <div class="question-type type-{{ question.question_type }}">
+                                        {{ question.get_question_type_display }}
+                                    </div>
+
+                                    <h3>{{ question.question }}</h3>
+
+                                    <div class="options-list">
+                                        <label class="option-item">
+                                            <input type="radio" name="question_{{ question.id }}" value="A" required>
+                                            {{ question.option_a }}
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="question_{{ question.id }}" value="B">
+                                            {{ question.option_b }}
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="question_{{ question.id }}" value="C">
+                                            {{ question.option_c }}
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="radio" name="question_{{ question.id }}" value="D">
+                                            {{ question.option_d }}
+                                        </label>
+                                    </div>
+
+                                    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                                        {% if not forloop.first %}
+                                        <button type="button" class="btn btn-secondary prev-btn"
+                                            onclick="showQuestion({{ forloop.counter }}-1)">Previous</button>
+                                        {% else %}
+                                        <div></div>
+                                        {% endif %}
+
+                                        {% if not forloop.last %}
+                                        <button type="button" class="btn btn-primary next-btn"
+                                            onclick="showQuestion({{ forloop.counter }}+1)">Next</button>
+                                        {% else %}
+                                        <button type="submit" class="btn btn-success">Submit Assessment</button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                                <button type="submit" class="submit-btn">Complete Assessment</button>
+                            </form>
+                        </div>
+        </main>
+    </div>
+
+    <script>
+        // Timer functionality
+        let timeLeft = 15 * 60; // 15 minutes in seconds
+        const timerElement = document.getElementById('timer');
+        const progressBar = document.getElementById('progressBar');
+        const totalQuestions = {{ questions| length }};
+        let currentQuestion = 1;
+
+        function updateQuestionCounter() {
+            document.getElementById('questionCounter').textContent = `${currentQuestion}/${totalQuestions}`;
+        }
+
+        function showQuestion(questionNum) {
+            // Hide all questions
+            document.querySelectorAll('.question-card').forEach(card => {
+                card.style.display = 'none';
+            });
+
+            // Show the requested question
+            document.getElementById(`question-${questionNum}`).style.display = 'block';
+            currentQuestion = questionNum;
+            updateQuestionCounter();
+        }
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            progressBar.style.width = `${(timeLeft / (15 * 60)) * 100}%`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('iqTestForm').submit();
+            }
+
+            timeLeft--;
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Form validation
+        document.querySelector('.submit-btn').addEventListener('click', function (e) {
+            e.preventDefault();
+            const form = document.getElementById('iqTestForm');
+            const allQuestions = {{ questions| length
+        }};
+        let answeredQuestions = 0;
+
+        // Check how many questions have been answered
+        for (let i = 0; i < form.elements.length; i++) {
+            const input = form.elements[i];
+            if (input.type === 'radio' && input.checked) {
+                answeredQuestions++;
+            }
+        }
+
+        if (answeredQuestions < allQuestions) {
+            const confirmation = confirm(`You've only answered ${answeredQuestions} out of ${allQuestions} questions. Are you sure you want to submit?`);
+            if (confirmation) {
+                form.submit();
+            }
+        } else {
+            form.submit();
+        }
+        });
+    </script>
+</body>
+
+</html>

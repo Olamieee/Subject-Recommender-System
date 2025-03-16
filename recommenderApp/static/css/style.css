@@ -761,7 +761,8 @@ input::placeholder, select::placeholder {
 .sidebar-toggle:hover {
   background: rgba(78, 133, 253, 0.1);
 }
-@/* Mobile sidebar behavior */
+
+/* Mobile sidebar behavior */
 @media (max-width: 768px) {
   /* Default state - sidebar hidden */
   .sidebar {

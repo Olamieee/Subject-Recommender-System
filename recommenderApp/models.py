@@ -144,3 +144,69 @@ class ContactMessageLanding(models.Model):
     
     class Meta:
         ordering = ['-timestamp']
+
+# First, let's uncomment and enhance the IQ Question model
+
+class IQQuestion(models.Model):
+    question = models.TextField()
+    option_a = models.CharField(max_length=255)
+    option_b = models.CharField(max_length=255)
+    option_c = models.CharField(max_length=255)
+    option_d = models.CharField(max_length=255)
+    correct_answer = models.CharField(max_length=1, choices=[('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')])
+    question_type = models.CharField(max_length=50, choices=[
+        ('logical', 'Logical Reasoning'),
+        ('verbal', 'Verbal Reasoning'),
+        ('numerical', 'Numerical Reasoning'),
+        ('spatial', 'Spatial Reasoning'),
+    ])
+    difficulty = models.IntegerField(choices=[(1, 'Easy'), (2, 'Medium'), (3, 'Hard')])
+    
+    def __str__(self):
+        return f"{self.get_question_type_display()} Question ({self.get_difficulty_display()})"
+
+# Add a model to track student IQ test attempts and results
+class IQTestResult(models.Model):
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, related_name="iq_results")
+    prediction = models.ForeignKey(Prediction, on_delete=models.CASCADE, related_name="iq_results", null=True, blank=True)
+    logical_score = models.IntegerField(default=0)
+    verbal_score = models.IntegerField(default=0)
+    numerical_score = models.IntegerField(default=0)
+    spatial_score = models.IntegerField(default=0)
+    total_score = models.IntegerField(default=0)
+    completed_at = models.DateTimeField(auto_now_add=True)
+    
+    def calculate_normalized_score(self):
+        """Convert raw scores to a normalized IQ-like score (mean 100, std 15)"""
+        # This is a simplified calculation - replace with your actual normalization logic
+        base_score = 100
+        total_raw = self.logical_score + self.verbal_score + self.numerical_score + self.spatial_score
+        # Adjust based on your scoring system
+        normalized = base_score + ((total_raw - 20) * 3)  # Assuming average raw score is around 20
+        self.total_score = max(70, min(130, normalized))  # Clamp between 70-130
+        return self.total_score
+    
+    def get_suitable_areas(self):
+        """Map cognitive strengths to academic areas"""
+        strengths = []
+        if self.logical_score > 7:  # Assuming 10 is max per category
+            strengths.append("STEM")
+        if self.verbal_score > 7:
+            strengths.append("Humanities")
+        if self.numerical_score > 7:
+            strengths.append("Business")
+        if self.spatial_score > 7:
+            strengths.append("Arts")
+            
+        if not strengths:  # If no clear strength
+            if self.logical_score >= self.numerical_score and self.logical_score >= self.verbal_score:
+                strengths.append("STEM")
+            elif self.verbal_score >= self.logical_score and self.verbal_score >= self.numerical_score:
+                strengths.append("Humanities")
+            else:
+                strengths.append("Business")
+                
+        return strengths
+    
+    def __str__(self):
+        return f"IQ Test Result for {self.student.full_name} - Score: {self.total_score}"

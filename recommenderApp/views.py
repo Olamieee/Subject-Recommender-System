@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
-from .models import StudentProfile, Prediction, Testimonial, ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride
+from .models import StudentProfile, Prediction, Testimonial,IQQuestion, IQTestResult, ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride
 import joblib
 import numpy as np
 import random
@@ -471,12 +471,86 @@ def predict_student(request):
     return render(request, "predict.html", context)
 
 
-#result_view function
 @login_required(login_url='student_login')
-def result_view(request, prediction_id=None):
+# Add a view to handle the IQ test
+def iq_test_view(request):
+    if request.method == 'GET':
+        # Get questions - sample 3 from each category
+        logical_questions = IQQuestion.objects.filter(question_type='logical').order_by('?')[:3]
+        verbal_questions = IQQuestion.objects.filter(question_type='verbal').order_by('?')[:3]
+        numerical_questions = IQQuestion.objects.filter(question_type='numerical').order_by('?')[:3]
+        spatial_questions = IQQuestion.objects.filter(question_type='spatial').order_by('?')[:3]
+        
+        questions = list(logical_questions) + list(verbal_questions) + list(numerical_questions) + list(spatial_questions)
+        request.session['iq_test_questions'] = [q.id for q in questions]
+        
+        context = {
+            'questions': questions,
+        }
+        return render(request, 'iq_test.html', context)
+    
+    elif request.method == 'POST':
+        question_ids = request.session.get('iq_test_questions', [])
+        if not question_ids:
+            return redirect('predict')
+            
+        # Calculate scores by category
+        logical_score = 0
+        verbal_score = 0
+        numerical_score = 0
+        spatial_score = 0
+        
+        for q_id in question_ids:
+            question = IQQuestion.objects.get(id=q_id)
+            user_answer = request.POST.get(f'question_{q_id}')
+            
+            if user_answer == question.correct_answer:
+                if question.question_type == 'logical':
+                    logical_score += 1
+                elif question.question_type == 'verbal':
+                    verbal_score += 1
+                elif question.question_type == 'numerical':
+                    numerical_score += 1
+                elif question.question_type == 'spatial':
+                    spatial_score += 1
+        
+        # Create or update test result
+        student_id = request.session.get('student_id')
+        if student_id:
+            student = StudentProfile.objects.get(id=student_id)
+            # Find the most recent prediction
+            prediction = Prediction.objects.filter(student=student).order_by('-created_at').first()
+            
+            test_result = IQTestResult(
+                student=student,
+                prediction=prediction,
+                logical_score=logical_score,
+                verbal_score=verbal_score,
+                numerical_score=numerical_score,
+                spatial_score=spatial_score
+            )
+            test_result.calculate_normalized_score()
+            test_result.save()
+            
+            # Redirect to enhanced results page
+            return redirect('enhanced_result', iq_result_id=test_result.id)
+        else:
+            # Handle anonymous users
+            request.session['temp_iq_results'] = {
+                'logical_score': logical_score,
+                'verbal_score': verbal_score,
+                'numerical_score': numerical_score,
+                'spatial_score': spatial_score,
+                'total_score': 100 + ((logical_score + verbal_score + numerical_score + spatial_score - 6) * 5)
+            }
+            return redirect('result_view')
+
+# Enhanced result view that incorporates IQ test results
+@login_required(login_url='student_login')
+def enhanced_result_view(request, iq_result_id=None):
     context = {}
     
-    #label mappings for converting integer codes to string representations
+    # Your existing label mappings
     label_mappings = {
         0: "Arts",
         1: "Business",
@@ -485,85 +559,159 @@ def result_view(request, prediction_id=None):
         4: "STEM"
     }
     
-    #check if user is logged in
     student_id = request.session.get('student_id')
     if student_id:
         try:
             user = StudentProfile.objects.get(id=student_id)
             context['user'] = user
             
-            if prediction_id: #check if user have a prediction ID
+            # Get IQ test result
+            if iq_result_id:
                 try:
-                    prediction = Prediction.objects.get(id=prediction_id, student=user)
-                    context['prediction'] = prediction
-                    context['prediction_found'] = True
+                    iq_result = IQTestResult.objects.get(id=iq_result_id, student=user)
+                    context['iq_result'] = iq_result
+                    context['cognitive_strengths'] = iq_result.get_suitable_areas()
                     
-                    #map the integer predicted_subject to its string representation
-                    predicted_subject = label_mappings.get(prediction.predicted_subject, 
-                                                        f"Unknown ({prediction.predicted_subject})")
-                    context['predicted_subject'] = predicted_subject
-                    
-                    #then convert comma-separated string back to list
-                    recommended_subjects = prediction.recommended_subjects.split(',')
-                    context['recommended_subjects'] = recommended_subjects
-                    
-                    #confirm if user has already submitted a testimonial for this prediction
-                    user_testimonial = Testimonial.objects.filter(student=user, prediction=prediction).first()
-                    context['has_testimonial'] = user_testimonial is not None
-                    context['user_testimonial'] = user_testimonial
-                    
-                except Prediction.DoesNotExist:
-                    context['error_message'] = "The requested prediction was not found or doesn't belong to you."
-            else:
-                # Get latest prediction for this user if no specific ID
-                prediction = Prediction.objects.filter(student=user).order_by('-created_at').first()
-                if prediction:
-                    context['prediction'] = prediction
-                    context['prediction_found'] = True
-                    
-                    #map the integer predicted_subject to its string representation
-                    predicted_subject = label_mappings.get(prediction.predicted_subject, 
-                                                        f"Unknown ({prediction.predicted_subject})")
-                    context['predicted_subject'] = predicted_subject
-                    
-                    #convert comma-separated string back to list
-                    recommended_subjects = prediction.recommended_subjects.split(',')
-                    context['recommended_subjects'] = recommended_subjects
-                    
-                    #check if user has already submitted a testimonial for this prediction
-                    user_testimonial = Testimonial.objects.filter(student=user, prediction=prediction).first()
-                    context['has_testimonial'] = user_testimonial is not None
-                    context['user_testimonial'] = user_testimonial
-                else:
-                    temp_prediction = request.session.pop('temp_prediction', None) #check for temporary prediction data in session
-                    if temp_prediction:
-                        predicted_subject = temp_prediction['predicted_subject']
+                    # Get corresponding prediction
+                    prediction = iq_result.prediction
+                    if prediction:
+                        context['prediction'] = prediction
+                        context['prediction_found'] = True
+                        
+                        # Map the integer predicted_subject to its string representation
+                        predicted_subject = label_mappings.get(prediction.predicted_subject, 
+                                                           f"Unknown ({prediction.predicted_subject})")
                         context['predicted_subject'] = predicted_subject
                         
-                        recommended_subjects = temp_prediction['recommended_subjects']
+                        # Convert comma-separated string back to list
+                        recommended_subjects = prediction.recommended_subjects.split(',')
                         context['recommended_subjects'] = recommended_subjects
-                        context['student_input'] = temp_prediction['student_input']
-                        context['is_temporary'] = True
-                    else:
-                        context['error_message'] = "No predictions found for your account. Try making a prediction first."
-            
+                        
+                        # Calculate compatibility score between IQ results and prediction
+                        compatibility = 0
+                        if predicted_subject in iq_result.get_suitable_areas():
+                            compatibility = 90 + (iq_result.total_score - 100) // 5  # Base compatibility adjusted by IQ
+                        else:
+                            compatibility = 70 + (iq_result.total_score - 100) // 10  # Lower compatibility
+                        
+                        context['compatibility_score'] = min(100, max(50, compatibility))
+                        
+                except IQTestResult.DoesNotExist:
+                    return redirect('result_view')  # Fallback to regular results
+            else:
+                # Fallback to standard result view logic
+                return redirect('result_view')
+                
         except StudentProfile.DoesNotExist:
-            del request.session['student_id'] #invalid session, redirect to landing
+            del request.session['student_id']
             return redirect('landing')
     else:
-        temp_prediction = request.session.pop('temp_prediction', None) #if not logged in, check for temporary prediction data
-        if temp_prediction:
-            predicted_subject = temp_prediction['predicted_subject']
-            context['predicted_subject'] = predicted_subject
+        # Handle temp results similarly to your existing code
+        temp_iq_results = request.session.get('temp_iq_results')
+        temp_prediction = request.session.get('temp_prediction')
         
-            recommended_subjects = temp_prediction['recommended_subjects']
-            context['recommended_subjects'] = recommended_subjects
+        if temp_iq_results and temp_prediction:
+            context['predicted_subject'] = temp_prediction['predicted_subject']
+            context['recommended_subjects'] = temp_prediction['recommended_subjects']
             context['student_input'] = temp_prediction['student_input']
             context['is_temporary'] = True
+            context['temp_iq_results'] = temp_iq_results
         else:
-            return redirect('landing') #if no prediction data and not logged in
+            return redirect('landing')
     
-    return render(request, 'results.html', context)
+    return render(request, 'enhanced_results.html', context)
+
+# def result_view(request, prediction_id=None):
+#     context = {}
+    
+#     #label mappings for converting integer codes to string representations
+#     label_mappings = {
+#         0: "Arts",
+#         1: "Business",
+#         2: "Healthcare",
+#         3: "Humanities",
+#         4: "STEM"
+#     }
+    
+#     #check if user is logged in
+#     student_id = request.session.get('student_id')
+#     if student_id:
+#         try:
+#             user = StudentProfile.objects.get(id=student_id)
+#             context['user'] = user
+            
+#             if prediction_id: #check if user have a prediction ID
+#                 try:
+#                     prediction = Prediction.objects.get(id=prediction_id, student=user)
+#                     context['prediction'] = prediction
+#                     context['prediction_found'] = True
+                    
+#                     #map the integer predicted_subject to its string representation
+#                     predicted_subject = label_mappings.get(prediction.predicted_subject, 
+#                                                         f"Unknown ({prediction.predicted_subject})")
+#                     context['predicted_subject'] = predicted_subject
+                    
+#                     #then convert comma-separated string back to list
+#                     recommended_subjects = prediction.recommended_subjects.split(',')
+#                     context['recommended_subjects'] = recommended_subjects
+                    
+#                     #confirm if user has already submitted a testimonial for this prediction
+#                     user_testimonial = Testimonial.objects.filter(student=user, prediction=prediction).first()
+#                     context['has_testimonial'] = user_testimonial is not None
+#                     context['user_testimonial'] = user_testimonial
+                    
+#                 except Prediction.DoesNotExist:
+#                     context['error_message'] = "The requested prediction was not found or doesn't belong to you."
+#             else:
+#                 # Get latest prediction for this user if no specific ID
+#                 prediction = Prediction.objects.filter(student=user).order_by('-created_at').first()
+#                 if prediction:
+#                     context['prediction'] = prediction
+#                     context['prediction_found'] = True
+                    
+#                     #map the integer predicted_subject to its string representation
+#                     predicted_subject = label_mappings.get(prediction.predicted_subject, 
+#                                                         f"Unknown ({prediction.predicted_subject})")
+#                     context['predicted_subject'] = predicted_subject
+                    
+#                     #convert comma-separated string back to list
+#                     recommended_subjects = prediction.recommended_subjects.split(',')
+#                     context['recommended_subjects'] = recommended_subjects
+                    
+#                     #check if user has already submitted a testimonial for this prediction
+#                     user_testimonial = Testimonial.objects.filter(student=user, prediction=prediction).first()
+#                     context['has_testimonial'] = user_testimonial is not None
+#                     context['user_testimonial'] = user_testimonial
+#                 else:
+#                     temp_prediction = request.session.pop('temp_prediction', None) #check for temporary prediction data in session
+#                     if temp_prediction:
+#                         predicted_subject = temp_prediction['predicted_subject']
+#                         context['predicted_subject'] = predicted_subject
+                        
+#                         recommended_subjects = temp_prediction['recommended_subjects']
+#                         context['recommended_subjects'] = recommended_subjects
+#                         context['student_input'] = temp_prediction['student_input']
+#                         context['is_temporary'] = True
+#                     else:
+#                         context['error_message'] = "No predictions found for your account. Try making a prediction first."
+            
+#         except StudentProfile.DoesNotExist:
+#             del request.session['student_id'] #invalid session, redirect to landing
+#             return redirect('landing')
+#     else:
+#         temp_prediction = request.session.pop('temp_prediction', None) #if not logged in, check for temporary prediction data
+#         if temp_prediction:
+#             predicted_subject = temp_prediction['predicted_subject']
+#             context['predicted_subject'] = predicted_subject
+        
+#             recommended_subjects = temp_prediction['recommended_subjects']
+#             context['recommended_subjects'] = recommended_subjects
+#             context['student_input'] = temp_prediction['student_input']
+#             context['is_temporary'] = True
+#         else:
+#             return redirect('landing') #if no prediction data and not logged in
+    
+#     return render(request, 'results.html', context)
 
 #handling testimonial submission
 @login_required(login_url='student_login')
