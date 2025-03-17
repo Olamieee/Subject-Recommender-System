@@ -402,9 +402,7 @@
                                 confidently recommend {{ predicted_subject }} as your optimal career path.</p>
 
                             <p>Your overall cognitive score of {{ iq_result.total_score }} places you in the
-                                {% if iq_result.total_score > 120 %}top percentile{% elif iq_result.total_score > 110
-                                %}above average range{% elif iq_result.total_score > 90 %}average range{% else
-                                %}developing range{% endif %}
+                                {% if iq_result.total_score > 120 %}top percentile{% elif iq_result.total_score > 110 %}above average range{% elif iq_result.total_score > 90 %}average range{% else %}developing range{% endif %}
                                 of students. With focused development of your key strengths, you have excellent
                                 potential for success in your recommended field.</p>
                         </div>
