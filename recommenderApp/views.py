@@ -567,13 +567,25 @@ def result_view(request, prediction_id=None):
 # Add a view to handle the IQ test
 def iq_test_view(request):
     if request.method == 'GET':
-        # Get questions - sample 3 from each category
-        logical_questions = IQQuestion.objects.filter(question_type='logical').order_by('?')[:3]
-        verbal_questions = IQQuestion.objects.filter(question_type='verbal').order_by('?')[:3]
-        numerical_questions = IQQuestion.objects.filter(question_type='numerical').order_by('?')[:3]
-        spatial_questions = IQQuestion.objects.filter(question_type='spatial').order_by('?')[:3]
+        # Get all questions by type
+        logical_questions = list(IQQuestion.objects.filter(question_type='logical'))
+        verbal_questions = list(IQQuestion.objects.filter(question_type='verbal'))
+        numerical_questions = list(IQQuestion.objects.filter(question_type='numerical'))
+        spatial_questions = list(IQQuestion.objects.filter(question_type='spatial'))
         
-        questions = list(logical_questions) + list(verbal_questions) + list(numerical_questions) + list(spatial_questions)
+        # Randomly select 5 questions from each category
+        selected_logical = random.sample(logical_questions, min(5, len(logical_questions)))
+        selected_verbal = random.sample(verbal_questions, min(5, len(verbal_questions)))
+        selected_numerical = random.sample(numerical_questions, min(5, len(numerical_questions)))
+        selected_spatial = random.sample(spatial_questions, min(5, len(spatial_questions)))
+        
+        # Combine all selected questions
+        questions = selected_logical + selected_verbal + selected_numerical + selected_spatial
+        
+        # Shuffle the questions for the test
+        random.shuffle(questions)
+        
+        # Store the selected question IDs in the session
         request.session['iq_test_questions'] = [q.id for q in questions]
         
         context = {
@@ -636,7 +648,6 @@ def iq_test_view(request):
                 'total_score': 100 + ((logical_score + verbal_score + numerical_score + spatial_score - 6) * 5)
             }
             return redirect('result_view')
-
 # Enhanced result view that incorporates IQ test results
 @login_required(login_url='student_login')
 def enhanced_result_view(request, iq_result_id=None):
