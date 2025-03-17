@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-
-    <!-- Guide Container -->
+    <a href="{% url 'home' %}" class="back-link">🏠 Back to Dashboard</a>
     <div class="guide-container">
         <h2 class="guide-title">📘 Student Guide</h2>
         <p class="guide-intro">
@@ -63,8 +62,6 @@
                 Need assistance? If you encounter any issues or have questions about how the system works, visit the <strong>Contact</strong> page to get in touch with our support team. We're here to help!
             </p>
         </div>
-
-        <a href="{% url 'home' %}" class="back-link">🏠 Back to Home</a>
     </div>
 
 </body>
