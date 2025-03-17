@@ -157,8 +157,7 @@
                                 {% csrf_token %}
 
                                 {% for question in questions %}
-                                <div class="question-card" id="question-{{ forloop.counter }}" {% if not forloop.first
-                                    %}style="display: none;" {% endif %}>
+                                <div class="question-card" id="question-{{ forloop.counter }}" {% if not forloop.first%}style="display: none;" {% endif %}>
                                     <div class="question-type type-{{ question.question_type }}">
                                         {{ question.get_question_type_display }}
                                     </div>
