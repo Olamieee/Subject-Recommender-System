@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="{% url 'home' %}" class="back-link">Back to Home</a>
         <div class="card">
             <h1>Student Recommendation System</h1>
             
@@ -51,7 +52,7 @@
                             <input type="number" name="study_hours_per_week" placeholder="Study Hours Per Week" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" name="household_income" placeholder="Household Income (RWF)" required>
+                            <input type="number" name="household_income" placeholder="Household Income" required>
                         </div>
                     </div>
                 </div>
@@ -132,8 +133,6 @@
                     Get Recommendations
                 </button>
             </form>
-
-            <a href="{% url 'home' %}" class="back-link">Back to Home</a>
         </div>
     </div>
 </body>
