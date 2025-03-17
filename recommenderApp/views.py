@@ -722,7 +722,7 @@ def enhanced_result_view(request, iq_result_id=None):
         else:
             return redirect('landing')
     
-    return render(request, 'enhanced_result.html', context)
+    return render(request, 'enchanced_result.html', context)
 
 
 #handling testimonial submission
