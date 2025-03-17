@@ -220,65 +220,72 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(74, 122, 253, 0.4);
         }
-        
+
         .recommendation-section ul {
             padding-left: 20px;
             list-style-position: inside;
         }
-        
+
         .recommendation-section li {
             margin-bottom: 10px;
         }
-        
+
         /* Mobile responsiveness improvements */
         @media (max-width: 768px) {
+            .enhanced-results-container {
+                max-width: 100%;
+                /* Use full width instead of 900px */
+                padding: 10px;
+                /* Reduce padding to maximize content area */
+            }
+
             .results-header {
                 padding: 20px;
             }
-            
+
             .results-header h2 {
                 font-size: 1.4rem;
             }
-            
+
             .results-date {
                 position: static;
                 margin-bottom: 10px;
             }
-            
+
             .results-content {
                 padding: 20px;
             }
-            
+
             .stat-value {
                 font-size: 2rem;
             }
-            
+
             .score-breakdown {
                 grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
                 gap: 10px;
             }
-            
+
             .ability-score {
                 font-size: 1.5rem;
             }
-            
+
             .compatibility-container {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .compatibility-gauge {
                 width: 100%;
                 margin-top: 10px;
                 margin-left: 0;
             }
-            
+
             .action-buttons {
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
             }
-            
+
             .action-btn {
                 width: 100%;
                 text-align: center;
@@ -395,13 +402,15 @@
                                 confidently recommend {{ predicted_subject }} as your optimal career path.</p>
 
                             <p>Your overall cognitive score of {{ iq_result.total_score }} places you in the
-                                {% if iq_result.total_score > 120 %}top percentile{% elif iq_result.total_score > 110 %}above average range{% elif iq_result.total_score > 90 %}average range{% else %}developing range{% endif %}
+                                {% if iq_result.total_score > 120 %}top percentile{% elif iq_result.total_score > 110
+                                %}above average range{% elif iq_result.total_score > 90 %}average range{% else
+                                %}developing range{% endif %}
                                 of students. With focused development of your key strengths, you have excellent
                                 potential for success in your recommended field.</p>
                         </div>
 
                         <div class="action-buttons">
-                            <a href="{% url 'iq_test' %}" class="action-btn">Try Again</a>
+                            <a href="{% url 'predict' %}" class="action-btn">Try Again</a>
                             <a href="{% url 'home' %}" class="action-btn">Back to Home</a>
                             <a href="#" onclick="window.print(); return false;" class="action-btn">Print Results</a>
                         </div>
