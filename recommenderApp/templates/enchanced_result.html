@@ -156,6 +156,7 @@
             align-items: center;
             justify-content: space-between;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
 
         .compatibility-gauge {
@@ -165,6 +166,7 @@
             border-radius: 15px;
             overflow: hidden;
             position: relative;
+            margin-left: 10px;
         }
 
         .compatibility-fill {
@@ -197,6 +199,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
 
         .action-btn {
@@ -210,11 +213,76 @@
             border: none;
             font-size: 1rem;
             transition: all 0.3s;
+            margin-bottom: 10px;
         }
 
         .action-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(74, 122, 253, 0.4);
+        }
+        
+        .recommendation-section ul {
+            padding-left: 20px;
+            list-style-position: inside;
+        }
+        
+        .recommendation-section li {
+            margin-bottom: 10px;
+        }
+        
+        /* Mobile responsiveness improvements */
+        @media (max-width: 768px) {
+            .results-header {
+                padding: 20px;
+            }
+            
+            .results-header h2 {
+                font-size: 1.4rem;
+            }
+            
+            .results-date {
+                position: static;
+                margin-bottom: 10px;
+            }
+            
+            .results-content {
+                padding: 20px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .score-breakdown {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                gap: 10px;
+            }
+            
+            .ability-score {
+                font-size: 1.5rem;
+            }
+            
+            .compatibility-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .compatibility-gauge {
+                width: 100%;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -296,45 +364,40 @@
                             be the best-fit career path for you.</p>
 
                         <div class="compatibility-container">
-                            <span><!-- enhanced_results.html continued -->
-                                <div class="compatibility-container">
-                                    <span>Compatibility with {{ predicted_subject }}:</span>
-                                    <div class="compatibility-gauge">
-                                        <div class="compatibility-fill" style="width: {{ compatibility_score }}%"></div>
-                                        <div class="compatibility-value">{{ compatibility_score }}%</div>
-                                    </div>
-                                </div>
+                            <span>Compatibility with {{ predicted_subject }}:</span>
+                            <div class="compatibility-gauge">
+                                <div class="compatibility-fill" style="width: {{ compatibility_score }}%"></div>
+                                <div class="compatibility-value">{{ compatibility_score }}%</div>
+                            </div>
+                        </div>
 
-                                <p>You might also want to explore these subjects:</p>
-                                <ul>
-                                    {% for subject in recommended_subjects %}
-                                    <li><strong>{{ subject }}</strong>:
-                                        {% if subject in cognitive_strengths %}
-                                        <span style="color: green;">Strong cognitive alignment</span>
-                                        {% else %}
-                                        <span style="color: orange;">Interest-based recommendation</span>
-                                        {% endif %}
-                                    </li>
-                                    {% endfor %}
-                                </ul>
+                        <p>You might also want to explore these subjects:</p>
+                        <ul>
+                            {% for subject in recommended_subjects %}
+                            <li><strong>{{ subject }}</strong>:
+                                {% if subject in cognitive_strengths %}
+                                <span style="color: green;">Strong cognitive alignment</span>
+                                {% else %}
+                                <span style="color: orange;">Interest-based recommendation</span>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
 
-                                <div class="conclusion-box">
-                                    <h4>Analysis Summary</h4>
-                                    <p>Your cognitive assessment reveals strengths in
-                                        {% for area in cognitive_strengths %}
-                                        {% if forloop.last and not forloop.first %}and {{ area }}{% elif forloop.first
-                                        and forloop.last %}{{ area }}{% elif forloop.first %}{{ area }}{% else %}, {{
-                                        area }}{% endif %}
-                                        {% endfor %}. Combined with your personal interests and academic performance, we
-                                        confidently recommend {{ predicted_subject }} as your optimal career path.</p>
+                        <div class="conclusion-box">
+                            <h4>Analysis Summary</h4>
+                            <p>Your cognitive assessment reveals strengths in
+                                {% for area in cognitive_strengths %}
+                                {% if forloop.last and not forloop.first %}and {{ area }}{% elif forloop.first
+                                and forloop.last %}{{ area }}{% elif forloop.first %}{{ area }}{% else %}, {{
+                                area }}{% endif %}
+                                {% endfor %}. Combined with your personal interests and academic performance, we
+                                confidently recommend {{ predicted_subject }} as your optimal career path.</p>
 
-                                    <p>Your overall cognitive score of {{ iq_result.total_score }} places you in the
-                                        {% if iq_result.total_score > 120 %}top percentile{% elif iq_result.total_score
-                                        > 110 %}above average range{% elif iq_result.total_score > 90 %}average range{%
-                                        else %}developing range{% endif %}
-                                        of students. With focused development of your key strengths, you have excellent
-                                        potential for success in your recommended field.</p>
-                                </div>
+                            <p>Your overall cognitive score of {{ iq_result.total_score }} places you in the
+                                {% if iq_result.total_score > 120 %}top percentile{% elif iq_result.total_score > 110 %}above average range{% elif iq_result.total_score > 90 %}average range{% else %}developing range{% endif %}
+                                of students. With focused development of your key strengths, you have excellent
+                                potential for success in your recommended field.</p>
                         </div>
 
                         <div class="action-buttons">
@@ -345,7 +408,7 @@
                     </div>
                 </div>
 
-                <!-- Testimonial Section (same as in original results) -->
+                <!-- Testimonial Section -->
                 <div class="card feedback-card">
                     <h3 class="feedback-title">Share Your Experience</h3>
                     <p class="feedback-subtitle">How helpful was this recommendation? Leave your feedback to help other
@@ -400,6 +463,7 @@
                     {% endif %}
                     {% endif %}
                 </div>
+            </div>
         </main>
     </div>
 </body>
