@@ -7,8 +7,21 @@ class Command(BaseCommand):
     
     def handle(self, *args, **kwargs):
         self.stdout.write(self.style.SUCCESS('Creating sample IQ test questions...'))
-        create_sample_questions()
-        self.stdout.write(self.style.SUCCESS('Done!'))
+    
+        existing_questions = set(IQQuestion.objects.values_list('question', flat=True)) #get existing questions
+        
+        all_questions = create_sample_questions()
+        new_questions = [q for q in all_questions if q['question'] not in existing_questions] #create list of new questions to add
+        
+        self.stdout.write(f"Found {len(existing_questions)} existing questions")
+        self.stdout.write(f"Found {len(new_questions)} new questions to add")
+        
+        #create only the new questions
+        for q_data in new_questions:
+            IQQuestion.objects.create(**q_data)
+        
+        self.stdout.write(self.style.SUCCESS(f'Successfully added {len(new_questions)} new questions!'))
+
 
         
 def create_sample_questions():
@@ -160,6 +173,56 @@ def create_sample_questions():
             'option_b': 'S',
             'option_c': 'T',
             'option_d': 'Cannot be determined',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 1
+        },
+        {
+            'question': 'What is the next number in the sequence: 1, 4, 9, 16, 25, 36, ?',
+            'option_a': '42',
+            'option_b': '47',
+            'option_c': '49',
+            'option_d': '51',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If a = 2b, b = 3c, and c = 4, what is the value of a?',
+            'option_a': '16',
+            'option_b': '24',
+            'option_c': '28',
+            'option_d': '32',
+            'correct_answer': 'B',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'All Flinks are Blops. Some Blops are Clunks. Therefore:',
+            'option_a': 'All Flinks are Clunks',
+            'option_b': 'Some Flinks are Clunks',
+            'option_c': 'No Flinks are Clunks',
+            'option_d': 'None of the above can be concluded',
+            'correct_answer': 'D',
+            'question_type': 'logical',
+            'difficulty': 3
+        },
+        {
+            'question': 'If all As are Bs, and all Bs are Cs, then:',
+            'option_a': 'Some Cs are As',
+            'option_b': 'All As are Cs',
+            'option_c': 'No Cs are As',
+            'option_d': 'All Cs are As',
+            'correct_answer': 'B',
+            'question_type': 'logical',
+            'difficulty': 1
+        },
+        {
+            'question': 'Continue the pattern: 8, 16, 24, 32, ?',
+            'option_a': '36',
+            'option_b': '38',
+            'option_c': '40',
+            'option_d': '48',
             'correct_answer': 'C',
             'question_type': 'logical',
             'difficulty': 1
@@ -318,6 +381,56 @@ def create_sample_questions():
             'question_type': 'verbal',
             'difficulty': 2
         },
+        {
+            'question': 'Choose the word most opposite to VERBOSE:',
+            'option_a': 'Quiet',
+            'option_b': 'Concise',
+            'option_c': 'Silent',
+            'option_d': 'Lengthy',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 2
+        },
+        {
+            'question': 'Complete the analogy: Paint is to Canvas as Ink is to:',
+            'option_a': 'Pen',
+            'option_b': 'Writer',
+            'option_c': 'Paper',
+            'option_d': 'Book',
+            'correct_answer': 'C',
+            'question_type': 'verbal',
+            'difficulty': 1
+        },
+        {
+            'question': 'Choose the word that best completes this sentence: Despite his reputation for being _____, the professor gave a surprisingly short lecture.',
+            'option_a': 'Loquacious',
+            'option_b': 'Taciturn',
+            'option_c': 'Reticent',
+            'option_d': 'Reserved',
+            'correct_answer': 'A',
+            'question_type': 'verbal',
+            'difficulty': 3
+        },
+        {
+            'question': 'Choose the word that does not belong:',
+            'option_a': 'Ecstatic',
+            'option_b': 'Euphoric',
+            'option_c': 'Melancholic',
+            'option_d': 'Jubilant',
+            'correct_answer': 'C',
+            'question_type': 'verbal',
+            'difficulty': 2
+        },
+        {
+            'question': 'Complete the analogy: Doctor is to Hospital as Teacher is to:',
+            'option_a': 'Student',
+            'option_b': 'School',
+            'option_c': 'Education',
+            'option_d': 'Knowledge',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 1
+        }
     ]
     
     # Numerical Reasoning Questions
@@ -472,6 +585,56 @@ def create_sample_questions():
             'question_type': 'numerical',
             'difficulty': 1
         },
+        {
+            'question': 'If 3x + 7 = 22, what is the value of x?',
+            'option_a': '3',
+            'option_b': '5',
+            'option_c': '7',
+            'option_d': '9',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 1
+        },
+        {
+            'question': 'A book costs $24 after a 20% discount. What was the original price?',
+            'option_a': '$28.80',
+            'option_b': '$30',
+            'option_c': '$32',
+            'option_d': '$38.40',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If a car travels 240 miles on 10 gallons of gas, how many miles can it travel on 15 gallons?',
+            'option_a': '320 miles',
+            'option_b': '350 miles',
+            'option_c': '360 miles',
+            'option_d': '400 miles',
+            'correct_answer': 'C',
+            'question_type': 'numerical',
+            'difficulty': 1
+        },
+        {
+            'question': 'What is the next number in the sequence: 2, 6, 12, 20, 30, ?',
+            'option_a': '36',
+            'option_b': '40',
+            'option_c': '42',
+            'option_d': '48',
+            'correct_answer': 'C',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If log(x) = 3, what is the value of x?',
+            'option_a': '30',
+            'option_b': '100',
+            'option_c': '1000',
+            'option_d': '10000',
+            'correct_answer': 'C',
+            'question_type': 'numerical',
+            'difficulty': 3
+        }
     ]
     
     # Spatial Reasoning Questions
@@ -626,13 +789,59 @@ def create_sample_questions():
             'question_type': 'spatial',
             'difficulty': 2
         },
+        {
+            'question': 'Which of these nets will fold into a cube?',
+            'option_a': 'Six squares in a straight line',
+            'option_b': 'Six squares arranged in a T-shape',
+            'option_c': 'Six squares arranged in a 2×3 rectangle',
+            'option_d': 'Five squares arranged in a cross shape',
+            'correct_answer': 'B',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'If you unscramble "GEARRIB", you will get:',
+            'option_a': 'BARRIER',
+            'option_b': 'BAGGER',
+            'option_c': 'BARGAIN',
+            'option_d': 'BRAGIER',
+            'correct_answer': 'A',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'How many faces does a triangular prism have?',
+            'option_a': '3',
+            'option_b': '4',
+            'option_c': '5',
+            'option_d': '6',
+            'correct_answer': 'C',
+            'question_type': 'spatial',
+            'difficulty': 1
+        },
+        {
+            'question': 'Which shape has the most sides?',
+            'option_a': 'Pentagon',
+            'option_b': 'Hexagon',
+            'option_c': 'Octagon',
+            'option_d': 'Nonagon',
+            'correct_answer': 'D',
+            'question_type': 'spatial',
+            'difficulty': 1
+        },
+        {
+            'question': 'What is the volume of a sphere with radius 3 units?',
+            'option_a': '36π cubic units',
+            'option_b': '27π cubic units',
+            'option_c': '12π cubic units',
+            'option_d': '4π cubic units',
+            'correct_answer': 'A',
+            'question_type': 'spatial',
+            'difficulty': 3
+        },
     ]
     
     # Combine all questions
     all_questions = logical_questions + verbal_questions + numerical_questions + spatial_questions
     
-    # Create the questions in the database
-    for q_data in all_questions:
-        IQQuestion.objects.create(**q_data)
-    
-    print(f"Created {len(all_questions)} IQ test questions")
+    return all_questions
