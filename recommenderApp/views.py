@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import (StudentProfile, Prediction, Feedback, Testimonial, IQQuestion, IQTestResult,
-                     ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride)
+                     ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride, School)
 import joblib
 import numpy as np
 import random
