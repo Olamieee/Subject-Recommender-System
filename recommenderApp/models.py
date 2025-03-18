@@ -6,7 +6,7 @@ class TeacherProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    age = models.IntegerField(null=True, blank=True)
+    # age = models.IntegerField(null=True, blank=True)
     school_name = models.CharField(max_length=255)
     subject_specialization = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)

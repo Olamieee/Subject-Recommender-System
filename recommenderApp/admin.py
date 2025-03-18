@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import StudentProfile, Prediction, Testimonial, ContactMessage, TeacherProfile, RecommendationOverride, ContactMessageLanding
+from .models import (StudentProfile, Prediction, Testimonial, ContactMessage, TeacherProfile,
+                     RecommendationOverride, ContactMessageLanding, Feedback, IQQuestion, IQTestResult)
 
 
 class TeacherProfileAdmin(admin.ModelAdmin):
-    list_display = ['full_name', 'age', "email", "school_name", "subject_specialization", "created_at"]
+    list_display = ['full_name', "email", "school_name", "subject_specialization", "created_at"]
 
 class StudentProfileAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'email', 'school', 'created_at', 'age', 
@@ -43,10 +44,27 @@ class ContactMessageLandingAdmin(admin.ModelAdmin):
     readonly_fields = ('timestamp',)
     date_hierarchy = 'timestamp'
 
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('teacher', 'student', 'feedback', 'timestamp')
+    list_filter = ('timestamp',)
+    search_fields = ('teacher__full_name', 'student__full_name', 'feedback')
 
+class IQQuestionAdmin(admin.ModelAdmin):
+    list_display = ('question_type', 'difficulty', 'question', 'correct_answer')
+    list_filter = ('question_type', 'difficulty')
+    search_fields = ('question',)
+
+class IQTestResultAdmin(admin.ModelAdmin):
+    list_display = ('student', 'logical_score', 'verbal_score', 'numerical_score', 
+                    'spatial_score', 'total_score', 'completed_at')
+    list_filter = ('completed_at',)
+    search_fields = ('student__full_name',)
 
 admin.site.register(StudentProfile, StudentProfileAdmin)
 admin.site.register(Prediction, PredictionAdmin)
 admin.site.register(ContactMessage, ContactMessageAdmin)
 admin.site.register(TeacherProfile, TeacherProfileAdmin)
 admin.site.register(RecommendationOverride,RecommendationOverrideAdmin)
+admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(IQQuestion, IQQuestionAdmin)
+admin.site.register(IQTestResult, IQTestResultAdmin)
