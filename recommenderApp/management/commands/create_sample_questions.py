@@ -196,9 +196,3 @@ def create_sample_questions():
         IQQuestion.objects.create(**q_data)
     
     print(f"Created {len(all_questions)} IQ test questions")
-
-
-
-# To run this script
-# python manage.py create_sample_questions
-# Or call the create_sample_questions() function directly in a migration or from a shell

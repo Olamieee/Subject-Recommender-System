@@ -26,7 +26,7 @@
             color: white;
             padding: 1.5rem 2rem;
             border-radius: 8px 8px 0 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,13 +41,13 @@
             background: white;
             padding: 2rem;
             border-radius: 0 0 8px 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .card {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             margin-bottom: 1.5rem;
             overflow: hidden;
             border-left: 4px solid #3498db;
@@ -114,6 +114,68 @@
         .back-link:hover {
             background: rgba(255, 255, 255, 0.3);
         }
+
+        /* Add these styles to your existing <style> section */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                /* Slightly wider container on mobile */
+                margin: 1rem auto;
+                /* Reduced vertical margins */
+            }
+
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .back-link {
+                align-self: flex-start;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .card-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+
+            .empty-state {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Add for very small screens */
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                margin: 0;
+            }
+
+            .header {
+                border-radius: 0;
+            }
+
+            .content {
+                border-radius: 0;
+            }
+        }
     </style>
 </head>
 
@@ -125,27 +187,29 @@
         </div>
         <div class="content">
             {% if feedback_entries %}
-                {% for entry in feedback_entries %}
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Feedback from {{ entry.teacher.full_name }}</h2>
-                        <div class="date">{{ entry.timestamp|date:"F j, Y - g:i A" }}</div>
-                    </div>
-                    <div class="card-body">
-                        <p>{{ entry.feedback|linebreaks }}</p>
-                    </div>
+            {% for entry in feedback_entries %}
+            <div class="card">
+                <div class="card-header">
+                    <h2>Feedback from {{ entry.teacher.full_name }}</h2>
+                    <div class="date">{{ entry.timestamp|date:"F j, Y - g:i A" }}</div>
                 </div>
-                {% endfor %}
+                <div class="card-body">
+                    <p>{{ entry.feedback|linebreaks }}</p>
+                </div>
+            </div>
+            {% endfor %}
             {% else %}
-                <div class="empty-state">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                    </svg>
-                    <h3>No Feedback Yet</h3>
-                    <p>Your teachers haven't left any feedback for you yet. Check back later!</p>
-                </div>
+            <div class="empty-state">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <h3>No Feedback Yet</h3>
+                <p>Your teachers haven't left any feedback for you yet. Check back later!</p>
+            </div>
             {% endif %}
         </div>
     </div>
 </body>
+
 </html>
