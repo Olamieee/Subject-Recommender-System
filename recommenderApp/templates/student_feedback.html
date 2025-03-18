@@ -115,6 +115,49 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
+        /* Override section styles */
+        .section-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .override-card {
+            border-left: 4px solid #e74c3c; /* Different color for overrides */
+        }
+
+        .override-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .override-detail {
+            margin-bottom: 0.5rem;
+        }
+
+        .override-detail strong {
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .change-arrow {
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 0 0.5rem;
+        }
+
+        .override-reason {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+            margin-top: 0.5rem;
+        }
+
         /* Add these styles to your existing <style> section */
         @media (max-width: 768px) {
             .container {
@@ -153,6 +196,10 @@
             .empty-state {
                 padding: 2rem 1rem;
             }
+
+            .override-details {
+                flex-direction: column;
+            }
         }
 
         /* Add for very small screens */
@@ -181,6 +228,56 @@
             <a href="{% url 'home' %}" class="back-link">Back</a>
         </div>
         <div class="content">
+            <!-- Teacher Overrides Section -->
+            <h2 class="section-title">Recommendation Overrides</h2>
+            {% if override_entries %}
+                {% for override in override_entries %}
+                <div class="card override-card">
+                    <div class="card-header">
+                        <h2>Override by {{ override.teacher.full_name }}</h2>
+                        <div class="date">{{ override.timestamp|date:"F j, Y - g:i A" }}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="override-details">
+                            <div class="override-detail">
+                                <strong>Previous Recommendation:</strong> 
+                                {% if override.old_recommendation == 0 %}Arts
+                                {% elif override.old_recommendation == 1 %}Business
+                                {% elif override.old_recommendation == 2 %}Healthcare
+                                {% elif override.old_recommendation == 3 %}Humanities
+                                {% elif override.old_recommendation == 4 %}STEM
+                                {% endif %}
+                            </div>
+                            <div class="change-arrow">→</div>
+                            <div class="override-detail">
+                                <strong>Changed To:</strong> 
+                                {% if override.new_recommendation == 0 %}Arts
+                                {% elif override.new_recommendation == 1 %}Business
+                                {% elif override.new_recommendation == 2 %}Healthcare
+                                {% elif override.new_recommendation == 3 %}Humanities
+                                {% elif override.new_recommendation == 4 %}STEM
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="override-reason">
+                            <strong>Reason:</strong> {{ override.reason|default:"No reason provided" }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="empty-state">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <h3>No Overrides</h3>
+                    <p>Your recommendations haven't been adjusted by any teachers yet.</p>
+                </div>
+            {% endif %}
+
+            <!-- Teacher Feedback Section (Original) -->
+            <h2 class="section-title">Teacher Feedback</h2>
             {% if feedback_entries %}
             {% for entry in feedback_entries %}
             <div class="card">

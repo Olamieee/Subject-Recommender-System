@@ -272,11 +272,6 @@ def home(request):
     
     return render(request, 'home.html', context)
 
-# Add login_required decorators to your other view functions that require authentication
-# Example:
-# @login_required(login_url='student_login')
-# def predict_student(request):
-#
 
 # hybrid Recommendation Function
 def hybrid_recommend(student_input):
@@ -1009,19 +1004,21 @@ def student_feedback(request):
         # If not logged in, redirect to signin page
         return redirect('student_signin')
     try:
-        # Get the student profile
         student = StudentProfile.objects.get(id=student_id)
     except StudentProfile.DoesNotExist:
-        # If student doesn't exist in DB (rare case), clear session and redirect
         request.session.flush()
-        return redirect('student_signin')
+        return redirect('landing')
     
-    # Get teacher feedback for this student
+    #get teacher feedback for this student
     feedback_entries = Feedback.objects.filter(student=student).order_by('-timestamp')
     
+    #get overrides for this student
+    override_entries = RecommendationOverride.objects.filter(student=student).order_by('-timestamp')
+    
     context = {
-        'user': student,  # For consistent template rendering
-        'feedback_entries': feedback_entries
+        'user': student,
+        'feedback_entries': feedback_entries,
+        'override_entries': override_entries
     }
     
     return render(request, 'student_feedback.html', context)
