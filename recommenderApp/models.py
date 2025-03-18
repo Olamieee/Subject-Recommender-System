@@ -2,12 +2,17 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+
+class School(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    
+    def __str__(self):
+        return self.name
 class TeacherProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    # age = models.IntegerField(null=True, blank=True)
-    school_name = models.CharField(max_length=255)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='teachers')
     subject_specialization = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -18,7 +23,7 @@ class StudentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student_profile')
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    school = models.CharField(max_length=255)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='students')
     created_at = models.DateTimeField(auto_now_add=True)
     
     #optional fields that can be filled during prediction

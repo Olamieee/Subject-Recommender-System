@@ -1,10 +1,13 @@
 from django.contrib import admin
 from .models import (StudentProfile, Prediction, Testimonial, ContactMessage, TeacherProfile,
-                     RecommendationOverride, ContactMessageLanding, Feedback, IQQuestion, IQTestResult)
+                     RecommendationOverride, ContactMessageLanding, Feedback, IQQuestion, IQTestResult, School)
 
+
+class SchoolAdmin(admin.ModelAdmin):
+    list_display = ['name']
 
 class TeacherProfileAdmin(admin.ModelAdmin):
-    list_display = ['full_name', "email", "school_name", "subject_specialization", "created_at"]
+    list_display = ['full_name', "email", "school", "subject_specialization", "created_at"]
 
 class StudentProfileAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'email', 'school', 'created_at', 'age', 
@@ -60,6 +63,7 @@ class IQTestResultAdmin(admin.ModelAdmin):
     list_filter = ('completed_at',)
     search_fields = ('student__full_name',)
 
+admin.site.register(School, SchoolAdmin)
 admin.site.register(StudentProfile, StudentProfileAdmin)
 admin.site.register(Prediction, PredictionAdmin)
 admin.site.register(ContactMessage, ContactMessageAdmin)
