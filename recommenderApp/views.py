@@ -71,20 +71,29 @@ def submit_contact_landing(request):
 # Student Authentication
 def student_signup(request):
     """Handle student registration with password"""
+    # Get all schools for the dropdown
+    schools = School.objects.all().order_by('name')
+    
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
-        school = request.POST.get('school')
+        school_id = request.POST.get('school')
         email = request.POST.get('email')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         
         # Check if passwords match
         if password != confirm_password:
-            return render(request, 'student_signup.html', {'error_message': 'Passwords do not match'})
+            return render(request, 'student_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
         
         # Check if email already exists in User model or StudentProfile
         if User.objects.filter(email=email).exists() or StudentProfile.objects.filter(email=email).exists():
-            return render(request, 'student_signup.html', {'error_message': 'Email already exists'})
+            return render(request, 'student_signup.html', {'error_message': 'Email already exists', 'schools': schools})
+        
+        # Get school object
+        try:
+            school = School.objects.get(id=school_id)
+        except School.DoesNotExist:
+            return render(request, 'student_signup.html', {'error_message': 'Invalid school selected', 'schools': schools})
         
         # Create user
         username = email  # Using email as username
@@ -104,7 +113,7 @@ def student_signup(request):
         
         return redirect('home')
     
-    return render(request, 'register_student.html')
+    return render(request, 'register_student.html', {'schools': schools})
 
 def student_login(request):
     """Handle student login"""
@@ -138,9 +147,12 @@ def student_login(request):
 # Teacher Authentication
 def teacher_signup(request):
     """Handle teacher registration with password"""
+    # Get all schools for the dropdown
+    schools = School.objects.all().order_by('name')
+    
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
-        school_name = request.POST.get('school')
+        school_id = request.POST.get('school')
         email = request.POST.get('email')
         subject_specialization = request.POST.get('subject_specialization')
         password = request.POST.get('password')
@@ -148,11 +160,17 @@ def teacher_signup(request):
         
         # Check if passwords match
         if password != confirm_password:
-            return render(request, 'teacher_signup.html', {'error_message': 'Passwords do not match'})
+            return render(request, 'teacher_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
         
         # Check if email already exists
         if User.objects.filter(email=email).exists() or TeacherProfile.objects.filter(email=email).exists():
-            return render(request, 'teacher_signup.html', {'error_message': 'Email already exists'})
+            return render(request, 'teacher_signup.html', {'error_message': 'Email already exists', 'schools': schools})
+        
+        # Get school object
+        try:
+            school = School.objects.get(id=school_id)
+        except School.DoesNotExist:
+            return render(request, 'teacher_signup.html', {'error_message': 'Invalid school selected', 'schools': schools})
         
         # Create user
         username = email  # Using email as username
@@ -163,7 +181,7 @@ def teacher_signup(request):
             user=user,
             full_name=full_name,
             email=email,
-            school_name=school_name,
+            school=school,
             subject_specialization=subject_specialization
         )
         
@@ -173,7 +191,8 @@ def teacher_signup(request):
         
         return redirect('teacher_dashboard')
     
-    return render(request, 'register_teacher.html')
+    return render(request, 'register_teacher.html', {'schools': schools})
+
 
 def teacher_login(request):
     """Handle teacher login"""
@@ -790,20 +809,6 @@ def contact_view(request):
     return render(request, 'contact.html', context)
 
 def student_guide_view(request):
-    # """Render the Student Guide page with dynamic content"""
-    # Get user info if logged in (optional)
-    # student_id = request.session.get('student_id')
-    # context = {'guide_entries': StudentGuide.objects.all().order_by('-created_at')}
-    
-    # if student_id:
-    #     try:
-    #         student = StudentProfile.objects.get(id=student_id)
-    #         context['user'] = student
-    #     except StudentProfile.DoesNotExist:
-    #         # Clear invalid session
-    #         if 'student_id' in request.session:
-    #             del request.session['student_id']
-    
     return render(request, 'guide.html')
 
 #reports page function
@@ -832,16 +837,18 @@ def teacher_dashboard(request):
     teacher_email = request.session["teacher_email"]
     teacher = get_object_or_404(TeacherProfile, email=teacher_email)
 
-    # Fetch all student predictions without duplicates
-    # Option 1: Get the latest prediction for each student
-    student_ids = StudentProfile.objects.values_list('id', flat=True)
+    # Filter students by the teacher's school
+    school_students = StudentProfile.objects.filter(school=teacher.school)
+    
+    # Get student IDs from the filtered students
+    student_ids = school_students.values_list('id', flat=True)
     predictions = []
     
     for student_id in student_ids:
         # Get the latest prediction for this student
         latest_prediction = Prediction.objects.filter(
             student_id=student_id
-        ).order_by('-id').first()  # Assuming higher id means more recent
+        ).order_by('-id').first()
         
         if latest_prediction:
             predictions.append(latest_prediction)
@@ -849,12 +856,13 @@ def teacher_dashboard(request):
     # Fetch override history by this teacher
     override_history = RecommendationOverride.objects.filter(teacher=teacher).order_by('-timestamp')
 
-    # Count total students
-    total_students = StudentProfile.objects.count()
+    # Count total students from this school
+    total_students = school_students.count()
 
-    # Count accepted recommendations - make sure this logic matches your use case
-    # Assuming a recommendation is "accepted" when it hasn't been overridden
-    overridden_students = RecommendationOverride.objects.values_list('student__id', flat=True).distinct()
+    overridden_students = RecommendationOverride.objects.filter(
+        student__in=school_students
+    ).values_list('student__id', flat=True).distinct()
+    
     non_overridden = total_students - len(overridden_students)
     
     # Calculate acceptance percentage
@@ -888,6 +896,7 @@ def teacher_dashboard(request):
 
     # Fetch only students who have predictions for the feedback dropdown
     students_with_predictions = StudentProfile.objects.filter(
+        school=teacher.school,
         id__in=Prediction.objects.values_list('student', flat=True)
     ).distinct()
     
@@ -900,27 +909,33 @@ def teacher_dashboard(request):
         "predictions": predictions,
         "override_history": override_history,
         "total_students": total_students,
-        "accepted_percentage": round(accepted_percentage, 1),  # Round to 1 dp
+        "accepted_percentage": round(accepted_percentage, 1),
         "popular_stream": popular_stream,
-        "students": students_with_predictions,  # Only pass students with predictions
+        "students": students_with_predictions,
         "all_students_count": all_students_count,
         "students_with_predictions_count": students_with_predictions_count,
     }
     return render(request, "teacher_dashboard.html", context)
 
+
 @login_required(login_url='teacher_login')
 def override_recommendation(request, prediction_id):
     if "teacher_email" not in request.session:
-        return redirect("teacher_signin")  # Redirect if not logged in
+        return redirect("teacher_signin")
 
     teacher_email = request.session["teacher_email"]
-    teacher = get_object_or_404(TeacherProfile, email=teacher_email)  # Fetch teacher from session
-
+    teacher = get_object_or_404(TeacherProfile, email=teacher_email)
+    
     prediction = get_object_or_404(Prediction, id=prediction_id)
+    
+    # Check if the student belongs to the teacher's school
+    if prediction.student.school != teacher.school:
+        messages.error(request, "You can only override recommendations for students in your school.")
+        return redirect("teacher_dashboard")
 
     if request.method == "POST":
         new_recommendation = request.POST.get("new_recommendation")
-        reason = request.POST.get("reason", "")  # Add this line to collect the reason
+        reason = request.POST.get("reason", "")
 
         try:
             new_recommendation = int(new_recommendation)
@@ -936,7 +951,7 @@ def override_recommendation(request, prediction_id):
             student=prediction.student,
             old_recommendation=prediction.predicted_subject,
             new_recommendation=new_recommendation,
-            reason=reason  # Add this line to save the reason
+            reason=reason
         )
 
         # Update main recommendation
@@ -960,6 +975,14 @@ def submit_feedback(request):
 
         # Ensure student exists
         student = get_object_or_404(StudentProfile, id=student_id)
+        
+        # Get teacher details
+        teacher_email = request.session["teacher_email"]
+        teacher = get_object_or_404(TeacherProfile, email=teacher_email)
+        
+        # Check if the student belongs to the teacher's school
+        if student.school != teacher.school:
+            return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_error=true&message=You%20can%20only%20provide%20feedback%20for%20students%20in%20your%20school')
 
         # Check if the student has any predictions
         prediction = Prediction.objects.filter(student=student).order_by('-id').first()
@@ -967,10 +990,6 @@ def submit_feedback(request):
         # If no prediction exists, redirect with an error message
         if not prediction:
             return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_error=true&message=This%20student%20has%20not%20made%20any%20predictions%20yet')
-            
-        # Get teacher details
-        teacher_email = request.session["teacher_email"]
-        teacher = get_object_or_404(TeacherProfile, email=teacher_email)
 
         # Create and save feedback using the Feedback model
         Feedback.objects.create(
