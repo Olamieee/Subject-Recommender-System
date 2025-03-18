@@ -54,6 +54,116 @@ def create_sample_questions():
             'question_type': 'logical',
             'difficulty': 1
         },
+        {
+            'question': 'If A implies B, and B implies C, then:',
+            'option_a': 'C implies A',
+            'option_b': 'A implies C',
+            'option_c': 'A and C are equivalent',
+            'option_d': 'None of the above',
+            'correct_answer': 'B',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'Continue the pattern: 3, 6, 9, 18, 27, ?',
+            'option_a': '36',
+            'option_b': '54',
+            'option_c': '81',
+            'option_d': '108',
+            'correct_answer': 'B',
+            'question_type': 'logical',
+            'difficulty': 3
+        },
+        {
+            'question': 'If all Zorks are Blips and no Blips are Quids, then:',
+            'option_a': 'Some Zorks are Quids',
+            'option_b': 'All Zorks are Quids',
+            'option_c': 'No Zorks are Quids',
+            'option_d': 'Some Quids are Zorks',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'What comes next in the sequence: J, F, M, A, M, J, ?',
+            'option_a': 'S',
+            'option_b': 'O',
+            'option_c': 'J',
+            'option_d': 'A',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 1
+        },
+        {
+            'question': 'Which number does not belong in this series: 2, 5, 10, 17, 26, 37, 50, 64',
+            'option_a': '17',
+            'option_b': '37',
+            'option_c': '50',
+            'option_d': '64',
+            'correct_answer': 'D',
+            'question_type': 'logical',
+            'difficulty': 3
+        },
+        {
+            'question': 'If 5 cats can catch 5 mice in 5 minutes, how long would it take 1 cat to catch 1 mouse?',
+            'option_a': '1 minute',
+            'option_b': '5 minutes',
+            'option_c': '25 minutes',
+            'option_d': 'The information is insufficient',
+            'correct_answer': 'B',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'In a race, if you overtake the second person, what position are you in?',
+            'option_a': 'First',
+            'option_b': 'Second',
+            'option_c': 'Third',
+            'option_d': 'Cannot be determined',
+            'correct_answer': 'B',
+            'question_type': 'logical',
+            'difficulty': 1
+        },
+        {
+            'question': 'Which statement logically follows: "If it rains, the ground gets wet"?',
+            'option_a': 'If it does not rain, the ground does not get wet',
+            'option_b': 'If the ground is wet, it rained',
+            'option_c': 'If the ground is not wet, it did not rain',
+            'option_d': 'None of the above',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'Continue the sequence: 1, 3, 6, 10, 15, ?',
+            'option_a': '18',
+            'option_b': '20',
+            'option_c': '21',
+            'option_d': '25',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If no A is B, and all B are C, then:',
+            'option_a': 'No A is C',
+            'option_b': 'Some A are C',
+            'option_c': 'All A are C',
+            'option_d': 'No conclusion is possible',
+            'correct_answer': 'D',
+            'question_type': 'logical',
+            'difficulty': 3
+        },
+        {
+            'question': 'If R comes before S, and T comes before R, which comes first?',
+            'option_a': 'R',
+            'option_b': 'S',
+            'option_c': 'T',
+            'option_d': 'Cannot be determined',
+            'correct_answer': 'C',
+            'question_type': 'logical',
+            'difficulty': 1
+        },
     ]
     
     # Verbal Reasoning Questions
@@ -94,6 +204,116 @@ def create_sample_questions():
             'option_b': 'Extravagant',
             'option_c': 'Miserly',
             'option_d': 'Prudent',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 2
+        },
+        {
+            'question': 'Choose the word that means the same as BENEVOLENT:',
+            'option_a': 'Malicious',
+            'option_b': 'Kind',
+            'option_c': 'Intelligent',
+            'option_d': 'Cautious',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 2
+        },
+        {
+            'question': 'Complete the analogy: Hand is to Glove as Head is to:',
+            'option_a': 'Neck',
+            'option_b': 'Brain',
+            'option_c': 'Hat',
+            'option_d': 'Hair',
+            'correct_answer': 'C',
+            'question_type': 'verbal',
+            'difficulty': 1
+        },
+        {
+            'question': 'Choose the word that does not belong with the others:',
+            'option_a': 'Symphony',
+            'option_b': 'Concerto',
+            'option_c': 'Orchestra',
+            'option_d': 'Sonata',
+            'correct_answer': 'C',
+            'question_type': 'verbal',
+            'difficulty': 2
+        },
+        {
+            'question': 'ADUMBRATE is to OUTLINE as CASTIGATE is to:',
+            'option_a': 'Praise',
+            'option_b': 'Punish',
+            'option_c': 'Forgive',
+            'option_d': 'Forget',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 3
+        },
+        {
+            'question': 'Choose the word that best completes the sentence: The professor\'s lecture was so _____ that many students fell asleep.',
+            'option_a': 'Stimulating',
+            'option_b': 'Provocative',
+            'option_c': 'Soporific',
+            'option_d': 'Contentious',
+            'correct_answer': 'C',
+            'question_type': 'verbal',
+            'difficulty': 3
+        },
+        {
+            'question': 'Complete the analogy: Winter is to Summer as Cold is to:',
+            'option_a': 'Snow',
+            'option_b': 'Hot',
+            'option_c': 'Spring',
+            'option_d': 'Weather',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 1
+        },
+        {
+            'question': 'The opposite of ACQUIESCE is:',
+            'option_a': 'Resist',
+            'option_b': 'Accept',
+            'option_c': 'Question',
+            'option_d': 'Agree',
+            'correct_answer': 'A',
+            'question_type': 'verbal',
+            'difficulty': 3
+        },
+        {
+            'question': 'Choose the word that does not belong:',
+            'option_a': 'Furtive',
+            'option_b': 'Covert',
+            'option_c': 'Clandestine',
+            'option_d': 'Overt',
+            'correct_answer': 'D',
+            'question_type': 'verbal',
+            'difficulty': 3
+        },
+        {
+            'question': 'Complete the analogy: Fish is to School as Wolf is to:',
+            'option_a': 'Flock',
+            'option_b': 'Pack',
+            'option_c': 'Herd',
+            'option_d': 'Pride',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 2
+        },
+        {
+            'question': 'Identify the synonym for EPHEMERAL:',
+            'option_a': 'Lasting',
+            'option_b': 'Temporary',
+            'option_c': 'Significant',
+            'option_d': 'Sturdy',
+            'correct_answer': 'B',
+            'question_type': 'verbal',
+            'difficulty': 3
+        },
+        {
+            'question': 'Choose the word that best completes the sentence: The politician was known for his _____ speeches that never addressed the real issues.',
+            'option_a': 'Concise',
+            'option_b': 'Verbose',
+            'option_c': 'Laconic',
+            'option_d': 'Pertinent',
             'correct_answer': 'B',
             'question_type': 'verbal',
             'difficulty': 2
@@ -142,6 +362,116 @@ def create_sample_questions():
             'question_type': 'numerical',
             'difficulty': 1
         },
+        {
+            'question': 'If 3 apples and 4 oranges cost $2.85, and 5 apples and 2 oranges cost $2.65, what is the cost of 1 apple?',
+            'option_a': '$0.30',
+            'option_b': '$0.35',
+            'option_c': '$0.40',
+            'option_d': '$0.45',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 3
+        },
+        {
+            'question': 'If a number is increased by 20% and then decreased by 20%, the final result is:',
+            'option_a': 'Same as original',
+            'option_b': '4% less than original',
+            'option_c': '4% more than original',
+            'option_d': '20% less than original',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'What is the next number in this sequence: 1, 2, 4, 8, 16, ?',
+            'option_a': '24',
+            'option_b': '30',
+            'option_c': '32',
+            'option_d': '36',
+            'correct_answer': 'C',
+            'question_type': 'numerical',
+            'difficulty': 1
+        },
+        {
+            'question': 'A clock shows 3:15. What is the angle between the hour and minute hands?',
+            'option_a': '7.5 degrees',
+            'option_b': '15 degrees',
+            'option_c': '22.5 degrees',
+            'option_d': '30 degrees',
+            'correct_answer': 'A',
+            'question_type': 'numerical',
+            'difficulty': 3
+        },
+        {
+            'question': 'What is the sum of the first 50 natural numbers?',
+            'option_a': '1225',
+            'option_b': '1250',
+            'option_c': '1275',
+            'option_d': '1300',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If a rectangle has a perimeter of 30 units and a width of 5 units, what is its area?',
+            'option_a': '50 square units',
+            'option_b': '75 square units',
+            'option_c': '100 square units',
+            'option_d': '150 square units',
+            'correct_answer': 'A',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If the probability of an event occurring is 0.4, what is the probability of it not occurring?',
+            'option_a': '0.4',
+            'option_b': '0.6',
+            'option_c': '0.8',
+            'option_d': '1.0',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 1
+        },
+        {
+            'question': 'If 3x - 5 = 10, what is the value of 2x + 7?',
+            'option_a': '12',
+            'option_b': '15',
+            'option_c': '17',
+            'option_d': '20',
+            'correct_answer': 'C',
+            'question_type': 'numerical',
+            'difficulty': 1
+        },
+        {
+            'question': 'A tank can be filled by pipe A in 3 hours and by pipe B in 6 hours. How long would it take to fill the tank if both pipes are used?',
+            'option_a': '1 hour',
+            'option_b': '2 hours',
+            'option_c': '3 hours',
+            'option_d': '4 hours',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'If √(x + 5) = 4, what is the value of x?',
+            'option_a': '9',
+            'option_b': '11',
+            'option_c': '16',
+            'option_d': '21',
+            'correct_answer': 'B',
+            'question_type': 'numerical',
+            'difficulty': 2
+        },
+        {
+            'question': 'In a class of 30 students, 60% are girls. How many boys are in the class?',
+            'option_a': '12',
+            'option_b': '15',
+            'option_c': '18',
+            'option_d': '20',
+            'correct_answer': 'A',
+            'question_type': 'numerical',
+            'difficulty': 1
+        },
     ]
     
     # Spatial Reasoning Questions
@@ -153,7 +483,7 @@ def create_sample_questions():
             'option_c': 'Ocean',
             'option_d': 'Animal',
             'correct_answer': 'A',  # PACIFIC
-            'question_type': 'spatial',  # Keep the categorization if needed
+            'question_type': 'spatial',
             'difficulty': 2
         },
         {
@@ -185,6 +515,116 @@ def create_sample_questions():
             'correct_answer': 'B',
             'question_type': 'spatial',
             'difficulty': 1
+        },
+        {
+            'question': 'Rearrange the letters in "NOITACUDE" to get a common word:',
+            'option_a': 'DEDICATION',
+            'option_b': 'CAUTIONED',
+            'option_c': 'EDUCATION',
+            'option_d': 'AUCTIONED',
+            'correct_answer': 'C',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'If you rearrange the letters in "LISTEN", you get:',
+            'option_a': 'ENLIST',
+            'option_b': 'SILENT',
+            'option_c': 'TINSEL',
+            'option_d': 'All of the above',
+            'correct_answer': 'D',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'A cube has how many edges?',
+            'option_a': '6',
+            'option_b': '8',
+            'option_c': '10',
+            'option_d': '12',
+            'correct_answer': 'D',
+            'question_type': 'spatial',
+            'difficulty': 1
+        },
+        {
+            'question': 'What is the minimum number of straight cuts needed to divide a circular cake into 8 equal pieces?',
+            'option_a': '3',
+            'option_b': '4',
+            'option_c': '7',
+            'option_d': '8',
+            'correct_answer': 'A',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'If a cube has a surface area of 24 square units, what is its volume?',
+            'option_a': '4 cubic units',
+            'option_b': '6 cubic units',
+            'option_c': '8 cubic units',
+            'option_d': '12 cubic units',
+            'correct_answer': 'C',
+            'question_type': 'spatial',
+            'difficulty': 3
+        },
+        {
+            'question': 'Unscramble "MROFPRET" to get a common word:',
+            'option_a': 'PLATFORM',
+            'option_b': 'PERFORM',
+            'option_c': 'TRANSFORM',
+            'option_d': 'FRAGMENT',
+            'correct_answer': 'B',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'How many squares are there on a standard 8×8 chessboard?',
+            'option_a': '64',
+            'option_b': '128',
+            'option_c': '204',
+            'option_d': '256',
+            'correct_answer': 'C',
+            'question_type': 'spatial',
+            'difficulty': 3
+        },
+        {
+            'question': 'If you invert the following sequence, what shape would you get? /\\__/',
+            'option_a': '/\\__/',
+            'option_b': '\\/__\\',
+            'option_c': '/--\\',
+            'option_d': '\\__/',
+            'correct_answer': 'B',
+            'question_type': 'spatial',
+            'difficulty': 1
+        },
+        {
+            'question': 'A cylindrical tank with radius 7 units and height 10 units is filled with water. If the water is transferred to a cubic tank with side length 10 units, what fraction of the cubic tank will be filled?',
+            'option_a': '49%',
+            'option_b': '70%',
+            'option_c': '73%',
+            'option_d': '77%',
+            'correct_answer': 'A', # π*7²*10 ÷ 10³ ≈ 0.49
+            'question_type': 'spatial',
+            'difficulty': 3
+        },
+        {
+            'question': 'Unscramble the letters "TAREASDIS" to form a common word:',
+            'option_a': 'ASSISTANCE',
+            'option_b': 'RESISTANCE',
+            'option_c': 'STAIRCASED',
+            'option_d': 'DISASTREA',
+            'correct_answer': 'B',
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'When three identical cubes are stacked in a row, what is the minimum number of faces that can be seen from the outside?',
+            'option_a': '12',
+            'option_b': '14',
+            'option_c': '16',
+            'option_d': '18',
+            'correct_answer': 'B',
+            'question_type': 'spatial',
+            'difficulty': 2
         },
     ]
     
