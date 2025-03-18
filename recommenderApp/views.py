@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
-from .models import StudentProfile, Prediction, Testimonial,IQQuestion, IQTestResult, ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride
+from .models import StudentProfile, Prediction, Feedback, Testimonial, IQQuestion, IQTestResult, ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride
 import joblib
 import numpy as np
 import random
@@ -806,20 +806,20 @@ def student_guide_view(request):
     return render(request, 'guide.html')
 
 #reports page function
-@login_required(login_url='student_login')
-def visuals(request):
-    img_folder = os.path.join('static', 'img') #path to the folder where images are stored
-    images = [
-        'class_distribution.png',
-        'pairplot_scores.png',
-        'attendance_distribution.png',
-        'violin_math_scores.png',
-        'histogram_scores.png',
-        'correlation_heatmap.png'
-    ]
-    image_paths = [os.path.join(img_folder, img) for img in images] #construct full paths for each image
+# @login_required(login_url='student_login')
+# def visuals(request):
+#     img_folder = os.path.join('static', 'img') #path to the folder where images are stored
+#     images = [
+#         'class_distribution.png',
+#         'pairplot_scores.png',
+#         'attendance_distribution.png',
+#         'violin_math_scores.png',
+#         'histogram_scores.png',
+#         'correlation_heatmap.png'
+#     ]
+#     image_paths = [os.path.join(img_folder, img) for img in images] #construct full paths for each image
     
-    return render(request, 'visuals.html', {'image_paths': image_paths})
+#     return render(request, 'visuals.html', {'image_paths': image_paths})
 
 
 @login_required(login_url='teacher_login')
@@ -899,58 +899,13 @@ def teacher_dashboard(request):
         "predictions": predictions,
         "override_history": override_history,
         "total_students": total_students,
-        "accepted_percentage": round(accepted_percentage, 1),  # Round to 1 decimal place
+        "accepted_percentage": round(accepted_percentage, 1),  # Round to 1 dp
         "popular_stream": popular_stream,
         "students": students_with_predictions,  # Only pass students with predictions
         "all_students_count": all_students_count,
         "students_with_predictions_count": students_with_predictions_count,
     }
     return render(request, "teacher_dashboard.html", context)
-
-@login_required(login_url='teacher_login')
-def override_recommendation(request, prediction_id):
-    if "teacher_email" not in request.session:
-        return redirect("teacher_signin")
-    
-    if request.method != "POST":
-        return redirect("teacher_dashboard")
-    
-    # Get the prediction and teacher
-    prediction = get_object_or_404(Prediction, id=prediction_id)
-    teacher = get_object_or_404(TeacherProfile, email=request.session["teacher_email"])
-    
-    # Get form data
-    new_recommendation = request.POST.get("new_recommendation")
-    reason = request.POST.get("reason", "")
-    
-    # Validate new recommendation
-    if not new_recommendation:
-        messages.error(request, "Please select a new recommendation")
-        return redirect("teacher_dashboard")
-    
-    # Convert to integer
-    new_recommendation = int(new_recommendation)
-    
-    # Create override record
-    RecommendationOverride.objects.create(
-        teacher=teacher,
-        student=prediction.student,
-        old_recommendation=prediction.predicted_subject,
-        new_recommendation=new_recommendation,
-        reason=reason
-    )
-    
-    # Update the prediction
-    prediction.predicted_subject = new_recommendation
-    prediction.save()
-    
-    # Add a success message if you have django.contrib.messages installed
-    from django.contrib import messages
-    messages.success(request, f"Recommendation for {prediction.student.full_name} has been updated")
-    
-    return redirect("teacher_dashboard")
-
-
 
 @login_required(login_url='teacher_login')
 def override_recommendation(request, prediction_id):
@@ -964,6 +919,7 @@ def override_recommendation(request, prediction_id):
 
     if request.method == "POST":
         new_recommendation = request.POST.get("new_recommendation")
+        reason = request.POST.get("reason", "")  # Add this line to collect the reason
 
         try:
             new_recommendation = int(new_recommendation)
@@ -979,6 +935,7 @@ def override_recommendation(request, prediction_id):
             student=prediction.student,
             old_recommendation=prediction.predicted_subject,
             new_recommendation=new_recommendation,
+            reason=reason  # Add this line to save the reason
         )
 
         # Update main recommendation
@@ -990,7 +947,6 @@ def override_recommendation(request, prediction_id):
     return redirect("teacher_dashboard")
 
 
-
 @login_required(login_url='teacher_login')
 def submit_feedback(request):
     # Ensure only logged-in teachers can submit feedback
@@ -1000,8 +956,7 @@ def submit_feedback(request):
     if request.method == "POST":
         student_id = request.POST.get("student_id")
         feedback_text = request.POST.get("feedback")
-        rating = request.POST.get("rating", 5)
-        
+
         # Ensure student exists
         student = get_object_or_404(StudentProfile, id=student_id)
 
@@ -1010,24 +965,21 @@ def submit_feedback(request):
         
         # If no prediction exists, redirect with an error message
         if not prediction:
-            # Use HttpResponseRedirect with the full URL including query parameters
             return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_error=true&message=This%20student%20has%20not%20made%20any%20predictions%20yet')
             
         # Get teacher details
         teacher_email = request.session["teacher_email"]
         teacher = get_object_or_404(TeacherProfile, email=teacher_email)
 
-        # Create and save feedback with rating and prediction
-        Testimonial.objects.create(
+        # Create and save feedback using the Feedback model
+        Feedback.objects.create(
+            teacher=teacher,
             student=student,
-            prediction=prediction,
-            name=teacher.full_name,
-            content=feedback_text,
-            rating=rating
+            feedback=feedback_text
         )
         
-        # Use HttpResponseRedirect with the full URL including query parameters
         return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_success=true')
+
 
 @login_required(login_url='student_login')
 def student_feedback(request):
@@ -1044,32 +996,15 @@ def student_feedback(request):
         request.session.flush()
         return redirect('student_signin')
     
-    # Handle form submission
-    if request.method == 'POST':
-        content = request.POST.get('content')
-        rating = request.POST.get('rating')
-        
-        # Validate the data
-        if content and rating:
-            # Create new feedback
-            feedback = Testimonial.objects.create(
-                student=student,
-                name=student.full_name,
-                content=content,
-                rating=int(rating)
-            )
-            return redirect('home')  # Or redirect back to the feedback page
-    
-    # Get existing feedback from this student
-    existing_feedback = Testimonial.objects.filter(student=student).order_by('-created_at')
+    # Get teacher feedback for this student
+    feedback_entries = Feedback.objects.filter(student=student).order_by('-timestamp')
     
     context = {
         'user': student,  # For consistent template rendering
-        'existing_feedback': existing_feedback
+        'feedback_entries': feedback_entries
     }
     
-    return render(request, 'student_feedback.html', context)
-
+    return render(request, 'my_feedback.html', context)
 @login_required(login_url='student_login')
 def logout_view(request):
     logout(request)
