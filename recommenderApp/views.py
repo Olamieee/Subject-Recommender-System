@@ -1004,7 +1004,8 @@ def student_feedback(request):
         'feedback_entries': feedback_entries
     }
     
-    return render(request, 'my_feedback.html', context)
+    return render(request, 'student_feedback.html', context)
+
 @login_required(login_url='student_login')
 def logout_view(request):
     logout(request)
