@@ -132,9 +132,10 @@
       </div>
 
       <!-- Override History -->
+      <!-- Override History -->
       <div class="card">
         <div class="card-header">
-          <h2>Override History</h2>
+          <h2>Override History (School-wide)</h2>
         </div>
         <div class="card-body">
           <div class="table-container">
@@ -145,6 +146,7 @@
                   <th>Previous Recommendation</th>
                   <th>New Recommendation</th>
                   <th>Reason</th>
+                  <th>Teacher</th>
                   <th>Date</th>
                 </tr>
               </thead>
@@ -169,11 +171,12 @@
                     {% endif %}
                   </td>
                   <td data-label="Reason">{{ override.reason|default:"No reason provided" }}</td>
+                  <td data-label="Teacher">{{ override.teacher.full_name }}</td>
                   <td data-label="Date">{{ override.timestamp|date:"M d, Y H:i" }}</td>
                 </tr>
                 {% empty %}
                 <tr>
-                  <td colspan="5" class="empty-message">No override history available</td>
+                  <td colspan="6" class="empty-message">No override history available</td>
                 </tr>
                 {% endfor %}
               </tbody>
@@ -188,68 +191,68 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Check for URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // Handle success notification
-    if (urlParams.has('feedback_success')) {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Check for URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+
+      // Handle success notification
+      if (urlParams.has('feedback_success')) {
         showNotification("Feedback submitted successfully!", "success");
-    }
-    
-    // Handle error notification
-    if (urlParams.has('feedback_error')) {
+      }
+
+      // Handle error notification
+      if (urlParams.has('feedback_error')) {
         const message = urlParams.get('message') || "An error occurred while submitting feedback.";
         showNotification(message, "error");
-    }
-    
-    // Add horizontal scrolling hint for tables on mobile if needed
-    const tableContainers = document.querySelectorAll('.table-container');
-    tableContainers.forEach(container => {
-        if (container.scrollWidth > container.clientWidth) {
-            addScrollHint(container);
-        }
-    });
-    
-    // Add responsive data labels to table cells for mobile view
-    addMobileTableLabels();
-});
+      }
 
-function showNotification(message, type) {
-    const notification = document.getElementById('notification');
-    const messageElement = document.getElementById('notification-message');
-    
-    // Set message text
-    messageElement.textContent = message;
-    
-    // Set notification color based on type
-    if (type === "error") {
+      // Add horizontal scrolling hint for tables on mobile if needed
+      const tableContainers = document.querySelectorAll('.table-container');
+      tableContainers.forEach(container => {
+        if (container.scrollWidth > container.clientWidth) {
+          addScrollHint(container);
+        }
+      });
+
+      // Add responsive data labels to table cells for mobile view
+      addMobileTableLabels();
+    });
+
+    function showNotification(message, type) {
+      const notification = document.getElementById('notification');
+      const messageElement = document.getElementById('notification-message');
+
+      // Set message text
+      messageElement.textContent = message;
+
+      // Set notification color based on type
+      if (type === "error") {
         notification.style.background = "var(--error)";
-    } else {
+      } else {
         notification.style.background = "var(--success)";
-    }
-    
-    // Show notification
-    notification.style.display = 'block';
-    
-    setTimeout(() => {
+      }
+
+      // Show notification
+      notification.style.display = 'block';
+
+      setTimeout(() => {
         notification.classList.add('show');
-    }, 100);
-    
-    setTimeout(() => {
+      }, 100);
+
+      setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
-            notification.style.display = 'none';
+          notification.style.display = 'none';
         }, 500);
-    }, 5000);
-}
+      }, 5000);
+    }
 
-function addScrollHint(container) {
-    // Create a scroll hint element
-    const hint = document.createElement('div');
-    hint.className = 'scroll-hint';
-    hint.textContent = 'Scroll horizontally to see more →';
-    hint.style.cssText = `
+    function addScrollHint(container) {
+      // Create a scroll hint element
+      const hint = document.createElement('div');
+      hint.className = 'scroll-hint';
+      hint.textContent = 'Scroll horizontally to see more →';
+      hint.style.cssText = `
         text-align: center;
         color: var(--primary);
         font-size: 0.8rem;
@@ -257,43 +260,43 @@ function addScrollHint(container) {
         opacity: 0.8;
         margin-top: 8px;
     `;
-    
-    // Insert the hint after the container
-    container.parentNode.insertBefore(hint, container.nextSibling);
-    
-    // Hide the hint after scrolling
-    container.addEventListener('scroll', function() {
+
+      // Insert the hint after the container
+      container.parentNode.insertBefore(hint, container.nextSibling);
+
+      // Hide the hint after scrolling
+      container.addEventListener('scroll', function () {
         hint.style.opacity = '0';
         setTimeout(() => {
-            hint.style.display = 'none';
+          hint.style.display = 'none';
         }, 300);
-    }, { once: true });
-}
+      }, { once: true });
+    }
 
-function addMobileTableLabels() {
-    // Find all tables
-    const tables = document.querySelectorAll('table');
-    
-    tables.forEach(table => {
+    function addMobileTableLabels() {
+      // Find all tables
+      const tables = document.querySelectorAll('table');
+
+      tables.forEach(table => {
         // Get all column headers
         const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim());
-        
+
         // Get all data rows
         const rows = table.querySelectorAll('tbody tr');
-        
+
         rows.forEach(row => {
-            // Get all cells in the row
-            const cells = row.querySelectorAll('td');
-            
-            // Add data-label attribute to each cell based on its corresponding header
-            cells.forEach((cell, index) => {
-                if (index < headers.length && !cell.hasAttribute('data-label')) {
-                    cell.setAttribute('data-label', headers[index]);
-                }
-            });
+          // Get all cells in the row
+          const cells = row.querySelectorAll('td');
+
+          // Add data-label attribute to each cell based on its corresponding header
+          cells.forEach((cell, index) => {
+            if (index < headers.length && !cell.hasAttribute('data-label')) {
+              cell.setAttribute('data-label', headers[index]);
+            }
+          });
         });
-    });
-}
+      });
+    }
   </script>
 </body>
 
