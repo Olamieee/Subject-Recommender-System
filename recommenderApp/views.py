@@ -848,12 +848,19 @@ def teacher_dashboard(request):
         if latest_prediction:
             predictions.append(latest_prediction)
 
-    # Fetch override history by this teacher
-    override_history = RecommendationOverride.objects.filter(teacher=teacher).order_by('-timestamp')
+    # Fetch override history for ALL students in this school
+    # Instead of filtering by teacher, we filter by students who belong to this school
+    override_history = RecommendationOverride.objects.filter(
+        student__in=school_students
+    ).order_by('-timestamp')
 
+    # Rest of the function remains the same...
+    
     # Count total students from this school
     total_students = school_students.count()
 
+    # Count accepted recommendations - make sure this logic matches your use case
+    # Assuming a recommendation is "accepted" when it hasn't been overridden
     overridden_students = RecommendationOverride.objects.filter(
         student__in=school_students
     ).values_list('student__id', flat=True).distinct()
@@ -891,7 +898,6 @@ def teacher_dashboard(request):
 
     # Fetch only students who have predictions for the feedback dropdown
     students_with_predictions = StudentProfile.objects.filter(
-        school=teacher.school,
         id__in=Prediction.objects.values_list('student', flat=True)
     ).distinct()
     
@@ -911,6 +917,7 @@ def teacher_dashboard(request):
         "students_with_predictions_count": students_with_predictions_count,
     }
     return render(request, "teacher_dashboard.html", context)
+
 
 
 @login_required(login_url='teacher_login')
