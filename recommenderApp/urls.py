@@ -26,7 +26,6 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("contact/", views.contact_view, name="contact"),
     path("guide/", views.student_guide_view, name="guide"),
-    path("visuals/", views.visuals, name='visuals'),
     path('teacher_dashboard/', views.teacher_dashboard, name='teacher_dashboard'),
     path('override_recommendation/<int:prediction_id>/', views.override_recommendation, name='override_recommendation'),
     path('submit_feedback/', views.submit_feedback, name='submit_feedback'),
