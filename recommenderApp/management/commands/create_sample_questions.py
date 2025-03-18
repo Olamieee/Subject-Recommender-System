@@ -147,44 +147,44 @@ def create_sample_questions():
     # Spatial Reasoning Questions
     spatial_questions = [
         {
-            'question': 'Which shape would you get if you folded the following pattern?',
-            'option_a': 'Cube',
-            'option_b': 'Pyramid',
-            'option_c': 'Cylinder',
-            'option_d': 'Cone',
-            'correct_answer': 'A',
+            'question': 'If you rearrange the letters "CIFAIPC", you would get the name of a:',
+            'option_a': 'City',
+            'option_b': 'Country',
+            'option_c': 'Ocean',
+            'option_d': 'Animal',
+            'correct_answer': 'A',  # PACIFIC
+            'question_type': 'spatial',  # Keep the categorization if needed
+            'difficulty': 2
+        },
+        {
+            'question': 'Which number should come next in this series: 1, 4, 9, 16, 25, ...?',
+            'option_a': '30',
+            'option_b': '36',
+            'option_c': '49',
+            'option_d': '64',
+            'correct_answer': 'B',  # 36 (square of 6)
             'question_type': 'spatial',
             'difficulty': 2
         },
         {
-            'question': 'Which image is the mirror reflection of the given pattern?',
-            'option_a': 'Image A',
-            'option_b': 'Image B',
-            'option_c': 'Image C',
-            'option_d': 'Image D',
+            'question': 'Which word does NOT belong with the others?',
+            'option_a': 'Rectangle',
+            'option_b': 'Triangle',
+            'option_c': 'Circle',
+            'option_d': 'Sphere',
+            'correct_answer': 'D',  # 3D shape vs 2D shapes
+            'question_type': 'spatial',
+            'difficulty': 2
+        },
+        {
+            'question': 'If you fold a square paper in half diagonally, what shape do you get?',
+            'option_a': 'Rectangle',
+            'option_b': 'Triangle',
+            'option_c': 'Pentagon',
+            'option_d': 'Hexagon',
             'correct_answer': 'B',
             'question_type': 'spatial',
-            'difficulty': 2
-        },
-        {
-            'question': 'If you rotate the figure 90 degrees clockwise, which option shows the result?',
-            'option_a': 'Option A',
-            'option_b': 'Option B',
-            'option_c': 'Option C',
-            'option_d': 'Option D',
-            'correct_answer': 'C',
-            'question_type': 'spatial',
-            'difficulty': 2
-        },
-        {
-            'question': 'What comes next in the sequence?',
-            'option_a': 'Shape A',
-            'option_b': 'Shape B',
-            'option_c': 'Shape C',
-            'option_d': 'Shape D',
-            'correct_answer': 'A',
-            'question_type': 'spatial',
-            'difficulty': 3
+            'difficulty': 1
         },
     ]
     
