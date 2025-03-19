@@ -898,7 +898,8 @@ def teacher_dashboard(request):
 
     # Fetch only students who have predictions for the feedback dropdown
     students_with_predictions = StudentProfile.objects.filter(
-        id__in=Prediction.objects.values_list('student', flat=True)
+        id__in=Prediction.objects.values_list('student', flat=True),
+        school=teacher.school
     ).distinct()
     
     # Keep track of how many students have no predictions
