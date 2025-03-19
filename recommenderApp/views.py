@@ -853,8 +853,6 @@ def teacher_dashboard(request):
     override_history = RecommendationOverride.objects.filter(
         student__in=school_students
     ).order_by('-timestamp')
-
-    # Rest of the function remains the same...
     
     # Count total students from this school
     total_students = school_students.count()
