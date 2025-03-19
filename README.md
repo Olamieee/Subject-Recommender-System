@@ -82,25 +82,40 @@ Now, open **`http://127.0.0.1:8000/`** in your browser to access the system.
 4️ **View Recommendations** – The hybrid recommender model suggests three additional subjects based on interests & demand.  
 5️ **Leave Feedback** – Students can share their experience through testimonials.
 6 **Teacher's Dashboard** - Teachers can view and monitor each student recommendations, override and leave feedbacks for students.
+7 **IQ Test** - This explains the IQ test functionality that's available in the system, which assesses logical, verbal, numerical, and spatial skills to enhance recommendations.
+8 **View Enhanced Results** - This details what students will see after completing the IQ test, including their cognitive scores and the compatibility between their cognitive abilities and recommended subjects.
+9 **Teacher's Comments** - View feedback from teachers and see recommendation overrides with explanatory comments in the "My Feedback" section.
+10 **Personality Test** - Students can  take free personality assesments to  to discover their learning style and strengths.
+11 **Learning Resources** - Students can access materials to help you excel in their recommended subjects.
+
 
 
 ---
 
 ## **📂 Project Folder Structure**  
 ```
-/project-folder
-|__system rec
-|__ model
-│── /recommender         # Machine learning models
-        /saved_models
-│── /static
-        /css             # Stylesheets
-        /img             # Images
-│── /templates           # HTML Templates
-│── /models.py           # Database Models
-│── /views.py            # Django Views
-│── /urls.py             # URL Routing
-│── manage.py            # Django Project Manager
-│── requirements.txt     # Dependencies
-│── README.md            # Project Documentation
+/IGA_Capstone
+|__ model                   # Machine learning models.
+│── /recommender App
+        │──management        # Commands files.
+        │──saved_models      # Saved ML models for classification and recommendation.
+        │──static
+                /css         # Stylesheets.
+                /img         # Images.
+        │── /templates       # HTML Templates.
+        /admin.py            # Admin Interface.
+        /apps.py             # Apps.
+        /models.py           # Database Models.
+        /views.py            # Django Views.
+        /urls.py             # URL Routing.
+│──recommenderSystem         # Main System that handles app configuration and processes.
+        /.env
+        /asgi.py             # ASGI config for recommenderSystem project.
+        /settings.py         # Django settings for recommenderSystem project.
+        /urls.py             # URL configuration for recommenderSystem project.
+        /wsgi.py             # WSGI config for recommenderSystem project.
+│── manage.py                # Django Project Manager.
+│── Procifile                # For Deployment.
+│── requirements.txt         # Dependencies.
+│── README.md                # Project Documentation.
 ```  
