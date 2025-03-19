@@ -41,7 +41,7 @@ Using this information, it generates personalized subject and subject recommenda
 ## **Installation Guide**  
 ### Clone the Repository  
 ```bash
-git clone https://github.com/rumunyana.git
+git clone https://github.com/Olamieee/IGA_Capstone.git
 ```
 
 ### Create a Virtual Environment  
@@ -80,13 +80,13 @@ Now, open **`http://127.0.0.1:8000/`** in your browser to access the system.
 2️ **Enter Academic & Interest Data** – Fill out details like scores, interests, parental career, and extracurricular activities.  
 3️ **Get Subject Prediction** – The system predicts the best-fit subject using the Random Forest classifier.  
 4️ **View Recommendations** – The hybrid recommender model suggests three additional subjects based on interests & demand.  
-5️ **Leave Feedback** – Students can share their experience through testimonials.
-6 **Teacher's Dashboard** - Teachers can view and monitor each student recommendations, override and leave feedbacks for students.
-7 **IQ Test** - This explains the IQ test functionality that's available in the system, which assesses logical, verbal, numerical, and spatial skills to enhance recommendations.
-8 **View Enhanced Results** - This details what students will see after completing the IQ test, including their cognitive scores and the compatibility between their cognitive abilities and recommended subjects.
-9 **Teacher's Comments** - View feedback from teachers and see recommendation overrides with explanatory comments in the "My Feedback" section.
-10 **Personality Test** - Students can  take free personality assesments to  to discover their learning style and strengths.
-11 **Learning Resources** - Students can access materials to help you excel in their recommended subjects.
+5️ **Leave Feedback** – Students can share their experience through testimonials. <br>
+6 **Teacher's Dashboard** - Teachers can view and monitor each student recommendations, override and leave feedbacks for students.<br>
+7 **IQ Test** - This explains the IQ test functionality that's available in the system, which assesses logical, verbal, numerical, and spatial skills to enhance recommendations.<br>
+8 **View Enhanced Results** - This details what students will see after completing the IQ test, including their cognitive scores and the compatibility between their cognitive abilities and recommended subjects.<br>
+9 **Teacher's Comments** - View feedback from teachers and see recommendation overrides with explanatory comments in the "My Feedback" section.<br>
+10 **Personality Test** - Students can  take free personality assesments to  to discover their learning style and strengths.<br>
+11 **Learning Resources** - Students can access materials to help you excel in their recommended subjects.<br>
 
 
 
