@@ -25,8 +25,6 @@ class StudentProfile(models.Model):
     email = models.EmailField(unique=True)
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='students')
     created_at = models.DateTimeField(auto_now_add=True)
-    
-    #optional fields that can be filled during prediction
     age = models.IntegerField(null=True, blank=True)
     math_score = models.FloatField(null=True, blank=True)
     english_score = models.FloatField(null=True, blank=True)
@@ -170,7 +168,6 @@ class IQQuestion(models.Model):
     def __str__(self):
         return f"{self.get_question_type_display()} Question ({self.get_difficulty_display()})"
 
-# Add a model to track student IQ test attempts and results
 class IQTestResult(models.Model):
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, related_name="iq_results")
     prediction = models.ForeignKey(Prediction, on_delete=models.CASCADE, related_name="iq_results", null=True, blank=True)
@@ -183,35 +180,102 @@ class IQTestResult(models.Model):
     
     def calculate_normalized_score(self):
         """Convert raw scores to a normalized IQ-like score (mean 100, std 15)"""
-        # This is a simplified calculation - replace with your actual normalization logic
-        base_score = 100
+        # Get the maximum possible score for each category
+        max_per_category = 5  # Based on your test structure (5 questions per category)
+        max_total = max_per_category * 4  # 4 categories
+        
+        # Calculate total raw score
         total_raw = self.logical_score + self.verbal_score + self.numerical_score + self.spatial_score
-        # Adjust based on your scoring system
-        normalized = base_score + ((total_raw - 20) * 3)  # Assuming average raw score is around 20
-        self.total_score = max(70, min(130, normalized))  # Clamp between 70-130
+        
+        # Calculate percentage of correct answers
+        percentage_correct = (total_raw / max_total) * 100
+        
+        # Map percentage to IQ-like scale (70-130)
+        # This creates a more balanced distribution
+        if percentage_correct <= 25:
+            normalized = 70 + (percentage_correct * 0.4)
+        elif percentage_correct <= 50:
+            normalized = 80 + ((percentage_correct - 25) * 0.6)
+        elif percentage_correct <= 75:
+            normalized = 95 + ((percentage_correct - 50) * 0.8)
+        else:
+            normalized = 115 + ((percentage_correct - 75) * 0.6)
+            
+        self.total_score = round(normalized)
         return self.total_score
     
     def get_suitable_areas(self):
         """Map cognitive strengths to academic areas"""
+        max_score = 5  # Maximum score per category
+        threshold_high = 0.8  # 80% correct (4 out of 5)
+        threshold_medium = 0.6  # 60% correct (3 out of 5)
+        
+        # Calculate relative strengths
+        scores = {
+            "logical": self.logical_score / max_score,
+            "verbal": self.verbal_score / max_score,
+            "numerical": self.numerical_score / max_score,
+            "spatial": self.spatial_score / max_score
+        }
+        
+        # Find the highest score(s)
+        max_score_value = max(scores.values())
+        primary_strengths = [k for k, v in scores.items() if v == max_score_value]
+        
+        # Map cognitive abilities to academic areas
         strengths = []
-        if self.logical_score > 7:  # Assuming 10 is max per category
+        
+        # Add areas based on absolute performance
+        if scores["logical"] >= threshold_high:
             strengths.append("STEM")
-        if self.verbal_score > 7:
+        if scores["verbal"] >= threshold_high:
             strengths.append("Humanities")
-        if self.numerical_score > 7:
+        if scores["numerical"] >= threshold_high:
             strengths.append("Business")
-        if self.spatial_score > 7:
+        if scores["spatial"] >= threshold_high:
             strengths.append("Arts")
             
-        if not strengths:  # If no clear strength
-            if self.logical_score >= self.numerical_score and self.logical_score >= self.verbal_score:
+        # If no clear strength based on absolute performance, use relative strengths
+        if not strengths:
+            if "logical" in primary_strengths and scores["logical"] >= threshold_medium:
                 strengths.append("STEM")
-            elif self.verbal_score >= self.logical_score and self.verbal_score >= self.numerical_score:
+            if "verbal" in primary_strengths and scores["verbal"] >= threshold_medium:
                 strengths.append("Humanities")
-            else:
+            if "numerical" in primary_strengths and scores["numerical"] >= threshold_medium:
                 strengths.append("Business")
+            if "spatial" in primary_strengths and scores["spatial"] >= threshold_medium:
+                strengths.append("Arts")
                 
-        return strengths
+        # If still no clear strength, suggest based on combinations
+        if not strengths:
+            # Logical + Numerical -> STEM
+            if scores["logical"] + scores["numerical"] >= 1.0:
+                strengths.append("STEM")
+            # Verbal + Logical -> Humanities
+            elif scores["verbal"] + scores["logical"] >= 1.0:
+                strengths.append("Humanities")
+            # Numerical + Verbal -> Business
+            elif scores["numerical"] + scores["verbal"] >= 1.0:
+                strengths.append("Business")
+            # Spatial + any -> Arts
+            elif scores["spatial"] + max(scores["logical"], scores["verbal"], scores["numerical"]) >= 1.0:
+                strengths.append("Arts")
+            else:
+                # Fallback to highest absolute score
+                if max_score_value == scores["logical"]:
+                    strengths.append("STEM")
+                elif max_score_value == scores["verbal"]:
+                    strengths.append("Humanities")
+                elif max_score_value == scores["numerical"]:
+                    strengths.append("Business")
+                else:  # spatial
+                    strengths.append("Arts")
+                
+        # Add Healthcare as a secondary recommendation for combinations
+        if "STEM" in strengths and scores["verbal"] >= threshold_medium:
+            strengths.append("Healthcare")
+        
+        return list(set(strengths))  # Remove duplicates
     
     def __str__(self):
         return f"IQ Test Result for {self.student.full_name} - Score: {self.total_score}"
