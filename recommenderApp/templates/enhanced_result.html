@@ -597,9 +597,9 @@
                             <div class="ability-card ability-logical">
                                 <h4>Logical Reasoning</h4>
                                 <div class="ability-score">
-                                    {{ iq_result.logical_score }}/10
+                                    {{ iq_result.logical_score }}/5
                                     <div class="score-indicator">
-                                        {% for i in "12345678910" %}
+                                        {% for i in "12345" %}
                                         {% with value=forloop.counter %}
                                         <div class="score-dot {% if value <= iq_result.logical_score %}filled{% endif %}"></div>
                                         {% endwith %}
@@ -612,9 +612,9 @@
                             <div class="ability-card ability-verbal">
                                 <h4>Verbal Reasoning</h4>
                                 <div class="ability-score">
-                                    {{ iq_result.verbal_score }}/10
+                                    {{ iq_result.verbal_score }}/5
                                     <div class="score-indicator">
-                                        {% for i in "12345678910" %}
+                                        {% for i in "12345" %}
                                         {% with value=forloop.counter %}
                                         <div class="score-dot {% if value <= iq_result.verbal_score %}filled{% endif %}"></div>
                                         {% endwith %}
@@ -627,9 +627,9 @@
                             <div class="ability-card ability-numerical">
                                 <h4>Numerical Reasoning</h4>
                                 <div class="ability-score">
-                                    {{ iq_result.numerical_score }}/10
+                                    {{ iq_result.numerical_score }}/5
                                     <div class="score-indicator">
-                                        {% for i in "12345678910" %}
+                                        {% for i in "12345" %}
                                         {% with value=forloop.counter %}
                                         <div class="score-dot {% if value <= iq_result.numerical_score %}filled{% endif %}"></div>
                                         {% endwith %}
@@ -642,9 +642,9 @@
                             <div class="ability-card ability-spatial">
                                 <h4>Spatial Reasoning</h4>
                                 <div class="ability-score">
-                                    {{ iq_result.spatial_score }}/10
+                                    {{ iq_result.spatial_score }}/5
                                     <div class="score-indicator">
-                                        {% for i in "12345678910" %}
+                                        {% for i in "12345" %}
                                         {% with value=forloop.counter %}
                                         <div class="score-dot {% if value <= iq_result.spatial_score %}filled{% endif %}"></div>
                                         {% endwith %}
