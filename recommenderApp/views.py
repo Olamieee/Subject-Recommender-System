@@ -705,14 +705,39 @@ def enhanced_result_view(request, iq_result_id=None):
                         recommended_subjects = prediction.recommended_subjects.split(',')
                         context['recommended_subjects'] = recommended_subjects
                         
-                        # Calculate compatibility score between IQ results and prediction
-                        compatibility = 0
-                        if predicted_subject in iq_result.get_suitable_areas():
-                            compatibility = 90 + (iq_result.total_score - 100) // 5  # Base compatibility adjusted by IQ
-                        else:
-                            compatibility = 70 + (iq_result.total_score - 100) // 10  # Lower compatibility
+                    # Calculate compatibility score between IQ results and prediction
+                    compatibility = 0
+                    cognitive_strengths = iq_result.get_suitable_areas()
+
+                    if predicted_subject in cognitive_strengths:
+                        # High compatibility when predicted subject matches cognitive strengths
+                        base_compatibility = 85
+                        iq_bonus = min(15, (iq_result.total_score - 100) // 3)
+                        compatibility = base_compatibility + iq_bonus
+                    else:
+                        # Check if there's a related field match
+                        related_fields = {
+                            "STEM": ["Healthcare", "Business"],
+                            "Humanities": ["Arts", "Healthcare"],
+                            "Business": ["STEM", "Humanities"],
+                            "Arts": ["Humanities"],
+                            "Healthcare": ["STEM", "Humanities"]
+                        }
                         
-                        context['compatibility_score'] = min(100, max(50, compatibility))
+                        related_match = any(related in cognitive_strengths for related in related_fields.get(predicted_subject, []))
+                        
+                        if related_match:
+                            # Medium compatibility when related to cognitive strengths
+                            base_compatibility = 70
+                            iq_bonus = min(10, (iq_result.total_score - 100) // 4)
+                            compatibility = base_compatibility + iq_bonus
+                        else:
+                            # Lower compatibility when no direct or related match
+                            base_compatibility = 60
+                            iq_bonus = min(5, (iq_result.total_score - 100) // 5)
+                            compatibility = base_compatibility + iq_bonus
+
+                    context['compatibility_score'] = min(100, max(55, compatibility))
                         
                 except IQTestResult.DoesNotExist:
                     return redirect('result_view')  # Fallback to regular results
@@ -894,15 +919,13 @@ def teacher_dashboard(request):
     
     popular_stream = stream_mapping.get(popular_subject, "N/A") if popular_subject is not None else "N/A"
 
-    # Fetch only students who have predictions for the feedback dropdown
     students_with_predictions = StudentProfile.objects.filter(
         id__in=Prediction.objects.values_list('student', flat=True),
         school=teacher.school
-    ).distinct()
+    ).distinct() #fetchs only students who have predictions and in same school with teacher for the feedback dropdown
     
-    # Keep track of how many students have no predictions
-    all_students_count = total_students  # We already have this count
-    students_with_predictions_count = students_with_predictions.count()
+    all_students_count = total_students
+    students_with_predictions_count = students_with_predictions.count() 
 
     context = {
         "teacher": teacher,
