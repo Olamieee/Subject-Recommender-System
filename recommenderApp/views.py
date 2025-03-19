@@ -15,8 +15,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.db.models import Count, F
 from django.contrib.auth.models import User
 
-#BASE_DIR
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) #BASE_DIR
 
 #path to the saved models folder
 MODEL_PATH = os.path.join(BASE_DIR, "recommenderApp", "saved_models")
@@ -31,7 +30,7 @@ try:
     
     df = pd.read_csv(csv_file_path)
     
-    # Define categorical columns and target variable
+    #define categorical columns and target variable
     categorical_cols = ["gender", "school_type", "location", "parental_education_level",
                         "internet_access", "parental_career", "extracurricular_activity", 
                         'interest', 'recommended_stream']
@@ -55,7 +54,7 @@ def submit_contact_landing(request):
             email = request.POST.get('email')
             message = request.POST.get('message')
             
-            # Save to database using correct model name
+            #save to database using correct model name
             ContactMessageLanding.objects.create(
                 user=name,
                 email=email,
@@ -68,11 +67,10 @@ def submit_contact_landing(request):
     
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
-# Student Authentication
+
 def student_signup(request):
     """Handle student registration with password"""
-    # Get all schools for the dropdown
-    schools = School.objects.all().order_by('name')
+    schools = School.objects.all().order_by('name') #get all schools for the dropdown
     
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
@@ -81,25 +79,24 @@ def student_signup(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         
-        # Check if passwords match
+        #check if passwords match
         if password != confirm_password:
             return render(request, 'student_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
         
-        # Check if email already exists in User model or StudentProfile
+        #check if email already exists in User model or StudentProfile
         if User.objects.filter(email=email).exists() or StudentProfile.objects.filter(email=email).exists():
             return render(request, 'student_signup.html', {'error_message': 'Email already exists', 'schools': schools})
         
-        # Get school object
+        #get school object
         try:
             school = School.objects.get(id=school_id)
         except School.DoesNotExist:
             return render(request, 'student_signup.html', {'error_message': 'Invalid school selected', 'schools': schools})
-        
-        # Create user
-        username = email  # Using email as username
+    
+        username = email  #create a user using email as username
         user = User.objects.create_user(username=username, email=email, password=password)
         
-        # Create student profile
+        #create student profile
         student = StudentProfile.objects.create(
             user=user,
             full_name=full_name,
@@ -107,9 +104,9 @@ def student_signup(request):
             school=school
         )
         
-        # Log the user in
+        #log the user in
         login(request, user)
-        request.session['student_id'] = student.id  # Keep your existing session mechanism
+        request.session['student_id'] = student.id
         
         return redirect('home')
     
@@ -121,21 +118,20 @@ def student_login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         
-        # Find user by email
+        #find user by email
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             return render(request, 'student_login.html', {'error_message': 'Invalid email or password'})
         
-        # Authenticate user
-        user = authenticate(request, username=user.username, password=password)
+        user = authenticate(request, username=user.username, password=password) #authenticate user
         
         if user is not None:
-            # Check if user has a student profile
+            #check if user has a student profile
             try:
                 student_profile = StudentProfile.objects.get(user=user)
                 login(request, user)
-                request.session['student_id'] = student_profile.id  # Keep existing session mechanism
+                request.session['student_id'] = student_profile.id
                 return redirect('home')
             except StudentProfile.DoesNotExist:
                 return render(request, 'student_login.html', {'error_message': 'This account is not registered as a student'})
@@ -147,8 +143,8 @@ def student_login(request):
 # Teacher Authentication
 def teacher_signup(request):
     """Handle teacher registration with password"""
-    # Get all schools for the dropdown
-    schools = School.objects.all().order_by('name')
+    
+    schools = School.objects.all().order_by('name') #get all schools for the dropdown
     
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
@@ -158,25 +154,24 @@ def teacher_signup(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         
-        # Check if passwords match
+        #check if passwords match
         if password != confirm_password:
             return render(request, 'teacher_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
         
-        # Check if email already exists
+        #check if email already exists
         if User.objects.filter(email=email).exists() or TeacherProfile.objects.filter(email=email).exists():
             return render(request, 'teacher_signup.html', {'error_message': 'Email already exists', 'schools': schools})
         
-        # Get school object
+        #get school object
         try:
             school = School.objects.get(id=school_id)
         except School.DoesNotExist:
             return render(request, 'teacher_signup.html', {'error_message': 'Invalid school selected', 'schools': schools})
         
-        # Create user
-        username = email  # Using email as username
+        username = email  #create user using email as username
         user = User.objects.create_user(username=username, email=email, password=password)
         
-        # Create teacher profile
+        #create teacher profile
         teacher = TeacherProfile.objects.create(
             user=user,
             full_name=full_name,
@@ -185,9 +180,9 @@ def teacher_signup(request):
             subject_specialization=subject_specialization
         )
         
-        # Log the user in
+        #log the user in
         login(request, user)
-        request.session['teacher_email'] = teacher.email  # Keep existing session mechanism
+        request.session['teacher_email'] = teacher.email
         
         return redirect('teacher_dashboard')
     
@@ -200,17 +195,16 @@ def teacher_login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         
-        # Find user by email
+        #find user by email
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             return render(request, 'teacher_login.html', {'error_message': 'Invalid email or password'})
         
-        # Authenticate user
-        user = authenticate(request, username=user.username, password=password)
+        user = authenticate(request, username=user.username, password=password) #authenticate user
         
         if user is not None:
-            # Check if user has a teacher profile
+            #check if user has a teacher profile
             try:
                 teacher_profile = TeacherProfile.objects.get(user=user)
                 login(request, user)
@@ -235,7 +229,7 @@ def teacher_signin(request):
 def logout_view(request):
     """Handle user logout"""
     logout(request)
-    # Clear session
+    #clear session
     if 'student_id' in request.session:
         del request.session['student_id']
     if 'teacher_email' in request.session:
@@ -243,9 +237,9 @@ def logout_view(request):
     return redirect('landing')
 
 # Homepage view function
-@login_required(login_url='student_login')  # Add login_required decorator
+@login_required(login_url='student_login')
 def home(request):
-    # Check if user is logged in
+    #check if user is logged in
     student_id = request.session.get('student_id')
     if not student_id:
         return redirect('landing')
@@ -259,7 +253,7 @@ def home(request):
     
     testimonials = Testimonial.objects.order_by('-created_at')[:6] #display testimonials
     
-    # Check if user has a prediction and testimonial
+    #check if user has a prediction and testimonial
     user_has_prediction = Prediction.objects.filter(student=user).exists()
     user_has_testimonial = Testimonial.objects.filter(student=user).exists()
     
@@ -579,28 +573,27 @@ def result_view(request, prediction_id=None):
     return render(request, 'results.html', context)
 
 @login_required(login_url='student_login')
-# Add a view to handle the IQ test
 def iq_test_view(request):
     if request.method == 'GET':
-        # Get all questions by type
+        #get all questions by type
         logical_questions = list(IQQuestion.objects.filter(question_type='logical'))
         verbal_questions = list(IQQuestion.objects.filter(question_type='verbal'))
         numerical_questions = list(IQQuestion.objects.filter(question_type='numerical'))
         spatial_questions = list(IQQuestion.objects.filter(question_type='spatial'))
         
-        # Randomly select 5 questions from each category
+        #randomly select 5 questions from each category
         selected_logical = random.sample(logical_questions, min(5, len(logical_questions)))
         selected_verbal = random.sample(verbal_questions, min(5, len(verbal_questions)))
         selected_numerical = random.sample(numerical_questions, min(5, len(numerical_questions)))
         selected_spatial = random.sample(spatial_questions, min(5, len(spatial_questions)))
         
-        # Combine all selected questions
+        #combine all selected questions
         questions = selected_logical + selected_verbal + selected_numerical + selected_spatial
         
-        # Shuffle the questions for the test
+        #shuffle the questions for the test
         random.shuffle(questions)
         
-        # Store the selected question IDs in the session
+        #store the selected question IDs in the session
         request.session['iq_test_questions'] = [q.id for q in questions]
         
         context = {
@@ -613,7 +606,7 @@ def iq_test_view(request):
         if not question_ids:
             return redirect('predict')
             
-        # Calculate scores by category
+        #calculate scores by category
         logical_score = 0
         verbal_score = 0
         numerical_score = 0
@@ -633,11 +626,11 @@ def iq_test_view(request):
                 elif question.question_type == 'spatial':
                     spatial_score += 1
         
-        # Create or update test result
+        #create or update test result
         student_id = request.session.get('student_id')
         if student_id:
             student = StudentProfile.objects.get(id=student_id)
-            # Find the most recent prediction
+            #find the most recent prediction
             prediction = Prediction.objects.filter(student=student).order_by('-created_at').first()
             
             test_result = IQTestResult(
@@ -651,10 +644,10 @@ def iq_test_view(request):
             test_result.calculate_normalized_score()
             test_result.save()
             
-            # Redirect to enhanced results page
+            #redirect to enhanced results page
             return redirect('enhanced_result', iq_result_id=test_result.id)
         else:
-            # Handle anonymous users
+            #handle anonymous users
             request.session['temp_iq_results'] = {
                 'logical_score': logical_score,
                 'verbal_score': verbal_score,
@@ -663,12 +656,11 @@ def iq_test_view(request):
                 'total_score': 100 + ((logical_score + verbal_score + numerical_score + spatial_score - 6) * 5)
             }
             return redirect('result_view')
-# Enhanced result view that incorporates IQ test results
+
 @login_required(login_url='student_login')
 def enhanced_result_view(request, iq_result_id=None):
-    context = {}
-    
-    # Your existing label mappings
+    context = {}    
+    #existing label mappings
     label_mappings = {
         0: "Arts",
         1: "Business",
@@ -683,39 +675,39 @@ def enhanced_result_view(request, iq_result_id=None):
             user = StudentProfile.objects.get(id=student_id)
             context['user'] = user
             
-            # Get IQ test result
+            #get IQ test result
             if iq_result_id:
                 try:
                     iq_result = IQTestResult.objects.get(id=iq_result_id, student=user)
                     context['iq_result'] = iq_result
                     context['cognitive_strengths'] = iq_result.get_suitable_areas()
                     
-                    # Get corresponding prediction
+                    #get corresponding prediction
                     prediction = iq_result.prediction
                     if prediction:
                         context['prediction'] = prediction
                         context['prediction_found'] = True
                         
-                        # Map the integer predicted_subject to its string representation
+                        #map the integer predicted_subject to its string representation
                         predicted_subject = label_mappings.get(prediction.predicted_subject, 
                                                            f"Unknown ({prediction.predicted_subject})")
                         context['predicted_subject'] = predicted_subject
                         
-                        # Convert comma-separated string back to list
+                        #convert comma-separated string back to list
                         recommended_subjects = prediction.recommended_subjects.split(',')
                         context['recommended_subjects'] = recommended_subjects
                         
-                    # Calculate compatibility score between IQ results and prediction
+                    #calculate compatibility score between IQ results and prediction
                     compatibility = 0
                     cognitive_strengths = iq_result.get_suitable_areas()
 
                     if predicted_subject in cognitive_strengths:
-                        # High compatibility when predicted subject matches cognitive strengths
+                        #high compatibility when predicted subject matches cognitive strengths
                         base_compatibility = 85
                         iq_bonus = min(15, (iq_result.total_score - 100) // 3)
                         compatibility = base_compatibility + iq_bonus
                     else:
-                        # Check if there's a related field match
+                        #check if there's a related field match
                         related_fields = {
                             "STEM": ["Healthcare", "Business"],
                             "Humanities": ["Arts", "Healthcare"],
@@ -727,12 +719,12 @@ def enhanced_result_view(request, iq_result_id=None):
                         related_match = any(related in cognitive_strengths for related in related_fields.get(predicted_subject, []))
                         
                         if related_match:
-                            # Medium compatibility when related to cognitive strengths
+                            #medium compatibility when related to cognitive strengths
                             base_compatibility = 70
                             iq_bonus = min(10, (iq_result.total_score - 100) // 4)
                             compatibility = base_compatibility + iq_bonus
                         else:
-                            # Lower compatibility when no direct or related match
+                            #lower compatibility when no direct or related match
                             base_compatibility = 60
                             iq_bonus = min(5, (iq_result.total_score - 100) // 5)
                             compatibility = base_compatibility + iq_bonus
@@ -740,16 +732,16 @@ def enhanced_result_view(request, iq_result_id=None):
                     context['compatibility_score'] = min(100, max(55, compatibility))
                         
                 except IQTestResult.DoesNotExist:
-                    return redirect('result_view')  # Fallback to regular results
+                    return redirect('result_view')  #fallback to regular results
             else:
-                # Fallback to standard result view logic
+                #fallback to standard result view logic
                 return redirect('result_view')
                 
         except StudentProfile.DoesNotExist:
             del request.session['student_id']
             return redirect('landing')
     else:
-        # Handle temp results similarly to your existing code
+        #handle temp results similarly to your existing code
         temp_iq_results = request.session.get('temp_iq_results')
         temp_prediction = request.session.get('temp_prediction')
         
@@ -765,7 +757,6 @@ def enhanced_result_view(request, iq_result_id=None):
     return render(request, 'enhanced_result.html', context)
 
 
-#handling testimonial submission
 @login_required(login_url='student_login')
 def add_testimonial_view(request):
     if request.method == 'POST':
@@ -850,22 +841,22 @@ def student_guide_view(request):
 
 @login_required(login_url='teacher_login')
 def teacher_dashboard(request):
-    # Ensure the teacher is logged in via session
+    #ensure the teacher is logged in via session
     if "teacher_email" not in request.session:
         return redirect("teacher_signin")
 
     teacher_email = request.session["teacher_email"]
     teacher = get_object_or_404(TeacherProfile, email=teacher_email)
 
-    # Filter students by the teacher's school
+    #filter students by the teacher's school
     school_students = StudentProfile.objects.filter(school=teacher.school)
     
-    # Get student IDs from the filtered students
+    #get student IDs from the filtered students
     student_ids = school_students.values_list('id', flat=True)
     predictions = []
     
     for student_id in student_ids:
-        # Get the latest prediction for this student
+        #get the latest prediction for this student
         latest_prediction = Prediction.objects.filter(
             student_id=student_id
         ).order_by('-id').first()
@@ -873,27 +864,27 @@ def teacher_dashboard(request):
         if latest_prediction:
             predictions.append(latest_prediction)
 
-    # Fetch override history for ALL students in this school
-    # Instead of filtering by teacher, we filter by students who belong to this school
+    #fetch override history for ALL students in this school
+    #instead of filtering by teacher, we filter by students who belong to this school
     override_history = RecommendationOverride.objects.filter(
         student__in=school_students
     ).order_by('-timestamp')
     
-    # Count total students from this school
+    #count total students from this school
     total_students = school_students.count()
 
-    # Count accepted recommendations - make sure this logic matches your use case
-    # Assuming a recommendation is "accepted" when it hasn't been overridden
+    #count accepted recommendations - make sure this logic matches your use case
+    #assuming a recommendation is "accepted" when it hasn't been overridden
     overridden_students = RecommendationOverride.objects.filter(
         student__in=school_students
     ).values_list('student__id', flat=True).distinct()
     
     non_overridden = total_students - len(overridden_students)
     
-    # Calculate acceptance percentage
+    #calculate acceptance percentage
     accepted_percentage = (non_overridden / total_students) * 100 if total_students > 0 else 0
 
-    # Most popular stream
+    #most popular stream
     stream_mapping = {
         0: "Arts",
         1: "Business",
@@ -940,8 +931,7 @@ def teacher_dashboard(request):
     }
     return render(request, "teacher_dashboard.html", context)
 
-
-
+#override recomendations function 
 @login_required(login_url='teacher_login')
 def override_recommendation(request, prediction_id):
     if "teacher_email" not in request.session:
@@ -952,7 +942,7 @@ def override_recommendation(request, prediction_id):
     
     prediction = get_object_or_404(Prediction, id=prediction_id)
     
-    # Check if the student belongs to the teacher's school
+    #check if the student belongs to the teacher's school
     if prediction.student.school != teacher.school:
         messages.error(request, "You can only override recommendations for students in your school.")
         return redirect("teacher_dashboard")
@@ -969,7 +959,7 @@ def override_recommendation(request, prediction_id):
             messages.error(request, "Invalid recommendation choice.")
             return redirect("teacher_dashboard")
 
-        # Save override history
+        #save override history
         RecommendationOverride.objects.create(
             teacher=teacher,
             student=prediction.student,
@@ -978,7 +968,7 @@ def override_recommendation(request, prediction_id):
             reason=reason
         )
 
-        # Update main recommendation
+        #update main recommendation
         prediction.predicted_subject = new_recommendation
         prediction.save()
 
@@ -989,7 +979,7 @@ def override_recommendation(request, prediction_id):
 
 @login_required(login_url='teacher_login')
 def submit_feedback(request):
-    # Ensure only logged-in teachers can submit feedback
+    #ensure only logged-in teachers can submit feedback
     if "teacher_email" not in request.session:
         return redirect("teacher_signin")
 
@@ -997,25 +987,25 @@ def submit_feedback(request):
         student_id = request.POST.get("student_id")
         feedback_text = request.POST.get("feedback")
 
-        # Ensure student exists
+        #ensure student exists
         student = get_object_or_404(StudentProfile, id=student_id)
         
-        # Get teacher details
+        #get teacher details
         teacher_email = request.session["teacher_email"]
         teacher = get_object_or_404(TeacherProfile, email=teacher_email)
         
-        # Check if the student belongs to the teacher's school
+        #check if the student belongs to the teacher's school
         if student.school != teacher.school:
             return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_error=true&message=You%20can%20only%20provide%20feedback%20for%20students%20in%20your%20school')
 
-        # Check if the student has any predictions
+        #check if the student has any predictions
         prediction = Prediction.objects.filter(student=student).order_by('-id').first()
         
-        # If no prediction exists, redirect with an error message
+        #if no prediction exists, redirect with an error message
         if not prediction:
             return HttpResponseRedirect(reverse('teacher_dashboard') + '?feedback_error=true&message=This%20student%20has%20not%20made%20any%20predictions%20yet')
 
-        # Create and save feedback using the Feedback model
+        #create and save feedback using the Feedback model
         Feedback.objects.create(
             teacher=teacher,
             student=student,
@@ -1027,10 +1017,10 @@ def submit_feedback(request):
 
 @login_required(login_url='student_login')
 def student_feedback(request):
-    # Check if user is logged in
+    #check if user is logged in
     student_id = request.session.get('student_id')
     if not student_id:
-        # If not logged in, redirect to signin page
+        #if not logged in, redirect to signin page
         return redirect('student_signin')
     try:
         student = StudentProfile.objects.get(id=student_id)
