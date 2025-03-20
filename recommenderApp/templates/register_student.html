@@ -8,7 +8,7 @@
     <title>Register - Student Recommendation System</title>
     <style>
         .otp-section {
-            display: none; /* Hidden initially */
+            display: block; /* Changed from none to block */
         }
         .otp-container {
             display: flex;
@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="email" name="email" id="email-input" placeholder="Email Address" required>
                     </div>
                     <div class="form-group otp-container">
                         <input type="text" name="otp" id="otp-input" placeholder="Enter OTP" maxlength="6" pattern="\d{6}" required>
@@ -85,6 +85,11 @@
             const countdownEl = document.getElementById('countdown');
             const timerEl = document.getElementById('timer');
             
+            if (!getOtpBtn || !emailInput || !otpInput || !countdownEl || !timerEl) {
+                console.error('One or more required elements not found');
+                return;
+            }
+            
             // Get OTP button click handler
             getOtpBtn.addEventListener('click', function() {
                 const email = emailInput.value.trim();
@@ -94,12 +99,16 @@
                     return;
                 }
                 
+                // Show loading state
+                getOtpBtn.disabled = true;
+                getOtpBtn.textContent = 'Sending...';
+                
                 // Make an AJAX request to send OTP
                 fetch('{% url "send_otp" %}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token }}'
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
                     },
                     body: JSON.stringify({ email: email })
                 })
@@ -122,11 +131,15 @@
                         }, 30000); // Enable after 30 seconds
                     } else {
                         alert(data.error || 'Failed to send OTP. Please try again.');
+                        getOtpBtn.disabled = false;
+                        getOtpBtn.textContent = 'Get OTP';
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
                     alert('An error occurred. Please try again.');
+                    getOtpBtn.disabled = false;
+                    getOtpBtn.textContent = 'Get OTP';
                 });
             });
             
@@ -156,56 +169,5 @@
             }
         });
     </script>
-        <script>
-            // Add this to both registration templates, before the closing </body> tag
-            function validatePassword(password) {
-                // Check for minimum 8 characters
-                if (password.length < 8) return false;
-    
-                // Check for at least one uppercase letter
-                if (!/[A-Z]/.test(password)) return false;
-    
-                // Check for at least one lowercase letter
-                if (!/[a-z]/.test(password)) return false;
-    
-                // Check for at least one number
-                if (!/[0-9]/.test(password)) return false;
-    
-                // Check for at least one special character
-                if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) return false;
-    
-                return true;
-            }
-    
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.querySelector('form');
-                const passwordInput = document.querySelector('input[name="password"]');
-                const confirmPasswordInput = document.querySelector('input[name="confirm_password"]');
-    
-                form.addEventListener('submit', function (e) {
-                    // Reset any previous error messages
-                    const existingError = document.querySelector('.password-error');
-                    if (existingError) existingError.remove();
-    
-                    // Validate password
-                    if (!validatePassword(passwordInput.value)) {
-                        e.preventDefault();
-                        const errorDiv = document.createElement('div');
-                        errorDiv.className = 'error-message password-error';
-                        errorDiv.textContent = 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.';
-                        passwordInput.parentNode.appendChild(errorDiv);
-                    }
-    
-                    // Check if passwords match
-                    if (passwordInput.value !== confirmPasswordInput.value) {
-                        e.preventDefault();
-                        const errorDiv = document.createElement('div');
-                        errorDiv.className = 'error-message password-error';
-                        errorDiv.textContent = 'Passwords do not match.';
-                        confirmPasswordInput.parentNode.appendChild(errorDiv);
-                    }
-                });
-            });
-        </script>
 </body>
 </html>
