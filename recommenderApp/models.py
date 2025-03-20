@@ -1,6 +1,34 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+import random
+import string
+
+# Create a model to store OTPs
+class OTPVerification(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    otp = models.CharField(max_length=6)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()
+    
+    def is_valid(self):
+        """Check if OTP is still valid (not expired)"""
+        return timezone.now() <= self.expires_at
+
+    @classmethod
+    def generate_otp(cls, user, expiry_minutes=10):
+        """Generate a new OTP for the user"""
+        # Delete any existing OTPs for this user
+        cls.objects.filter(user=user).delete()
+        
+        # Generate a random 6-digit OTP
+        otp = ''.join(random.choices(string.digits, k=6))
+        
+        # Calculate expiry time
+        expires_at = timezone.now() + timezone.timedelta(minutes=expiry_minutes)
+        
+        # Create and return the OTP object
+        return cls.objects.create(user=user, otp=otp, expires_at=expires_at)
 
 
 class School(models.Model):
@@ -8,6 +36,7 @@ class School(models.Model):
     
     def __str__(self):
         return self.name
+
 class TeacherProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
     full_name = models.CharField(max_length=255)
@@ -15,6 +44,7 @@ class TeacherProfile(models.Model):
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='teachers')
     subject_specialization = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_verified = models.BooleanField(default=False)  # Add verification field
 
     def __str__(self):
         return f"{self.full_name} - {self.school}"
@@ -25,6 +55,7 @@ class StudentProfile(models.Model):
     email = models.EmailField(unique=True)
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name='students')
     created_at = models.DateTimeField(auto_now_add=True)
+    is_verified = models.BooleanField(default=False) 
     age = models.IntegerField(null=True, blank=True)
     math_score = models.FloatField(null=True, blank=True)
     english_score = models.FloatField(null=True, blank=True)

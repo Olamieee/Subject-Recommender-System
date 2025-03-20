@@ -8,7 +8,7 @@ urlpatterns = [
     path("student/login/", views.student_login, name="student_login"),
     path("teacher/signup/", views.teacher_signup, name="teacher_signup"),
     path("teacher/login/", views.teacher_login, name="teacher_login"),
-    # Legacy URLs (for backward compatibility)
+    path('api/send-otp/', views.send_otp, name='send_otp'),
     path("student_signin/", views.student_signin, name="student_signin"),
     path('teacher_signin/', views.teacher_signin, name='teacher_signin'),
     path("predict/", views.predict_student, name="predict"),

@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import (StudentProfile, Prediction, Feedback, Testimonial, IQQuestion, IQTestResult,
-                     ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride, School)
+                     ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride, School,
+                     OTPVerification)
 import joblib
 import numpy as np
 import random
@@ -14,6 +15,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Count, F
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+import json
+from .utils import send_otp_email
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) #BASE_DIR
 
@@ -67,50 +72,121 @@ def submit_contact_landing(request):
     
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
 
+@require_POST
+@csrf_exempt  # For simplicity in this example, but consider using proper CSRF protection
+def send_otp(request):
+    """API endpoint to send OTP to email"""
+    try:
+        data = json.loads(request.body)
+        email = data.get('email')
+        
+        if not email:
+            return JsonResponse({'success': False, 'error': 'Email is required'})
+        
+        # Check if email already exists in a verified account
+        if User.objects.filter(email=email, student_profile__is_verified=True).exists() or \
+           User.objects.filter(email=email, teacher_profile__is_verified=True).exists():
+            return JsonResponse({'success': False, 'error': 'Email already registered'})
+        
+        # Create a temporary user if it doesn't exist
+        user, created = User.objects.get_or_create(
+            username=email,
+            defaults={'email': email, 'is_active': False}  # Inactive until verified
+        )
+        
+        # Generate OTP
+        otp_obj = OTPVerification.generate_otp(user)
+        
+        # Send OTP email
+        send_otp_email(email, otp_obj.otp)
+        
+        # Store user ID in session
+        request.session['temp_user_id'] = user.id
+        
+        return JsonResponse({'success': True})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
 
 def student_signup(request):
-    """Handle student registration with password"""
-    schools = School.objects.all().order_by('name') #get all schools for the dropdown
+    """Handle student registration with inline OTP verification"""
+    schools = School.objects.all().order_by('name')
     
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         school_id = request.POST.get('school')
         email = request.POST.get('email')
+        otp = request.POST.get('otp')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         
-        #check if passwords match
+        # Validate form data
         if password != confirm_password:
             return render(request, 'student_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
         
-        #check if email already exists in User model or StudentProfile
-        if User.objects.filter(email=email).exists() or StudentProfile.objects.filter(email=email).exists():
-            return render(request, 'student_signup.html', {'error_message': 'Email already exists', 'schools': schools})
-        
-        #get school object
+        # Find user by email
         try:
-            school = School.objects.get(id=school_id)
-        except School.DoesNotExist:
-            return render(request, 'student_signup.html', {'error_message': 'Invalid school selected', 'schools': schools})
+            user = User.objects.get(username=email)
+            
+            # Verify OTP
+            try:
+                otp_obj = OTPVerification.objects.filter(user=user).latest('created_at')
+                
+                if not otp_obj.is_valid():
+                    return render(request, 'student_signup.html', {
+                        'error_message': 'OTP has expired. Please request a new one.',
+                        'schools': schools
+                    })
+                
+                if otp_obj.otp != otp:
+                    return render(request, 'student_signup.html', {
+                        'error_message': 'Invalid OTP. Please try again.',
+                        'schools': schools
+                    })
+                
+                # OTP is valid - proceed with account creation
+                # Get school object
+                try:
+                    school = School.objects.get(id=school_id)
+                except School.DoesNotExist:
+                    return render(request, 'student_signup.html', {
+                        'error_message': 'Invalid school selected',
+                        'schools': schools
+                    })
+                
+                # Update user account
+                user.set_password(password)
+                user.is_active = True
+                user.save()
+                
+                # Create student profile (verified)
+                student = StudentProfile.objects.create(
+                    user=user,
+                    full_name=full_name,
+                    email=email,
+                    school=school,
+                    is_verified=True
+                )
+                
+                # Log the user in
+                login(request, authenticate(username=email, password=password))
+                request.session['student_id'] = student.id
+                
+                messages.success(request, 'Account created successfully!')
+                return redirect('home')
+                
+            except OTPVerification.DoesNotExist:
+                return render(request, 'student_signup.html', {
+                    'error_message': 'Please click "Get OTP" to receive a verification code.',
+                    'schools': schools
+                })
+                
+        except User.DoesNotExist:
+            return render(request, 'student_signup.html', {
+                'error_message': 'Please click "Get OTP" to receive a verification code.',
+                'schools': schools
+            })
     
-        username = email  #create a user using email as username
-        user = User.objects.create_user(username=username, email=email, password=password)
-        
-        #create student profile
-        student = StudentProfile.objects.create(
-            user=user,
-            full_name=full_name,
-            email=email,
-            school=school
-        )
-        
-        #log the user in
-        login(request, user)
-        request.session['student_id'] = student.id
-        
-        return redirect('home')
-    
-    return render(request, 'register_student.html', {'schools': schools})
+    return render(request, 'student_signup.html', {'schools': schools})
 
 def student_login(request):
     """Handle student login"""
@@ -140,53 +216,88 @@ def student_login(request):
     
     return render(request, 'student_login.html')
 
-# Teacher Authentication
 def teacher_signup(request):
-    """Handle teacher registration with password"""
-    
-    schools = School.objects.all().order_by('name') #get all schools for the dropdown
+    """Handle teacher registration with inline OTP verification"""
+    schools = School.objects.all().order_by('name')
     
     if request.method == 'POST':
         full_name = request.POST.get('full_name')
         school_id = request.POST.get('school')
         email = request.POST.get('email')
         subject_specialization = request.POST.get('subject_specialization')
+        otp = request.POST.get('otp')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         
-        #check if passwords match
+        # Validate form data
         if password != confirm_password:
             return render(request, 'teacher_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
         
-        #check if email already exists
-        if User.objects.filter(email=email).exists() or TeacherProfile.objects.filter(email=email).exists():
-            return render(request, 'teacher_signup.html', {'error_message': 'Email already exists', 'schools': schools})
-        
-        #get school object
+        # Find user by email
         try:
-            school = School.objects.get(id=school_id)
-        except School.DoesNotExist:
-            return render(request, 'teacher_signup.html', {'error_message': 'Invalid school selected', 'schools': schools})
-        
-        username = email  #create user using email as username
-        user = User.objects.create_user(username=username, email=email, password=password)
-        
-        #create teacher profile
-        teacher = TeacherProfile.objects.create(
-            user=user,
-            full_name=full_name,
-            email=email,
-            school=school,
-            subject_specialization=subject_specialization
-        )
-        
-        #log the user in
-        login(request, user)
-        request.session['teacher_email'] = teacher.email
-        
-        return redirect('teacher_dashboard')
+            user = User.objects.get(username=email)
+            
+            # Verify OTP
+            try:
+                otp_obj = OTPVerification.objects.filter(user=user).latest('created_at')
+                
+                if not otp_obj.is_valid():
+                    return render(request, 'teacher_signup.html', {
+                        'error_message': 'OTP has expired. Please request a new one.',
+                        'schools': schools
+                    })
+                
+                if otp_obj.otp != otp:
+                    return render(request, 'teacher_signup.html', {
+                        'error_message': 'Invalid OTP. Please try again.',
+                        'schools': schools
+                    })
+                
+                # OTP is valid - proceed with account creation
+                # Get school object
+                try:
+                    school = School.objects.get(id=school_id)
+                except School.DoesNotExist:
+                    return render(request, 'teacher_signup.html', {
+                        'error_message': 'Invalid school selected',
+                        'schools': schools
+                    })
+                
+                # Update user account
+                user.set_password(password)
+                user.is_active = True
+                user.save()
+                
+                # Create teacher profile (verified)
+                teacher = TeacherProfile.objects.create(
+                    user=user,
+                    full_name=full_name,
+                    email=email,
+                    school=school,
+                    subject_specialization=subject_specialization,
+                    is_verified=True
+                )
+                
+                # Log the user in
+                login(request, authenticate(username=email, password=password))
+                request.session['teacher_email'] = teacher.email
+                
+                messages.success(request, 'Account created successfully!')
+                return redirect('teacher_dashboard')
+                
+            except OTPVerification.DoesNotExist:
+                return render(request, 'teacher_signup.html', {
+                    'error_message': 'Please click "Get OTP" to receive a verification code.',
+                    'schools': schools
+                })
+                
+        except User.DoesNotExist:
+            return render(request, 'teacher_signup.html', {
+                'error_message': 'Please click "Get OTP" to receive a verification code.',
+                'schools': schools
+            })
     
-    return render(request, 'register_teacher.html', {'schools': schools})
+    return render(request, 'teacher_signup.html', {'schools': schools})
 
 
 def teacher_login(request):

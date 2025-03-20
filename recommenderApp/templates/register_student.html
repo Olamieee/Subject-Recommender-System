@@ -6,6 +6,31 @@
     <link rel="icon" type="image/png" href="{% static 'css/favicon-96x96.png' %}" sizes="96x96" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Student Recommendation System</title>
+    <style>
+        .otp-section {
+            display: none; /* Hidden initially */
+        }
+        .otp-container {
+            display: flex;
+            gap: 10px;
+        }
+        .get-otp-btn {
+            padding: 8px 15px;
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .get-otp-btn:hover {
+            background-color: #3d5d8a;
+        }
+        .countdown {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -33,6 +58,12 @@
                     <div class="form-group">
                         <input type="email" name="email" placeholder="Email Address" required>
                     </div>
+                    <div class="form-group otp-container">
+                        <input type="text" name="otp" id="otp-input" placeholder="Enter OTP" maxlength="6" pattern="\d{6}" required>
+                        <button type="button" id="get-otp-btn" class="get-otp-btn">Get OTP</button>
+                    </div>
+                    <div class="countdown" id="countdown" style="display:none;">OTP expires in <span id="timer">10:00</span></div>
+                    
                     <div class="form-group">
                         <input type="password" name="password" placeholder="Password" required>
                     </div>
@@ -45,5 +76,85 @@
             <p class="auth-link">Already have an account? <a href="{% url 'student_login' %}">Login here</a></p>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const getOtpBtn = document.getElementById('get-otp-btn');
+            const emailInput = document.getElementById('email-input');
+            const otpInput = document.getElementById('otp-input');
+            const countdownEl = document.getElementById('countdown');
+            const timerEl = document.getElementById('timer');
+            
+            // Get OTP button click handler
+            getOtpBtn.addEventListener('click', function() {
+                const email = emailInput.value.trim();
+                
+                if (!email || !validateEmail(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                // Make an AJAX request to send OTP
+                fetch('{% url "send_otp" %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({ email: email })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success message
+                        alert('OTP sent to your email');
+                        
+                        // Start countdown
+                        countdownEl.style.display = 'block';
+                        startTimer(600, timerEl); // 10 minutes
+                        
+                        // Disable the button temporarily
+                        getOtpBtn.disabled = true;
+                        getOtpBtn.textContent = 'OTP Sent';
+                        setTimeout(() => {
+                            getOtpBtn.disabled = false;
+                            getOtpBtn.textContent = 'Resend OTP';
+                        }, 30000); // Enable after 30 seconds
+                    } else {
+                        alert(data.error || 'Failed to send OTP. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+            });
+            
+            // Email validation function
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            // Countdown timer function
+            function startTimer(duration, display) {
+                let timer = duration, minutes, seconds;
+                const interval = setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+                    
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+                    
+                    display.textContent = minutes + ":" + seconds;
+                    
+                    if (--timer < 0) {
+                        clearInterval(interval);
+                        display.textContent = "expired";
+                    }
+                }, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
