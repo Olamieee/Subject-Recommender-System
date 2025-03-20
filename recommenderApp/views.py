@@ -317,7 +317,7 @@ def student_signup(request):
                 'schools': schools
             })
     
-    return render(request, 'student_signup.html', {'schools': schools})
+    return render(request, 'register_student.html', {'schools': schools})
 
 def student_login(request):
     """Handle student login"""
@@ -428,7 +428,7 @@ def teacher_signup(request):
                 'schools': schools
             })
     
-    return render(request, 'teacher_signup.html', {'schools': schools})
+    return render(request, 'register_teacher.html', {'schools': schools})
 
 
 def teacher_login(request):
