@@ -6,5 +6,3 @@ matplotlib
 psycopg2-binary
 dj-database-url
 whitenoise
-re
-json
