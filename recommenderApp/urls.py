@@ -26,4 +26,7 @@ urlpatterns = [
     path('submit_feedback/', views.submit_feedback, name='submit_feedback'),
     path('student/feedback/', views.student_feedback, name='student_feedback'),
     path('submit_contact_landing/', views.submit_contact_landing, name='submit_contact_landing'),
+    path('forgot-password/', views.forgot_password, name='forgot_password'),
+    path('reset-password/<uuid:token>/', views.reset_password, name='reset_password'),
+    path('api/reset-password-otp/', views.reset_password_otp, name='reset_password_otp'),
 ]

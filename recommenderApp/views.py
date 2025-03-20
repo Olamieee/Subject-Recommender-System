@@ -9,6 +9,7 @@ import numpy as np
 import random
 import pandas as pd
 import os
+import re
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -253,7 +254,8 @@ def student_signup(request):
         # Validate form data
         if password != confirm_password:
             return render(request, 'student_signup.html', {'error_message': 'Passwords do not match', 'schools': schools})
-        
+        if len(password) < 8 or not re.search(r'[A-Z]', password) or not re.search(r'[a-z]', password) or not re.search(r'[0-9]', password) or not re.search(r'[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]', password):
+            return render(request, 'student_signup.html', {'error_message': 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.','schools': schools})
         # Find user by email
         try:
             user = User.objects.get(username=email)
