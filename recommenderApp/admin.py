@@ -1,7 +1,20 @@
 from django.contrib import admin
 from .models import (StudentProfile, Prediction, Testimonial, ContactMessage, TeacherProfile,
-                     RecommendationOverride, ContactMessageLanding, Feedback, IQQuestion, IQTestResult, School)
+                     RecommendationOverride, ContactMessageLanding, Feedback, IQQuestion, IQTestResult, School,
+                    PasswordReset, OTPVerification)
 
+
+@admin.register(PasswordReset)
+class PasswordResetAdmin(admin.ModelAdmin):
+    list_display = ('user', 'token', 'created_at', 'expires_at', 'is_used')
+    list_filter = ('is_used', 'created_at', 'expires_at')
+    search_fields = ('user__username', 'user__email', 'token')
+
+@admin.register(OTPVerification)
+class OTPVerificationAdmin(admin.ModelAdmin):
+    list_display = ('user', 'otp', 'created_at', 'expires_at')
+    list_filter = ('created_at', 'expires_at')
+    search_fields = ('user__username', 'user__email', 'otp')
 
 class SchoolAdmin(admin.ModelAdmin):
     list_display = ['name']
