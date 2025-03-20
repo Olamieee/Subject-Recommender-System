@@ -3,8 +3,30 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 import random
 import string
+import uuid
+class PasswordReset(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    expires_at = models.DateTimeField()
+    is_used = models.BooleanField(default=False)
+    
+    def is_valid(self):
+        """Check if token is still valid (not expired and not used)"""
+        return not self.is_used and timezone.now() <= self.expires_at
+    
+    @classmethod
+    def generate_token(cls, user, expiry_hours=24):
+        """Generate a new password reset token for the user"""
+        # Mark any existing tokens as used
+        cls.objects.filter(user=user, is_used=False).update(is_used=True)
+        
+        # Calculate expiry time
+        expires_at = timezone.now() + timezone.timedelta(hours=expiry_hours)
+        
+        # Create and return the token object
+        return cls.objects.create(user=user, expires_at=expires_at)
 
-# Create a model to store OTPs
 class OTPVerification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     otp = models.CharField(max_length=6)

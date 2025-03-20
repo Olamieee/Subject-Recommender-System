@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from .models import (StudentProfile, Prediction, Feedback, Testimonial, IQQuestion, IQTestResult,
                      ContactMessageLanding, ContactMessage, TeacherProfile, RecommendationOverride, School,
-                     OTPVerification)
+                     OTPVerification, PasswordReset)
 import joblib
 import numpy as np
 import random
@@ -71,6 +71,137 @@ def submit_contact_landing(request):
             return JsonResponse({'success': False, 'error': str(e)})
     
     return JsonResponse({'success': False, 'error': 'Invalid request method'})
+
+# Add these new views to views.py
+
+@require_POST
+@csrf_exempt
+def reset_password_otp(request):
+    """API endpoint to send OTP for password reset"""
+    try:
+        data = json.loads(request.body)
+        email = data.get('email')
+        
+        if not email:
+            return JsonResponse({'success': False, 'error': 'Email is required'})
+        
+        # Check if email exists
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            # Don't reveal that the email doesn't exist for security
+            return JsonResponse({'success': True})  # Pretend success
+        
+        # Generate OTP
+        otp_obj = OTPVerification.generate_otp(user)
+        
+        # Send OTP email
+        send_reset_otp_email(email, otp_obj.otp)
+        
+        # Store user ID in session
+        request.session['reset_user_id'] = user.id
+        
+        return JsonResponse({'success': True})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)})
+
+def forgot_password(request):
+    """Handle forgot password requests"""
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        otp = request.POST.get('otp')
+        
+        # Find user by email
+        try:
+            user = User.objects.get(email=email)
+            
+            # Verify OTP
+            try:
+                otp_obj = OTPVerification.objects.filter(user=user).latest('created_at')
+                
+                if not otp_obj.is_valid():
+                    return render(request, 'forgot_password.html', {
+                        'error_message': 'OTP has expired. Please request a new one.'
+                    })
+                
+                if otp_obj.otp != otp:
+                    return render(request, 'forgot_password.html', {
+                        'error_message': 'Invalid OTP. Please try again.'
+                    })
+                
+                # OTP is valid - generate password reset token
+                token_obj = PasswordReset.generate_token(user)
+                
+                # Redirect to reset password page
+                return redirect('reset_password', token=token_obj.token)
+                
+            except OTPVerification.DoesNotExist:
+                return render(request, 'forgot_password.html', {
+                    'error_message': 'Please click "Get OTP" to receive a verification code.'
+                })
+                
+        except User.DoesNotExist:
+            return render(request, 'forgot_password.html', {
+                'error_message': 'Email not found. Please check and try again.'
+            })
+    
+    return render(request, 'forgot_password.html')
+
+def reset_password(request, token):
+    """Handle password reset with token"""
+    # Verify token
+    try:
+        token_obj = PasswordReset.objects.get(token=token)
+        
+        if not token_obj.is_valid():
+            return render(request, 'reset_password.html', {
+                'error_message': 'This password reset link has expired or been used.'
+            })
+            
+        if request.method == 'POST':
+            password = request.POST.get('password')
+            confirm_password = request.POST.get('confirm_password')
+            
+            # Validate passwords
+            if password != confirm_password:
+                return render(request, 'reset_password.html', {
+                    'error_message': 'Passwords do not match.',
+                    'token': token
+                })
+            
+            # Server-side password validation
+            if len(password) < 8 or not re.search(r'[A-Z]', password) or not re.search(r'[a-z]', password) or not re.search(r'[0-9]', password) or not re.search(r'[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>\/?]', password):
+                return render(request, 'reset_password.html', {
+                    'error_message': 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.',
+                    'token': token
+                })
+            
+            # Update password
+            user = token_obj.user
+            user.set_password(password)
+            user.save()
+            
+            # Mark token as used
+            token_obj.is_used = True
+            token_obj.save()
+            
+            # Show success message
+            messages.success(request, 'Your password has been reset successfully! You can now login with your new password.')
+            
+            # Redirect based on user type
+            if hasattr(user, 'student_profile'):
+                return redirect('student_login')
+            elif hasattr(user, 'teacher_profile'):
+                return redirect('teacher_login')
+            else:
+                return redirect('student_login')  # Default fallback
+                
+        return render(request, 'reset_password.html', {'token': token})
+        
+    except PasswordReset.DoesNotExist:
+        return render(request, 'reset_password.html', {
+            'error_message': 'Invalid password reset link.'
+        })
 
 @require_POST
 @csrf_exempt  # For simplicity in this example, but consider using proper CSRF protection
