@@ -1,4 +1,4 @@
-﻿# IGA_Capstone_1 
+# Student Recommendation System 
 
 ## **📌 Project Description**  
 Rwanda’s secondary education sector faces challenges such as high dropout rates and a skills mismatch between students’ academic choices and labor market demands. This project addresses these issues by developing a Machine Learning–Powered Counseling Recommender System for O-Level and A-Level students in Kigali.  
