@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import dj_database_url
+from dotenv import load_dotenv
+
+# Load .env variables
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,7 +86,7 @@ WSGI_APPLICATION = 'recommenderSystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = "postgresql://postgres:rKROlAIokAAbFGMyIMUKuNGYBGeUNdFd@postgres.railway.internal:5432/railway"
+DATABASE_URL = os.getenv('DATABASE_PUBLIC_URL',"postgresql://postgres:rKROlAIokAAbFGMyIMUKuNGYBGeUNdFd@postgres.railway.internal:5432/railway")
 
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL)
