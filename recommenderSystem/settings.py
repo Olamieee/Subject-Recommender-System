@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-t#(lv#kif@pmei5*udh(o$_&s27xip6jetqe!=r!he#lc_8=0i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-a4933.up.railway.app']
+ALLOWED_HOSTS = ['srs.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://web-production-a4933.up.railway.app"
+    "https://srs.up.railway.app"
 ]
 # Application definition
 
@@ -138,4 +138,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'alongeola16@gmail.com'  # Your email address
 EMAIL_HOST_PASSWORD = 'iqetwalfcspmavlc'  # Your app password (not your regular password)
 DEFAULT_FROM_EMAIL = 'SRS <alongeola16@gmail.com>'
-SITE_URL = 'http://web-production-a4933.up.railway.app/'
+SITE_URL = 'http://srs.up.railway.app/'
