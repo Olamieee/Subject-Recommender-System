@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'recommenderSystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASE_URL = "postgresql://postgres:FPPFblRFxAsMhTLyeLTRaVnwHDPmjxCm@mainline.proxy.rlwy.net:26412/railway"
+DATABASE_URL = "postgresql://postgres:rKROlAIokAAbFGMyIMUKuNGYBGeUNdFd@postgres.railway.internal:5432/railway"
 
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL)
@@ -135,7 +135,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'alongeola16@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'iqetwalfcspmavlc'  # Your app password (not your regular password)
+EMAIL_HOST_USER = 'alongeola16@gmail.com'  #  email address
+EMAIL_HOST_PASSWORD = 'iqetwalfcspmavlc'  #  app password
 DEFAULT_FROM_EMAIL = 'SRS <alongeola16@gmail.com>'
 SITE_URL = 'http://srs.up.railway.app/'
